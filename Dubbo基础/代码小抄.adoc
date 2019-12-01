@@ -1,0 +1,52 @@
+= 经典代码片段
+
+
+== 暂停指定线程footnote:[停止指定线程，并确保先于当前线程终止]
+
+[NOTE]
+====
+*停止指定线程，并确保先于当前线程终止*
+====
+[source,java]
+ //workerThread是当前线程引用的其它线程
+try {
+    boolean interrupted = false;
+    while (workerThread.isAlive()) {
+        workerThread.interrupt();
+        try {
+            workerThread.join(100);
+        } catch (InterruptedException ignored) {
+            interrupted = true;
+        }
+    }
+    if (interrupted) {
+        Thread.currentThread().interrupt();
+    }
+} finally {
+    //do sth
+}
+
+上述代码使用interrupt停止指定线程workThread，如果catch到其被中断，则中断当前线程。
+
+步骤
+
+ . 循环检查workThread是否alive
+ .. 若为alive，则对workThread调用interrupt使其中断
+ .. 调用join方法最多等待100s销毁workThread线程
+ .. 假若上一步遇到InterruptedException异常，记录标记interrupted
+
+ . 中断当前线程
+
+[IMPORTANT]
+
+*join*
+====
+Waits at most millis milliseconds for this thread to die.
+*A timeout of 0 means to wait forever.*
+This implementation uses a loop of this.wait calls conditioned on this.isAlive.
+As a thread terminates the this.notifyAll method is invoked.
+It is recommended that applications not use wait, notify,
+or notifyAll on Thread instances.
+====
+
+    等待T线程结束，最多等待x毫秒。如果x为0，则一直等下去。其实现也是通过循环检测T的isAlive调用T.wait()。T终止时会调用T.notifyAll()

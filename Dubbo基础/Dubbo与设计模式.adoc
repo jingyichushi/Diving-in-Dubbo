@@ -1,0 +1,98 @@
+= Dubbo与设计模式
+
+== 装饰者模式
+
+装饰器模式的目的是在不改变类的定义结构的前提下向现有的对象 [big]##*动态地扩展功能*## ~也可动态撤销~，可用于行为或特性的增强处理。实现同样的功能，
+如果使用继承实现，子类的数量会急剧膨胀。明显的优势是**“装饰类和被装饰类可以独立发展，不会相互耦合”**。举个现实生活的例子：＂挂画无论是否有画框都
+可被挂在墙上，装上画框可以保证画不会出现卷皱，如果还能蒙上一层玻璃，由于不直接暴露在外，且容易擦拭和清理，那画质就能得到长期保护＂，这个挂画
+的例子中，画的本质没有变，其观赏功能也没有变，但是由于获得额外保护，它获得了更加长久的寿命，如果画框挑选得当，有了好的装饰衬托，则整个观感又上升一节。
+
+下图所示，Picture这个抽象类表示的是世界名画，假定每幅名画都有自己的标价``cost()``、另外还有尺寸__size__和描述__description__，图中有名画
+Flag、Scream、Woman这3幅。__PicDecorator__则表示用于装裱名画的器材，扩展出的__Frame、Basebaord、Foreground、Material__分别表示边框、
+底板、面板、材料，图中高亮的连线说明__PicDecorator__聚合了一个__Picture__实例。
+
+
+image::../res/imgs/derecator_design_model.png[caption="图 1: ", title="装饰模式-Decreator", alt="装饰模式-Decreator", width="650",]
+
+如下述源码，某土豪买了一副Woman的名画，花费1亿，为了好好保护这幅花巨大价钱价钱买来的名画，他花了不少钱仔细给装裱了一下，光一个大理石边框就花费1000。
+[source,java]
+----
+public abstract class Picture {
+	public enum Size { TALL, GRANDE, VENTI };
+	Size size = Size.TALL;
+	String description = "Unknown Picture";
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setSize(Size size) {
+		this.size = size;
+	}
+
+	public Size getSize() {
+		return this.size;
+	}
+
+	public abstract double cost();
+}
+
+public abstract class PicDecorator extends Picture {
+
+    public Picture picture;
+
+    public abstract String getDescription();
+
+    public Size getSize() {
+        return picture.getSize();
+    }
+}
+
+public class Woman extends Picture {
+	public Woman() {
+		description = "名画——《女人III》";
+	}
+
+	public double cost() {
+		return 100000000;
+	}
+}
+
+public class Frame extends PicDecorator {
+	public Frame(Picture picture) {
+		this.picture = picture;
+	}
+
+	public String getDescription() {
+		return picture.getDescription() + ", 浮雕大理石边框";
+	}
+
+	public double cost() {
+		return picture.cost() + 1000;
+	}
+}
+
+public static void main(String args[]) {
+
+    Picture pic = new Woman();
+    pic.setSize(Size.VENTI);
+    //pic = new Material(pic);
+    //pic = new Foreground(pic);
+    //pic = new Baseboard(pic);
+    pic = new Baseboard(
+            new Foreground(
+                    new Material(pic)));
+
+    System.out.println(pic.getDescription()
+            + " $" + String.format("%.2f", pic.cost()));
+
+}
+----
+如上源码Woman始终是最核心的部分，其它所有的特性都是在其基础上衍生和附加，犹如俄罗斯套娃，每添加上一个特性就相当于在当前套娃之上再套上一个大一点的
+套娃，但无论进行多少层的装饰，外界始终认为它整体上还是一个套娃。相应地，尽管我们加上了底板、面板、材质，不管怎么装饰，外界还认为它是Women这副名画，
+因为装饰后得到整个物体还保持着原有Picture引用，虽然对外部分的引用已经不是其本身，换成了层层加套的马甲。pic这个引用就如同栈结构一样，始终引
+用栈的头部引用，只有最终的栈底是真正意实现语义上Picture；也就是说每一个Derector均拥有其包装Picture一个引用，实际上除了最后一个被包装实例化
+的Picture，其它的Picture依然是一个Derector实例。
+
+== 简单工厂模式 & 工厂方法模式 & 抽象工厂模式
+
