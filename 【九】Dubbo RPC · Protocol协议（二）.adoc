@@ -117,7 +117,7 @@ public void destroy() {
 
 === Dubbo协议实现 ``DubboProtocol``
 
-``DubboProtocol``是基于Dubbo协议对Protocol协议的实现，前面这半句话说感觉说得颇有问题，协议实际上如文章开头所言，只有在通讯双方发生会话时才有意义，其中包含了信息的编解码处理、流程控制等一序列复杂的约定，而``Protocol``的实现类仅仅是相关实现细节的最后总组装而已。
+``DubboProtocol``是基于Dubbo协议对``Protocol``的实现，前面这半句话说感觉说得颇有问题，协议实际上如文章开头所言，只有在通讯双方发生会话时才有意义，其中包含了信息的编解码处理、流程控制等一序列复杂的约定，而``Protocol``的实现类仅仅是相关实现细节的最后总组装而已。
 
 整个``DubboProtocol``的实现相当复杂，我们下面将按照客户端和服务端分成两个大的章节，逐步深入。
 
@@ -147,7 +147,7 @@ public <T> Invoker<T> protocolBindingRefer(Class<T> serviceType, URL url) throws
 
 具体实现上很简单，和一般的装饰器类一样，实现``ExchangeClient``接口，其无关当前特定业务的接口方法全部委托给其实现同一接口的引用属性``client``完成，在特定方法进行业务逻辑改写处理。它声明了一个表示引用计数的基于CAS实现的原子变量``AtomicInteger referenceCount``，被实例化时，执行+1操作，后面一旦被另外其它一个同微服务的服务引用``Invoker``对象所使用，便再次执行+1操作，而``close``操作时会首先对其执行-1操作，然后检查该属性是否为0，为0可以调用被封装的``client``对象的``close()``方法安全关闭，否则直接忽略掉。
 
-在当前Protocol协议层Dubbo对``ExchangeClient``的正常close操作做了更进一步处理，会使用``LazyConnectExchangeClient``封装将已经关闭的对象，如果当前``ReferenceCountExchangeClient``实例被再一次调用，该实例被会神奇般的复活。当然为了不导致其多层嵌套引用一个类型``ReferenceCountExchangeClient``的``ExchangeClient``实例对象，``LazyConnectExchangeClient``不再直接封装一个``ExchangeClient``实例，而是基于后者获取其``ExchangeHandler``引用实现``ExchangeClient``接口。
+在当前Protocol协议层Dubbo对``ExchangeClient``的正常close操作做了更进一步处理，会使用``LazyConnectExchangeClient``封装将已经关闭的对象，如果当前``ReferenceCountExchangeClient``实例被再一次调用，该实例被会神奇般的复活。当然为了不导致其多层嵌套引用一个``ReferenceCountExchangeClient``类型的``ExchangeClient``实例对象，``LazyConnectExchangeClient``不再直接封装一个``ExchangeClient``实例，而是基于后者获取其``ExchangeHandler``引用实现``ExchangeClient``接口。
 
 
 [source,java]
@@ -225,7 +225,7 @@ final class ReferenceCountExchangeClient implements ExchangeClient {
 
 本质上就如同``ReferenceCountExchangeClient``一样，``LazyConnectExchangeClient``也是用于对某个目标``ExchangeClient``实例进行封装，但实现上功能和目的完全不同，后者的主要目的是在已知“配置总线URL”和“网络事件监听器ExchangeHandler”这两个输入的情况下延迟创建``ExchangeClient``实例，将这一时刻推迟到业务出站请求之时。
 
-在《【六】Dubbo远程通讯 之 信息交换层》一文中曾提到，由于Dubbo的分层模型，网络I/O事件的回调是自下往上、逐层执行的，上层是对下一层的封装和增强，因此如果某一层一种组件对象的创建是依赖比其更低一级的，那么只能在其网络I/O事件的回调中反向完成其创建操作，还得使用一些排重手段，保证不会只会实例化一次，另外还需搭配一些前验代码。
+在《【六】Dubbo远程通讯 之 信息交换层》一文中曾提到，由于Dubbo的分层模型，网络I/O事件的回调是自下往上、逐层执行的，上层是对下一层的封装和增强，因此如果某一层一种组件对象的创建是依赖比其更低一级的，那么只能在其网络I/O事件的回调中反向完成其创建操作，还得使用一些排重手段，保证只会实例化一次，另外还需搭配一些前验代码。
 
 类似对象创建方式在惰性实例化时也很常见，比如一个类提供了n个方法，其中有几个方法会涉及到实例化。``LazyConnectExchangeClient``中的``client``属性采取的便是这种方式。
 
@@ -319,12 +319,12 @@ public void startClose() {
 }
 ----
 
-有两个在构造方法中出现的配置总线参数，这里有必要提及下，分别是``SEND_RECONNECT_KEY = "send.reconnect"``和``LazyConnectExchangeClient.
-REQUEST_WITH_WARNING_KEY="lazyclient_request_with_warning"``，如下图源码所示：
-
+有两个在构造方法中出现的配置总线参数，这里有必要提及下，分别是``url["send.reconnect"]`` 和 ``url["lazyclient_request_with_warning"]``。如下述源码所示，前者在当前对象创建时加入到配置总线中，用于确保该内嵌对象在向彼端发送请求之时，所使用的通道Channel是连接着的（~在使用``Client``发送数据时，若连接断开，则自动连接~）；而后者则是用于确认是否需要提示警告信息，需要的话，则每5000次的方法调用会提醒一次，对于一个频繁使用的微服务，其所使用``ExchangeClient``不应采用惰性模式。。
 
 [source,java]
 ----
+final class LazyConnectExchangeClient implements ExchangeClient {
+    ...
     /**
      * when this warning rises from invocation, program probably have bug.
      */
@@ -355,18 +355,14 @@ REQUEST_WITH_WARNING_KEY="lazyclient_request_with_warning"``，如下图源码�
             warningcount.incrementAndGet();
         }
     }
+}
 ----
-
-
-``SEND_RECONNECT_KEY``是当前对象在其实例化时增加的配置总线参数，用于构造其被装饰``ExchangeClient``对象，确保该内嵌对象在向彼端发送请求之时，所使用的通道Channel是连接着的。
-
-而``REQUEST_WITH_WARNING_KEY``这个配置则是用于确认是否需要提示警告信息，需要的话，则没5000的方法调用会提醒一次，对于一个频繁使用的微服务，其所使用``ExchangeClient``不应采用惰性模式。
 
 ===== ``ExchangeClient``候选集准备
 
 经过上述的两个小章节的铺垫后，这时再回过头来，便可以比较轻松地理解Dubbo中是如何准备``ExchangeClient``的候选集的。在关于``ReferenceCountExchangeClient``的实现探究过程中，我们清楚，对于分别占用一个JVM的一对“客户端 ↔ 服务端”来说，他们之间存在通讯连接通道``Channel``~和``ExchangeClient``一一绑定~可以存 在多份，同时客户端也可以具备多份服务引用``Invoker``实例，实现上“``Invoker``服务引用实例”和“``ExchangeClient``客户端通讯处理实例”的关系可以是一对一或一对多的^独占模式^，也可以使多对一或者多对多的^共享模式^。
 
-默认情况下，也即配置总线中没有设置``CONNECTIONS_KEY^connections^``参数，采用的是共享模式，这时可以通过在配置总线或者系统参数中设置参数``SHARE_CONNECTIONS_KEY^shareconnections^``，防止默认只有一个共享的通讯连接通道而引发的瓶颈问题。此外的显示配置的情况下使用的是独占模式。
+默认情况下，也即没有设置``url["connections"]``参数，采用的是共享模式，这时可以通过设置``url["shareconnections"]``或者系统参数``env["shareconnections"]``，防止默认只有一个共享的通讯连接通道而引发的瓶颈问题。此外,显示配置的情况下使用的是独占模式。
 
 [source,java]
 ----
@@ -384,9 +380,11 @@ private ExchangeClient[] getClients(URL url) {
         /**
          * The xml configuration should have a higher priority than properties.
          */
-        String shareConnectionsStr = url.getParameter(SHARE_CONNECTIONS_KEY, (String) null);
-        connections = Integer.parseInt(StringUtils.isBlank(shareConnectionsStr) ? ConfigUtils.getProperty(SHARE_CONNECTIONS_KEY,
-                DEFAULT_SHARE_CONNECTIONS) : shareConnectionsStr);
+        String shareConnectionsStr = url.getParameter(
+            SHARE_CONNECTIONS_KEY, (String) null);
+        connections = Integer.parseInt(StringUtils.isBlank(shareConnectionsStr) ?
+            ConfigUtils.getProperty(SHARE_CONNECTIONS_KEY, DEFAULT_SHARE_CONNECTIONS) :
+                shareConnectionsStr);
         shareClients = getSharedClient(url, connections);
     }
 
@@ -408,49 +406,52 @@ private ExchangeClient[] getClients(URL url) {
 
 独占模式下的``ExchangeClient``的初始化相对来说比较简单：
 
-. 先检查在总线中是否配置了I/O机制是否采用了非BIO模式——也即存在``Transporter``实现；
-. 然后再配置总线中增设解码和心跳参数，确保：1）在信息交换层采用了Dubbo协议的编解码；2）使用心跳机制维持客户端到服务端的长连接；
-. 随后就是使用上述增设了参数的配置总线url参数实例化``ExchangeClient``对象或者``LazyConnectExchangeClient``对象，后者需总线中已指定``
-LAZY_CONNECT_KEY^lazy^``；
+. 首先，由于性能问题，``DubboProtocol``协议实现在网络传输层不会选用低效的BIO模式，确保能找到``(url["server"] | url["client"] | "netty")``所指定的``Transporter``扩展点实现；
+. 然后再配置总线中增设解码``url["codec"] = "dubbo"``和心跳参数``url["heartbeat"] = "60000"``，确保：1）在信息交换层采用了Dubbo协议的编解码；2）使用心跳机制维持客户端到服务端的长连接，默认心跳时长为一分钟；
+. 随后就是使用上述增设了参数的配置总线url参数实例化``ExchangeClient``对象或者``LazyConnectExchangeClient``对象，后者需总线中已指定``url["lazy"] = "true"``；
 
 [source,java]
 ----
-    /**
-     * Create new connection
-     *
-     * @param url
-     */
-    private ExchangeClient initClient(URL url) {
+/**
+ * Create new connection
+ *
+ * @param url
+ */
+private ExchangeClient initClient(URL url) {
 
-        // client type setting.
-        String str = url.getParameter(CLIENT_KEY, url.getParameter(SERVER_KEY, DEFAULT_REMOTING_CLIENT));
+    // client type setting.
+    String str = url.getParameter(CLIENT_KEY,
+        url.getParameter(SERVER_KEY, DEFAULT_REMOTING_CLIENT));
 
-        url = url.addParameter(CODEC_KEY, DubboCodec.NAME);
-        // enable heartbeat by default
-        url = url.addParameterIfAbsent(HEARTBEAT_KEY, String.valueOf(DEFAULT_HEARTBEAT));
+    url = url.addParameter(CODEC_KEY, DubboCodec.NAME);
+    // enable heartbeat by default
+    url = url.addParameterIfAbsent(HEARTBEAT_KEY, String.valueOf(DEFAULT_HEARTBEAT));
 
-        // BIO is not allowed since it has severe performance issue.
-        if (str != null && str.length() > 0 && !ExtensionLoader.getExtensionLoader(Transporter.class).hasExtension(str)) {
-            throw new RpcException("Unsupported client type: " + str + "," +
-                    " supported client type is " + StringUtils.join(ExtensionLoader.getExtensionLoader(Transporter.class).getSupportedExtensions(), " "));
-        }
-
-        ExchangeClient client;
-        try {
-            // connection should be lazy
-            if (url.getParameter(LAZY_CONNECT_KEY, false)) {
-                client = new LazyConnectExchangeClient(url, requestHandler);
-
-            } else {
-                client = Exchangers.connect(url, requestHandler);
-            }
-
-        } catch (RemotingException e) {
-            throw new RpcException("Fail to create remoting client for service(" + url + "): " + e.getMessage(), e);
-        }
-
-        return client;
+    // BIO is not allowed since it has severe performance issue.
+    if (str != null && str.length() > 0 &&
+            !ExtensionLoader.getExtensionLoader(Transporter.class).hasExtension(str)) {
+        throw new RpcException("Unsupported client type: " + str + "," +
+            " supported client type is " + StringUtils.join(
+            ExtensionLoader.getExtensionLoader(Transporter.class).
+                getSupportedExtensions(), " "));
     }
+
+    ExchangeClient client;
+    try {
+        // connection should be lazy
+        if (url.getParameter(LAZY_CONNECT_KEY, false)) {
+            client = new LazyConnectExchangeClient(url, requestHandler);
+
+        } else {
+            client = Exchangers.connect(url, requestHandler);
+        }
+
+    } catch (RemotingException e) {
+        throw new RpcException("Fail to create remoting client for service(" + url + "): " + e.getMessage(), e);
+    }
+
+    return client;
+}
 ----
 
 我们知道，在微服务开发中，一个服务可以定义多个接口，也即对应着Java中的``interface``和其中定义的若干方法，一个服务端服务通常占用了一个JVM虚拟机，处于其中的服务接口可能被访问的频度差异非常巨大，也有可能分布是比较均匀的。
@@ -536,9 +537,12 @@ private List<ReferenceCountExchangeClient> getSharedClient(URL url, int connectN
 
         } else {
             for (int i = 0; i < clients.size(); i++) {
-                ReferenceCountExchangeClient referenceCountExchangeClient = clients.get(i);
-                // If there is a client in the list that is no longer available, create a new one to replace him.
-                if (referenceCountExchangeClient == null || referenceCountExchangeClient.isClosed()) {
+                ReferenceCountExchangeClient referenceCountExchangeClient
+                    = clients.get(i);
+                // If there is a client in the list that is no longer available,
+                //create a new one to replace him.
+                if (referenceCountExchangeClient == null ||
+                        referenceCountExchangeClient.isClosed()) {
                     clients.set(i, buildReferenceCountExchangeClient(url));
                     continue;
                 }
@@ -548,7 +552,8 @@ private List<ReferenceCountExchangeClient> getSharedClient(URL url, int connectN
         }
 
         /**
-         * I understand that the purpose of the remove operation here is to avoid the expired url key
+         * I understand that the purpose of the remove operation
+         * here is to avoid the expired url key
          * always occupying this memory space.
          */
         locks.remove(key);
@@ -556,7 +561,6 @@ private List<ReferenceCountExchangeClient> getSharedClient(URL url, int connectN
         return clients;
     }
 }
-
 ----
 
 上述代码中也使用了很常见的锁的双检机制，当传入给``checkClientCanUse``的``ReferenceCountExchangeClient``对象列表中的只要有一个对象处于无效或者close状态，便随后进入主体逻辑中，确保满足数目要求的基础上，列表中所有的对象均可用，也即``ExchangeClient``所代表的客户端和服务端保 持长连状态。否则只会简单的对属于目标服务的下的``ReferenceCountExchangeClient``进行``+1``操作。
@@ -619,11 +623,9 @@ private void batchClientRefIncr(List<ReferenceCountExchangeClient> referenceCoun
 
 在服务导出实现源码中，``Exporter``接口及其实现类``DubboExporter<T> → AbstractExporter<T>``，存在的目的更多的是保持框架分层业务语义上的完整性， 用于封装一个``Invoker``实例，便于后续进行销毁处理。其实例化也即导出，调用``unexport``时便驱动执行``Invoker``实例的``destroy()``方法，为了确保只会销毁操作不会重复执行，声明了一个辅助变量——``volatile boolean unexported``。
 
-所有被导出``Invoker``实例先被装入一个``DubboExporter``实例，随后整体载入到``Map<String, Exporter<?>> exporterMap``缓存中，其中的键值的表示形式为“`[serviceGroup/]serviceName[:serviceVersion]:port`”~[XXX]：XXX可选~，其中包含的4个元素分别对应配置总线URL中的值：1）
-`url.getParameter(GROUP_KEY)`；2）`url.getPath()`；3）`url.getParameter(VERSION_KEY)`；4）`url.getPort()`。
+所有被导出``Invoker``实例先被装入一个``DubboExporter``实例，随后整体载入到``Map<String, Exporter<?>> exporterMap``缓存中，其中的键值的表示形式为“`[group/]serviceName[:version]:port`”~[XXX]：XXX可选~，其中包含的4个元素分别对应配置总线URL中的值：1）`url["group"]`；2）`url.path`；3）`url["version"]`；4）`url.port`。
 
 服务导出是由Dubbo框架调用方法``public <T> Exporter<T> export(Invoker<T> invoker) throws RpcException``完成的，其传入的Invoker要么是框架使用动态代理方式实现的，要么就是协议层中的由第三方提供的类似``DubboInvoker``实现。
-
 
 [source,java]
 ----
@@ -648,14 +650,14 @@ public <T> Exporter<T> export(Invoker<T> invoker) throws RpcException {
 
 ===== ``ExchangeServer``创建
 
-默认而言，如果服务配置总线中没有设置``IS_SERVER_KEY^isserver^``，Dubbo会默认为当前的``export()``操作准备提供服务的``ExchangeServer``实例。上述提到，引用同一个服务端微服务实例的所有``ReferenceCountExchangeClient``对象会被装入到一个列表中，最后再以``<host:port,Exchanger>``的形式缓存起来，也即类型为``ConcurrentHashMap<String, List<ReferenceCountExchangeClient>>``的``referenceClientMap``变量。
+默认而言，如果服务配置总线中没有设置``url["isserver"]``，Dubbo会默认为当前的``export()``操作准备提供服务的``ExchangeServer``实例。上述提到，引用同一个服务端微服务实例的所有``ReferenceCountExchangeClient``对象会被装入到一个列表中，最后再以``<host:port,Exchanger>``的形式缓存起来，也即类型为``ConcurrentHashMap<String, List<ReferenceCountExchangeClient>>``的``referenceClientMap``变量。
 
 同样，所有服务端提供服务的``ExchangeServer``也会以类似的形式缓存在``ConcurrentHashMap<String, ExchangeServer>``类型的serverMap中，在创建服务实例时，若发现已经存在对应的实例，则会使用配置总线对其参数做重设处理。
 
-
-
 [source,java]
 ----
+private final Map<String, ExchangeServer> serverMap = new ConcurrentHashMap<>();
+
 private void openServer(URL url) {
     // find server.
     String key = url.getAddress();
@@ -678,7 +680,11 @@ private void openServer(URL url) {
         }
     }
 }
+----
 
+下述创建``ExchangeServer``实例的创建过程中，``Exchangers.bind(url, requestHandler)``为最核心的一句，需要指定``url["channel.readonly.sent"] = (|true)、url["heartbeat"] = (|60000)、url["codec"] = "dubbo"``，同时需要确保当前应用中存在由``url["server"]``和``url["client"]``所配置的``Transporter``扩展点。
+[source,java]
+----
 private ExchangeServer createServer(URL url) {
     //配置总线相关参数设置
     url = URLBuilder.from(url)
@@ -691,7 +697,8 @@ private ExchangeServer createServer(URL url) {
     String str = url.getParameter(SERVER_KEY, DEFAULT_REMOTING_SERVER);
 
     //校验是否配置服务类型已经存在相应的实现，由SPI指定
-    if (str != null && str.length() > 0 && !ExtensionLoader.getExtensionLoader(Transporter.class).hasExtension(str)) {
+    if (str != null && str.length() > 0 && !ExtensionLoader.
+            getExtensionLoader(Transporter.class).hasExtension(str)) {
         throw new RpcException("Unsupported server type: " + str + ", url: " + url);
     }
 
@@ -699,13 +706,14 @@ private ExchangeServer createServer(URL url) {
     try {
         server = Exchangers.bind(url, requestHandler);
     } catch (RemotingException e) {
-        throw new RpcException("Fail to start server(url: " + url + ") " + e.getMessage(), e);
+        throw new RpcException("Fail to start server(url: "
+            + url + ") " + e.getMessage(), e);
     }
 
-    //
     str = url.getParameter(CLIENT_KEY);
     if (str != null && str.length() > 0) {
-        Set<String> supportedTypes = ExtensionLoader.getExtensionLoader(Transporter.class).getSupportedExtensions();
+        Set<String> supportedTypes = ExtensionLoader.getExtensionLoader(
+            Transporter.class).getSupportedExtensions();
         if (!supportedTypes.contains(str)) {
             throw new RpcException("Unsupported client type: " + str);
         }
@@ -715,10 +723,9 @@ private ExchangeServer createServer(URL url) {
 }
 ----
 
-
 ===== 响应RPC调用
 
-前面已经阐述过入站的网络数据包括Request请求和Response响应，当他们的网络I/O事件就绪时就会回调一个绑定在通道上的``HeaderExchangeHandler``事件监听器A的``received()``方法，处于更加底层的[big]##信息交换层##会将其中需要返回响应的``Request``请求转发给``ExchangeHandler``对象B定义的``reply()``方法，由其采用异步模式构建响应结果。^①^
+前面已经阐述过入站的网络数据包括Request请求和Response响应，当他们的网络I/O事件就绪时，便会触发绑定在通道上的``HeaderExchangeHandler``事件监听器 A 的``received()``方法，处于更加底层的[big]##信息交换层##会将其中的``Request``请求（~需要返回响应~）转发给``ExchangeHandler``对象 B 定义的``reply()``方法，由其构建``CompletableFuture<Object>``类型的响应结果。^①^
 
 [small]#注： +
 1）`*ExchangeHandler*：public CompletableFuture<Object> reply(ExchangeChannel channel, Object message) throws RemotingException`； +
@@ -727,7 +734,7 @@ private ExchangeServer createServer(URL url) {
 [IMPORTANT]
 B的类型是一个扩充版的``ChannelHandler``，而A的类型``HeaderExchangeHandler``则是前者装饰者实现，也即A封装了B，A的I/O回调最终都会委托给B。
 
-在Dubbo协议层中，对类型为``Invocation``~非``[Request、Response、String]``外~的入站请求做了同样的处理，也就是调用B的``reply()``方法，由其进一步调用``Invoker``实例的``invoke``方法完成对应Java原生方法的调用或者由Java原生方法转换后的跨机网络请求。^②^
+在Dubbo协议层中，对类型为``Invocation``~非``[Request、Response、String]``外~的入站请求做了同样的处理，也就是``ExchangeHandler#reply()``方法会进一步调用``Invoker``实例的``invoke()``方法，以完成对应Java原生方法的调用，或者由Java原生方法转换后的跨机网络请求。^②^
 
 需要注意的是，上述讨论的两种被调用的场景①和②，``reply()``均属于同一个``ExchangeHandler``对象，因此要求第一种场景中，其Request对象封装的``mData``也是``Invocation``类型的，否则会抛出异常。
 
@@ -745,7 +752,8 @@ private ExchangeHandler requestHandler = new ExchangeHandlerAdapter() {
         if (!(message instanceof Invocation)) {
             throw new RemotingException(channel, "Unsupported request: "
                     + (message == null ? null : (message.getClass().getName() + ": " + message))
-                    + ", channel: consumer: " + channel.getRemoteAddress() + " --> provider: " + channel.getLocalAddress());
+                    + ", channel: consumer: " + channel.getRemoteAddress()
+                    + " --> provider: " + channel.getLocalAddress());
         }
 
         Invocation inv = (Invocation) message;
@@ -791,16 +799,28 @@ Invoker<?> getInvoker(Channel channel, Invocation inv) throws RemotingException 
 
     if (exporter == null) {
         throw new RemotingException(channel, "Not found exported service: "
-            + serviceKey + " in " + exporterMap.keySet() + ", may be version or group mismatch " +
-                ", channel: consumer: " + channel.getRemoteAddress() + " --> provider: "
-                    + channel.getLocalAddress() + ", message:" + inv);
+            + serviceKey + " in " + exporterMap.keySet() + ", may be version or group mismatch "
+            + ", channel: consumer: " + channel.getRemoteAddress() + " --> provider: "
+            + channel.getLocalAddress() + ", message:" + inv);
     }
 
     return exporter.getInvoker();
 }
 ----
 
-另外Dubbo允许在配置总线为中为``Invoker``~也即Service实例或Service引用实例~增设两个不设出参和入参的监听函数，分别在建立连接和断开连接时调用，配置键为``ON_DISCONNECT_KEY=ondisconnect``和``ON_CONNECT_KEY=onconnect``。实际也就是对5中典型的网络I/O事件的``connected``和``disconnected``做适配处理，为其创建相应的``RpcInvocation``类的``Invocation``，以其和回调参数中的通道``channel``为入参回调当前被装饰``ExchangeHandler``的对象的``received()``方法。
+另外，Dubbo允许为微服务实例或者引用实例配置``url["ondisconnect"]``和``url["onconnect"]``，监听链入或者断链时的监听，如下述示例配置的``ondisconnect``：
+
+[source,xml]
+----
+<beans>
+    <bean id="demoService" class="org.apache.dubbo.samples.impl.DemoServiceImpl"/>
+    <dubbo:service async="true" interface="org.apache.dubbo.samples.api.DemoService"
+        version="1.2.3" group="dubbo-simple" ref="demoService" ondisconnect="disCallback"
+        executes="4500" retries="7" owner="vict" timeout="5300"/>
+</beans>
+----
+
+实际也就是对5种典型的网络I/O事件的``connected``和``disconnected``做适配处理，为其创建相应的``RpcInvocation``类的``Invocation``实例，以该实例和被回调方法接受的通道``channel``入参为参数，调用当前被装饰``ExchangeHandler``对象的``received()``方法。当然，只有在配置了链入或者断链的监听方法，对应事件回调中才会运行实际的``received(channel, invocation)``业务代码。
 
 [source,java]
 ----
@@ -852,12 +872,12 @@ private ExchangeHandler requestHandler = new ExchangeHandlerAdapter() {
     }
 };
 ----
+
+上述``createInvocation(...)``方法的实现表明，微服务实例或者引用实例的链入或者断链监听是通过本地存根机制实现的，这里暂时忽略处理，后续在分析PRC中的代理实现时会对类似AOP的存根机制做深入剖析，具体参考《Dubbo服务代理》一文。
+
 ===== 其它
 
 有关DubboProtocol的源码实现基本已剖析完，但前文提及的``requestHandler``类似于幽灵般的存在，服务实例和服务引用实例都有使用到，它的实现始终是从``exporterMap``缓存中获取的，但``refer()``产生的``Invoker``服务引用实例机会就是漂浮着的存在，并没有被存入``exporterMap``，仅从当前框架层几乎没法一览全貌，尚待后续。
-
-另外有关本地存根的实现代码，这里做了忽略处理，后续在分析PRC中的代理实现时会对类似AOP的存根机制做深入剖析。
-
 
 == `ProtocolFilterWrapper` >> `Protocol`
 
