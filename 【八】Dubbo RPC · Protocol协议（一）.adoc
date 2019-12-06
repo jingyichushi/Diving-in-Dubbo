@@ -239,7 +239,9 @@ public interface Protocol {
 }
 ----
 
-== 具体实现剖析
+== 协议支持实现
+
+上文曾说Dubbo在协议层提供了多种通讯方式实现，本文暂只就默认支持的Dubbo版和Injvm版的实现加以剖析。为便于各种版本协议的实现，Dubbo封装了一些基础的逻辑，本章节先就这些细节展开。
 
 === `RpcInvocation`
 
@@ -624,9 +626,7 @@ public Object recreate() throws Throwable {
 ----
 有过Java开发经验的都知道，Java抛出的异常信息是带有当前方法所在线程的调用帧信息的，也即``stackTrace``，它的作用是辅助排查问题，随着异常在一直往上抛的过程中，其涉及帧信息也逐个在增加，最终呈现的异常信息会很长。另外如果服务提供端报了大量的 NPE 异常, JVM 为了性能会做优化, 会重新编译, 不再打印异常堆栈，只会抛出预定义的NPE异常java.lang.NullPointerException: null。这样就导致真正的异常信息被隐藏了，因此上述源码对这种情况做进一步处理了，首先找到当前异常对象的Throwable下一级的顶层类，然后获取``stackTrace``帧信息，若值为null，则设值为``new StackTraceElement[0]``，获得效果是“_``只要stackTrace!=null, 就不会用错误的异常栈来赋值给stackTrace, 这样修改后, consumer会跟provider保持一致, 即抛出没有异常栈的异常, 这样就不会误导用户了``_”，具体问题请查看link:https://www.yuque.com/fa902k/id5z6r/sr041v[Dubbo调用端hessian反序列化抛NPE问题研究]。
 
----
-
-=== `DubboInvoker<T>` → `AbstractInvoker<T>`
+=== `AbstractInvoker<T>`
 
 有了上述章节的铺垫后，``Invoker``的实现就比较好理解了，下面我们一步步来加以分析。
 
@@ -876,14 +876,217 @@ public class AsyncRpcResult extends AbstractResult {
 }
 ----
 
-==== `DubboInvoker<T>` 之 `Result doInvoke(Invocation)`
+== ``Injvm``协议实现
+
+顾名思义，Injvm解决的是部署在同一个JVM中的微服务客户端和服务端的RPC调用问题，显然这就等同于Java本地的原生方法调用，但却使得调用这个过程被拉长了，多了不少中间环节。然而，这却是必要的：#框架是一类问题的通用解决方案，往往某类型的业务可能存在着多个流程有差异的实现版本，却都遵循着一套共用的基础逻辑，即便差异的部分也是实现的同一套接口，这既有利于框架加入新的扩展实现，也有利于保持整体流程上的一致性，更有利于将该类型业务作为一个分支子流程编织到更加宏大的系统流程中。#
+
+=== 流程分析
+
+相对而言，``Injvm``版协议支持并不需要底层的跨进程通讯流程参与，因此其实现相对是最简单的。如下述类图所示：
+
+image::res/imgs/dubbo_protocol_injvm.png["Injvm 协议实现",750,align="center"]
+
+图中涉及了``Exporter、Invoker、Protocol``这3个关键接口，它们有各自的抽象基类实现，并且``Injvm``针对各抽象基类提供了具体实现。简单来看，是``InjvmProtocol``作为创建工厂为调用方实例化了``InjvmExporter``和``InjvmInvoker``。但这里有必要大致了解下其实例化流程，理清二者间的关系。
+
+* ``InjvmInvoker<T>``：
+. 调用方通过``refer(serviceType, url)``传入服务接口类型和配置总线参数URL；
+. ``InjvmProtocol``利用其抽象方法``protocolBindingRefer(serviceType, url)``实现构建并返回一个``InjvmInvoker``实例，记做``injvmInvoker``；
+. ``refer(serviceType, url)``使用``AsyncToSyncInvoker``包装``injvmInvoker``，按需在被``invoke()``时将异步调用转为同步，给调用方返回包装后的``Invoker``实例``asyncInjvmInvoker``；
+* ``InjvmExporter<T>``：
+. 首先，调用方经``ProxyFactory#getInvoker(implement, type, url)``获得一个``AbstractProxyInvoker``实例，记为``proxyInvoker``，它利用反射机制将``Invoker<T>#invoke(invocation)``调用转为对``implement``的本地调用；
+. 随后，经由``Protocol$Adaptive``将``export(invoker)``方法调用转给``InjvmProtocol``；
+. 最后，``InjvmProtocol``直接构建并返回一个``invoker``属性赋值为``proxyInvoker``的``InjvmExporter<T>``实例``injvmExporter``；
+
+``Injvm``协议所发起的RPC调用实际上就是本地间接对服务接口实现的调用，那这个衔接的过程是怎么体现的呢？从上述两个实例化流程可以推断，``asyncInjvmInvoker``和``injvmExporter``必然存在着某种联系，使得方法调用行为能够从前者转移到属于后者的``proxyInvoker``上去。
+
+[IMPORTANT]
+====
+根据SPI机制，Dubbo会为``Protocol``扩展点生成一个名为``Protocol$Adaptive``的适配型代理类，当``export(invoker)``或者``refer(type, url)``方法被调用时，它会根据入参搜寻到URL配置总线，由其``url.protocol``结合SPI配置找到目标``Protocol``扩展点具类，然后将当前方法调用委托给该具类的同名方法。
+====
+
+=== 源码剖析
+
+显然，经过上述章节的分析，我们基本已经清楚了实现机制——``InjvmInvoker<T>``的方法调用被转移到了``InjvmExporter<T>``，由其``proxyInvoker``负责响应。如下源码``exporter.getInvoker().invoke(invocation)``是最关键的一句：
+[source,java]
+----
+class InjvmInvoker<T> extends AbstractInvoker<T> {
+
+    private final String key;
+
+    private final Map<String, Exporter<?>> exporterMap;
+
+    InjvmInvoker(Class<T> type, URL url, String key, Map<String, Exporter<?>> exporterMap) {
+        super(type, url);
+        this.key = key;
+        this.exporterMap = exporterMap;
+    }
+
+    @Override
+    public boolean isAvailable() {
+        InjvmExporter<?> exporter = (InjvmExporter<?>) exporterMap.get(key);
+        if (exporter == null) {
+            return false;
+        } else {
+            return super.isAvailable();
+        }
+    }
+
+    @Override
+    public Result doInvoke(Invocation invocation) throws Throwable {
+        Exporter<?> exporter = InjvmProtocol.getExporter(exporterMap, getUrl());
+        if (exporter == null) {
+            throw new RpcException("Service [" + key + "] not found.");
+        }
+        RpcContext.getContext().setRemoteAddress(LOCALHOST_VALUE, 0);
+        return exporter.getInvoker().invoke(invocation);
+    }
+}
+----
+
+实际上，``Injvm``使用了同一个``Map<String, Exporter<?>>``类型的Map容器记录所有本地导出的``Exporter<?>``对象，Key键的取值为``serviceKey = [{group}/]{interfaceName}[:{version}]``，而这个容器实际上就是``AbstractProtocol#exporterMap``，执行``InjvmExporter<T>#unexport()``操作时，会将对应Key键的``Exporter<?>``对象移除。 如下述源码：
+[source,java]
+----
+public class InjvmProtocol extends AbstractProtocol implements Protocol {
+    ...
+    @Override
+    public <T> Exporter<T> export(Invoker<T> invoker) throws RpcException {
+        return new InjvmExporter<T>(invoker, invoker.getUrl().getServiceKey(), exporterMap);
+    }
+
+    @Override
+    public <T> Invoker<T> protocolBindingRefer(Class<T> serviceType, URL url) throws RpcException {
+        return new InjvmInvoker<T>(serviceType, url, url.getServiceKey(), exporterMap);
+    }
+}
+
+class InjvmExporter<T> extends AbstractExporter<T> {
+
+    private final String key;
+
+    private final Map<String, Exporter<?>> exporterMap;
+
+    InjvmExporter(Invoker<T> invoker, String key, Map<String, Exporter<?>> exporterMap) {
+        super(invoker);
+        this.key = key;
+        this.exporterMap = exporterMap;
+        exporterMap.put(key, this);
+    }
+
+    @Override
+    public void unexport() {
+        super.unexport();
+        exporterMap.remove(key);
+    }
+
+}
+----
+
+我们曾经有说过，每一个扩展点具类都是单例的，为了编码的便利，Dubbo中有些具类会提供对应的单例获取方法，如下：
+[source,java]
+----
+public class InjvmProtocol extends AbstractProtocol implements Protocol {
+    ...
+    private static InjvmProtocol INSTANCE;
+
+    public InjvmProtocol() {
+        INSTANCE = this;
+    }
+
+    public static InjvmProtocol getInjvmProtocol() {
+        if (INSTANCE == null) {
+            ExtensionLoader.getExtensionLoader(Protocol.class).
+                getExtension(InjvmProtocol.NAME); // load
+        }
+        return INSTANCE;
+    }
+}
+----
+
+一个``refer``引用发生时，若``url.protocol != "injvm"``，只要配置了``(url["scope"] = "local" | url["injvm"] = true)``，那肯定会判定为JVM内引用，否则``(url["scope"] = "remote" | url["generic"] = true)``，则必定不是JVM内引用，除此之外只有当前``url``存在对应``Exporter<T>``才会认为是JVM内引用。
+[source,java]
+----
+public class InjvmProtocol extends AbstractProtocol implements Protocol {
+    ...
+    public boolean isInjvmRefer(URL url) {
+        String scope = url.getParameter(SCOPE_KEY);
+        if (SCOPE_LOCAL.equals(scope) || (url.getParameter(LOCAL_PROTOCOL, false))) {
+            return true;
+        } else if (SCOPE_REMOTE.equals(scope)) {
+            return false;
+        } else if (url.getParameter(GENERIC_KEY, false)) {
+            return false;
+        } else if (getExporter(exporterMap, url) != null) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+}
+----
+最后，``refer(serviceType, url)``微服务引用方法中，第二个``url``参数是可以使用通配符的，用于匹配一个目标微服务的``任意分组``或者``任意版本``实现，当然前提是微服务接口类名是匹配的，匹配的工具方法如下：
+[source,java]
+----
+public class UrlUtils {
+    public static boolean isServiceKeyMatch(URL pattern, URL value) {
+        return pattern.getParameter(INTERFACE_KEY).equals(
+                value.getParameter(INTERFACE_KEY))
+                && isItemMatch(pattern.getParameter(GROUP_KEY),
+                value.getParameter(GROUP_KEY))
+                && isItemMatch(pattern.getParameter(VERSION_KEY),
+                value.getParameter(VERSION_KEY));
+    }
+    static boolean isItemMatch(String pattern, String value) {
+        if (pattern == null) {
+            return value == null;
+        } else {
+            return "*".equals(pattern) || pattern.equals(value);
+        }
+    }
+}
+----
+
+然而，即便``serviceKey``已经匹配了，倘若通过``Exporter<?>.getInvoker()``查找到的``Invoker<?>``服务实例在其总线中配置了如是``url["generic"] = ("true" | "nativejava" | "bean" | "protobuf-json" | "raw.return")``这个参数，则说明对应微服务引用实例使用了泛化调用。
+
+[source,java]
+----
+public class InjvmProtocol extends AbstractProtocol implements Protocol {
+    ...
+    static Exporter<?> getExporter(Map<String, Exporter<?>> map, URL key) {
+        Exporter<?> result = null;
+
+        if (!key.getServiceKey().contains("*")) {
+            result = map.get(key.getServiceKey());
+        } else {
+            if (CollectionUtils.isNotEmptyMap(map)) {
+                for (Exporter<?> exporter : map.values()) {
+                    if (UrlUtils.isServiceKeyMatch(key, exporter.getInvoker().getUrl())) {
+                        result = exporter;
+                        break;
+                    }
+                }
+            }
+        }
+
+        if (result == null) {
+            return null;
+        } else if (ProtocolUtils.isGeneric(
+                result.getInvoker().getUrl().getParameter(GENERIC_KEY))) {
+            return null;
+        } else {
+            return result;
+        }
+    }
+}
+----
+
+== ``Dubbo``协议实现 之 `DubboInvoker<T>`
 
 [IMPORTANT]
 这里的``DubboInvoker``，其实例所代表的微服务是客户端一方的概念，表示引用服务端暴露的服务。
 
 ``DubboInvoker``是协议层中Dubbo协议下的``Invoker``实现，当然主要是完成原生方法调用转换后的RPC方法调用，它在连接池中以轮询方式选用一个``ExchangeClient``实例将请求发送出去，随后返回一个``AsyncRpcResult``实例，在双工模式需要返回响应的情况下，需要等到服务端处理完请求返回响应才完成这个``CompleteableFuture<AsyncRpcResult>``，否则返回的是一个值为null，已经完成处理的值。
 
-===== 状态管理
+=== 状态管理
 
 先来看看其状态管理，在《Dubbo远程通讯 · 信息交换层》一文中，我们已经对``isAvailable()``做过初步的分析，其意义是只要还有一个``ExchangeClient``实例处于``非只读``状态，当前实例所代表的微服务就还可用，前提是微服务还没有执行关闭操作。
 
@@ -959,7 +1162,7 @@ public class DubboInvoker<T> extends AbstractInvoker<T> {
 }
 ----
 
-===== `doInvoke` 执行流程
+=== `doInvoke` 执行流程
 
 该章节开头部分已经初步介绍过其执行的基本流程，具体实现上也很简单，使用求魔^%^选定``ExchangeClient``对象后，组合请求发送和响应处理两阶段操作，给调用返回一个``Result``类型的``CompleteableFuture<Result>``实例。
 
