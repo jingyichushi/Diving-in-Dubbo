@@ -420,6 +420,9 @@ protected void checkInvokers(List<Invoker<T>> invokers, Invocation invocation) {
 }
 ----
 
+[NOTE]
+关于用于实现``本地伪装``的装饰类``MockClusterWrapper``，请挪步《Dubbo服务降级》一文。
+
 ==== Available
 
 这是一种最简单的实现，每次RPC请求进入，什么负载均衡、粘滞啥的统统不要，挨个迭代候选集中所有的实例，遇到的第一个可用实例便执行最终RPC方法调用并返回：

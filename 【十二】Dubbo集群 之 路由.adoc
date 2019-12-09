@@ -1,6 +1,6 @@
 = 【十二】Dubbo集群 之 路由
 
-上一篇文章中，我们详细剖析了Dubbo中的负载均衡实现。其实微服务框架中，从服务实例集群中挑选一个实例提交RPC请求是一个目标逐步缩小的过程，比如在负载均衡得到最终的实例前，会先经过路由从一个更大的集合中~包含了当前应用中所有用到服务的引用实例~过滤得到子集。
+上一篇文章中，我们详细剖析了Dubbo中的负载均衡实现。其实微服务框架中，从服务实例集群中挑选一个实例提交RPC请求是一个目标逐步缩小的过程，比如在负载均衡得到最终的实例前，会先经过路由从一个更大的集合中（~包含了当前应用中特定被引用微服务的所有可用实例~）过滤得到子集。
 
 来看看Dubbo官方关于其link:http://dubbo.apache.org/zh-cn/docs/user/demos/routing-rule.html[路由]的介绍：
 
@@ -19,12 +19,12 @@ image::./res/imgs/dubbo_cluster_route_cls_frm.png[Dubbo集群中Router的类框�
 
 . 路由规则解析：实际上分为解析器和由其解析得到的规则；
 . 路由器：主要包括条件路由和标签路由；
-. 路由器创建工厂：每种工厂实现会创建一种类型的路由器，同时也是一个扩展点，有些具类时自激活的；
+. 路由器创建工厂：每种工厂实现会创建一种类型的路由器，同时也是一个扩展点，有些具类是自激活的，比如``AppRouterFactory、ServiceRouterFactory、TagRouterFactory``以及未在图中体现的``MockRouterFactory``；
 
 
 == 路由器创建工厂
 
-从上文的类框架图中看，这是最简单的一部分，借助了工厂方法模式创建相应的路由器实现。这一设计模式有个缺陷是一个产品的实现会对应多出一个抽象工厂的实现，尽管Dubbo中到处都有设计模式的身影，但于导致类爆炸的模式的引入是相当谨慎的。稍微深入``RouterFactory``的多个实现的话，发现其7个实现中有几个实现相对于其他的有些不同之处，工厂方法存在的目的正是利用工程实现类隐藏一个具体产品实现类的创建细节。
+从上文的类框架图中看，这是最简单的一部分，借助了工厂方法模式创建相应的路由器实现。这一设计模式有个缺陷是一个产品的实现会对应多出一个抽象工厂的实现，尽管Dubbo中到处都有设计模式的身影，但于导致类爆炸的模式的引入是相当谨慎的。稍微深入``RouterFactory``的多个实现的话，发现其7个实现中有几个实现相对于其他的有些不同之处，工厂方法存在的目的正是利用工厂实现类隐藏一个具体产品实现类的创建细节。
 
 === Router实例获取
 
@@ -58,7 +58,7 @@ public interface RouterFactory {
 
 很显然，``RouterFactory``存在的价值便是创建``Router``的实例，也就是说使用``Router``的接口是``RouterFactory``，我们继续深入究竟如何获得一个实例。
 
-``RouterFactory``的创建方式有两种方式，如下所示，``RouterChain``获取的所有自激活的实例，而``RegistryDirectory``则使用了Dubbo中SPI扩展中的自适配模式获取实例，生成的扩展点具类~``RouterFactory``的代理实现~会试图根据配置总线中``protocol``部分从SPI配置文件中获取到所匹配的目标扩展点具类，将相应行为委托给该目标类。
+``RouterFactory``的创建方式有两种方式，如下所示，``RouterChain``获取的所有自激活的实例，而``RegistryDirectory``则使用了Dubbo中SPI扩展中的自适配模式获取实例，生成的扩展点具类~``RouterFactory``的代理实现~会试图根据``url.protocol``从SPI配置文件中获取到所匹配的目标扩展点具类，将相应行为委托给该目标类。
 
 * `_RouterChain_`
 
@@ -80,12 +80,6 @@ public RouterFactory ROUTER_FACTORY = ExtensionLoader.getExtensionLoader(RouterF
 
 [source,java]
 ----
-/**
- *
- * @param url
- * @param invocation
- * @return
- */
 public List<Invoker<T>> route(URL url, Invocation invocation) {
     List<Invoker<T>> finalInvokers = invokers;
     for (Router router : routers) {
@@ -94,6 +88,8 @@ public List<Invoker<T>> route(URL url, Invocation invocation) {
     return finalInvokers;
 }
 ----
+[NOTE]
+``RouterChain#route(...)``方法的执行逻辑是，针对当前被引用微服务的可用实例全集，先缓存在临时容器``finalInvokers``中，然后遍历所有路由器，逐个路由过滤``finalInvokers``，每一次迭代均会将所获子集赋值给``finalInvokers``，最后得到目标集合。
 
 那``RouterChain``中的所有微服务引用实例又是谁提供的呢？初步接触微服务时，培训教材或者框架指导都会告知开发者，服务提供者在启动的时候会将自身注册到注册中心，对，这些实例来源于注册中心，只不过是过程没那么直接。既然不是自身产生，肯定还得提供由外界设值的方法，如下：
 [source,java]
@@ -111,13 +107,13 @@ public void setInvokers(List<Invoker<T>> invokers) {
 }
 ----
 
-``v2.7.0``之前每一个URL~对应一个微服务引用实例~对应会产生一个Router实例，而之后的版本是随``RouterFactory``的具类都是单例的，在一个应用中``Router``实现也是单例的。
+``v2.7.0``之前回为每一个表征微服务引用实例的URL产生一个``Router``实例，而之后的版本是随``RouterFactory``的具类都是单例的，在一个应用中``Router``实现也是单例的。
 
-后一种实例在当前JVM中首次调用``buildChain()``就产生了，后续再次调用不会再产生新的实例，虽然查看源码，过程没那么显然。仔细研读``RouterChain``会发现它本身并不是单例的，是服务级别的，一种微服务引用类型会对应产生一个它的实例，但这改变不了``Router``实现~标注了@Activate注解的实现类~是单例的现实，它们被认为是内置``Router``实例。
+新版的``Router``实例在当前JVM中首次调用``buildChain()``就产生了，后续再次调用不会再产生新的实例，虽然查看源码，过程没那么显然。仔细研读``RouterChain``会发现它本身并不是单例的，是服务级别的，一种类型的被引用微服务会对应产生一个它的实例（~由标注了``@Activate``注解的``RouterFactory``具类生成~），它们被认为是内置``Router``实例。
 
-前一种的实例是由服务目录``Directory``提供的，每一次可提供的服务列表发生变动的时需要全部更新。
+老版的``Router``实例是由服务目录``Directory``提供的，每一次可用服务列表发生变动的时需要全部更新。
 
-综上，为兼容，``RouterChain``中提供两个盛装``Router``实例的``List``容器，并且给前一种添加了``volatile``修饰，每次更新时会加上所有内置``Router``实例。
+综上，为兼容，``RouterChain``中提供两个盛装``Router``实例的``List``容器，并且给前一个添加了``volatile``修饰，每次更新时会加上所有内置``Router``实例。
 
 [source,java]
 ----
@@ -163,12 +159,11 @@ public class RouterChain<T> {
 }
 ----
 
-
 === ``RouterFactory``工厂实现
 
 image::./res/imgs/dubbo_router_factory.png[Dubbo集群中Router的类框架]
 
-上图中体现了有两组几乎一模一样的工程类实现，分别是：1）ScriptRouterFactory 和 ConditionRouterFactory；2）ServiceRouterFactory 和 TagRouterFactory。相比前面一组，后面一组支持运行时配置更新且是无条件激活的。具体如下源码：
+上图中体现了有两组几乎一模一样的工厂类实现，分别是：1）ScriptRouterFactory 和 ConditionRouterFactory；2）ServiceRouterFactory 和 TagRouterFactory。相比前面一组，后面一组支持运行时配置更新且是无条件激活的。具体如下源码：
 
 [source,java]
 ----
@@ -220,7 +215,7 @@ public class TagRouterFactory extends CacheableRouterFactory {
 
 ----
 
-着重点还是放在后面这一组扩展继承了``CacheableRouterFactory``的，Dubbo要求如果在v2.7.0以上做自定义路由器实现，需要扩展继承它，否则直接实现``RouterFactory``。同前一组实现不同的是，其基类中加入了缓存，每一个能由``'{group}/{interfaceName}:{version}'``唯一标识的服务引用实例在首次获取到Router实例后，便会将其缓存以便后用，更深一层的目的是节约规则解析时间，提升效率。
+着重点还是放在后面这一组扩展继承了``CacheableRouterFactory``的，Dubbo要求如果在v2.7.0以上做自定义路由器实现，需要扩展继承它，否则直接实现``RouterFactory``。同前一组实现不同的是，其基类中加入了缓存，每一个能由``'{group}/{interfaceName}:{version}'``唯一标识的被引用微服务实例在首次获取到Router实例后，便会将其缓存以便同一被引用微服务的其它实例重用，更深一层的目的是节约规则解析时间，提升效率。
 
 [source,java]
 ----
@@ -280,7 +275,7 @@ image::./res/imgs/dubbo_cluster_router_inherit.png[Dubbo集群中Router继承关
 
 === ``Router``接口定义
 
-从上文中得知，``Router``的作用就是从给定的所有服务引用实例~针对目标服务由配置中心同步得到~根据当前路由配置筛选出一个子集。接口定义如下：
+从上文中得知，``Router``的作用就是为特定被引用微服务的所有实例（~由配置中心针对被引用微服务同步得到~）根据当前路由配置筛选出一个目标子集。接口定义如下：
 
 [source,java]
 ----
@@ -290,7 +285,7 @@ public interface Router extends Comparable<Router> {
 
     URL getUrl();
 
-    //referUrl，表征引用微服务实例的配置总线数据
+    //referUrl，表征被引用微服务的配置总线数据
     <T> List<Invoker<T>> route(List<Invoker<T>> invokers, URL referUrl, Invocation invocation) throws RpcException;
 
 
@@ -350,7 +345,7 @@ public interface ConfigurationListener {
 [IMPORTANT]
 Dubbo中一个应用的路由规则是以应用或服务级别整体存入到配置中心的，取也是整块的，也就是整取整存式的。
 
-另外一方面，路由器的数据源，也即微服务引用实例这些数据来源于注册中心，``Router``实现本身也要及时感知实例列表的变化。[.line-through]#因此我们看到上述``Router``接口中定义了``notify()``方法，``TagRouter``实现了该方法。#
+另外一方面，路由器的数据源，也即微服务引用实例这些数据来源于注册中心，``Router``实现本身也要及时感知实例列表的变化。因此我们看到上述``Router``接口中定义了``notify()``方法，``TagRouter``实现了该方法。
 
 [NOTE]
 注册中心和配置中心只是一种逻辑概念，有时候他们可以共享同一个服务，比如使用一个Zookeeper服务集群，只是根据不能的功能使用不同节点数据。[small]#有关配置中心和注册中心的实现并非本文主题，将在相关实现剖析文章中体现。#
@@ -420,8 +415,6 @@ public abstract class ListenableRouter extends AbstractRouter implements Configu
 ----
 上述``init()``方法中，``Router``向注册中心完成自身的注册后，立马又使用``routerKey``从中获取到所有的路由配置数据，然后回调了自身实现的``ConfigurationListener``接口，目的是确保及时完成``conditionRouters``设值处理，保证主体逻辑的可用。
 
-
-
 接口实现逻辑处理如下，如上文所言，配置中心如果将相应的路由规则配置数据删除了，本地相应需要将所有解析得到的路由规则及所有微服务引用实例的列表都清空，直接后果后续RPC请求进入后，找不到可用的引用实例，这种极端情况一般不多见，配置全覆盖式导入的实现方式可能采取的先删后增策略。
 
 [source,java]
@@ -433,8 +426,8 @@ public abstract class ListenableRouter extends
     @Override
     public synchronized void process(ConfigChangeEvent event) {
         if (logger.isInfoEnabled()) {
-            logger.info("Notification of condition rule, change type is: " + event.getChangeType() +
-                    ", raw rule is:\n " + event.getValue());
+            logger.info("Notification of condition rule, change type is: "
+                + event.getChangeType() + ", raw rule is:\n " + event.getValue());
         }
 
         if (event.getChangeType().equals(ConfigChangeType.DELETED)) {
@@ -445,8 +438,10 @@ public abstract class ListenableRouter extends
                 routerRule = ConditionRuleParser.parse(event.getValue());
                 generateConditions(routerRule);
             } catch (Exception e) {
-                logger.error("Failed to parse the raw condition rule and it will not take effect, please check " +
-                        "if the condition rule matches with the template, the raw rule is:\n " + event.getValue(), e);
+                logger.error("Failed to parse the raw condition rule and it will"
+                    +" not take effect, please check " +
+                    "if the condition rule matches with the template, the raw rule is:\n "
+                    + event.getValue(), e);
             }
         }
     }
@@ -455,7 +450,8 @@ public abstract class ListenableRouter extends
         if (rule != null && rule.isValid()) {
             this.conditionRouters = rule.getConditions()
                     .stream()
-                    .map(condition -> new ConditionRouter(condition, rule.isForce(), rule.isEnabled()))
+                    .map(condition -> new ConditionRouter(
+                        condition, rule.isForce(), rule.isEnabled()))
                     .collect(Collectors.toList());
         }
     }
@@ -471,10 +467,12 @@ public abstract class ListenableRouter extends
 假设``init()``方法并未加锁，刚好在其执行完``addListener()``，CPU时间已经让渡出去了，恰好配置中心负责通知回调的线程抢到了CPU资源，由于回调的``process()``方法均加了对象锁，锁只要没有释放，当前``init()``就会被阻塞不能继续往下执行，等锁被释放后，``init()``方法返回后在获得锁又重新执行一回``process()``。进一步假设前面那个回调是``ConfigChangeType.DELETED``，这时回过头来发现``init()``方法执行的从配置中心拉取配置数据解析得到路由规则这个这个任务等于是白做了。而``init()``加锁后就等于把这本该接连发生的操作给串行化了，不会有这样的并发问题出现。
 
 [IMPORTANT]
+====
 ``AppRouter``和``ServiceRouter``实现上稍微有点不同的是在配置中心的Key的取值：
 
 . ``ServiceRouter``：`{interface}[":" + version][":" + group] + ".condition-router"`
 . ``AppRouter``：`{application} + ".condition-router"`
+====
 
 ---
 
