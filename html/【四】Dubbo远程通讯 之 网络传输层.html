@@ -1,0 +1,2607 @@
+
+<!-- saved from url=(0381)http://localhost:63342/ead61b63-b0a6-4ff2-a49a-86be75ccfd1a/source?file=%2FUsers%2Flrq%2FWorkspace%2Fmy_pub_prjs%2FDiving-In-Dubbo%2F%E3%80%90%E5%9B%9B%E3%80%91Dubbo%E8%BF%9C%E7%A8%8B%E9%80%9A%E8%AE%AF+%E4%B9%8B+%E7%BD%91%E7%BB%9C%E4%BC%A0%E8%BE%93%E5%B1%82.adoc&mac=blbu5tEs2V2e93N7DQa2jYiC6sXhOLoEj8P8cVWLKGs=&projectUrl=%2FUsers%2Flrq%2FWorkspace%2Fmy_pub_prjs%2FDiving-In-Dubbo -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style>
+/* Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
+/* Uncomment @import statement to use as custom stylesheet */
+/*@import "https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700";*/
+article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section{display:block}
+audio,video{display:inline-block}
+audio:not([controls]){display:none;height:0}
+html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}
+a{background:none}
+a:focus{outline:thin dotted}
+a:active,a:hover{outline:0}
+h1{font-size:2em;margin:.67em 0}
+abbr[title]{border-bottom:1px dotted}
+b,strong{font-weight:bold}
+dfn{font-style:italic}
+hr{-moz-box-sizing:content-box;box-sizing:content-box;height:0}
+mark{background:#ff0;color:#000}
+code,kbd,pre,samp{font-family:monospace;font-size:1em}
+pre{white-space:pre-wrap}
+q{quotes:"\201C" "\201D" "\2018" "\2019"}
+small{font-size:80%}
+sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}
+sup{top:-.5em}
+sub{bottom:-.25em}
+img{border:0}
+svg:not(:root){overflow:hidden}
+figure{margin:0}
+fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}
+legend{border:0;padding:0}
+button,input,select,textarea{font-family:inherit;font-size:100%;margin:0}
+button,input{line-height:normal}
+button,select{text-transform:none}
+button,html input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance:button;cursor:pointer}
+button[disabled],html input[disabled]{cursor:default}
+input[type="checkbox"],input[type="radio"]{box-sizing:border-box;padding:0}
+button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}
+textarea{overflow:auto;vertical-align:top}
+table{border-collapse:collapse;border-spacing:0}
+*,*::before,*::after{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box}
+html,body{font-size:100%}
+body{background:#fff;color:rgba(0,0,0,.8);padding:0;margin:0;font-family:"Noto Serif","DejaVu Serif",serif;font-weight:400;font-style:normal;line-height:1;position:relative;cursor:auto;tab-size:4;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased}
+a:hover{cursor:pointer}
+img,object,embed{max-width:100%;height:auto}
+object,embed{height:100%}
+img{-ms-interpolation-mode:bicubic}
+.left{float:left!important}
+.right{float:right!important}
+.text-left{text-align:left!important}
+.text-right{text-align:right!important}
+.text-center{text-align:center!important}
+.text-justify{text-align:justify!important}
+.hide{display:none}
+img,object,svg{display:inline-block;vertical-align:middle}
+textarea{height:auto;min-height:50px}
+select{width:100%}
+.center{margin-left:auto;margin-right:auto}
+.stretch{width:100%}
+.subheader,.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{line-height:1.45;color:#7a2518;font-weight:400;margin-top:0;margin-bottom:.25em}
+div,dl,dt,dd,ul,ol,li,h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6,pre,form,p,blockquote,th,td{margin:0;padding:0;direction:ltr}
+a{color:#2156a5;text-decoration:underline;line-height:inherit}
+a:hover,a:focus{color:#1d4b8f}
+a img{border:0}
+p{font-family:inherit;font-weight:400;font-size:1em;line-height:1.6;margin-bottom:1.25em;text-rendering:optimizeLegibility}
+p aside{font-size:.875em;line-height:1.35;font-style:italic}
+h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{font-family:"Open Sans","DejaVu Sans",sans-serif;font-weight:300;font-style:normal;color:#ba3925;text-rendering:optimizeLegibility;margin-top:1em;margin-bottom:.5em;line-height:1.0125em}
+h1 small,h2 small,h3 small,#toctitle small,.sidebarblock>.content>.title small,h4 small,h5 small,h6 small{font-size:60%;color:#e99b8f;line-height:0}
+h1{font-size:2.125em}
+h2{font-size:1.6875em}
+h3,#toctitle,.sidebarblock>.content>.title{font-size:1.375em}
+h4,h5{font-size:1.125em}
+h6{font-size:1em}
+hr{border:solid #dddddf;border-width:1px 0 0;clear:both;margin:1.25em 0 1.1875em;height:0}
+em,i{font-style:italic;line-height:inherit}
+strong,b{font-weight:bold;line-height:inherit}
+small{font-size:60%;line-height:inherit}
+code{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;font-weight:400;color:rgba(0,0,0,.9)}
+ul,ol,dl{font-size:1em;line-height:1.6;margin-bottom:1.25em;list-style-position:outside;font-family:inherit}
+ul,ol{margin-left:1.5em}
+ul li ul,ul li ol{margin-left:1.25em;margin-bottom:0;font-size:1em}
+ul.square li ul,ul.circle li ul,ul.disc li ul{list-style:inherit}
+ul.square{list-style-type:square}
+ul.circle{list-style-type:circle}
+ul.disc{list-style-type:disc}
+ol li ul,ol li ol{margin-left:1.25em;margin-bottom:0}
+dl dt{margin-bottom:.3125em;font-weight:bold}
+dl dd{margin-bottom:1.25em}
+abbr,acronym{text-transform:uppercase;font-size:90%;color:rgba(0,0,0,.8);border-bottom:1px dotted #ddd;cursor:help}
+abbr{text-transform:none}
+blockquote{margin:0 0 1.25em;padding:.5625em 1.25em 0 1.1875em;border-left:1px solid #ddd}
+blockquote cite{display:block;font-size:.9375em;color:rgba(0,0,0,.6)}
+blockquote cite::before{content:"\2014 \0020"}
+blockquote cite a,blockquote cite a:visited{color:rgba(0,0,0,.6)}
+blockquote,blockquote p{line-height:1.6;color:rgba(0,0,0,.85)}
+@media screen and (min-width:768px){h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2}
+h1{font-size:2.75em}
+h2{font-size:2.3125em}
+h3,#toctitle,.sidebarblock>.content>.title{font-size:1.6875em}
+h4{font-size:1.4375em}}
+table{background:#fff;margin-bottom:1.25em;border:solid 1px #dedede}
+table thead,table tfoot{background:#f7f8f7}
+table thead tr th,table thead tr td,table tfoot tr th,table tfoot tr td{padding:.5em .625em .625em;font-size:inherit;color:rgba(0,0,0,.8);text-align:left}
+table tr th,table tr td{padding:.5625em .625em;font-size:inherit;color:rgba(0,0,0,.8)}
+table tr.even,table tr.alt{background:#f8f8f7}
+table thead tr th,table tfoot tr th,table tbody tr td,table tr td,table tfoot tr td{display:table-cell;line-height:1.6}
+h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2;word-spacing:-.05em}
+h1 strong,h2 strong,h3 strong,#toctitle strong,.sidebarblock>.content>.title strong,h4 strong,h5 strong,h6 strong{font-weight:400}
+.clearfix::before,.clearfix::after,.float-group::before,.float-group::after{content:" ";display:table}
+.clearfix::after,.float-group::after{clear:both}
+:not(pre):not([class^=L])>code{font-size:.9375em;font-style:normal!important;letter-spacing:0;padding:.1em .5ex;word-spacing:-.15em;background:#f7f7f8;-webkit-border-radius:4px;border-radius:4px;line-height:1.45;text-rendering:optimizeSpeed;word-wrap:break-word}
+:not(pre)>code.nobreak{word-wrap:normal}
+:not(pre)>code.nowrap{white-space:nowrap}
+pre{color:rgba(0,0,0,.9);font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;line-height:1.45;text-rendering:optimizeSpeed}
+pre code,pre pre{color:inherit;font-size:inherit;line-height:inherit}
+pre>code{display:block}
+pre.nowrap,pre.nowrap pre{white-space:pre;word-wrap:normal}
+em em{font-style:normal}
+strong strong{font-weight:400}
+.keyseq{color:rgba(51,51,51,.8)}
+kbd{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;display:inline-block;color:rgba(0,0,0,.8);font-size:.65em;line-height:1.45;background:#f7f7f7;border:1px solid #ccc;-webkit-border-radius:3px;border-radius:3px;-webkit-box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em white inset;box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em #fff inset;margin:0 .15em;padding:.2em .5em;vertical-align:middle;position:relative;top:-.1em;white-space:nowrap}
+.keyseq kbd:first-child{margin-left:0}
+.keyseq kbd:last-child{margin-right:0}
+.menuseq,.menuref{color:#000}
+.menuseq b:not(.caret),.menuref{font-weight:inherit}
+.menuseq{word-spacing:-.02em}
+.menuseq b.caret{font-size:1.25em;line-height:.8}
+.menuseq i.caret{font-weight:bold;text-align:center;width:.45em}
+b.button::before,b.button::after{position:relative;top:-1px;font-weight:400}
+b.button::before{content:"[";padding:0 3px 0 2px}
+b.button::after{content:"]";padding:0 2px 0 3px}
+p a>code:hover{color:rgba(0,0,0,.9)}
+#header,#content,#footnotes,#footer{width:100%;margin-left:auto;margin-right:auto;margin-top:0;margin-bottom:0;max-width:62.5em;*zoom:1;position:relative;padding-left:.9375em;padding-right:.9375em}
+#header::before,#header::after,#content::before,#content::after,#footnotes::before,#footnotes::after,#footer::before,#footer::after{content:" ";display:table}
+#header::after,#content::after,#footnotes::after,#footer::after{clear:both}
+#content{margin-top:1.25em}
+#content::before{content:none}
+#header>h1:first-child{color:rgba(0,0,0,.85);margin-top:2.25rem;margin-bottom:0}
+#header>h1:first-child+#toc{margin-top:8px;border-top:1px solid #dddddf}
+#header>h1:only-child,body.toc2 #header>h1:nth-last-child(2){border-bottom:1px solid #dddddf;padding-bottom:8px}
+#header .details{border-bottom:1px solid #dddddf;line-height:1.45;padding-top:.25em;padding-bottom:.25em;padding-left:.25em;color:rgba(0,0,0,.6);display:-ms-flexbox;display:-webkit-flex;display:flex;-ms-flex-flow:row wrap;-webkit-flex-flow:row wrap;flex-flow:row wrap}
+#header .details span:first-child{margin-left:-.125em}
+#header .details span.email a{color:rgba(0,0,0,.85)}
+#header .details br{display:none}
+#header .details br+span::before{content:"\00a0\2013\00a0"}
+#header .details br+span.author::before{content:"\00a0\22c5\00a0";color:rgba(0,0,0,.85)}
+#header .details br+span#revremark::before{content:"\00a0|\00a0"}
+#header #revnumber{text-transform:capitalize}
+#header #revnumber::after{content:"\00a0"}
+#content>h1:first-child:not([class]){color:rgba(0,0,0,.85);border-bottom:1px solid #dddddf;padding-bottom:8px;margin-top:0;padding-top:1rem;margin-bottom:1.25rem}
+#toc{border-bottom:1px solid #e7e7e9;padding-bottom:.5em}
+#toc>ul{margin-left:.125em}
+#toc ul.sectlevel0>li>a{font-style:italic}
+#toc ul.sectlevel0 ul.sectlevel1{margin:.5em 0}
+#toc ul{font-family:"Open Sans","DejaVu Sans",sans-serif;list-style-type:none}
+#toc li{line-height:1.3334;margin-top:.3334em}
+#toc a{text-decoration:none}
+#toc a:active{text-decoration:underline}
+#toctitle{color:#7a2518;font-size:1.2em}
+@media screen and (min-width:768px){#toctitle{font-size:1.375em}
+body.toc2{padding-left:15em;padding-right:0}
+#toc.toc2{margin-top:0!important;background:#f8f8f7;position:fixed;width:15em;left:0;top:0;border-right:1px solid #e7e7e9;border-top-width:0!important;border-bottom-width:0!important;z-index:1000;padding:1.25em 1em;height:100%;overflow:auto}
+#toc.toc2 #toctitle{margin-top:0;margin-bottom:.8rem;font-size:1.2em}
+#toc.toc2>ul{font-size:.9em;margin-bottom:0}
+#toc.toc2 ul ul{margin-left:0;padding-left:1em}
+#toc.toc2 ul.sectlevel0 ul.sectlevel1{padding-left:0;margin-top:.5em;margin-bottom:.5em}
+body.toc2.toc-right{padding-left:0;padding-right:15em}
+body.toc2.toc-right #toc.toc2{border-right-width:0;border-left:1px solid #e7e7e9;left:auto;right:0}}
+@media screen and (min-width:1280px){body.toc2{padding-left:20em;padding-right:0}
+#toc.toc2{width:20em}
+#toc.toc2 #toctitle{font-size:1.375em}
+#toc.toc2>ul{font-size:.95em}
+#toc.toc2 ul ul{padding-left:1.25em}
+body.toc2.toc-right{padding-left:0;padding-right:20em}}
+#content #toc{border-style:solid;border-width:1px;border-color:#e0e0dc;margin-bottom:1.25em;padding:1.25em;background:#f8f8f7;-webkit-border-radius:4px;border-radius:4px}
+#content #toc>:first-child{margin-top:0}
+#content #toc>:last-child{margin-bottom:0}
+#footer{max-width:100%;background:rgba(0,0,0,.8);padding:1.25em}
+#footer-text{color:rgba(255,255,255,.8);line-height:1.44}
+#content{margin-bottom:.625em}
+.sect1{padding-bottom:.625em}
+@media screen and (min-width:768px){#content{margin-bottom:1.25em}
+.sect1{padding-bottom:1.25em}}
+.sect1:last-child{padding-bottom:0}
+.sect1+.sect1{border-top:1px solid #e7e7e9}
+#content h1>a.anchor,h2>a.anchor,h3>a.anchor,#toctitle>a.anchor,.sidebarblock>.content>.title>a.anchor,h4>a.anchor,h5>a.anchor,h6>a.anchor{position:absolute;z-index:1001;width:1.5ex;margin-left:-1.5ex;display:block;text-decoration:none!important;visibility:hidden;text-align:center;font-weight:400}
+#content h1>a.anchor::before,h2>a.anchor::before,h3>a.anchor::before,#toctitle>a.anchor::before,.sidebarblock>.content>.title>a.anchor::before,h4>a.anchor::before,h5>a.anchor::before,h6>a.anchor::before{content:"\00A7";font-size:.85em;display:block;padding-top:.1em}
+#content h1:hover>a.anchor,#content h1>a.anchor:hover,h2:hover>a.anchor,h2>a.anchor:hover,h3:hover>a.anchor,#toctitle:hover>a.anchor,.sidebarblock>.content>.title:hover>a.anchor,h3>a.anchor:hover,#toctitle>a.anchor:hover,.sidebarblock>.content>.title>a.anchor:hover,h4:hover>a.anchor,h4>a.anchor:hover,h5:hover>a.anchor,h5>a.anchor:hover,h6:hover>a.anchor,h6>a.anchor:hover{visibility:visible}
+#content h1>a.link,h2>a.link,h3>a.link,#toctitle>a.link,.sidebarblock>.content>.title>a.link,h4>a.link,h5>a.link,h6>a.link{color:#ba3925;text-decoration:none}
+#content h1>a.link:hover,h2>a.link:hover,h3>a.link:hover,#toctitle>a.link:hover,.sidebarblock>.content>.title>a.link:hover,h4>a.link:hover,h5>a.link:hover,h6>a.link:hover{color:#a53221}
+details,.audioblock,.imageblock,.literalblock,.listingblock,.stemblock,.videoblock{margin-bottom:1.25em}
+details>summary:first-of-type{cursor:pointer;display:list-item;outline:none;margin-bottom:.75em}
+.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{text-rendering:optimizeLegibility;text-align:left;font-family:"Noto Serif","DejaVu Serif",serif;font-size:1rem;font-style:italic}
+table.tableblock.fit-content>caption.title{white-space:nowrap;width:0}
+.paragraph.lead>p,#preamble>.sectionbody>[class="paragraph"]:first-of-type p{font-size:1.21875em;line-height:1.6;color:rgba(0,0,0,.85)}
+table.tableblock #preamble>.sectionbody>[class="paragraph"]:first-of-type p{font-size:inherit}
+.admonitionblock>table{border-collapse:separate;border:0;background:none;width:100%}
+.admonitionblock>table td.icon{text-align:center;width:80px}
+.admonitionblock>table td.icon img{max-width:none}
+.admonitionblock>table td.icon .title{font-weight:bold;font-family:"Open Sans","DejaVu Sans",sans-serif;text-transform:uppercase}
+.admonitionblock>table td.content{padding-left:1.125em;padding-right:1.25em;border-left:1px solid #dddddf;color:rgba(0,0,0,.6)}
+.admonitionblock>table td.content>:last-child>:last-child{margin-bottom:0}
+.exampleblock>.content{border-style:solid;border-width:1px;border-color:#e6e6e6;margin-bottom:1.25em;padding:1.25em;background:#fff;-webkit-border-radius:4px;border-radius:4px}
+.exampleblock>.content>:first-child{margin-top:0}
+.exampleblock>.content>:last-child{margin-bottom:0}
+.sidebarblock{border-style:solid;border-width:1px;border-color:#dbdbd6;margin-bottom:1.25em;padding:1.25em;background:#f3f3f2;-webkit-border-radius:4px;border-radius:4px}
+.sidebarblock>:first-child{margin-top:0}
+.sidebarblock>:last-child{margin-bottom:0}
+.sidebarblock>.content>.title{color:#7a2518;margin-top:0;text-align:center}
+.exampleblock>.content>:last-child>:last-child,.exampleblock>.content .olist>ol>li:last-child>:last-child,.exampleblock>.content .ulist>ul>li:last-child>:last-child,.exampleblock>.content .qlist>ol>li:last-child>:last-child,.sidebarblock>.content>:last-child>:last-child,.sidebarblock>.content .olist>ol>li:last-child>:last-child,.sidebarblock>.content .ulist>ul>li:last-child>:last-child,.sidebarblock>.content .qlist>ol>li:last-child>:last-child{margin-bottom:0}
+.literalblock pre,.listingblock>.content>pre{-webkit-border-radius:4px;border-radius:4px;word-wrap:break-word;overflow-x:auto;padding:1em;font-size:.8125em}
+@media screen and (min-width:768px){.literalblock pre,.listingblock>.content>pre{font-size:.90625em}}
+@media screen and (min-width:1280px){.literalblock pre,.listingblock>.content>pre{font-size:1em}}
+.literalblock pre,.listingblock>.content>pre:not(.highlight),.listingblock>.content>pre[class="highlight"],.listingblock>.content>pre[class^="highlight "]{background:#f7f7f8}
+.literalblock.output pre{color:#f7f7f8;background:rgba(0,0,0,.9)}
+.listingblock>.content{position:relative}
+.listingblock code[data-lang]::before{display:none;content:attr(data-lang);position:absolute;font-size:.75em;top:.425rem;right:.5rem;line-height:1;text-transform:uppercase;color:inherit;opacity:.5}
+.listingblock:hover code[data-lang]::before{display:block}
+.listingblock.terminal pre .command::before{content:attr(data-prompt);padding-right:.5em;color:inherit;opacity:.5}
+.listingblock.terminal pre .command:not([data-prompt])::before{content:"$"}
+.listingblock pre.highlightjs{padding:0}
+.listingblock pre.highlightjs>code{padding:1em;-webkit-border-radius:4px;border-radius:4px}
+.listingblock pre.prettyprint{border-width:0}
+.prettyprint{background:#f7f7f8}
+pre.prettyprint .linenums{line-height:1.45;margin-left:2em}
+pre.prettyprint li{background:none;list-style-type:inherit;padding-left:0}
+pre.prettyprint li code[data-lang]::before{opacity:1}
+pre.prettyprint li:not(:first-child) code[data-lang]::before{display:none}
+table.linenotable{border-collapse:separate;border:0;margin-bottom:0;background:none}
+table.linenotable td[class]{color:inherit;vertical-align:top;padding:0;line-height:inherit;white-space:normal}
+table.linenotable td.code{padding-left:.75em}
+table.linenotable td.linenos{border-right:1px solid currentColor;opacity:.35;padding-right:.5em}
+pre.pygments .lineno{border-right:1px solid currentColor;opacity:.35;display:inline-block;margin-right:.75em}
+pre.pygments .lineno::before{content:"";margin-right:-.125em}
+.quoteblock{margin:0 1em 1.25em 1.5em;display:table}
+.quoteblock:not(.excerpt)>.title{margin-left:-1.5em;margin-bottom:.75em}
+.quoteblock blockquote,.quoteblock p{color:rgba(0,0,0,.85);font-size:1.15rem;line-height:1.75;word-spacing:.1em;letter-spacing:0;font-style:italic;text-align:justify}
+.quoteblock blockquote{margin:0;padding:0;border:0}
+.quoteblock blockquote::before{content:"\201c";float:left;font-size:2.75em;font-weight:bold;line-height:.6em;margin-left:-.6em;color:#7a2518;text-shadow:0 1px 2px rgba(0,0,0,.1)}
+.quoteblock blockquote>.paragraph:last-child p{margin-bottom:0}
+.quoteblock .attribution{margin-top:.75em;margin-right:.5ex;text-align:right}
+.verseblock{margin:0 1em 1.25em}
+.verseblock pre{font-family:"Open Sans","DejaVu Sans",sans;font-size:1.15rem;color:rgba(0,0,0,.85);font-weight:300;text-rendering:optimizeLegibility}
+.verseblock pre strong{font-weight:400}
+.verseblock .attribution{margin-top:1.25rem;margin-left:.5ex}
+.quoteblock .attribution,.verseblock .attribution{font-size:.9375em;line-height:1.45;font-style:italic}
+.quoteblock .attribution br,.verseblock .attribution br{display:none}
+.quoteblock .attribution cite,.verseblock .attribution cite{display:block;letter-spacing:-.025em;color:rgba(0,0,0,.6)}
+.quoteblock.abstract blockquote::before,.quoteblock.excerpt blockquote::before,.quoteblock .quoteblock blockquote::before{display:none}
+.quoteblock.abstract blockquote,.quoteblock.abstract p,.quoteblock.excerpt blockquote,.quoteblock.excerpt p,.quoteblock .quoteblock blockquote,.quoteblock .quoteblock p{line-height:1.6;word-spacing:0}
+.quoteblock.abstract{margin:0 1em 1.25em;display:block}
+.quoteblock.abstract>.title{margin:0 0 .375em;font-size:1.15em;text-align:center}
+.quoteblock.excerpt>blockquote,.quoteblock .quoteblock{padding:0 0 .25em 1em;border-left:.25em solid #dddddf}
+.quoteblock.excerpt,.quoteblock .quoteblock{margin-left:0}
+.quoteblock.excerpt blockquote,.quoteblock.excerpt p,.quoteblock .quoteblock blockquote,.quoteblock .quoteblock p{color:inherit;font-size:1.0625rem}
+.quoteblock.excerpt .attribution,.quoteblock .quoteblock .attribution{color:inherit;text-align:left;margin-right:0}
+table.tableblock{max-width:100%;border-collapse:separate}
+p.tableblock:last-child{margin-bottom:0}
+td.tableblock>.content>:last-child{margin-bottom:-1.25em}
+td.tableblock>.content>:last-child.sidebarblock{margin-bottom:0}
+table.tableblock,th.tableblock,td.tableblock{border:0 solid #dedede}
+table.grid-all>thead>tr>.tableblock,table.grid-all>tbody>tr>.tableblock{border-width:0 1px 1px 0}
+table.grid-all>tfoot>tr>.tableblock{border-width:1px 1px 0 0}
+table.grid-cols>*>tr>.tableblock{border-width:0 1px 0 0}
+table.grid-rows>thead>tr>.tableblock,table.grid-rows>tbody>tr>.tableblock{border-width:0 0 1px}
+table.grid-rows>tfoot>tr>.tableblock{border-width:1px 0 0}
+table.grid-all>*>tr>.tableblock:last-child,table.grid-cols>*>tr>.tableblock:last-child{border-right-width:0}
+table.grid-all>tbody>tr:last-child>.tableblock,table.grid-all>thead:last-child>tr>.tableblock,table.grid-rows>tbody>tr:last-child>.tableblock,table.grid-rows>thead:last-child>tr>.tableblock{border-bottom-width:0}
+table.frame-all{border-width:1px}
+table.frame-sides{border-width:0 1px}
+table.frame-topbot,table.frame-ends{border-width:1px 0}
+table.stripes-all tr,table.stripes-odd tr:nth-of-type(odd),table.stripes-even tr:nth-of-type(even),table.stripes-hover tr:hover{background:#f8f8f7}
+th.halign-left,td.halign-left{text-align:left}
+th.halign-right,td.halign-right{text-align:right}
+th.halign-center,td.halign-center{text-align:center}
+th.valign-top,td.valign-top{vertical-align:top}
+th.valign-bottom,td.valign-bottom{vertical-align:bottom}
+th.valign-middle,td.valign-middle{vertical-align:middle}
+table thead th,table tfoot th{font-weight:bold}
+tbody tr th{display:table-cell;line-height:1.6;background:#f7f8f7}
+tbody tr th,tbody tr th p,tfoot tr th,tfoot tr th p{color:rgba(0,0,0,.8);font-weight:bold}
+p.tableblock>code:only-child{background:none;padding:0}
+p.tableblock{font-size:1em}
+ol{margin-left:1.75em}
+ul li ol{margin-left:1.5em}
+dl dd{margin-left:1.125em}
+dl dd:last-child,dl dd:last-child>:last-child{margin-bottom:0}
+ol>li p,ul>li p,ul dd,ol dd,.olist .olist,.ulist .ulist,.ulist .olist,.olist .ulist{margin-bottom:.625em}
+ul.checklist,ul.none,ol.none,ul.no-bullet,ol.no-bullet,ol.unnumbered,ul.unstyled,ol.unstyled{list-style-type:none}
+ul.no-bullet,ol.no-bullet,ol.unnumbered{margin-left:.625em}
+ul.unstyled,ol.unstyled{margin-left:0}
+ul.checklist{margin-left:.625em}
+ul.checklist li>p:first-child>.fa-square-o:first-child,ul.checklist li>p:first-child>.fa-check-square-o:first-child{width:1.25em;font-size:.8em;position:relative;bottom:.125em}
+ul.checklist li>p:first-child>input[type="checkbox"]:first-child{margin-right:.25em}
+ul.inline{display:-ms-flexbox;display:-webkit-box;display:flex;-ms-flex-flow:row wrap;-webkit-flex-flow:row wrap;flex-flow:row wrap;list-style:none;margin:0 0 .625em -1.25em}
+ul.inline>li{margin-left:1.25em}
+.unstyled dl dt{font-weight:400;font-style:normal}
+ol.arabic{list-style-type:decimal}
+ol.decimal{list-style-type:decimal-leading-zero}
+ol.loweralpha{list-style-type:lower-alpha}
+ol.upperalpha{list-style-type:upper-alpha}
+ol.lowerroman{list-style-type:lower-roman}
+ol.upperroman{list-style-type:upper-roman}
+ol.lowergreek{list-style-type:lower-greek}
+.hdlist>table,.colist>table{border:0;background:none}
+.hdlist>table>tbody>tr,.colist>table>tbody>tr{background:none}
+td.hdlist1,td.hdlist2{vertical-align:top;padding:0 .625em}
+td.hdlist1{font-weight:bold;padding-bottom:1.25em}
+.literalblock+.colist,.listingblock+.colist{margin-top:-.5em}
+.colist td:not([class]):first-child{padding:.4em .75em 0;line-height:1;vertical-align:top}
+.colist td:not([class]):first-child img{max-width:none}
+.colist td:not([class]):last-child{padding:.25em 0}
+.thumb,.th{line-height:0;display:inline-block;border:solid 4px #fff;-webkit-box-shadow:0 0 0 1px #ddd;box-shadow:0 0 0 1px #ddd}
+.imageblock.left{margin:.25em .625em 1.25em 0}
+.imageblock.right{margin:.25em 0 1.25em .625em}
+.imageblock>.title{margin-bottom:0}
+.imageblock.thumb,.imageblock.th{border-width:6px}
+.imageblock.thumb>.title,.imageblock.th>.title{padding:0 .125em}
+.image.left,.image.right{margin-top:.25em;margin-bottom:.25em;display:inline-block;line-height:0}
+.image.left{margin-right:.625em}
+.image.right{margin-left:.625em}
+a.image{text-decoration:none;display:inline-block}
+a.image object{pointer-events:none}
+sup.footnote,sup.footnoteref{font-size:.875em;position:static;vertical-align:super}
+sup.footnote a,sup.footnoteref a{text-decoration:none}
+sup.footnote a:active,sup.footnoteref a:active{text-decoration:underline}
+#footnotes{padding-top:.75em;padding-bottom:.75em;margin-bottom:.625em}
+#footnotes hr{width:20%;min-width:6.25em;margin:-.25em 0 .75em;border-width:1px 0 0}
+#footnotes .footnote{padding:0 .375em 0 .225em;line-height:1.3334;font-size:.875em;margin-left:1.2em;margin-bottom:.2em}
+#footnotes .footnote a:first-of-type{font-weight:bold;text-decoration:none;margin-left:-1.05em}
+#footnotes .footnote:last-of-type{margin-bottom:0}
+#content #footnotes{margin-top:-.625em;margin-bottom:0;padding:.75em 0}
+.gist .file-data>table{border:0;background:#fff;width:100%;margin-bottom:0}
+.gist .file-data>table td.line-data{width:99%}
+div.unbreakable{page-break-inside:avoid}
+.big{font-size:larger}
+.small{font-size:smaller}
+.underline{text-decoration:underline}
+.overline{text-decoration:overline}
+.line-through{text-decoration:line-through}
+.aqua{color:#00bfbf}
+.aqua-background{background:#00fafa}
+.black{color:#000}
+.black-background{background:#000}
+.blue{color:#0000bf}
+.blue-background{background:#0000fa}
+.fuchsia{color:#bf00bf}
+.fuchsia-background{background:#fa00fa}
+.gray{color:#606060}
+.gray-background{background:#7d7d7d}
+.green{color:#006000}
+.green-background{background:#007d00}
+.lime{color:#00bf00}
+.lime-background{background:#00fa00}
+.maroon{color:#600000}
+.maroon-background{background:#7d0000}
+.navy{color:#000060}
+.navy-background{background:#00007d}
+.olive{color:#606000}
+.olive-background{background:#7d7d00}
+.purple{color:#600060}
+.purple-background{background:#7d007d}
+.red{color:#bf0000}
+.red-background{background:#fa0000}
+.silver{color:#909090}
+.silver-background{background:#bcbcbc}
+.teal{color:#006060}
+.teal-background{background:#007d7d}
+.white{color:#bfbfbf}
+.white-background{background:#fafafa}
+.yellow{color:#bfbf00}
+.yellow-background{background:#fafa00}
+span.icon>.fa{cursor:default}
+a span.icon>.fa{cursor:inherit}
+.admonitionblock td.icon [class^="fa icon-"]{font-size:2.5em;text-shadow:1px 1px 2px rgba(0,0,0,.5);cursor:default}
+.admonitionblock td.icon .icon-note::before{content:"\f05a";color:#19407c}
+.admonitionblock td.icon .icon-tip::before{content:"\f0eb";text-shadow:1px 1px 2px rgba(155,155,0,.8);color:#111}
+.admonitionblock td.icon .icon-warning::before{content:"\f071";color:#bf6900}
+.admonitionblock td.icon .icon-caution::before{content:"\f06d";color:#bf3400}
+.admonitionblock td.icon .icon-important::before{content:"\f06a";color:#bf0000}
+.conum[data-value]{display:inline-block;color:#fff!important;background:rgba(0,0,0,.8);-webkit-border-radius:100px;border-radius:100px;text-align:center;font-size:.75em;width:1.67em;height:1.67em;line-height:1.67em;font-family:"Open Sans","DejaVu Sans",sans-serif;font-style:normal;font-weight:bold}
+.conum[data-value] *{color:#fff!important}
+.conum[data-value]+b{display:none}
+.conum[data-value]::after{content:attr(data-value)}
+pre .conum[data-value]{position:relative;top:-.125em}
+b.conum *{color:inherit!important}
+.conum:not([data-value]):empty{display:none}
+dt,th.tableblock,td.content,div.footnote{text-rendering:optimizeLegibility}
+h1,h2,p,td.content,span.alt{letter-spacing:-.01em}
+p strong,td.content strong,div.footnote strong{letter-spacing:-.005em}
+p,blockquote,dt,td.content,span.alt{font-size:1.0625rem}
+p{margin-bottom:1.25rem}
+.sidebarblock p,.sidebarblock dt,.sidebarblock td.content,p.tableblock{font-size:1em}
+.exampleblock>.content{background:#fffef7;border-color:#e0e0dc;-webkit-box-shadow:0 1px 4px #e0e0dc;box-shadow:0 1px 4px #e0e0dc}
+.print-only{display:none!important}
+@page{margin:1.25cm .75cm}
+@media print{*{-webkit-box-shadow:none!important;box-shadow:none!important;text-shadow:none!important}
+html{font-size:80%}
+a{color:inherit!important;text-decoration:underline!important}
+a.bare,a[href^="#"],a[href^="mailto:"]{text-decoration:none!important}
+a[href^="http:"]:not(.bare)::after,a[href^="https:"]:not(.bare)::after{content:"(" attr(href) ")";display:inline-block;font-size:.875em;padding-left:.25em}
+abbr[title]::after{content:" (" attr(title) ")"}
+pre,blockquote,tr,img,object,svg{page-break-inside:avoid}
+thead{display:table-header-group}
+svg{max-width:100%}
+p,blockquote,dt,td.content{font-size:1em;orphans:3;widows:3}
+h2,h3,#toctitle,.sidebarblock>.content>.title{page-break-after:avoid}
+#toc,.sidebarblock,.exampleblock>.content{background:none!important}
+#toc{border-bottom:1px solid #dddddf!important;padding-bottom:0!important}
+body.book #header{text-align:center}
+body.book #header>h1:first-child{border:0!important;margin:2.5em 0 1em}
+body.book #header .details{border:0!important;display:block;padding:0!important}
+body.book #header .details span:first-child{margin-left:0!important}
+body.book #header .details br{display:block}
+body.book #header .details br+span::before{content:none!important}
+body.book #toc{border:0!important;text-align:left!important;padding:0!important;margin:0!important}
+body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-break-before:always}
+.listingblock code[data-lang]::before{display:block}
+#footer{padding:0 .9375em}
+.hide-on-print{display:none!important}
+.print-only{display:block!important}
+.hide-for-print{display:none!important}
+.show-for-print{display:inherit!important}}
+@media print,amzn-kf8{#header>h1:first-child{margin-top:1.25rem}
+.sect1{padding:0!important}
+.sect1+.sect1{border:0}
+#footer{background:none}
+#footer-text{color:rgba(0,0,0,.6);font-size:.9em}}
+@media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
+/* Stylesheet for CodeRay to match GitHub theme | MIT License | http://foundation.zurb.com */
+pre.CodeRay{background:#f7f7f8}
+.CodeRay .line-numbers{border-right:1px solid currentColor;opacity:.35;padding:0 .5em 0 0}
+.CodeRay span.line-numbers{display:inline-block;margin-right:.75em}
+.CodeRay .line-numbers strong{color:#000}
+table.CodeRay{border-collapse:separate;border:0;margin-bottom:0;background:none}
+table.CodeRay td{vertical-align:top;line-height:inherit}
+table.CodeRay td.line-numbers{text-align:right}
+table.CodeRay td.code{padding:0 0 0 .75em}
+.CodeRay .debug{color:#fff !important;background:#000080 !important}
+.CodeRay .annotation{color:#007}
+.CodeRay .attribute-name{color:#000080}
+.CodeRay .attribute-value{color:#700}
+.CodeRay .binary{color:#509}
+.CodeRay .comment{color:#998;font-style:italic}
+.CodeRay .char{color:#04d}
+.CodeRay .char .content{color:#04d}
+.CodeRay .char .delimiter{color:#039}
+.CodeRay .class{color:#458;font-weight:bold}
+.CodeRay .complex{color:#a08}
+.CodeRay .constant,.CodeRay .predefined-constant{color:#008080}
+.CodeRay .color{color:#099}
+.CodeRay .class-variable{color:#369}
+.CodeRay .decorator{color:#b0b}
+.CodeRay .definition{color:#099}
+.CodeRay .delimiter{color:#000}
+.CodeRay .doc{color:#970}
+.CodeRay .doctype{color:#34b}
+.CodeRay .doc-string{color:#d42}
+.CodeRay .escape{color:#666}
+.CodeRay .entity{color:#800}
+.CodeRay .error{color:#808}
+.CodeRay .exception{color:inherit}
+.CodeRay .filename{color:#099}
+.CodeRay .function{color:#900;font-weight:bold}
+.CodeRay .global-variable{color:#008080}
+.CodeRay .hex{color:#058}
+.CodeRay .integer,.CodeRay .float{color:#099}
+.CodeRay .include{color:#555}
+.CodeRay .inline{color:#000}
+.CodeRay .inline .inline{background:#ccc}
+.CodeRay .inline .inline .inline{background:#bbb}
+.CodeRay .inline .inline-delimiter{color:#d14}
+.CodeRay .inline-delimiter{color:#d14}
+.CodeRay .important{color:#555;font-weight:bold}
+.CodeRay .interpreted{color:#b2b}
+.CodeRay .instance-variable{color:#008080}
+.CodeRay .label{color:#970}
+.CodeRay .local-variable{color:#963}
+.CodeRay .octal{color:#40e}
+.CodeRay .predefined{color:#369}
+.CodeRay .preprocessor{color:#579}
+.CodeRay .pseudo-class{color:#555}
+.CodeRay .directive{font-weight:bold}
+.CodeRay .type{font-weight:bold}
+.CodeRay .predefined-type{color:inherit}
+.CodeRay .reserved,.CodeRay .keyword {color:#000;font-weight:bold}
+.CodeRay .key{color:#808}
+.CodeRay .key .delimiter{color:#606}
+.CodeRay .key .char{color:#80f}
+.CodeRay .value{color:#088}
+.CodeRay .regexp .delimiter{color:#808}
+.CodeRay .regexp .content{color:#808}
+.CodeRay .regexp .modifier{color:#808}
+.CodeRay .regexp .char{color:#d14}
+.CodeRay .regexp .function{color:#404;font-weight:bold}
+.CodeRay .string{color:#d20}
+.CodeRay .string .string .string{background:#ffd0d0}
+.CodeRay .string .content{color:#d14}
+.CodeRay .string .char{color:#d14}
+.CodeRay .string .delimiter{color:#d14}
+.CodeRay .shell{color:#d14}
+.CodeRay .shell .delimiter{color:#d14}
+.CodeRay .symbol{color:#990073}
+.CodeRay .symbol .content{color:#a60}
+.CodeRay .symbol .delimiter{color:#630}
+.CodeRay .tag{color:#008080}
+.CodeRay .tag-special{color:#d70}
+.CodeRay .variable{color:#036}
+.CodeRay .insert{background:#afa}
+.CodeRay .delete{background:#faa}
+.CodeRay .change{color:#aaf;background:#007}
+.CodeRay .head{color:#f8f;background:#505}
+.CodeRay .insert .insert{color:#080}
+.CodeRay .delete .delete{color:#800}
+.CodeRay .change .change{color:#66f}
+.CodeRay .head .head{color:#f4f}
+
+</style>
+<link rel="stylesheet" href="res_files/css/font-awesome.min.css"><link rel="stylesheet" href="res_files/css/dejavu.css"><style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 5px 0px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; -khtml-border-radius: 5px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 1px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: .7em}
+.MathJax_MenuRadioCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuLabel {padding: 1px 2em 3px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #DDDDDD; margin: 4px 3px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: #606872; color: white}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
+</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">.MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style></head><body><div id="MathJax_Message" style="display: none;"></div><div id="content">
+<h1>Dubbo远程通讯 · 网络传输层</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph has-source-line data-line-stdin-4">
+<p>真实世界一件很简单的事情，映射到计算机中，由于涉及太多细节，最后实现阶段往往会觉得非常复杂，因此善于抽象出合适的模型以近似表达真实世界的事物
+是一种非常厉害的能力。作为RPC框架的Dubbo，就有很多这样的闪光点，比如前面提到的URL配置总线，本文将要涉及的远程通讯实现算一个。</p>
+</div>
+</div>
+</div>
+<div class="sect1 has-source-line data-line-stdin-7">
+<h2 id="_概念点">概念点</h2>
+<div class="sectionbody">
+<div class="paragraph has-source-line data-line-stdin-9">
+<p>在面向对象编程中，我们经常发现一种情况，功能差异特别大的两种实体，却在某方面有着很大的共性，而这共性方面刚好又恰恰是我们需要关注的，为了便于
+程序处理，我们会将这种共性抽象出来，但这也导致理解上的不便，Dubbo中的Endpoint<sup>端</sup>正是这样一种存在。</p>
+</div>
+<div class="paragraph has-source-line data-line-stdin-12">
+<p>作为分布式系统构建的集成件，Dubbo的远程通讯采取的是传统CS架构，在Wiki上有如下一段描述：</p>
+</div>
+<div class="quoteblock has-source-line data-line-stdin-14">
+<blockquote>
+<div class="paragraph has-source-line data-line-stdin-15">
+<p>Client–server model is a distributed application structure that partitions tasks or workloads between the providers
+of a resource or service, called servers, and service requesters, called clients.[1] Often clients and servers
+communicate over a computer network on separate hardware, but both client and server may reside in the same system.
+A server host runs one or more server programs which share their resources with clients. A client does not share any
+of its resources, but requests a server’s content or service function. Clients therefore initiate communication sessions
+ with servers which await incoming requests. Examples of computer applications that use the client–server model are Email,
+  network printing, and the World Wide Web.</p>
+</div>
+</blockquote>
+</div>
+<div class="paragraph has-source-line data-line-stdin-24">
+<p>大概意思是"CS模式是一种分布式应用架构，提供资源或服务的为Server，而发出请求的是Client，他们一起协作参与完成任务<sup>或：工作负载</sup>。通常Server和Client能够通过
+彼此独立的硬件进行计算机网络通讯。Server中运行着一或多个程序，其资源由多个接入Client共享，而Client间却彼此独立，只能请求Server端的内容或者
+调起其功能。<strong><em>因此由Client端启动与等待接入请求的Server端的通讯会话</em>。</strong> 电子邮件，网络打印和万维网都属于这种架构模式"。</p>
+</div>
+<div class="sect2 has-source-line data-line-stdin-29">
+<h3 id="_endpoint端">Endpoint——端</h3>
+<div class="paragraph has-source-line data-line-stdin-31">
+<p><strong>Endpoint</strong>，是一个抽象概念，可以认为它是一个能够发生网络通讯的节点，端之间可以进行双向网络通讯，基于此衍生出
+<strong>通道（Channel）、客户端（Client）、服务端（Server）</strong>三个概念，当然也可能如上述所说，端是由这3者倒推抽象得到的。</p>
+</div>
+<div class="paragraph has-source-line data-line-stdin-34">
+<p>端具有如下特征：</p>
+</div>
+<div class="olist arabic has-source-line data-line-stdin-36">
+<ol class="arabic">
+<li class="has-source-line data-line-stdin-36">
+<p>它的身份由<strong>URL配置总线</strong>中的<em>URL</em>所表示，这个URL只是用于在Dubbo唯一标识这个端，并携带端所特有参数，供设置、读取；</p>
+</li>
+<li class="has-source-line data-line-stdin-37">
+<p>能够发生通讯的前提是具有真实的物理网络地址，由<code>InetSocketAddress</code>表示，表示为<code>ip:port</code>或<code>host:port</code>；</p>
+</li>
+<li class="has-source-line data-line-stdin-38">
+<p>端能够主动发起消息传递操作，也可以将自己从Dubbo管辖的集群下线；</p>
+</li>
+<li class="has-source-line data-line-stdin-39">
+<p>具有感知通讯事件的能力</p>
+</li>
+</ol>
+</div>
+<div class="paragraph has-source-line data-line-stdin-41">
+<p>如下述接口所示：</p>
+</div>
+<div class="listingblock has-source-line data-line-stdin-43">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">interface</span> <span style="color:#B06;font-weight:bold">Endpoint</span> {
+
+    <span style="color:#0a8;font-weight:bold">URL</span> getUrl();
+
+    ChannelHandler getChannelHandler();
+
+    <span style="color:#0a8;font-weight:bold">InetSocketAddress</span> getLocalAddress();
+
+    <span style="color:#339;font-weight:bold">void</span> send(<span style="color:#0a8;font-weight:bold">Object</span> message) <span style="color:#088;font-weight:bold">throws</span> RemotingException;
+
+<span style="color:#777">//======================</span>
+<span style="color:#777">//sent，过去分词，用于控制同步还是异步发送消息的，true值表示消息已经成功发出，实际对于同步IO来说，无论如何当前方法都是需要阻塞到IO已经完成的</span>
+<span style="color:#777">//其值不会有任何影响，而对于支持异步IO的中间件，比如Netty，true值，则会直接等到消息已经成功发出，才会返回，否则为异步执行，方法立即返回，</span>
+<span style="color:#777">//这时IO还没执行完甚至是还没有启动执行</span>
+<span style="color:#777">//======================</span>
+    <span style="color:#339;font-weight:bold">void</span> send(<span style="color:#0a8;font-weight:bold">Object</span> message, <span style="color:#339;font-weight:bold">boolean</span> sent) <span style="color:#088;font-weight:bold">throws</span> RemotingException;
+
+    <span style="color:#339;font-weight:bold">void</span> close();
+
+    <span style="color:#777">//Graceful close the channel.</span>
+    <span style="color:#339;font-weight:bold">void</span> close(<span style="color:#339;font-weight:bold">int</span> timeout);
+
+    <span style="color:#339;font-weight:bold">void</span> startClose();
+
+    <span style="color:#777">//检查端是否已关闭</span>
+    <span style="color:#339;font-weight:bold">boolean</span> isClosed();
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2 has-source-line data-line-stdin-72">
+<h3 id="_channel通道">Channel——通道</h3>
+<div class="paragraph has-source-line data-line-stdin-74">
+<p><strong>Channel</strong>是<strong>Client</strong>和<strong>Server</strong>的信号传输通道，消息发送端会往通道输入消息，而接收端会从通道读消息。并且接收端发现通道没有消息，
+就去做其他事情了，不会造成阻塞。所以channel可以读也可以写，并且可以异步读写。可以这么认为，Channel就是一个消息管道，Client是消费方，
+一有需要就试着从通道取内容，而Server是提供方，按需要将消息断断续续<sup>或：源源不断</sup>装入通道，当然这过程也可以反过来。不同的是Client只能绑定
+一个Channel，而Server则能绑定多个，因此对应到Client和Server是一对多的关系。理论上二者同Channel间的关系都是聚合。</p>
+</div>
+<div class="paragraph has-source-line data-line-stdin-79">
+<p>Dubbo中的<strong>Channel</strong>具有如下特征：</p>
+</div>
+<div class="olist arabic has-source-line data-line-stdin-81">
+<ol class="arabic">
+<li class="has-source-line data-line-stdin-81">
+<p>可以向Channel写入或者从中读取上下文本地属性</p>
+</li>
+<li class="has-source-line data-line-stdin-82">
+<p>从Channel的一侧能够获取到另一侧的物理网络地址</p>
+</li>
+<li class="has-source-line data-line-stdin-83">
+<p>能够检测当前Channel的双端是否还处于连接状态</p>
+</li>
+</ol>
+</div>
+<div class="paragraph has-source-line data-line-stdin-85">
+<p>接口定义源码如下：</p>
+</div>
+<div class="listingblock has-source-line data-line-stdin-87">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">interface</span> <span style="color:#B06;font-weight:bold">Channel</span> <span style="color:#088;font-weight:bold">extends</span> Endpoint {
+
+    <span style="color:#0a8;font-weight:bold">InetSocketAddress</span> getRemoteAddress();
+
+    <span style="color:#339;font-weight:bold">boolean</span> isConnected();
+
+<span style="color:#777">//======================</span>
+<span style="color:#777">//attribute并不会经通道被发往对端，只是随Channel一起被绑定的属性值</span>
+<span style="color:#777">//通讯过程虽然很短暂，但瞬间跨越大量方法栈帧（函数调用）</span>
+<span style="color:#777">//能够就其绑定Channel本地值是非常必要的，便于跨帧获得上下文值，有点类似于线程本地变量容器ThreadLocal</span>
+<span style="color:#777">//======================</span>
+    <span style="color:#339;font-weight:bold">boolean</span> hasAttribute(<span style="color:#0a8;font-weight:bold">String</span> key);
+
+    <span style="color:#0a8;font-weight:bold">Object</span> getAttribute(<span style="color:#0a8;font-weight:bold">String</span> key);
+
+    <span style="color:#339;font-weight:bold">void</span> setAttribute(<span style="color:#0a8;font-weight:bold">String</span> key, <span style="color:#0a8;font-weight:bold">Object</span> value);
+
+    <span style="color:#339;font-weight:bold">void</span> removeAttribute(<span style="color:#0a8;font-weight:bold">String</span> key);
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2 has-source-line data-line-stdin-109">
+<h3 id="_clientserver客户端服务端">Client\Server——客户端\服务端</h3>
+<div class="paragraph has-source-line data-line-stdin-111">
+<p><strong>Client</strong>和<strong>Server</strong>分别是CS模式中的客户端和服务端，属于传输层，更多的体现的是语义上的差别，并不区分请求和应答职责，二者拥有的都是发送能力。
+但客户端拥有体现其特有职责的重连能力，连接肯定都是由客户端发起，它一般是在连接超时时由心跳任务发起。客户端没有显式的连接以及断连语义，在客户端
+被初始化出来时就默认开启并建立与服务端连接，且通过定时任务维护通道的连接状态。因此客户端和服务端除了重连以外都只有close和send两个影响网络输出的动作。</p>
+</div>
+<div class="paragraph has-source-line data-line-stdin-115">
+<p>Dubbo中Client的实现使用继承而非聚合处理和Channel的关系，每次连入一个Client，Server端均会产生一个与之绑定的Channel，这些Channel信息会维护
+在一个聚合容器中，可以根据Client的网络物理地址获取到。</p>
+</div>
+<div class="paragraph has-source-line data-line-stdin-118">
+<p>另外Client和Server均实现了<code>Resetable</code>和 <code>IdleSensible</code> 接口，前者用于重试本地上下文参数，而后者则是在检测到空闲连接时，能够做出相应处理，
+Server端关闭连接，而Client端则发送心跳到服务端。</p>
+</div>
+<div class="paragraph has-source-line data-line-stdin-121">
+<p>接口定义源码如下：</p>
+</div>
+<div class="listingblock has-source-line data-line-stdin-123">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">interface</span> <span style="color:#B06;font-weight:bold">Client</span> <span style="color:#088;font-weight:bold">extends</span> Endpoint, <span style="color:#0a8;font-weight:bold">Channel</span>, Resetable, IdleSensible {
+
+    <span style="color:#339;font-weight:bold">void</span> reconnect() <span style="color:#088;font-weight:bold">throws</span> RemotingException;
+
+}
+
+<span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">interface</span> <span style="color:#B06;font-weight:bold">Server</span> <span style="color:#088;font-weight:bold">extends</span> Endpoint, Resetable, IdleSensible {
+
+    <span style="color:#339;font-weight:bold">boolean</span> isBound();
+
+    <span style="color:#0a8;font-weight:bold">Collection</span>&lt;<span style="color:#0a8;font-weight:bold">Channel</span>&gt; getChannels();
+
+    <span style="color:#0a8;font-weight:bold">Channel</span> getChannel(<span style="color:#0a8;font-weight:bold">InetSocketAddress</span> remoteAddress);
+}
+
+
+<span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">interface</span> <span style="color:#B06;font-weight:bold">Resetable</span> {
+
+    <span style="color:#339;font-weight:bold">void</span> reset(<span style="color:#0a8;font-weight:bold">URL</span> url);
+
+}
+
+<span style="color:#777">/**
+ * Indicate whether the implementation (for both server and client) has the ability to sense and handle idle connection.
+ * If the server has the ability to handle idle connection, it should close the connection when it happens, and if
+ * the client has the ability to handle idle connection, it should send the heartbeat to the server.
+ */</span>
+<span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">interface</span> <span style="color:#B06;font-weight:bold">IdleSensible</span> {
+    <span style="color:#777">/**
+     * Whether the implementation can sense and handle the idle connection. By default it's false, the implementation
+     * relies on dedicated timer to take care of idle connection.
+     *
+     * @return whether has the ability to handle idle connection
+     */</span>
+    <span style="color:#080;font-weight:bold">default</span> <span style="color:#339;font-weight:bold">boolean</span> canHandleIdle() {
+        <span style="color:#080;font-weight:bold">return</span> <span style="color:#069">false</span>;
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2 has-source-line data-line-stdin-165">
+<h3 id="_channelhandler">ChannelHandler</h3>
+<div class="paragraph has-source-line data-line-stdin-167">
+<p>Dubbo网络通讯中，Channel是Client和Server之间的信号传输器，过程中端间的存在着<span class="big"><strong>连接、发送消息、接收消息、断连、异常捕获</strong></span>这些行为，
+对应存在着<span class="big"><strong>connected、sent、received、disconnected、caught</strong></span>这5个网络事件。利用事件点进行功能扩展和增强正是很多编程框架和中间件
+的必备武功，我们知道Dubbo的端之间发生的基于socket的网络通讯，但是dubbo本身并不负责通讯IO的处理，这种行为由被委托Netty等第三方网络通讯组件负责，
+Dubbo将这些基本能力抽象，形成对外的统一扩展接口<sub>插件化</sub>，再由<strong>ChannelHandler</strong>在合适的事件点按照场景进行扩展增强处理。白话一点说，其具体
+实现是对第三方网络通讯组件进行适配，后者在I/O就绪后回调其提供的5个网络事件处理函数。</p>
+</div>
+<div class="admonitionblock note has-source-line data-line-stdin-174">
+<table>
+<tbody><tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+网络行为触发产生对应的事件，而事件也可以反过来触发新的网络行为。<br>
+eg: <strong>HeartbeatHandler</strong>在收到接受到请求后<sub><strong>received</strong>事件</sub>，首先会确认是否为心跳请求，若是，则会通过接受消息
+的那个Channel发回一个心跳相应，进而触发了对端的<strong>received</strong>事件。
+</td>
+</tr>
+</tbody></table>
+</div>
+<div class="paragraph has-source-line data-line-stdin-178">
+<p><strong>ChannelHandler</strong>采用装饰者模式方式实现，其接口定义如下：</p>
+</div>
+<div class="listingblock has-source-line data-line-stdin-181">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#007">@SPI</span>
+<span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">interface</span> <span style="color:#B06;font-weight:bold">ChannelHandler</span> {
+
+    <span style="color:#339;font-weight:bold">void</span> connected(<span style="color:#0a8;font-weight:bold">Channel</span> channel) <span style="color:#088;font-weight:bold">throws</span> RemotingException;
+
+    <span style="color:#339;font-weight:bold">void</span> disconnected(<span style="color:#0a8;font-weight:bold">Channel</span> channel) <span style="color:#088;font-weight:bold">throws</span> RemotingException;
+
+    <span style="color:#339;font-weight:bold">void</span> sent(<span style="color:#0a8;font-weight:bold">Channel</span> channel, <span style="color:#0a8;font-weight:bold">Object</span> message) <span style="color:#088;font-weight:bold">throws</span> RemotingException;
+
+    <span style="color:#339;font-weight:bold">void</span> received(<span style="color:#0a8;font-weight:bold">Channel</span> channel, <span style="color:#0a8;font-weight:bold">Object</span> message) <span style="color:#088;font-weight:bold">throws</span> RemotingException;
+
+    <span style="color:#339;font-weight:bold">void</span> caught(<span style="color:#0a8;font-weight:bold">Channel</span> channel, <span style="color:#0a8;font-weight:bold">Throwable</span> exception) <span style="color:#088;font-weight:bold">throws</span> RemotingException;
+}</code></pre>
+</div>
+</div>
+<div class="paragraph has-source-line data-line-stdin-197">
+<p>理解<strong>ChannelHandler</strong>的实现是理解整个Dubbo远程通讯的一个关键点，由于其设计使用了装饰者模式，理解起来没有那么直观，具体请参考《Dubbo与
+设计模式》一文中的<strong>装饰者模式</strong>这一小章节便于后续理顺其实现逻辑，<strong>ChannelHandler</strong>的大体类UML图如下。</p>
+</div>
+<div class="imageblock has-source-line data-line-stdin-200">
+<div class="content">
+<img src="res_files/imgs/4_image" alt="装饰模式-Decreator" width="950">
+</div>
+<div class="title">图：装饰模式-Decreator</div>
+</div>
+<div class="paragraph has-source-line data-line-stdin-202">
+<p>上图中WrapChannelHandler是实现Dubbo线程派发的关键部分，具体请参考《Dubbo之线程管理》一文 。</p>
+</div>
+</div>
+<div class="sect2 has-source-line data-line-stdin-205">
+<h3 id="_基础能力实现">基础能力实现</h3>
+<div class="paragraph has-source-line data-line-stdin-207">
+<p>如下UML生成图所示，无论是服务端、客户端，还是桥接二者的通道实现，都继承实现自AbstractPeer，后者分别实现了EndPoint和ChannelHandler两个接口，
+这表明在Dubbo中的服务端、客户端和通道具有Endpoint的特性，同时还能感知并响应网络通讯事件。而其下的AbstractPoin则定义了服务端和客户端重设参
+数的能力，AbstractChannel作为通道基类则显得过分简单。</p>
+</div>
+<div class="imageblock has-source-line data-line-stdin-211">
+<div class="content">
+<img src="res_files/imgs/4_image(1)" alt="Dubbo的端实现" width="850">
+</div>
+<div class="title">图：Dubbo的端实现</div>
+</div>
+<div class="admonitionblock note has-source-line data-line-stdin-214">
+<table>
+<tbody><tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+图中所表示的同时会出现在<code>NettyChannel</code>、<code>NettyServer</code>、<code>NettyClient</code>中的容易混淆的两个方法：<strong>Endpoint</strong>定义的 <code>send()</code>和
+<strong>ChannelHandler</strong>定义的<code>sent()</code>。前者用于通过Channel通道主动向对方发送消息，而后者则是在已发送消息后告知处理结果用的，属于I/O响应事件回调。
+</td>
+</tr>
+</tbody></table>
+</div>
+<div class="sect3 has-source-line data-line-stdin-217">
+<h4 id="_abstractpeer">AbstractPeer</h4>
+<div class="paragraph has-source-line data-line-stdin-219">
+<p>AbstractPeer提炼抽象了通讯对端的公共能力，它具有响应通讯事件的能力<sup>实现<code>ChannelHandler</code>接口</sup>，但这种能力是委托给所引用的<code>ChannelHandler</code>
+达成的。AbstractPeer中声明了两个volatile类型的表示端是否处于关闭状态的变量，该状态下，是禁止再向对端发送消息或者接受来自对端的消息的，也无法向
+对端发起连接请求。其实现关闭的方式也很简单，只需对应改变状态值。注意：<span class="big">这里所说的关闭操作实际上关闭的是所绑定对应的<strong>Channel</strong></span>。</p>
+</div>
+<div class="listingblock has-source-line data-line-stdin-224">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#088;font-weight:bold">public</span> <span style="color:#088;font-weight:bold">abstract</span> <span style="color:#339;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">AbstractPeer</span> <span style="color:#088;font-weight:bold">implements</span> Endpoint, ChannelHandler {
+
+<span style="color:#777">//======================</span>
+<span style="color:#777">//端在本机JVM中会被多个线程共用，因此需要使用volatile变量让所有线程在第一时间知道其是否处于可用状态</span>
+<span style="color:#777">//======================</span>
+
+    <span style="color:#777">// closing closed means the process is being closed and close is finished</span>
+    <span style="color:#088;font-weight:bold">private</span> <span style="color:#088;font-weight:bold">volatile</span> <span style="color:#339;font-weight:bold">boolean</span> closing;
+
+    <span style="color:#088;font-weight:bold">private</span> <span style="color:#088;font-weight:bold">volatile</span> <span style="color:#339;font-weight:bold">boolean</span> closed;
+
+    <span style="color:#007">@Override</span>
+    <span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">boolean</span> isClosed() {
+        <span style="color:#080;font-weight:bold">return</span> closed;
+    }
+
+    <span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">boolean</span> isClosing() {
+        <span style="color:#080;font-weight:bold">return</span> closing &amp;&amp; !closed;
+    }
+
+
+    <span style="color:#007">@Override</span>
+    <span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">void</span> close() {
+        closed = <span style="color:#069">true</span>;
+    }
+
+    <span style="color:#007">@Override</span>
+    <span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">void</span> close(<span style="color:#339;font-weight:bold">int</span> timeout) {
+        close();
+    }
+
+    <span style="color:#777">//通讯端关闭需持续一段时间，等最终完成关闭会调用close()方法</span>
+    <span style="color:#007">@Override</span>
+    <span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">void</span> startClose() {
+        <span style="color:#080;font-weight:bold">if</span> (isClosed()) {
+            <span style="color:#080;font-weight:bold">return</span>;
+        }
+        closing = <span style="color:#069">true</span>;
+    }
+
+<span style="color:#777">//======================</span>
+<span style="color:#777">//发送通讯行为的事件在已关闭状态是禁用的</span>
+<span style="color:#777">//======================</span>
+    <span style="color:#007">@Override</span>
+    <span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">void</span> connected(<span style="color:#0a8;font-weight:bold">Channel</span> ch) <span style="color:#088;font-weight:bold">throws</span> RemotingException {
+        <span style="color:#080;font-weight:bold">if</span> (closed) {
+            <span style="color:#080;font-weight:bold">return</span>;
+        }
+        handler.connected(ch);
+    }
+    <span style="color:#007">@Override</span>
+    <span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">void</span> sent(<span style="color:#0a8;font-weight:bold">Channel</span> ch, <span style="color:#0a8;font-weight:bold">Object</span> msg) <span style="color:#088;font-weight:bold">throws</span> RemotingException {
+        <span style="color:#080;font-weight:bold">if</span> (closed) {
+            <span style="color:#080;font-weight:bold">return</span>;
+        }
+        handler.sent(ch, msg);
+    }
+
+    <span style="color:#007">@Override</span>
+    <span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">void</span> received(<span style="color:#0a8;font-weight:bold">Channel</span> ch, <span style="color:#0a8;font-weight:bold">Object</span> msg) <span style="color:#088;font-weight:bold">throws</span> RemotingException {
+        <span style="color:#080;font-weight:bold">if</span> (closed) {
+            <span style="color:#080;font-weight:bold">return</span>;
+        }
+        handler.received(ch, msg);
+    }
+
+<span style="color:#777">//======================</span>
+<span style="color:#777">//感知断链和异常事件</span>
+<span style="color:#777">//======================</span>
+    <span style="color:#007">@Override</span>
+    <span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">void</span> disconnected(<span style="color:#0a8;font-weight:bold">Channel</span> ch) <span style="color:#088;font-weight:bold">throws</span> RemotingException {
+        handler.disconnected(ch);
+    }
+
+    <span style="color:#007">@Override</span>
+    <span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">void</span> caught(<span style="color:#0a8;font-weight:bold">Channel</span> ch, <span style="color:#0a8;font-weight:bold">Throwable</span> ex) <span style="color:#088;font-weight:bold">throws</span> RemotingException {
+        handler.caught(ch, ex);
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3 has-source-line data-line-stdin-307">
+<h4 id="_abstractenpoint">AbstractEnpoint</h4>
+<div class="paragraph has-source-line data-line-stdin-309">
+<p>Dubbo中，参数的传递的信使始终是Url，负责通讯的端需要有合适的Codec2编解码器对对传输的数据进行编码解码。</p>
+</div>
+<div class="listingblock has-source-line data-line-stdin-311">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#088;font-weight:bold">public</span> <span style="color:#088;font-weight:bold">abstract</span> <span style="color:#339;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">AbstractEndpoint</span> <span style="color:#088;font-weight:bold">extends</span> AbstractPeer <span style="color:#088;font-weight:bold">implements</span> Resetable {
+
+<span style="color:#777">//======================</span>
+<span style="color:#777">//该类中定义了如下3个参数，职责也主要是通过信使判断是否需要对他们进行重设</span>
+<span style="color:#777">//分别对应的参数Key为：codec、timeout、connect.timeout</span>
+<span style="color:#777">//其默认值分别对应telnet、1s、3s</span>
+<span style="color:#777">//======================</span>
+    <span style="color:#088;font-weight:bold">private</span> Codec2 codec;
+
+    <span style="color:#088;font-weight:bold">private</span> <span style="color:#339;font-weight:bold">int</span> timeout;
+
+    <span style="color:#088;font-weight:bold">private</span> <span style="color:#339;font-weight:bold">int</span> connectTimeout;
+
+    <span style="color:#777">//构建初期Dubbo会根据传入的url设值，没有明确指定的情况下使用默认参数</span>
+    <span style="color:#088;font-weight:bold">public</span> AbstractEndpoint(<span style="color:#0a8;font-weight:bold">URL</span> url, ChannelHandler handler) {
+        <span style="color:#950">super</span>(url, handler);
+        <span style="color:#950">this</span>.codec = getChannelCodec(url);
+        <span style="color:#950">this</span>.timeout = url.getPositiveParameter(TIMEOUT_KEY, DEFAULT_TIMEOUT);
+        <span style="color:#950">this</span>.connectTimeout = url.getPositiveParameter(Constants.CONNECT_TIMEOUT_KEY, Constants.DEFAULT_CONNECT_TIMEOUT);
+    }
+
+    <span style="color:#777">//使用Dubbo自身的SPI机制根据参数获取当前JVM中对应的Codec2实现</span>
+    <span style="color:#088;font-weight:bold">protected</span> <span style="color:#088;font-weight:bold">static</span> Codec2 getChannelCodec(<span style="color:#0a8;font-weight:bold">URL</span> url) {
+        <span style="color:#0a8;font-weight:bold">String</span> codecName = url.getParameter(Constants.CODEC_KEY, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">telnet</span><span style="color:#710">"</span></span>);
+        <span style="color:#080;font-weight:bold">if</span> (ExtensionLoader.getExtensionLoader(Codec2.class).hasExtension(codecName)) {
+            <span style="color:#080;font-weight:bold">return</span> ExtensionLoader.getExtensionLoader(Codec2.class).getExtension(codecName);
+        } <span style="color:#080;font-weight:bold">else</span> {
+            <span style="color:#080;font-weight:bold">return</span> <span style="color:#080;font-weight:bold">new</span> CodecAdapter(ExtensionLoader.getExtensionLoader(Codec.class)
+                    .getExtension(codecName));
+        }
+    }
+
+    <span style="color:#007">@Override</span>
+    <span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">void</span> reset(<span style="color:#0a8;font-weight:bold">URL</span> url) {
+        <span style="color:#080;font-weight:bold">if</span> (isClosed()) {
+            <span style="color:#080;font-weight:bold">throw</span> <span style="color:#080;font-weight:bold">new</span> <span style="color:#C00;font-weight:bold">IllegalStateException</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Failed to reset parameters </span><span style="color:#710">"</span></span>
+                    + url + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">, cause: Channel closed. channel: </span><span style="color:#710">"</span></span> + getLocalAddress());
+        }
+        <span style="color:#080;font-weight:bold">if</span> (url.hasParameter(TIMEOUT_KEY)) {
+            <span style="color:#339;font-weight:bold">int</span> t = url.getParameter(TIMEOUT_KEY, <span style="color:#00D">0</span>);
+            <span style="color:#080;font-weight:bold">if</span> (t &gt; <span style="color:#00D">0</span>) {
+                <span style="color:#950">this</span>.timeout = t;
+            }
+        }
+        <span style="color:#080;font-weight:bold">if</span> (url.hasParameter(Constants.CONNECT_TIMEOUT_KEY)) {
+            <span style="color:#339;font-weight:bold">int</span> t = url.getParameter(Constants.CONNECT_TIMEOUT_KEY, <span style="color:#00D">0</span>);
+            <span style="color:#080;font-weight:bold">if</span> (t &gt; <span style="color:#00D">0</span>) {
+                <span style="color:#950">this</span>.connectTimeout = t;
+            }
+        }
+        <span style="color:#080;font-weight:bold">if</span> (url.hasParameter(Constants.CODEC_KEY)) {
+            <span style="color:#950">this</span>.codec = getChannelCodec(url);
+        }
+    }
+
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3 has-source-line data-line-stdin-370">
+<h4 id="_abstractchannel">AbstractChannel</h4>
+<div class="paragraph has-source-line data-line-stdin-372">
+<p>前文已经提到，Channel是客户端和服务端通讯的信号通道，有着多对一的绑定关系。<strong>AbstractChannel</strong> 作为抽象基类单独提炼出来，也仅仅是完成最基础的
+一部分特性，如下所示，但另外一方面而言，这个看起来可有可无的存在实际是又是必要的，类似Netty等的I/O框架都有直接定义名为Channel的接口，这和Dubbo
+定义的Channel接口虽然不冲突，但在同一个类中出现，难免产生混淆。</p>
+</div>
+<div class="listingblock has-source-line data-line-stdin-377">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#088;font-weight:bold">public</span> <span style="color:#088;font-weight:bold">abstract</span> <span style="color:#339;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">AbstractChannel</span> <span style="color:#088;font-weight:bold">extends</span> AbstractPeer <span style="color:#088;font-weight:bold">implements</span> <span style="color:#0a8;font-weight:bold">Channel</span> {
+
+    <span style="color:#088;font-weight:bold">public</span> AbstractChannel(<span style="color:#0a8;font-weight:bold">URL</span> url, ChannelHandler handler) {
+        <span style="color:#950">super</span>(url, handler);
+    }
+
+<span style="color:#777">//子类实现该具体方法时一般要调用super.send()操作，确保正确继承父类定义的行为</span>
+    <span style="color:#007">@Override</span>
+    <span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">void</span> send(<span style="color:#0a8;font-weight:bold">Object</span> message, <span style="color:#339;font-weight:bold">boolean</span> sent) <span style="color:#088;font-weight:bold">throws</span> RemotingException {
+        <span style="color:#080;font-weight:bold">if</span> (isClosed()) {
+            <span style="color:#080;font-weight:bold">throw</span> <span style="color:#080;font-weight:bold">new</span> RemotingException(<span style="color:#950">this</span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Failed to send message </span><span style="color:#710">"</span></span>
+                    + (message == <span style="color:#069">null</span> ? <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#710">"</span></span> : message.getClass().getName()) + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">:</span><span style="color:#710">"</span></span> + message
+                    + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">, cause: Channel closed. channel: </span><span style="color:#710">"</span></span> + getLocalAddress() + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20"> -&gt; </span><span style="color:#710">"</span></span> + getRemoteAddress());
+        }
+    }
+<span style="color:#777">//该toString()方法仅仅用于告知通讯的双方IP地址</span>
+    <span style="color:#007">@Override</span>
+    <span style="color:#088;font-weight:bold">public</span> <span style="color:#0a8;font-weight:bold">String</span> toString() {
+        <span style="color:#080;font-weight:bold">return</span> getLocalAddress() + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20"> -&gt; </span><span style="color:#710">"</span></span> + getRemoteAddress();
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3 has-source-line data-line-stdin-401">
+<h4 id="_nettychannel">NettyChannel</h4>
+<div class="paragraph has-source-line data-line-stdin-403">
+<p>顾名思义，NettyChannel的通道特性是委托给Netty实现的，调用其定义的Channel接口，也就是说二者存在的一一对应关系。微服务架构中，一个Client客户端
+往往需要连接多个其它第三方的Server服务端，也即同一个JVM中存在着多份这样的关系，因此NettyChannel中定义了如下一个线程安全的Map容器<sub>简单缓存实现</sub>，
+注意它是全局的静态私有变量：</p>
+</div>
+<div class="listingblock has-source-line data-line-stdin-407">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#088;font-weight:bold">private</span> <span style="color:#088;font-weight:bold">static</span> <span style="color:#088;font-weight:bold">final</span> <span style="color:#0a8;font-weight:bold">ConcurrentMap</span>&lt;<span style="color:#0a8;font-weight:bold">Channel</span>, NettyChannel&gt;
+    CHANNEL_MAP = <span style="color:#080;font-weight:bold">new</span> <span style="color:#0a8;font-weight:bold">ConcurrentHashMap</span>&lt;<span style="color:#0a8;font-weight:bold">Channel</span>, NettyChannel&gt;()</code></pre>
+</div>
+</div>
+<div class="paragraph has-source-line data-line-stdin-411">
+<p>为了更好的管理这种映射关系，NettyChannel的构造函数被设计成了私有的，需要调用对应的<code>getOrAddChannel()</code>静态方法获得实例，同时静态方法只能在
+本Package中使用，这说明直接接触Netty的部分也被局限在一个小的范围，模块化边界更加清晰。</p>
+</div>
+<div class="listingblock has-source-line data-line-stdin-414">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#088;font-weight:bold">private</span> NettyChannel(<span style="color:#0a8;font-weight:bold">Channel</span> channel, <span style="color:#0a8;font-weight:bold">URL</span> url, ChannelHandler handler) {
+    <span style="color:#950">super</span>(url, handler);
+    <span style="color:#080;font-weight:bold">if</span> (channel == <span style="color:#069">null</span>) {
+        <span style="color:#080;font-weight:bold">throw</span> <span style="color:#080;font-weight:bold">new</span> <span style="color:#C00;font-weight:bold">IllegalArgumentException</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">netty channel == null;</span><span style="color:#710">"</span></span>);
+    }
+    <span style="color:#950">this</span>.channel = channel;
+}
+
+<span style="color:#777">//======================</span>
+<span style="color:#777">//只有active状态的channel才会被装入到缓存，同时该状态下，是不允许脱离缓存，避免处于游离状态</span>
+<span style="color:#777">//======================</span>
+<span style="color:#088;font-weight:bold">static</span> NettyChannel getOrAddChannel(<span style="color:#0a8;font-weight:bold">Channel</span> ch, <span style="color:#0a8;font-weight:bold">URL</span> url, ChannelHandler handler) {
+    <span style="color:#080;font-weight:bold">if</span> (ch == <span style="color:#069">null</span>) {
+        <span style="color:#080;font-weight:bold">return</span> <span style="color:#069">null</span>;
+    }
+    <span style="color:#777">//根据Netty之Channel查找现存映射关系，若存在直接返回</span>
+    NettyChannel ret = CHANNEL_MAP.get(ch);
+    <span style="color:#080;font-weight:bold">if</span> (ret == <span style="color:#069">null</span>) {
+
+        NettyChannel nettyChannel = <span style="color:#080;font-weight:bold">new</span> NettyChannel(ch, url, handler);
+
+        <span style="color:#080;font-weight:bold">if</span> (ch.isActive()) {<span style="color:#777">//只有Channel处于激活有效状态，才执行下述代码</span>
+
+            <span style="color:#777">//getOrAddChannel是一全局静态方法，存在并发问题，虽然上述发现并不存在对应关系</span>
+            <span style="color:#777">//但此后依然可能加入了其映射关系，因此需要使用现场安全的putIfAbsent</span>
+            <span style="color:#777">//如果存在直接返回原有NettyChannel值，否则返回新加入的值nettyChannel</span>
+
+            ret = CHANNEL_MAP.putIfAbsent(ch, nettyChannel);
+        }
+
+        <span style="color:#777">//此前并不存在对应映射关系，直接返回新创建的值nettyChannel</span>
+        <span style="color:#080;font-weight:bold">if</span> (ret == <span style="color:#069">null</span>) {
+            ret = nettyChannel;
+        }
+    }
+    <span style="color:#080;font-weight:bold">return</span> ret;
+}
+<span style="color:#088;font-weight:bold">static</span> <span style="color:#339;font-weight:bold">void</span> removeChannelIfDisconnected(<span style="color:#0a8;font-weight:bold">Channel</span> ch) {
+    <span style="color:#080;font-weight:bold">if</span> (ch != <span style="color:#069">null</span> &amp;&amp; !ch.isActive()) {
+        CHANNEL_MAP.remove(ch);
+    }
+}</code></pre>
+</div>
+</div>
+<div class="admonitionblock important has-source-line data-line-stdin-459">
+<table>
+<tbody><tr>
+<td class="icon">
+<div class="title">Important</div>
+</td>
+<td class="content">
+上述容易被人忽视的地方是，CHANNEL_MAP实际上在任意时刻只会为同一个Client缓存一份<code>&lt;Channel, NettyChannel&gt;</code>的键值关系，每一次调用
+<code>getOrAddChannel(Channel, URL, ChannelHandler)</code>都会传入当前Client所持有的最新channel变量<sup>volatile类型</sup>。
+</td>
+</tr>
+</tbody></table>
+</div>
+<div class="paragraph has-source-line data-line-stdin-462">
+<p>上文中提到Channel需要实现自己的本地属性存取函数，目的是为了跨函数栈帧获取到Dubbo通道本地的上下文值，具体实现如下：</p>
+</div>
+<div class="listingblock has-source-line data-line-stdin-464">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#088;font-weight:bold">private</span> <span style="color:#088;font-weight:bold">final</span> <span style="color:#0a8;font-weight:bold">Map</span>&lt;<span style="color:#0a8;font-weight:bold">String</span>, <span style="color:#0a8;font-weight:bold">Object</span>&gt; attributes =
+    <span style="color:#080;font-weight:bold">new</span> <span style="color:#0a8;font-weight:bold">ConcurrentHashMap</span>&lt;<span style="color:#0a8;font-weight:bold">String</span>, <span style="color:#0a8;font-weight:bold">Object</span>&gt;();
+
+<span style="color:#007">@Override</span>
+<span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">boolean</span> hasAttribute(<span style="color:#0a8;font-weight:bold">String</span> key) {
+    <span style="color:#080;font-weight:bold">return</span> attributes.containsKey(key);
+}
+
+<span style="color:#007">@Override</span>
+<span style="color:#088;font-weight:bold">public</span> <span style="color:#0a8;font-weight:bold">Object</span> getAttribute(<span style="color:#0a8;font-weight:bold">String</span> key) {
+    <span style="color:#080;font-weight:bold">return</span> attributes.get(key);
+}
+
+<span style="color:#007">@Override</span>
+<span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">void</span> setAttribute(<span style="color:#0a8;font-weight:bold">String</span> key, <span style="color:#0a8;font-weight:bold">Object</span> value) {
+    <span style="color:#777">// The null value is unallowed in the ConcurrentHashMap.</span>
+    <span style="color:#080;font-weight:bold">if</span> (value == <span style="color:#069">null</span>) {
+        attributes.remove(key);
+    } <span style="color:#080;font-weight:bold">else</span> {
+        attributes.put(key, value);
+    }
+}
+
+<span style="color:#007">@Override</span>
+<span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">void</span> removeAttribute(<span style="color:#0a8;font-weight:bold">String</span> key) {
+    attributes.remove(key);
+}</code></pre>
+</div>
+</div>
+<div class="paragraph has-source-line data-line-stdin-493">
+<p>通道使用完需要执行一些打扫战争的清理工作，依次执行如下4个动作：</p>
+</div>
+<div class="olist arabic has-source-line data-line-stdin-495">
+<ol class="arabic">
+<li class="has-source-line data-line-stdin-495">
+<p>调用父类定义的<code>close()</code>方法，改变对应的volatile类型的状态值；</p>
+</li>
+<li class="has-source-line data-line-stdin-496">
+<p>如果channel<sub>Netty定义的那个</sub>已处于InActive状态，则从ConcurrentMap缓存中移除；</p>
+</li>
+<li class="has-source-line data-line-stdin-497">
+<p>清理所有Channel本地缓存的属性值；</p>
+</li>
+<li class="has-source-line data-line-stdin-498">
+<p>调用Netty的Channel的Close方法，将其通道功能关闭</p>
+</li>
+</ol>
+</div>
+<div class="listingblock has-source-line data-line-stdin-501">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">void</span> close() {
+
+    <span style="color:#950">super</span>.close();
+
+    removeChannelIfDisconnected(channel);
+
+    attributes.clear();
+
+    channel.close();
+}</code></pre>
+</div>
+</div>
+<div class="paragraph has-source-line data-line-stdin-513">
+<p>最后便是通道的消息发送功能的实现，Netty支持异步I/O，因此可以通过参数告知是同步发送消息还是异步</p>
+</div>
+<div class="listingblock has-source-line data-line-stdin-515">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">void</span> send(<span style="color:#0a8;font-weight:bold">Object</span> message, <span style="color:#339;font-weight:bold">boolean</span> sent) <span style="color:#088;font-weight:bold">throws</span> RemotingException {
+    <span style="color:#777">// whether the channel is closed</span>
+    <span style="color:#950">super</span>.send(message, sent);
+
+    <span style="color:#339;font-weight:bold">boolean</span> success = <span style="color:#069">true</span>;
+    <span style="color:#339;font-weight:bold">int</span> timeout = <span style="color:#00D">0</span>;
+    <span style="color:#080;font-weight:bold">try</span> {
+        <span style="color:#777">//通道消息写入最后必须执行flush操作，否则对端会一直处于IO等待状态</span>
+        ChannelFuture future = channel.writeAndFlush(message);
+        <span style="color:#080;font-weight:bold">if</span> (sent) {
+            <span style="color:#777">// wait timeout ms</span>
+            timeout = getUrl().getPositiveParameter(TIMEOUT_KEY, DEFAULT_TIMEOUT);
+            <span style="color:#777">//如果在规定时间还未完成，便返回</span>
+            success = future.await(timeout);
+        }
+        <span style="color:#777">//future的特性是不仅缓存结果值，还会缓存异常（如果存在的话）</span>
+        <span style="color:#0a8;font-weight:bold">Throwable</span> cause = future.cause();
+        <span style="color:#080;font-weight:bold">if</span> (cause != <span style="color:#069">null</span>) {
+            <span style="color:#080;font-weight:bold">throw</span> cause;
+        }
+    } <span style="color:#080;font-weight:bold">catch</span> (<span style="color:#0a8;font-weight:bold">Throwable</span> e) {
+        <span style="color:#080;font-weight:bold">throw</span> <span style="color:#080;font-weight:bold">new</span> RemotingException(<span style="color:#950">this</span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Failed to send message </span><span style="color:#710">"</span></span> + message + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20"> to </span><span style="color:#710">"</span></span> + getRemoteAddress() + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">, cause: </span><span style="color:#710">"</span></span> + e.getMessage(), e);
+    }
+    <span style="color:#080;font-weight:bold">if</span> (!success) {
+        <span style="color:#080;font-weight:bold">throw</span> <span style="color:#080;font-weight:bold">new</span> RemotingException(<span style="color:#950">this</span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Failed to send message </span><span style="color:#710">"</span></span> + message + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20"> to </span><span style="color:#710">"</span></span> + getRemoteAddress()
+                + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">in timeout(</span><span style="color:#710">"</span></span> + timeout + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">ms) limit</span><span style="color:#710">"</span></span>);
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3 has-source-line data-line-stdin-547">
+<h4 id="_abstractclient_nettyclient">AbstractClient → NettyClient</h4>
+<div class="paragraph has-source-line data-line-stdin-549">
+<p>AbstractClient采用模板模式定义实现了I/O通讯的中公共的行为，如下具体行为则由具体实现类针对特定I/O框架做进一步实现。</p>
+</div>
+<div class="listingblock has-source-line data-line-stdin-552">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#088;font-weight:bold">protected</span> <span style="color:#088;font-weight:bold">abstract</span> <span style="color:#339;font-weight:bold">void</span> doOpen() <span style="color:#088;font-weight:bold">throws</span> <span style="color:#0a8;font-weight:bold">Throwable</span>;
+
+<span style="color:#088;font-weight:bold">protected</span> <span style="color:#088;font-weight:bold">abstract</span> <span style="color:#339;font-weight:bold">void</span> doClose() <span style="color:#088;font-weight:bold">throws</span> <span style="color:#0a8;font-weight:bold">Throwable</span>;
+
+<span style="color:#088;font-weight:bold">protected</span> <span style="color:#088;font-weight:bold">abstract</span> <span style="color:#339;font-weight:bold">void</span> doConnect() <span style="color:#088;font-weight:bold">throws</span> <span style="color:#0a8;font-weight:bold">Throwable</span>;
+
+<span style="color:#088;font-weight:bold">protected</span> <span style="color:#088;font-weight:bold">abstract</span> <span style="color:#339;font-weight:bold">void</span> doDisConnect() <span style="color:#088;font-weight:bold">throws</span> <span style="color:#0a8;font-weight:bold">Throwable</span>;
+
+<span style="color:#088;font-weight:bold">protected</span> <span style="color:#088;font-weight:bold">abstract</span> <span style="color:#0a8;font-weight:bold">Channel</span> getChannel();</code></pre>
+</div>
+</div>
+<div class="paragraph has-source-line data-line-stdin-564">
+<p>上述的<code>getChannel()</code>方法是其它所有操作的基础，这和Dubbo中Consumer能和多个Server发生通讯有关。一个Consumer可以和多个Server保持通讯往
+来，同时一个Server绝大部分情况是会和多个Consumer发生联系的，Dubbo会为一个Consumer创建了多份Client，每一份Client仅仅关联唯一指定的Server，
+Client和Server使用通道建立连接和发生通讯，其间具有多对一的关系。另外Client和Channel是一对一的组合关系，因此Client的大部分生命周期行为都被委托给
+Channel实现。</p>
+</div>
+<div class="paragraph has-source-line data-line-stdin-570">
+<p>也就是说从Client的视觉来说，它和Server的关系是一对一的，但是Channel的生命周期于Client来说是短暂的，通过仔细阅读代码发现，Dubbo实际上
+最多只保持一个Channel处于开启状态，新的连接进来，老的就被close掉，并从NettyChannel定义的私有、全局静态且线程安全的变量CHANNEL_MAP中剔除，
+此外Dubbo利用了并发中的一些诸如volatile、ReentrantLock、ConcurrentMap的技巧来保证线程安全。</p>
+</div>
+<div class="admonitionblock note has-source-line data-line-stdin-575">
+<table>
+<tbody><tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+由Netty创建的Channel每次连接会创建一份新的，Dubbo自己维护的NettyChannel与其生命周期基本是一样的，这还得回到Netty的hash值计算方式来，
+由源码可以看出，其Hash值的计算的唯一根据是Netty所创建的那份Channel。
+</td>
+</tr>
+</tbody></table>
+</div>
+<div class="listingblock has-source-line data-line-stdin-578">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#777">/**
+ * netty client bootstrap
+ */</span>
+<span style="color:#088;font-weight:bold">private</span> <span style="color:#088;font-weight:bold">static</span> <span style="color:#088;font-weight:bold">final</span> NioEventLoopGroup nioEventLoopGroup =
+    <span style="color:#080;font-weight:bold">new</span> NioEventLoopGroup(Constants.DEFAULT_IO_THREADS,
+        <span style="color:#080;font-weight:bold">new</span> DefaultThreadFactory(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">NettyClientWorker</span><span style="color:#710">"</span></span>, <span style="color:#069">true</span>));
+
+<span style="color:#088;font-weight:bold">private</span> Bootstrap bootstrap;
+
+
+<span style="color:#777">//======================</span>
+<span style="color:#777">//channel被申明成了volatile，每一次调用doConnect()发生新的连接都会替换该值</span>
+<span style="color:#777">//======================</span>
+<span style="color:#777">/**
+ * current channel. Each successful invocation of {@link NettyClient#doConnect()} will
+ * replace this with new channel and close old channel.
+ * &lt;b&gt;volatile, please copy reference to use.&lt;/b&gt;
+ */</span>
+<span style="color:#088;font-weight:bold">private</span> <span style="color:#088;font-weight:bold">volatile</span> <span style="color:#0a8;font-weight:bold">Channel</span> channel;
+
+
+<span style="color:#007">@Override</span>
+<span style="color:#088;font-weight:bold">protected</span> org.apache.dubbo.remoting.Channel getChannel() {
+    <span style="color:#0a8;font-weight:bold">Channel</span> c = channel;
+    <span style="color:#080;font-weight:bold">if</span> (c == <span style="color:#069">null</span> || !c.isActive()) {
+        <span style="color:#080;font-weight:bold">return</span> <span style="color:#069">null</span>;
+    }
+
+    <span style="color:#777">//调用下述方法，确保任何时刻都能获得client当前最新创建的Netty之Channel</span>
+    <span style="color:#080;font-weight:bold">return</span> NettyChannel.getOrAddChannel(c, getUrl(), <span style="color:#950">this</span>);
+}
+
+
+<span style="color:#777">//======================</span>
+<span style="color:#777">//client完成连接这个动作实际上是完成Client到Server通道的建立</span>
+<span style="color:#777">//======================</span>
+<span style="color:#007">@Override</span>
+<span style="color:#088;font-weight:bold">protected</span> <span style="color:#339;font-weight:bold">void</span> doConnect() <span style="color:#088;font-weight:bold">throws</span> <span style="color:#0a8;font-weight:bold">Throwable</span> {
+    <span style="color:#339;font-weight:bold">long</span> start = <span style="color:#0a8;font-weight:bold">System</span>.currentTimeMillis();
+    ChannelFuture future = bootstrap.connect(getConnectAddress());
+    <span style="color:#080;font-weight:bold">try</span> {
+        <span style="color:#777">//等待连接完成</span>
+        <span style="color:#339;font-weight:bold">boolean</span> ret = future.awaitUninterruptibly(getConnectTimeout(), MILLISECONDS);
+
+        <span style="color:#080;font-weight:bold">if</span> (ret &amp;&amp; future.isSuccess()) {
+            <span style="color:#777">//在指定时间内成功获取到连接通道</span>
+
+
+            <span style="color:#0a8;font-weight:bold">Channel</span> newChannel = future.channel();
+            <span style="color:#080;font-weight:bold">try</span> {
+                <span style="color:#777">//新的通道建立，老的那份就会被移除</span>
+
+                <span style="color:#777">// Close old channel</span>
+                <span style="color:#777">// copy reference</span>
+                <span style="color:#0a8;font-weight:bold">Channel</span> oldChannel = NettyClient.this.channel;
+                <span style="color:#080;font-weight:bold">if</span> (oldChannel != <span style="color:#069">null</span>) {
+                    <span style="color:#080;font-weight:bold">try</span> {
+                        <span style="color:#080;font-weight:bold">if</span> (logger.isInfoEnabled()) {
+                            logger.info(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Close old netty channel </span><span style="color:#710">"</span></span> + oldChannel + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20"> on create new netty channel </span><span style="color:#710">"</span></span> + newChannel);
+                        }
+                        oldChannel.close();
+                    } <span style="color:#080;font-weight:bold">finally</span> {
+                        <span style="color:#777">//将此前的channel自从CHANNEL_MAP中移除</span>
+                        NettyChannel.removeChannelIfDisconnected(oldChannel);
+                    }
+                }
+            } <span style="color:#080;font-weight:bold">finally</span> {
+
+                <span style="color:#080;font-weight:bold">if</span> (NettyClient.this.isClosed()) {
+                    <span style="color:#777">//Channel虽然成功获得连接，但等待连接这段时间内客户端已经关闭，这时新建立的通道也需要关闭</span>
+
+                    <span style="color:#080;font-weight:bold">try</span> {
+                        <span style="color:#080;font-weight:bold">if</span> (logger.isInfoEnabled()) {
+                            logger.info(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Close new netty channel </span><span style="color:#710">"</span></span> + newChannel + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">, because the client closed.</span><span style="color:#710">"</span></span>);
+                        }
+                        newChannel.close();
+                    } <span style="color:#080;font-weight:bold">finally</span> {
+                        NettyClient.this.channel = <span style="color:#069">null</span>;
+                        NettyChannel.removeChannelIfDisconnected(newChannel);
+                    }
+                } <span style="color:#080;font-weight:bold">else</span> {
+
+                    <span style="color:#777">//NettyClient中的这份channel变量是volatile类型的，更新对其它线程可见</span>
+                    NettyClient.this.channel = newChannel;
+                }
+            }
+        } <span style="color:#080;font-weight:bold">else</span> <span style="color:#080;font-weight:bold">if</span> (future.cause() != <span style="color:#069">null</span>) {
+            <span style="color:#080;font-weight:bold">throw</span> <span style="color:#080;font-weight:bold">new</span> RemotingException(<span style="color:#950">this</span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">client(url: </span><span style="color:#710">"</span></span> + getUrl() + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">) failed to connect to server </span><span style="color:#710">"</span></span>
+                    + getRemoteAddress() + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">, error message is:</span><span style="color:#710">"</span></span> + future.cause().getMessage(), future.cause());
+        } <span style="color:#080;font-weight:bold">else</span> {
+            <span style="color:#080;font-weight:bold">throw</span> <span style="color:#080;font-weight:bold">new</span> RemotingException(<span style="color:#950">this</span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">client(url: </span><span style="color:#710">"</span></span> + getUrl() + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">) failed to connect to server </span><span style="color:#710">"</span></span>
+                    + getRemoteAddress() + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20"> client-side timeout </span><span style="color:#710">"</span></span>
+                    + getConnectTimeout() + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">ms (elapsed: </span><span style="color:#710">"</span></span> + (<span style="color:#0a8;font-weight:bold">System</span>.currentTimeMillis() - start) + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">ms) from netty client </span><span style="color:#710">"</span></span>
+                    + NetUtils.getLocalHost() + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20"> using dubbo version </span><span style="color:#710">"</span></span> + Version.getVersion());
+        }
+    } <span style="color:#080;font-weight:bold">finally</span> {
+        <span style="color:#777">// just add new valid channel to NettyChannel's cache</span>
+        <span style="color:#080;font-weight:bold">if</span> (!isConnected()) {
+            <span style="color:#777">//future.cancel(true);</span>
+        }
+    }
+}
+
+
+<span style="color:#007">@Override</span>
+<span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">int</span> hashCode() {
+    <span style="color:#088;font-weight:bold">final</span> <span style="color:#339;font-weight:bold">int</span> prime = <span style="color:#00D">31</span>;
+    <span style="color:#339;font-weight:bold">int</span> result = <span style="color:#00D">1</span>;
+    result = prime * result + ((channel == <span style="color:#069">null</span>) ? <span style="color:#00D">0</span> : channel.hashCode());
+    <span style="color:#080;font-weight:bold">return</span> result;
+}
+
+<span style="color:#007">@Override</span>
+<span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">boolean</span> equals(<span style="color:#0a8;font-weight:bold">Object</span> obj) {
+    <span style="color:#080;font-weight:bold">if</span> (<span style="color:#950">this</span> == obj) {
+        <span style="color:#080;font-weight:bold">return</span> <span style="color:#069">true</span>;
+    }
+    <span style="color:#080;font-weight:bold">if</span> (obj == <span style="color:#069">null</span>) {
+        <span style="color:#080;font-weight:bold">return</span> <span style="color:#069">false</span>;
+    }
+    <span style="color:#080;font-weight:bold">if</span> (getClass() != obj.getClass()) {
+        <span style="color:#080;font-weight:bold">return</span> <span style="color:#069">false</span>;
+    }
+    NettyChannel other = (NettyChannel) obj;
+    <span style="color:#080;font-weight:bold">if</span> (channel == <span style="color:#069">null</span>) {
+        <span style="color:#080;font-weight:bold">if</span> (other.channel != <span style="color:#069">null</span>) {
+            <span style="color:#080;font-weight:bold">return</span> <span style="color:#069">false</span>;
+        }
+    } <span style="color:#080;font-weight:bold">else</span> <span style="color:#080;font-weight:bold">if</span> (!channel.equals(other.channel)) {
+        <span style="color:#080;font-weight:bold">return</span> <span style="color:#069">false</span>;
+    }
+    <span style="color:#080;font-weight:bold">return</span> <span style="color:#069">true</span>;
+}</code></pre>
+</div>
+</div>
+<div class="sect4 has-source-line data-line-stdin-714">
+<h5 id="_重入锁下的连接管理">重入锁下的连接管理</h5>
+<div class="paragraph has-source-line data-line-stdin-715">
+<p>一般而言，一个Dubbo应用程序，除了作为Consumer消费其它Server提供的服务外，也会作为Server向外提供服务。假设存在一种这样的场景，某个Dubbo应用
+在凌晨期间会启动定时任务从其它Server同步数据，而白天则对外直接提供服务，作为Consumer的角色仅限于凌晨这段时间。这时其对应的Client被实例化后
+会一直持续到任务同步完成后，然后结束其持续了数十分钟乃至几个小时的生命周期，尽管如此，它的生命周期依然会比每次发生数据传输时才建立的Channel通道
+的长得多。在这相对比较漫长的生涯过程中，由于宿主应用是运行在多线程环境中的，这个只连接指定Server的Client会被作为一种共享资源产生竞态条件，因而
+加锁操作是必须的，避免连接、断连、重连这几个操作被重复执行。</p>
+</div>
+<div class="listingblock has-source-line data-line-stdin-722">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#777">//======================</span>
+<span style="color:#777">//这里锁被声明为可重入的</span>
+<span style="color:#777">//======================</span>
+<span style="color:#088;font-weight:bold">private</span> <span style="color:#088;font-weight:bold">final</span> <span style="color:#0a8;font-weight:bold">Lock</span> connectLock = <span style="color:#080;font-weight:bold">new</span> <span style="color:#0a8;font-weight:bold">ReentrantLock</span>();
+
+<span style="color:#088;font-weight:bold">protected</span> <span style="color:#339;font-weight:bold">void</span> connect() <span style="color:#088;font-weight:bold">throws</span> RemotingException {
+
+    <span style="color:#777">//执行业务前先获得锁</span>
+    connectLock.lock();
+
+    <span style="color:#080;font-weight:bold">try</span> {
+
+        <span style="color:#777">//如果当前线程已经完成了到channel的连接绑定，则返回</span>
+        <span style="color:#080;font-weight:bold">if</span> (isConnected()) {
+            <span style="color:#080;font-weight:bold">return</span>;
+        }
+
+        <span style="color:#777">//委托具体实现类的实例完成连接操作</span>
+        doConnect();
+
+        <span style="color:#777">//上述操作之后，还没有获得连接，则报告异常信息</span>
+        <span style="color:#080;font-weight:bold">if</span> (!isConnected()) {
+            <span style="color:#080;font-weight:bold">throw</span> <span style="color:#080;font-weight:bold">new</span> RemotingException(<span style="color:#950">this</span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Failed connect to server </span><span style="color:#710">"</span></span> + getRemoteAddress() + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20"> from </span><span style="color:#710">"</span></span> + getClass().getSimpleName() + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20"> </span><span style="color:#710">"</span></span>
+                    + NetUtils.getLocalHost() + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20"> using dubbo version </span><span style="color:#710">"</span></span> + Version.getVersion()
+                    + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">, cause: Connect wait timeout: </span><span style="color:#710">"</span></span> + getConnectTimeout() + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">ms.</span><span style="color:#710">"</span></span>);
+
+        } <span style="color:#080;font-weight:bold">else</span> {
+            <span style="color:#080;font-weight:bold">if</span> (logger.isInfoEnabled()) {
+                logger.info(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Succeed connect to server </span><span style="color:#710">"</span></span> + getRemoteAddress() + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20"> from </span><span style="color:#710">"</span></span> + getClass().getSimpleName() + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20"> </span><span style="color:#710">"</span></span>
+                        + NetUtils.getLocalHost() + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20"> using dubbo version </span><span style="color:#710">"</span></span> + Version.getVersion()
+                        + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">, channel is </span><span style="color:#710">"</span></span> + <span style="color:#950">this</span>.getChannel());
+            }
+        }
+
+    } <span style="color:#080;font-weight:bold">catch</span> (RemotingException e) {
+        <span style="color:#080;font-weight:bold">throw</span> e;
+
+    } <span style="color:#080;font-weight:bold">catch</span> (<span style="color:#0a8;font-weight:bold">Throwable</span> e) {
+        <span style="color:#080;font-weight:bold">throw</span> <span style="color:#080;font-weight:bold">new</span> RemotingException(<span style="color:#950">this</span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Failed connect to server </span><span style="color:#710">"</span></span> + getRemoteAddress() + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20"> from </span><span style="color:#710">"</span></span> + getClass().getSimpleName() + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20"> </span><span style="color:#710">"</span></span>
+                + NetUtils.getLocalHost() + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20"> using dubbo version </span><span style="color:#710">"</span></span> + Version.getVersion()
+                + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">, cause: </span><span style="color:#710">"</span></span> + e.getMessage(), e);
+
+    } <span style="color:#080;font-weight:bold">finally</span> {
+        <span style="color:#777">//finally模块中释放锁</span>
+        connectLock.unlock();
+    }
+}
+
+<span style="color:#777">//======================</span>
+<span style="color:#777">//断连时，先获得连接通道，关闭之，后续执行doDisConnect，委托具体实现类完成其他断连相关扫尾工作</span>
+<span style="color:#777">//======================</span>
+<span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">void</span> disconnect() {
+    connectLock.lock();
+    <span style="color:#080;font-weight:bold">try</span> {
+        <span style="color:#080;font-weight:bold">try</span> {
+            <span style="color:#0a8;font-weight:bold">Channel</span> channel = getChannel();
+            <span style="color:#080;font-weight:bold">if</span> (channel != <span style="color:#069">null</span>) {
+                channel.close();
+            }
+        } <span style="color:#080;font-weight:bold">catch</span> (<span style="color:#0a8;font-weight:bold">Throwable</span> e) {
+            logger.warn(e.getMessage(), e);
+        }
+        <span style="color:#080;font-weight:bold">try</span> {
+            doDisConnect();
+        } <span style="color:#080;font-weight:bold">catch</span> (<span style="color:#0a8;font-weight:bold">Throwable</span> e) {
+            logger.warn(e.getMessage(), e);
+        }
+    } <span style="color:#080;font-weight:bold">finally</span> {
+        connectLock.unlock();
+    }
+}
+
+<span style="color:#777">//======================</span>
+<span style="color:#777">//重连只有在当前连接丢失的情况下才能再次进行，每次重连之前需要先执行disconnect操作，将此前的现场信息清除掉</span>
+<span style="color:#777">//======================</span>
+<span style="color:#007">@Override</span>
+<span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">void</span> reconnect() <span style="color:#088;font-weight:bold">throws</span> RemotingException {
+    <span style="color:#080;font-weight:bold">if</span> (!isConnected()) {
+        connectLock.lock();
+        <span style="color:#080;font-weight:bold">try</span> {
+            <span style="color:#080;font-weight:bold">if</span> (!isConnected()) {
+                disconnect();
+                connect();
+            }
+        } <span style="color:#080;font-weight:bold">finally</span> {
+            connectLock.unlock();
+        }
+    }
+}</code></pre>
+</div>
+</div>
+<div class="admonitionblock note has-source-line data-line-stdin-814">
+<table>
+<tbody><tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+<div class="paragraph has-source-line data-line-stdin-815">
+<p>可重入锁也即如果一个线程已经获得锁，再次尝试获取锁时会即刻被放行，锁计数值+1，嵌套调用的方法以与获取锁相反的顺序逐个释放锁，锁计数值依次-1，
+当计数值为0时，当前线程完成锁的释放，使得其它线程有机会获取到锁。重入锁避免了同一线程再次获取锁时会出现死锁或者获锁造成的等待时间消耗。</p>
+</div>
+<div class="paragraph has-source-line data-line-stdin-818">
+<p><span class="big"><strong>通常锁会和申明为volatile的变量结合使用，由其可见性保证当前线程能第一时间获知其值的变化。</strong></span></p>
+</div>
+</td>
+</tr>
+</tbody></table>
+</div>
+<div class="sect5 has-source-line data-line-stdin-821">
+<h6 id="_获取channel发送消息">获取channel发送消息</h6>
+<div class="paragraph has-source-line data-line-stdin-823">
+<p>分布式的参与主机需要在网络的作用下才能发送通讯，这些主机所处环境甚至是异构的，掉线是一很普遍的事，因而使用通道发送消息之前要检测当前连接是否
+已经断开，Dubbo允许配置Client在断连后进行重连，相关参数为“send.reconnect”。</p>
+</div>
+<div class="listingblock has-source-line data-line-stdin-827">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#088;font-weight:bold">private</span> <span style="color:#088;font-weight:bold">final</span> <span style="color:#339;font-weight:bold">boolean</span> needReconnect;
+
+<span style="color:#088;font-weight:bold">public</span> AbstractClient(<span style="color:#0a8;font-weight:bold">URL</span> url, ChannelHandler handler) <span style="color:#088;font-weight:bold">throws</span> RemotingException {
+    <span style="color:#950">super</span>(url, handler);
+    <span style="color:#777">//send.reconnect参数告知在发送消息时是否需要做重连处理</span>
+    needReconnect = url.getParameter(Constants.SEND_RECONNECT_KEY, <span style="color:#069">false</span>);
+    ...
+}
+
+
+<span style="color:#007">@Override</span>
+<span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">void</span> send(<span style="color:#0a8;font-weight:bold">Object</span> message, <span style="color:#339;font-weight:bold">boolean</span> sent) <span style="color:#088;font-weight:bold">throws</span> RemotingException {
+    <span style="color:#080;font-weight:bold">if</span> (needReconnect &amp;&amp; !isConnected()) {
+        connect();
+    }
+
+    <span style="color:#777">//确保处于连接状态下再发送请求</span>
+    <span style="color:#0a8;font-weight:bold">Channel</span> channel = getChannel();
+    <span style="color:#777">//TODO Can the value returned by getChannel() be null? need improvement.</span>
+    <span style="color:#080;font-weight:bold">if</span> (channel == <span style="color:#069">null</span> || !channel.isConnected()) {
+        <span style="color:#080;font-weight:bold">throw</span> <span style="color:#080;font-weight:bold">new</span> RemotingException(<span style="color:#950">this</span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">message can not send, because channel is closed . url:</span><span style="color:#710">"</span></span> + getUrl());
+    }
+    channel.send(message, sent);
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect5 has-source-line data-line-stdin-853">
+<h6 id="_资源竞争中的重连操作">资源竞争中的重连操作</h6>
+<div class="paragraph has-source-line data-line-stdin-855">
+<p>在《定时轮算法及其实现》一文中的应用案例中有提到，Dubbo会专门分配一个线程利用定时轮周期性地完成重连操作，完成业务操作的关键代码正是这里提到
+的<code>reconnect()</code>，如下述源码所示，如果检测到绑定Channel已经断连，或最近一次Channel的读取时间是否“<code>&gt; idleTimeout</code>”，则执行重连操作。</p>
+</div>
+<div class="listingblock has-source-line data-line-stdin-858">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#777">/**
+ * ReconnectTimerTask
+ */</span>
+<span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">ReconnectTimerTask</span> <span style="color:#088;font-weight:bold">extends</span> AbstractTimerTask {
+
+    <span style="color:#088;font-weight:bold">private</span> <span style="color:#088;font-weight:bold">static</span> <span style="color:#088;font-weight:bold">final</span> <span style="color:#0a8;font-weight:bold">Logger</span> logger = LoggerFactory.getLogger(ReconnectTimerTask.class);
+
+    <span style="color:#088;font-weight:bold">private</span> <span style="color:#088;font-weight:bold">final</span> <span style="color:#339;font-weight:bold">int</span> idleTimeout;
+
+    <span style="color:#088;font-weight:bold">public</span> ReconnectTimerTask(ChannelProvider channelProvider, <span style="color:#0a8;font-weight:bold">Long</span> heartbeatTimeoutTick, <span style="color:#339;font-weight:bold">int</span> idleTimeout) {
+        <span style="color:#950">super</span>(channelProvider, heartbeatTimeoutTick);
+        <span style="color:#950">this</span>.idleTimeout = idleTimeout;
+    }
+
+    <span style="color:#007">@Override</span>
+    <span style="color:#088;font-weight:bold">protected</span> <span style="color:#339;font-weight:bold">void</span> doTask(<span style="color:#0a8;font-weight:bold">Channel</span> channel) {
+        <span style="color:#080;font-weight:bold">try</span> {
+            <span style="color:#0a8;font-weight:bold">Long</span> lastRead = lastRead(channel);
+            <span style="color:#0a8;font-weight:bold">Long</span> now = now();
+
+            <span style="color:#777">// Rely on reconnect timer to reconnect when AbstractClient.doConnect fails to init the connection</span>
+            <span style="color:#080;font-weight:bold">if</span> (!channel.isConnected()) {
+                <span style="color:#080;font-weight:bold">try</span> {
+                    logger.info(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Initial connection to </span><span style="color:#710">"</span></span> + channel);
+                    <span style="color:#777">//Client继承实现了Channel接口，具体行为实现委托给了所引用的Channel</span>
+                    ((Client) channel).reconnect();
+                } <span style="color:#080;font-weight:bold">catch</span> (<span style="color:#C00;font-weight:bold">Exception</span> e) {
+                    logger.error(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Fail to connect to </span><span style="color:#710">"</span></span> + channel, e);
+                }
+            <span style="color:#777">// check pong at client</span>
+            } <span style="color:#080;font-weight:bold">else</span> <span style="color:#080;font-weight:bold">if</span> (lastRead != <span style="color:#069">null</span> &amp;&amp; now - lastRead &gt; idleTimeout) {
+                logger.warn(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Reconnect to channel </span><span style="color:#710">"</span></span> + channel + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">, because heartbeat read idle time out: </span><span style="color:#710">"</span></span>
+                        + idleTimeout + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">ms</span><span style="color:#710">"</span></span>);
+                <span style="color:#080;font-weight:bold">try</span> {
+                    ((Client) channel).reconnect();
+                } <span style="color:#080;font-weight:bold">catch</span> (<span style="color:#C00;font-weight:bold">Exception</span> e) {
+                    logger.error(channel + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">reconnect failed during idle time.</span><span style="color:#710">"</span></span>, e);
+                }
+            }
+        } <span style="color:#080;font-weight:bold">catch</span> (<span style="color:#0a8;font-weight:bold">Throwable</span> t) {
+            logger.warn(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Exception when reconnect to remote channel </span><span style="color:#710">"</span></span> + channel.getRemoteAddress(), t);
+        }
+    }
+}
+<span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">HeaderExchangeClient</span> <span style="color:#088;font-weight:bold">implements</span> ExchangeClient <span style="color:#F00;background-color:#FAA">→</span> (Client, ExchangeChannel) {
+    <span style="color:#777">//执行周期任务的时间轮引擎</span>
+    <span style="color:#088;font-weight:bold">private</span> <span style="color:#088;font-weight:bold">static</span> <span style="color:#088;font-weight:bold">final</span> HashedWheelTimer IDLE_CHECK_TIMER = <span style="color:#080;font-weight:bold">new</span> HashedWheelTimer(
+            <span style="color:#080;font-weight:bold">new</span> NamedThreadFactory(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">dubbo-client-idleCheck</span><span style="color:#710">"</span></span>, <span style="color:#069">true</span>), <span style="color:#00D">1</span>, <span style="color:#0a8;font-weight:bold">TimeUnit</span>.SECONDS, TICKS_PER_WHEEL);
+    ...
+    private <span style="color:#339;font-weight:bold">void</span> startReconnectTask(<span style="color:#0a8;font-weight:bold">URL</span> url) {
+        <span style="color:#080;font-weight:bold">if</span> (shouldReconnect(url)) {
+            AbstractTimerTask.ChannelProvider cp = () -&gt; <span style="color:#0a8;font-weight:bold">Collections</span>.singletonList(HeaderExchangeClient.this);
+            <span style="color:#339;font-weight:bold">int</span> idleTimeout = getIdleTimeout(url);
+            <span style="color:#339;font-weight:bold">long</span> heartbeatTimeoutTick = calculateLeastDuration(idleTimeout);
+            <span style="color:#950">this</span>.reconnectTimerTask = <span style="color:#080;font-weight:bold">new</span> ReconnectTimerTask(cp, heartbeatTimeoutTick, idleTimeout);
+            <span style="color:#777">//提交周期任务</span>
+            IDLE_CHECK_TIMER.newTimeout(reconnectTimerTask, heartbeatTimeoutTick, <span style="color:#0a8;font-weight:bold">TimeUnit</span>.MILLISECONDS);
+        }
+    }
+    ...
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect4 has-source-line data-line-stdin-923">
+<h5 id="_委托绑定channel实现的行为">委托绑定Channel实现的行为</h5>
+<div class="paragraph has-source-line data-line-stdin-924">
+<p>AbstractClient实现了Client接口，而后者又融合了Endpoint、Channel、Resetable、IdleSensible这4个接口，如下述源码所示的特性实际上是委托给
+当前绑定的激活态Channel达成的，也就是包括Client本地属性存取在内的操作实际上是由绑定Channel完成的。</p>
+</div>
+<div class="listingblock has-source-line data-line-stdin-927">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#088;font-weight:bold">public</span> <span style="color:#0a8;font-weight:bold">Object</span> getAttribute(<span style="color:#0a8;font-weight:bold">String</span> key) {
+    <span style="color:#0a8;font-weight:bold">Channel</span> channel = getChannel();
+    <span style="color:#080;font-weight:bold">if</span> (channel == <span style="color:#069">null</span>) {
+        <span style="color:#080;font-weight:bold">return</span> <span style="color:#069">null</span>;
+    }
+    <span style="color:#080;font-weight:bold">return</span> channel.getAttribute(key);
+}
+
+<span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">void</span> setAttribute(<span style="color:#0a8;font-weight:bold">String</span> key, <span style="color:#0a8;font-weight:bold">Object</span> value) {
+    <span style="color:#0a8;font-weight:bold">Channel</span> channel = getChannel();
+    <span style="color:#080;font-weight:bold">if</span> (channel == <span style="color:#069">null</span>) {
+        <span style="color:#080;font-weight:bold">return</span>;
+    }
+    channel.setAttribute(key, value);
+}
+
+<span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">void</span> removeAttribute(<span style="color:#0a8;font-weight:bold">String</span> key) {
+    <span style="color:#0a8;font-weight:bold">Channel</span> channel = getChannel();
+    <span style="color:#080;font-weight:bold">if</span> (channel == <span style="color:#069">null</span>) {
+        <span style="color:#080;font-weight:bold">return</span>;
+    }
+    channel.removeAttribute(key);
+}
+
+<span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">boolean</span> hasAttribute(<span style="color:#0a8;font-weight:bold">String</span> key) {
+    <span style="color:#0a8;font-weight:bold">Channel</span> channel = getChannel();
+    <span style="color:#080;font-weight:bold">if</span> (channel == <span style="color:#069">null</span>) {
+        <span style="color:#080;font-weight:bold">return</span> <span style="color:#069">false</span>;
+    }
+    <span style="color:#080;font-weight:bold">return</span> channel.hasAttribute(key);
+}
+
+
+<span style="color:#007">@Override</span>
+<span style="color:#088;font-weight:bold">public</span> <span style="color:#0a8;font-weight:bold">InetSocketAddress</span> getRemoteAddress() {
+    <span style="color:#0a8;font-weight:bold">Channel</span> channel = getChannel();
+    <span style="color:#080;font-weight:bold">if</span> (channel == <span style="color:#069">null</span>) {
+        <span style="color:#080;font-weight:bold">return</span> getUrl().toInetSocketAddress();
+    }
+    <span style="color:#080;font-weight:bold">return</span> channel.getRemoteAddress();
+}
+
+<span style="color:#007">@Override</span>
+<span style="color:#088;font-weight:bold">public</span> <span style="color:#0a8;font-weight:bold">InetSocketAddress</span> getLocalAddress() {
+    <span style="color:#0a8;font-weight:bold">Channel</span> channel = getChannel();
+    <span style="color:#080;font-weight:bold">if</span> (channel == <span style="color:#069">null</span>) {
+        <span style="color:#080;font-weight:bold">return</span> <span style="color:#0a8;font-weight:bold">InetSocketAddress</span>.createUnresolved(NetUtils.getLocalHost(), <span style="color:#00D">0</span>);
+    }
+    <span style="color:#080;font-weight:bold">return</span> channel.getLocalAddress();
+}
+
+<span style="color:#007">@Override</span>
+<span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">boolean</span> isConnected() {
+    <span style="color:#0a8;font-weight:bold">Channel</span> channel = getChannel();
+    <span style="color:#080;font-weight:bold">if</span> (channel == <span style="color:#069">null</span>) {
+        <span style="color:#080;font-weight:bold">return</span> <span style="color:#069">false</span>;
+    }
+    <span style="color:#080;font-weight:bold">return</span> channel.isConnected();
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4 has-source-line data-line-stdin-990">
+<h5 id="_client的诞生和消亡">Client的诞生和消亡</h5>
+<div class="paragraph has-source-line data-line-stdin-992">
+<p>所涉及内容和Dubbo线程派发模型有着莫大的关系，线程池随Client产生而生产，随Client关闭而销毁，有关细节请参考《Dubbo之线程管理》，下述简要看看
+其实现。</p>
+</div>
+<div class="sect5 has-source-line data-line-stdin-995">
+<h6 id="_close">close</h6>
+<div class="paragraph has-source-line data-line-stdin-997">
+<p>Close的基本步骤如下，如果调用<code>close(int timeout)</code>则会先调用线程池优雅终止方法<code>ExecutorUtil.gracefulShutdown()</code>：</p>
+</div>
+<div class="olist arabic has-source-line data-line-stdin-999">
+<ol class="arabic">
+<li class="has-source-line data-line-stdin-999">
+<p>调用父类<code>AbstractPeer.close()</code>标记<code>closed</code>为true；</p>
+</li>
+<li class="has-source-line data-line-stdin-1000">
+<p>调用<code>ExecutorUtil.shutdownNow(executor, 100)</code>确保使用到的线程池被释放，相关执行任务被正常终止；</p>
+</li>
+<li class="has-source-line data-line-stdin-1001">
+<p>调用<code>AbstractClient.disconnect()</code>关闭当前用于通信的Channel；</p>
+</li>
+<li class="has-source-line data-line-stdin-1002">
+<p>调用<code>AbstractClientXXXImpl.doClose()</code>执行一些收尾工作；</p>
+</li>
+</ol>
+</div>
+<div class="listingblock has-source-line data-line-stdin-1004">
+<div class="content">
+<pre>@Override
+public void close() {
+
+    try {
+        super.close();
+    } catch (Throwable e) {
+        logger.warn(e.getMessage(), e);
+    }
+
+    try {
+        if (executor != null) {
+            ExecutorUtil.shutdownNow(executor, 100);
+        }
+    } catch (Throwable e) {
+        logger.warn(e.getMessage(), e);
+    }
+
+    try {
+        disconnect();
+    } catch (Throwable e) {
+        logger.warn(e.getMessage(), e);
+    }
+
+    try {
+        doClose();
+    } catch (Throwable e) {
+        logger.warn(e.getMessage(), e);
+    }
+}
+
+@Override
+public void close(int timeout) {
+    ExecutorUtil.gracefulShutdown(executor, timeout);
+    close();
+}</pre>
+</div>
+</div>
+</div>
+<div class="sect5 has-source-line data-line-stdin-1042">
+<h6 id="_open">open</h6>
+<div class="paragraph has-source-line data-line-stdin-1044">
+<p>客户端Client到Server的连接在其实例化时就发生了，其基本为：1）先调用具体实现类的<code>doOpen()</code>方法准备必要的资源；2）调用<code>connect()</code>建立
+连接。步骤中的任意一步有错，便调用<code>close()</code>方法关闭当前Client。</p>
+</div>
+<div class="listingblock has-source-line data-line-stdin-1048">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#088;font-weight:bold">public</span> AbstractClient(<span style="color:#0a8;font-weight:bold">URL</span> url, ChannelHandler handler) <span style="color:#088;font-weight:bold">throws</span> RemotingException {
+    ...
+    try {
+        doOpen();
+    } <span style="color:#080;font-weight:bold">catch</span> (<span style="color:#0a8;font-weight:bold">Throwable</span> t) {
+        close();
+        <span style="color:#080;font-weight:bold">throw</span> <span style="color:#080;font-weight:bold">new</span> RemotingException(...);
+    }
+    <span style="color:#080;font-weight:bold">try</span> {
+        <span style="color:#777">// connect.</span>
+        connect();
+        ... log
+    } <span style="color:#080;font-weight:bold">catch</span> (RemotingException t) {
+        <span style="color:#080;font-weight:bold">if</span> (url.getParameter(Constants.CHECK_KEY, <span style="color:#069">true</span>)) {
+            close();
+            <span style="color:#080;font-weight:bold">throw</span> t;
+        } <span style="color:#080;font-weight:bold">else</span> {
+            ... log
+        }
+    } <span style="color:#080;font-weight:bold">catch</span> (<span style="color:#0a8;font-weight:bold">Throwable</span> t) {
+        close();
+        <span style="color:#080;font-weight:bold">throw</span> <span style="color:#080;font-weight:bold">new</span> RemotingException(...);
+    }
+
+    ...
+}</code></pre>
+</div>
+</div>
+<div class="paragraph has-source-line data-line-stdin-1077">
+<p>以Netty为例，<code>doOpen</code>实现就是负责构建Netty的启动器，设置好对应的环境参数，传入对应的ChannelHandler，由Netty在对应I/O事件驱动回调其相应方法。</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2 has-source-line data-line-stdin-1081">
+<h3 id="_netty之于dubbo">Netty之于Dubbo</h3>
+<div class="paragraph has-source-line data-line-stdin-1083">
+<p>本文中涉及到的网络通讯中间件，都只以Netty4为分析对象，关于Netty的原理部分的解析放在该章节，有利于在充分理解既有的Dubbo基础组件的基础之上
+能够深入掌握Netty和Dubbo是如何协作的。</p>
+</div>
+<div class="sect3 has-source-line data-line-stdin-1086">
+<h4 id="_构建netty启动器">构建Netty启动器</h4>
+<div class="sect4 has-source-line data-line-stdin-1088">
+<h5 id="_nettyclient">NettyClient</h5>
+<div class="paragraph has-source-line data-line-stdin-1090">
+<p>于Client，Netty启动器构建是在其<code>doOpen()</code>实现中完成的：</p>
+</div>
+<div class="olist arabic has-source-line data-line-stdin-1092">
+<ol class="arabic">
+<li class="has-source-line data-line-stdin-1092">
+<p>为当前JVM构建全局唯一用于Client处理网络I/O事件的NioEventLoopGroup线程池；</p>
+</li>
+<li class="has-source-line data-line-stdin-1093">
+<p>传入所需环境参数，构建Bootstrap；</p>
+</li>
+<li class="has-source-line data-line-stdin-1094">
+<p>通过调用<code>bootstrap.handler(new ChannelInitializer() {…​})</code>给对应的通道<strong>pipeline</strong>设置各种handler；</p>
+</li>
+<li class="has-source-line data-line-stdin-1095">
+<p>在<strong>pipeline</strong>加入最重要的自定义<code>NettyClientHandler ← ChannelDuplexHandler</code>，由其将网络I/O事件桥接到Dubbo；</p>
+</li>
+</ol>
+</div>
+<div class="listingblock has-source-line data-line-stdin-1098">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">NettyClient</span> <span style="color:#088;font-weight:bold">extends</span> AbstractClient {
+
+    <span style="color:#777">//同一JVM中的所有Client共享同一I/O线程池</span>
+    <span style="color:#088;font-weight:bold">private</span> <span style="color:#088;font-weight:bold">static</span> <span style="color:#088;font-weight:bold">final</span> NioEventLoopGroup nioEventLoopGroup = <span style="color:#080;font-weight:bold">new</span> NioEventLoopGroup(
+        Constants.DEFAULT_IO_THREADS, <span style="color:#080;font-weight:bold">new</span> DefaultThreadFactory(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">NettyClientWorker</span><span style="color:#710">"</span></span>, <span style="color:#069">true</span>));
+
+    <span style="color:#088;font-weight:bold">private</span> <span style="color:#088;font-weight:bold">static</span> <span style="color:#088;font-weight:bold">final</span> <span style="color:#0a8;font-weight:bold">String</span> SOCKS_PROXY_HOST = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">socksProxyHost</span><span style="color:#710">"</span></span>;
+
+    <span style="color:#088;font-weight:bold">private</span> <span style="color:#088;font-weight:bold">static</span> <span style="color:#088;font-weight:bold">final</span> <span style="color:#0a8;font-weight:bold">String</span> SOCKS_PROXY_PORT = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">socksProxyPort</span><span style="color:#710">"</span></span>;
+
+    <span style="color:#088;font-weight:bold">private</span> <span style="color:#088;font-weight:bold">static</span> <span style="color:#088;font-weight:bold">final</span> <span style="color:#0a8;font-weight:bold">String</span> DEFAULT_SOCKS_PROXY_PORT = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">1080</span><span style="color:#710">"</span></span>;
+
+    <span style="color:#088;font-weight:bold">private</span> Bootstrap bootstrap;
+
+
+    <span style="color:#007">@Override</span>
+    <span style="color:#088;font-weight:bold">protected</span> <span style="color:#339;font-weight:bold">void</span> doOpen() <span style="color:#088;font-weight:bold">throws</span> <span style="color:#0a8;font-weight:bold">Throwable</span> {
+
+        <span style="color:#777">//最重要的一个handler，用于将Netty的网络I/O事件桥接到Dubbo，</span>
+        <span style="color:#777">//也即在Netty的I/O事件点触发对应ChannelHandler的事件</span>
+        <span style="color:#088;font-weight:bold">final</span> NettyClientHandler nettyClientHandler = <span style="color:#080;font-weight:bold">new</span> NettyClientHandler(getUrl(), <span style="color:#950">this</span>);
+
+        <span style="color:#777">//创建netty的客户端启动器，设置环境参数</span>
+        bootstrap = <span style="color:#080;font-weight:bold">new</span> Bootstrap();
+        bootstrap.group(nioEventLoopGroup)
+                .option(ChannelOption.SO_KEEPALIVE, <span style="color:#069">true</span>)<span style="color:#777">//保活</span>
+                .option(ChannelOption.TCP_NODELAY, <span style="color:#069">true</span>)<span style="color:#777">//无延迟</span>
+                <span style="color:#777">//使用默认的内存分配方式</span>
+                .option(ChannelOption.ALLOCATOR, PooledByteBufAllocator.DEFAULT)
+                <span style="color:#777">//.option(ChannelOption.CONNECT_TIMEOUT_MILLIS, getTimeout())</span>
+                .channel(NioSocketChannel.class);
+
+        <span style="color:#777">//设置超时时间，最小3s，其值来自AbstractEndpoint这个抽象类设置的connectTimeout值</span>
+        <span style="color:#080;font-weight:bold">if</span> (getConnectTimeout() &lt; <span style="color:#00D">3000</span>) {
+            bootstrap.option(ChannelOption.CONNECT_TIMEOUT_MILLIS, <span style="color:#00D">3000</span>);
+        } <span style="color:#080;font-weight:bold">else</span> {
+            bootstrap.option(ChannelOption.CONNECT_TIMEOUT_MILLIS, getConnectTimeout());
+        }
+
+        <span style="color:#777">//ChannelInitializer用于对通道执行初始化操作，用完会被从上下文中移除</span>
+        bootstrap.handler(<span style="color:#080;font-weight:bold">new</span> ChannelInitializer() {
+
+            <span style="color:#007">@Override</span>
+            <span style="color:#088;font-weight:bold">protected</span> <span style="color:#339;font-weight:bold">void</span> initChannel(<span style="color:#0a8;font-weight:bold">Channel</span> ch) <span style="color:#088;font-weight:bold">throws</span> <span style="color:#C00;font-weight:bold">Exception</span> {
+                <span style="color:#777">//获取URL中传入的心跳周期时间，键：heartbeat，默认值：60 * 1000(一分钟)</span>
+                <span style="color:#339;font-weight:bold">int</span> heartbeatInterval = UrlUtils.getHeartbeat(getUrl());
+
+                <span style="color:#777">//由Dubbo实现的编解码适配器</span>
+                NettyCodecAdapter adapter = <span style="color:#080;font-weight:bold">new</span> NettyCodecAdapter(getCodec(), getUrl(), NettyClient.this);
+
+                ch.pipeline()<span style="color:#777">//.addLast("logging",new LoggingHandler(LogLevel.INFO))//for debug</span>
+
+                        <span style="color:#777">//增加用于编解码的handler：二进制数据 ←→ Java Object对象</span>
+                        .addLast(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">decoder</span><span style="color:#710">"</span></span>, adapter.getDecoder())
+                        .addLast(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">encoder</span><span style="color:#710">"</span></span>, adapter.getEncoder())
+
+                        <span style="color:#777">//增设空闲处理handler，当有段时间没有执行I/O读写事件时会执行心跳处理</span>
+                        .addLast(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">client-idle-handler</span><span style="color:#710">"</span></span>, <span style="color:#080;font-weight:bold">new</span> IdleStateHandler(heartbeatInterval, <span style="color:#00D">0</span>, <span style="color:#00D">0</span>, MILLISECONDS))
+
+                        .addLast(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">handler</span><span style="color:#710">"</span></span>, nettyClientHandler);
+
+                <span style="color:#777">//使用代理访问网络</span>
+                <span style="color:#777">//Socks5让有权限的用户可以穿过过防火墙的限制，使得高权限用户可以访问外部资源</span>
+                <span style="color:#0a8;font-weight:bold">String</span> socksProxyHost = ConfigUtils.getProperty(SOCKS_PROXY_HOST);
+                <span style="color:#080;font-weight:bold">if</span>(socksProxyHost != <span style="color:#069">null</span>) {
+                    <span style="color:#339;font-weight:bold">int</span> socksProxyPort = <span style="color:#0a8;font-weight:bold">Integer</span>.parseInt(ConfigUtils.getProperty(
+                        SOCKS_PROXY_PORT, DEFAULT_SOCKS_PROXY_PORT));
+                    Socks5ProxyHandler socks5ProxyHandler = <span style="color:#080;font-weight:bold">new</span> Socks5ProxyHandler(
+                        <span style="color:#080;font-weight:bold">new</span> <span style="color:#0a8;font-weight:bold">InetSocketAddress</span>(socksProxyHost, socksProxyPort));
+                    ch.pipeline().addFirst(socks5ProxyHandler);
+                }
+            }
+        });
+    }
+    ...
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4 has-source-line data-line-stdin-1176">
+<h5 id="_nettyserver">NettyServer</h5>
+<div class="paragraph has-source-line data-line-stdin-1177">
+<p>在《Dubbo线程管理》对Netty到Dubbo的线程模型已经有关比较详述的内容，为更加准确的理解Netty Server的启动器初始化过程，特呈现下图，由其可知：</p>
+</div>
+<div class="paragraph has-source-line data-line-stdin-1179">
+<p>一个Netty Server包含着如下几个关键组件：1）Boss Group；2）Work Group；3）Pipeline；4）NioEventGroup；5）Selector；6）ChannelHandler</p>
+</div>
+<div class="paragraph has-source-line data-line-stdin-1181">
+<p>其过程如下：</p>
+</div>
+<div class="olist arabic has-source-line data-line-stdin-1183">
+<ol class="arabic">
+<li class="has-source-line data-line-stdin-1183">
+<p>被称为Boss Group的线程池使用单个线程NioEventGroup，其中的Selector负责select来自Client的连接I/O请求，成功建立连接后会为Client构建
+一个通讯通道Channel</p>
+</li>
+<li class="has-source-line data-line-stdin-1185">
+<p>随后Channel会被注册到某个负责select 读写I/O请求的Selector上，该Selector位于被称为Work Group的线程池的某个NioEventGroup线程上；</p>
+</li>
+<li class="has-source-line data-line-stdin-1186">
+<p>如果发现有读写I/O就绪事件，Netty内核会将事件传递到绑定当前Channel的Pipeline上，其中的ChannelHandler会根据自身特性挨个处理事件回调；</p>
+</li>
+</ol>
+</div>
+<div class="imageblock has-source-line data-line-stdin-1188">
+<div class="content">
+<img src="res_files/imgs/4_image(2)" alt="Netty 服务端架构" width="650">
+</div>
+<div class="title">图：Netty 服务端架构图</div>
+</div>
+<div class="paragraph has-source-line data-line-stdin-1190">
+<p>其实过程和Netty Client基本类似，尤其是配置Handler处理其信息的编解码过程。只不过服务端会有多个Client接入，</p>
+</div>
+<div class="listingblock has-source-line data-line-stdin-1193">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">NettyServer</span> <span style="color:#088;font-weight:bold">extends</span> AbstractServer <span style="color:#088;font-weight:bold">implements</span> Server {
+    <span style="color:#777">/**
+     * the cache for alive worker channel.
+     * &lt;ip:port, dubbo channel&gt;
+     */</span>
+    <span style="color:#088;font-weight:bold">private</span> <span style="color:#0a8;font-weight:bold">Map</span>&lt;<span style="color:#0a8;font-weight:bold">String</span>, <span style="color:#0a8;font-weight:bold">Channel</span>&gt; channels;
+    <span style="color:#777">/**
+     * netty server bootstrap.
+     */</span>
+    <span style="color:#088;font-weight:bold">private</span> ServerBootstrap bootstrap;
+    <span style="color:#777">/**
+     * the boss channel that receive connections and dispatch these to worker channel.
+     */</span>
+        <span style="color:#088;font-weight:bold">private</span> io.netty.channel.Channel channel;
+
+    <span style="color:#088;font-weight:bold">private</span> EventLoopGroup bossGroup;
+    <span style="color:#088;font-weight:bold">private</span> EventLoopGroup workerGroup;
+    <span style="color:#777">/**
+     * Init and start netty server
+     *
+     * @throws Throwable
+     */</span>
+    <span style="color:#007">@Override</span>
+    <span style="color:#088;font-weight:bold">protected</span> <span style="color:#339;font-weight:bold">void</span> doOpen() <span style="color:#088;font-weight:bold">throws</span> <span style="color:#0a8;font-weight:bold">Throwable</span> {
+        bootstrap = <span style="color:#080;font-weight:bold">new</span> ServerBootstrap();
+
+        bossGroup = <span style="color:#080;font-weight:bold">new</span> NioEventLoopGroup(<span style="color:#00D">1</span>, <span style="color:#080;font-weight:bold">new</span> DefaultThreadFactory(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">NettyServerBoss</span><span style="color:#710">"</span></span>, <span style="color:#069">true</span>));
+        workerGroup = <span style="color:#080;font-weight:bold">new</span> NioEventLoopGroup(getUrl().getPositiveParameter(IO_THREADS_KEY, Constants.DEFAULT_IO_THREADS),
+                <span style="color:#080;font-weight:bold">new</span> DefaultThreadFactory(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">NettyServerWorker</span><span style="color:#710">"</span></span>, <span style="color:#069">true</span>));
+
+        <span style="color:#088;font-weight:bold">final</span> NettyServerHandler nettyServerHandler = <span style="color:#080;font-weight:bold">new</span> NettyServerHandler(getUrl(), <span style="color:#950">this</span>);
+        channels = nettyServerHandler.getChannels();
+
+        bootstrap.group(bossGroup, workerGroup)
+                .channel(NioServerSocketChannel.class)
+                .childOption(ChannelOption.TCP_NODELAY, <span style="color:#0a8;font-weight:bold">Boolean</span>.TRUE)
+                .childOption(ChannelOption.SO_REUSEADDR, <span style="color:#0a8;font-weight:bold">Boolean</span>.TRUE)
+                .childOption(ChannelOption.ALLOCATOR, PooledByteBufAllocator.DEFAULT)
+                .childHandler(<span style="color:#080;font-weight:bold">new</span> ChannelInitializer&lt;NioSocketChannel&gt;() {
+                    <span style="color:#007">@Override</span>
+                    <span style="color:#088;font-weight:bold">protected</span> <span style="color:#339;font-weight:bold">void</span> initChannel(NioSocketChannel ch) <span style="color:#088;font-weight:bold">throws</span> <span style="color:#C00;font-weight:bold">Exception</span> {
+                        <span style="color:#777">// FIXME: should we use getTimeout()?</span>
+                        <span style="color:#339;font-weight:bold">int</span> idleTimeout = UrlUtils.getIdleTimeout(getUrl());
+                        NettyCodecAdapter adapter = <span style="color:#080;font-weight:bold">new</span> NettyCodecAdapter(getCodec(), getUrl(), NettyServer.this);
+                        ch.pipeline()<span style="color:#777">//.addLast("logging",new LoggingHandler(LogLevel.INFO))//for debug</span>
+                                .addLast(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">decoder</span><span style="color:#710">"</span></span>, adapter.getDecoder())
+                                .addLast(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">encoder</span><span style="color:#710">"</span></span>, adapter.getEncoder())
+                                .addLast(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">server-idle-handler</span><span style="color:#710">"</span></span>, <span style="color:#080;font-weight:bold">new</span> IdleStateHandler(<span style="color:#00D">0</span>, <span style="color:#00D">0</span>, idleTimeout, MILLISECONDS))
+                                .addLast(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">handler</span><span style="color:#710">"</span></span>, nettyServerHandler);
+                    }
+                });
+
+        <span style="color:#777">//获取专门负责建立连接的通道</span>
+        <span style="color:#777">// bind</span>
+        ChannelFuture channelFuture = bootstrap.bind(getBindAddress());
+        <span style="color:#777">//等待future直到变为done状态，也即等到负责I/O连接的这个通道Channel已经生成</span>
+        channelFuture.syncUninterruptibly();
+        channel = channelFuture.channel();
+
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph has-source-line data-line-stdin-1257">
+<p>上述源码所表示的Netty Server Bootstrap构建过程可以用如下更为直观的时序图表示：</p>
+</div>
+<div class="imageblock has-source-line data-line-stdin-1259">
+<div class="content">
+<img src="res_files/imgs/4_image(3)" alt="Netty Bootstrap构建时序图" width="650">
+</div>
+<div class="title">图：Netty Bootstrap构建时序图</div>
+</div>
+</div>
+</div>
+<div class="sect3 has-source-line data-line-stdin-1261">
+<h4 id="_回调网络io事件">回调网络I/O事件</h4>
+<div class="paragraph has-source-line data-line-stdin-1263">
+<p>文中反复提及，Dubbo中有关网络行为是委托给类似Netty等的第三方中间件完成的，其<strong>ChannelHandler</strong> 实现是供他们回调的，也是Dubbo网络能力增强
+的切入点。</p>
+</div>
+<div class="paragraph has-source-line data-line-stdin-1266">
+<p>对netty比较熟悉的攻城狮看到上面这个<strong>ChannelHandler</strong>会瞬觉似曾相识，在Netty中确有一个名字一模一样的接口，用于处理 I/O 事件或拦截 I/O 操作。</p>
+</div>
+<div class="paragraph has-source-line data-line-stdin-1268">
+<p>一个使用了Netty作为通讯的App，最靠近底层负责网络通讯的Netty，将App向对端write写出的操作回调看做Outbound出站事件，反之从对端read读入的操作的回调则被
+看做是Inboud入站事件。Netty根据这个将网络I/O事件分为出站和入站两种，分别由<strong>ChannelHandler</strong>的扩展接口<strong>ChannelInboundHandler</strong>和
+<strong>ChannelOutboundHandler</strong>的实现处理。Netty的内核I/O线程专门负责处理具体的I/O，I/O事件就绪则回调业务层相应接口实现，也即其I/O具体处理
+过程于App业务层来说是无感的，它只能感知到的是I/O回调事件，由回调实现业务所需，这正是响应式编程的精髓所在。</p>
+</div>
+<div class="paragraph has-source-line data-line-stdin-1273">
+<p>调用Channel或ChannelHandlerContext的I/O请求驱动着Netty触发着本地Outbound事件，另一方面，经过网络信号传输，又间接地驱动着对端App的Netty
+触发着其本地Inbound事件。netty在回调事件事件时会将其作为 <strong>ChannelHandler</strong> 的当前上下文信息持有者参数传入，由于一条Pipeline链只对应唯
+一的Channel，且Pipeline链的生命周期只局限于Netty的某个特定work线程中，因此就当前线程而言，不会存在Channel的资源争用问题。</p>
+</div>
+<div class="imageblock has-source-line data-line-stdin-1277">
+<div class="content">
+<img src="res_files/imgs/4_image(4)" alt="Pipeline出入站" width="450">
+</div>
+<div class="title">图：Pipeline出入站</div>
+</div>
+<div class="paragraph has-source-line data-line-stdin-1279">
+<p>每一个<strong>ChannelHandler</strong>实例对象会被绑定到一个叫做 <code>ChannelHandlerContext</code> 的对象中，多个这样的对象节点串联一起构成一条叫做ChannelPipeline的双
+向链表，Channel生成时就会对应产生这样一条Pipeline。具体执行时，根据当前的出入站方向，<code>ChannelHandlerContext</code> 依次负责从链表的头部或者尾部开
+始顺序找到下一个最近节点并回调绑定在它身上的<strong>ChannelHandler</strong>，与方向相反的会被自动忽略。</p>
+</div>
+<div class="imageblock has-source-line data-line-stdin-1283">
+<div class="content">
+<img src="res_files/imgs/4_image(5)" alt="Pipeline链表" width="650">
+</div>
+<div class="title">图：Pipeline链表</div>
+</div>
+<div class="paragraph has-source-line data-line-stdin-1285">
+<p>为便于开发出入站I/O事件处理器，Netty提供了如下几个适配器类：</p>
+</div>
+<div class="olist arabic has-source-line data-line-stdin-1287">
+<ol class="arabic">
+<li class="has-source-line data-line-stdin-1287">
+<p><code>ChannelInboundHandlerAdapter</code> 用于处理入站 I/O 事件。</p>
+</li>
+<li class="has-source-line data-line-stdin-1288">
+<p><code>ChannelOutboundHandlerAdapter</code> 用于处理出站 I/O 操作。</p>
+</li>
+<li class="has-source-line data-line-stdin-1289">
+<p><code>ChannelDuplexHandler</code> 用于处理入站和出站事件。</p>
+</li>
+</ol>
+</div>
+<div class="paragraph has-source-line data-line-stdin-1292">
+<p>下述章节中的<strong>NettyClientHandler</strong>和<strong>NettyServerHandler</strong>便是扩展<strong>ChannelDuplexHandler</strong>实现的。出站事件是APP主动唤起的，因此netty中
+实现主要是<strong>ChannelInboundHandler</strong>的回调业务。</p>
+</div>
+<div class="sect4 has-source-line data-line-stdin-1295">
+<h5 id="_nettyclienthandler_and_nettyserverhandler"><strong>NettyClientHandler</strong> <span class="small">and</span> <strong>NettyServerHandler</strong></h5>
+<div class="paragraph has-source-line data-line-stdin-1297">
+<p><strong>ChannelInboundHandler</strong>和<strong>ChannelOutboundHandler</strong>所表示的出入站事件和Dubbo中的<strong>ChannelHandler</strong>有着如下的一一对应关系：</p>
+</div>
+<div class="olist arabic has-source-line data-line-stdin-1299">
+<ol class="arabic">
+<li class="has-source-line data-line-stdin-1299">
+<p><strong>channelActive</strong> → <code>connected</code></p>
+</li>
+<li class="has-source-line data-line-stdin-1300">
+<p><strong>channelInactive</strong> →  <code>disconnected</code></p>
+</li>
+<li class="has-source-line data-line-stdin-1301">
+<p><strong>channelRead</strong> →  <code>received</code></p>
+</li>
+<li class="has-source-line data-line-stdin-1302">
+<p><strong>exceptionCaught</strong> →  <code>caught</code></p>
+</li>
+<li class="has-source-line data-line-stdin-1303">
+<p><strong>write</strong> →  <code>sent</code></p>
+</li>
+</ol>
+</div>
+<div class="sect5 has-source-line data-line-stdin-1305">
+<h6 id="_入站读事件_channelactivechannelinactivechannelreadexceptioncaught">入站读事件 <strong>channelActive</strong>、<strong>channelInactive</strong>、<strong>channelRead</strong>、<strong>exceptionCaught</strong></h6>
+<div class="paragraph has-source-line data-line-stdin-1307">
+<p>如下源码所示的几个回调事件，两个handler的实现几乎一样，不同的是<strong>NettyServerHandler</strong>定义了一个<code>&lt;ip:port, dubbo channel&gt;</code>键值对Map，
+用于缓存当前处于活跃态的<code>NettyChannel</code>：</p>
+</div>
+<div class="olist arabic has-source-line data-line-stdin-1310">
+<ol class="arabic">
+<li class="has-source-line data-line-stdin-1310">
+<p>首先通过ctx获取到对应的Netty方Channel;</p>
+</li>
+<li class="has-source-line data-line-stdin-1311">
+<p>再以它作为参数调用<code>getOrAddChannel</code>得到对应的<code>NettyChannel</code>实例;</p>
+</li>
+<li class="has-source-line data-line-stdin-1312">
+<p>随后调用Dubbo定义的<code>ChannelHandler</code>的对应事件回调方法;</p>
+</li>
+<li class="has-source-line data-line-stdin-1313">
+<p>最后在finally快中调用<code>NettyChannel.removeChannelIfDisconnected(channel)</code>，确保一旦Channel失活，便从缓存中移除；</p>
+</li>
+</ol>
+</div>
+<div class="listingblock has-source-line data-line-stdin-1317">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#007">@Override</span>
+<span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">void</span> channelActive(ChannelHandlerContext ctx) <span style="color:#088;font-weight:bold">throws</span> <span style="color:#C00;font-weight:bold">Exception</span> {
+    NettyChannel channel = NettyChannel.getOrAddChannel(ctx.channel(), url, handler);
+    <span style="color:#080;font-weight:bold">try</span> {
+<span style="color:#777">//only for NettyServerHandler~~~~~~~~~~~~~~~~~~~~~~~~~~~start</span>
+        <span style="color:#080;font-weight:bold">if</span> (channel != <span style="color:#069">null</span>) {
+            channels.put(NetUtils.toAddressString((<span style="color:#0a8;font-weight:bold">InetSocketAddress</span>) ctx.channel().remoteAddress()), channel);
+        }
+<span style="color:#777">//only for NettyServerHandler~~~~~~~~~~~~~~~~~~~~~~~~~~~  end</span>
+
+        handler.connected(channel);
+    } <span style="color:#080;font-weight:bold">finally</span> {
+        NettyChannel.removeChannelIfDisconnected(ctx.channel());
+    }
+}
+
+<span style="color:#007">@Override</span>
+<span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">void</span> channelInactive(ChannelHandlerContext ctx) <span style="color:#088;font-weight:bold">throws</span> <span style="color:#C00;font-weight:bold">Exception</span> {
+    NettyChannel channel = NettyChannel.getOrAddChannel(ctx.channel(), url, handler);
+    <span style="color:#080;font-weight:bold">try</span> {
+<span style="color:#777">//only for NettyServerHandler~~~~~~~~~~~~~~~~~~~~~~~~~~~start</span>
+        channels.remove(NetUtils.toAddressString((<span style="color:#0a8;font-weight:bold">InetSocketAddress</span>) ctx.channel().remoteAddress()));
+<span style="color:#777">//only for NettyServerHandler~~~~~~~~~~~~~~~~~~~~~~~~~~~  end</span>
+
+        handler.disconnected(channel);
+    } <span style="color:#080;font-weight:bold">finally</span> {
+        NettyChannel.removeChannelIfDisconnected(ctx.channel());
+    }
+}
+
+<span style="color:#007">@Override</span>
+<span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">void</span> channelRead(ChannelHandlerContext ctx, <span style="color:#0a8;font-weight:bold">Object</span> msg) <span style="color:#088;font-weight:bold">throws</span> <span style="color:#C00;font-weight:bold">Exception</span> {
+    NettyChannel channel = NettyChannel.getOrAddChannel(ctx.channel(), url, handler);
+    <span style="color:#080;font-weight:bold">try</span> {
+        handler.received(channel, msg);
+    } <span style="color:#080;font-weight:bold">finally</span> {
+        NettyChannel.removeChannelIfDisconnected(ctx.channel());
+    }
+}
+
+<span style="color:#007">@Override</span>
+<span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">void</span> exceptionCaught(ChannelHandlerContext ctx, <span style="color:#0a8;font-weight:bold">Throwable</span> cause)
+        <span style="color:#088;font-weight:bold">throws</span> <span style="color:#C00;font-weight:bold">Exception</span> {
+    NettyChannel channel = NettyChannel.getOrAddChannel(ctx.channel(), url, handler);
+    <span style="color:#080;font-weight:bold">try</span> {
+        handler.caught(channel, cause);
+    } <span style="color:#080;font-weight:bold">finally</span> {
+        NettyChannel.removeChannelIfDisconnected(ctx.channel());
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect5 has-source-line data-line-stdin-1370">
+<h6 id="_出站写事件_write">出站写事件 <strong>write</strong></h6>
+<div class="paragraph has-source-line data-line-stdin-1372">
+<p>稍微比较特殊点的操作是涉及重写<strong>ChannelOutboundHandler</strong>的<code>public void write(ChannelHandlerContext, Object, ChannelPromise)</code>
+方法。上文已经提到，出站事件是由当前App主动唤起的，Netty内核对于I/O处理的最终情况也是通过回调告知App的。回调中的<code>ChannelPromise</code>参数
+用于进一步回调获得最终操作结果，其结果如下示意图：</p>
+</div>
+<div class="imageblock has-source-line data-line-stdin-1376">
+<div class="content">
+<img src="res_files/imgs/4_image(6)" alt="Netty Future Result" width="450">
+</div>
+<div class="title">图：Netty Future Result</div>
+</div>
+<div class="paragraph has-source-line data-line-stdin-1379">
+<p>如下源码，Client端处理成功则回调<code>ChannelHandler.sent()</code>，否则回调<code>ChannelHandler.received()</code>。服务端则相对很简化，Dubbo认为消息
+发送出去收到write回调，便即可认为成功。</p>
+</div>
+<div class="listingblock has-source-line data-line-stdin-1383">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">NettyClientHandler</span> <span style="color:#088;font-weight:bold">extends</span> ChannelDuplexHandler {
+
+    ...
+
+    <span style="color:#007">@Override</span>
+    <span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">void</span> write(ChannelHandlerContext ctx, <span style="color:#0a8;font-weight:bold">Object</span> msg, ChannelPromise promise) <span style="color:#088;font-weight:bold">throws</span> <span style="color:#C00;font-weight:bold">Exception</span> {
+        <span style="color:#950">super</span>.write(ctx, msg, promise);
+        <span style="color:#088;font-weight:bold">final</span> NettyChannel channel = NettyChannel.getOrAddChannel(ctx.channel(), url, handler);
+        <span style="color:#088;font-weight:bold">final</span> <span style="color:#339;font-weight:bold">boolean</span> isRequest = msg <span style="color:#080;font-weight:bold">instanceof</span> Request;
+
+        <span style="color:#777">// We add listeners to make sure our out bound event is correct.</span>
+        <span style="color:#777">// If our out bound event has an error (in most cases the encoder fails),</span>
+        <span style="color:#777">// we need to have the request return directly instead of blocking the invoke process.</span>
+        promise.addListener(future -&gt; {
+            <span style="color:#080;font-weight:bold">try</span> {
+                <span style="color:#080;font-weight:bold">if</span> (future.isSuccess()) {
+                    <span style="color:#777">// if our future is success, mark the future to sent.</span>
+                    handler.sent(channel, msg);
+                    <span style="color:#080;font-weight:bold">return</span>;
+                }
+
+                <span style="color:#0a8;font-weight:bold">Throwable</span> t = future.cause();
+                <span style="color:#080;font-weight:bold">if</span> (t != <span style="color:#069">null</span> &amp;&amp; isRequest) {
+                    Request request = (Request) msg;
+                    Response response = buildErrorResponse(request, t);
+                    handler.received(channel, response);
+                }
+            } <span style="color:#080;font-weight:bold">finally</span> {
+                NettyChannel.removeChannelIfDisconnected(ctx.channel());
+            }
+        });
+    }
+
+    ...
+}
+
+<span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">NettyServerHandler</span> <span style="color:#088;font-weight:bold">extends</span> ChannelDuplexHandler {
+
+    ...
+
+    <span style="color:#007">@Override</span>
+    <span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">void</span> write(ChannelHandlerContext ctx, <span style="color:#0a8;font-weight:bold">Object</span> msg, ChannelPromise promise) <span style="color:#088;font-weight:bold">throws</span> <span style="color:#C00;font-weight:bold">Exception</span> {
+        <span style="color:#950">super</span>.write(ctx, msg, promise);
+        NettyChannel channel = NettyChannel.getOrAddChannel(ctx.channel(), url, handler);
+        <span style="color:#080;font-weight:bold">try</span> {
+            handler.sent(channel, msg);
+        } <span style="color:#080;font-weight:bold">finally</span> {
+            NettyChannel.removeChannelIfDisconnected(ctx.channel());
+        }
+    }
+    ...
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect5 has-source-line data-line-stdin-1438">
+<h6 id="_空闲事件_usereventtriggered">空闲事件 <strong>userEventTriggered</strong></h6>
+<div class="paragraph has-source-line data-line-stdin-1440">
+<p>“占着茅坑不拉屎的行为”在哪都有点人神共愤，计算资源尤为宝贵的服务器更是如此，如果相应连入的客户端通道Channel一段时间没有发生过读写操作，Dubbo
+会一剑封喉，直接将Channel关闭掉，这有效的避免了因为客户端对应实例因为宕机等原因依然为期保持Channel产生的附加资源浪费。封喉后如果客户端需和服
+务通讯，则需再次做连接处理。而客户端这边，只要自身还处于激活状态，就一直想和服务端保持一个连接状态，也就是常说的长连接，Netty中可以利用回调方法
+`public void userEventTriggered(ChannelHandlerContext, Object)`实现，具体如下代码所示：</p>
+</div>
+<div class="listingblock has-source-line data-line-stdin-1446">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">NettyServerHandler</span> <span style="color:#088;font-weight:bold">extends</span> ChannelDuplexHandler {
+    <span style="color:#007">@Override</span>
+    <span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">void</span> userEventTriggered(ChannelHandlerContext ctx, <span style="color:#0a8;font-weight:bold">Object</span> evt) <span style="color:#088;font-weight:bold">throws</span> <span style="color:#C00;font-weight:bold">Exception</span> {
+        <span style="color:#777">// server will close channel when server don't receive any heartbeat from client util timeout.</span>
+        <span style="color:#080;font-weight:bold">if</span> (evt <span style="color:#080;font-weight:bold">instanceof</span> IdleStateEvent) {
+            NettyChannel channel = NettyChannel.getOrAddChannel(ctx.channel(), url, handler);
+            <span style="color:#080;font-weight:bold">try</span> {
+                logger.info(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">IdleStateEvent triggered, close channel </span><span style="color:#710">"</span></span> + channel);
+                channel.close();
+            } <span style="color:#080;font-weight:bold">finally</span> {
+                NettyChannel.removeChannelIfDisconnected(ctx.channel());
+            }
+        }
+        <span style="color:#950">super</span>.userEventTriggered(ctx, evt);
+    }
+}
+
+<span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">NettyClientHandler</span> <span style="color:#088;font-weight:bold">extends</span> ChannelDuplexHandler {
+    <span style="color:#007">@Override</span>
+    <span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">void</span> userEventTriggered(ChannelHandlerContext ctx, <span style="color:#0a8;font-weight:bold">Object</span> evt) <span style="color:#088;font-weight:bold">throws</span> <span style="color:#C00;font-weight:bold">Exception</span> {
+            <span style="color:#777">// send heartbeat when read idle.</span>
+        <span style="color:#080;font-weight:bold">if</span> (evt <span style="color:#080;font-weight:bold">instanceof</span> IdleStateEvent) {
+            <span style="color:#080;font-weight:bold">try</span> {
+                NettyChannel channel = NettyChannel.getOrAddChannel(ctx.channel(), url, handler);
+                <span style="color:#080;font-weight:bold">if</span> (logger.isDebugEnabled()) {
+                    logger.debug(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">IdleStateEvent triggered, send heartbeat to channel </span><span style="color:#710">"</span></span> + channel);
+                }
+                <span style="color:#777">//构建心跳包</span>
+                Request req = <span style="color:#080;font-weight:bold">new</span> Request();
+                req.setVersion(Version.getProtocolVersion());
+                req.setTwoWay(<span style="color:#069">true</span>);
+                req.setEvent(Request.HEARTBEAT_EVENT);
+
+                <span style="color:#777">//发送心跳请求</span>
+                channel.send(req);
+            } <span style="color:#080;font-weight:bold">finally</span> {
+                NettyChannel.removeChannelIfDisconnected(ctx.channel());
+            }
+       } <span style="color:#080;font-weight:bold">else</span> {
+            <span style="color:#950">super</span>.userEventTriggered(ctx, evt);
+        }
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph has-source-line data-line-stdin-1493">
+<p>注：<span class="small">上述操作依然会调用<code>removeChannelIfDisconnected()</code>#检查当前对应Netty的Channel是否失活，如果是，便移除之。</span></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2 has-source-line data-line-stdin-1496">
+<h3 id="_transporter">Transporter</h3>
+<div class="paragraph has-source-line data-line-stdin-1498">
+<p>上文已经知道，Dubbo使用netty等第三方网络I/O中间件构建传输层，利用端口号建立端到端的通讯连接，屏蔽掉了下层的具体细节。于开发而言，实际上对
+应的其实是封装了<code>TCP/IP</code>的Socket，服务端需要绑定到一个固定的端口<sub>对应某进程的编号</sub>接受来自客户端的连接，而客户端则需要连接到服务端的某个端
+口以完成业务请求，如下<strong>Transporter</strong>是Dubbo提供的，能同时用于服务端绑定端口和客户端发起端口连接的可扩展接口。</p>
+</div>
+<div class="listingblock has-source-line data-line-stdin-1503">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#007">@SPI</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">netty</span><span style="color:#710">"</span></span>)
+<span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">interface</span> <span style="color:#B06;font-weight:bold">Transporter</span> {
+
+     <span style="color:#777">//Bind a server.</span>
+    <span style="color:#007">@Adaptive</span>({Constants.SERVER_KEY, Constants.TRANSPORTER_KEY})
+    Server bind(<span style="color:#0a8;font-weight:bold">URL</span> url, ChannelHandler handler) <span style="color:#088;font-weight:bold">throws</span> RemotingException;
+
+    <span style="color:#777">//Connect to a server.</span>
+    <span style="color:#007">@Adaptive</span>({Constants.CLIENT_KEY, Constants.TRANSPORTER_KEY})
+    Client connect(<span style="color:#0a8;font-weight:bold">URL</span> url, ChannelHandler handler) <span style="color:#088;font-weight:bold">throws</span> RemotingException;
+}</code></pre>
+</div>
+</div>
+<div class="paragraph has-source-line data-line-stdin-1517">
+<p>对应实现也很简单，实际上就是相应构建NettyServer和NettyClient的实例。</p>
+</div>
+<div class="listingblock has-source-line data-line-stdin-1520">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">NettyTransporter</span> <span style="color:#088;font-weight:bold">implements</span> Transporter {
+
+    <span style="color:#088;font-weight:bold">public</span> <span style="color:#088;font-weight:bold">static</span> <span style="color:#088;font-weight:bold">final</span> <span style="color:#0a8;font-weight:bold">String</span> NAME = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">netty</span><span style="color:#710">"</span></span>;
+
+    <span style="color:#007">@Override</span>
+    <span style="color:#088;font-weight:bold">public</span> Server bind(<span style="color:#0a8;font-weight:bold">URL</span> url, ChannelHandler listener) <span style="color:#088;font-weight:bold">throws</span> RemotingException {
+        <span style="color:#080;font-weight:bold">return</span> <span style="color:#080;font-weight:bold">new</span> NettyServer(url, listener);
+    }
+
+    <span style="color:#007">@Override</span>
+    <span style="color:#088;font-weight:bold">public</span> Client connect(<span style="color:#0a8;font-weight:bold">URL</span> url, ChannelHandler listener) <span style="color:#088;font-weight:bold">throws</span> RemotingException {
+        <span style="color:#080;font-weight:bold">return</span> <span style="color:#080;font-weight:bold">new</span> NettyClient(url, listener);
+    }
+
+}</code></pre>
+</div>
+</div>
+<div class="paragraph has-source-line data-line-stdin-1537">
+<p>其实例构建则是经Transporters利用Dubbo SPI加载所配置Transporter实现，如下细节：</p>
+</div>
+<div class="listingblock has-source-line data-line-stdin-1540">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">Transporters</span> {
+
+    <span style="color:#088;font-weight:bold">static</span> {
+        <span style="color:#777">// check duplicate jar package</span>
+        Version.checkDuplicate(Transporters.class);
+        Version.checkDuplicate(RemotingException.class);
+    }
+
+    <span style="color:#088;font-weight:bold">private</span> Transporters() {
+    }
+
+    <span style="color:#088;font-weight:bold">public</span> <span style="color:#088;font-weight:bold">static</span> Server bind(<span style="color:#0a8;font-weight:bold">String</span> url, ChannelHandler... handler) <span style="color:#088;font-weight:bold">throws</span> RemotingException {
+        <span style="color:#080;font-weight:bold">return</span> bind(<span style="color:#0a8;font-weight:bold">URL</span>.valueOf(url), handler);
+    }
+
+    <span style="color:#088;font-weight:bold">public</span> <span style="color:#088;font-weight:bold">static</span> Server bind(<span style="color:#0a8;font-weight:bold">URL</span> url, ChannelHandler... handlers) <span style="color:#088;font-weight:bold">throws</span> RemotingException {
+        <span style="color:#080;font-weight:bold">if</span> (url == <span style="color:#069">null</span>) {
+            <span style="color:#080;font-weight:bold">throw</span> <span style="color:#080;font-weight:bold">new</span> <span style="color:#C00;font-weight:bold">IllegalArgumentException</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">url == null</span><span style="color:#710">"</span></span>);
+        }
+        <span style="color:#080;font-weight:bold">if</span> (handlers == <span style="color:#069">null</span> || handlers.length == <span style="color:#00D">0</span>) {
+            <span style="color:#080;font-weight:bold">throw</span> <span style="color:#080;font-weight:bold">new</span> <span style="color:#C00;font-weight:bold">IllegalArgumentException</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">handlers == null</span><span style="color:#710">"</span></span>);
+        }
+        ChannelHandler handler;
+        <span style="color:#080;font-weight:bold">if</span> (handlers.length == <span style="color:#00D">1</span>) {
+            handler = handlers[<span style="color:#00D">0</span>];
+        } <span style="color:#080;font-weight:bold">else</span> {
+            handler = <span style="color:#080;font-weight:bold">new</span> ChannelHandlerDispatcher(handlers);
+        }
+        <span style="color:#080;font-weight:bold">return</span> getTransporter().bind(url, handler);
+    }
+
+    <span style="color:#088;font-weight:bold">public</span> <span style="color:#088;font-weight:bold">static</span> Client connect(<span style="color:#0a8;font-weight:bold">String</span> url, ChannelHandler... handler) <span style="color:#088;font-weight:bold">throws</span> RemotingException {
+        <span style="color:#080;font-weight:bold">return</span> connect(<span style="color:#0a8;font-weight:bold">URL</span>.valueOf(url), handler);
+    }
+
+    <span style="color:#088;font-weight:bold">public</span> <span style="color:#088;font-weight:bold">static</span> Client connect(<span style="color:#0a8;font-weight:bold">URL</span> url, ChannelHandler... handlers) <span style="color:#088;font-weight:bold">throws</span> RemotingException {
+        <span style="color:#080;font-weight:bold">if</span> (url == <span style="color:#069">null</span>) {
+            <span style="color:#080;font-weight:bold">throw</span> <span style="color:#080;font-weight:bold">new</span> <span style="color:#C00;font-weight:bold">IllegalArgumentException</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">url == null</span><span style="color:#710">"</span></span>);
+        }
+        ChannelHandler handler;
+        <span style="color:#080;font-weight:bold">if</span> (handlers == <span style="color:#069">null</span> || handlers.length == <span style="color:#00D">0</span>) {
+            <span style="color:#777">//回调事件使用空实现</span>
+            handler = <span style="color:#080;font-weight:bold">new</span> ChannelHandlerAdapter();
+        } <span style="color:#080;font-weight:bold">else</span> <span style="color:#080;font-weight:bold">if</span> (handlers.length == <span style="color:#00D">1</span>) {
+            <span style="color:#777">//单个ChannelHandler无需包装</span>
+            handler = handlers[<span style="color:#00D">0</span>];
+        } <span style="color:#080;font-weight:bold">else</span> {
+            <span style="color:#777">//将多个handler包装，由包装类在事件回调是逐个回调</span>
+            handler = <span style="color:#080;font-weight:bold">new</span> ChannelHandlerDispatcher(handlers);
+        }
+        <span style="color:#080;font-weight:bold">return</span> getTransporter().connect(url, handler);
+    }
+
+    <span style="color:#777">//利用SPI机制获取锁配置的Transporter扩展实现</span>
+    <span style="color:#088;font-weight:bold">public</span> <span style="color:#088;font-weight:bold">static</span> Transporter getTransporter() {
+        <span style="color:#080;font-weight:bold">return</span> ExtensionLoader.getExtensionLoader(Transporter.class).getAdaptiveExtension();
+    }
+
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2 has-source-line data-line-stdin-1602">
+<h3 id="_通道监听者派发器_channelhandlerdispatcher">通道监听者派发器 <code>ChannelHandlerDispatcher</code></h3>
+<div class="paragraph has-source-line data-line-stdin-1604">
+<p>上文中<code>ChannelHandler</code>反复出现，非常高频，它是理解整个Dubbo网络传输层的关键，使用装饰者模式实现，利用组合模式将业务实现真实的承载主体作
+为参数在其装饰者实例化时传入，装饰者们层层加码，外层完成对里层的功能特性的增强，Dubbo利用该机制完成了Server端、Client端、网络I/O中间件通道
+Channel适配、线程派发、解码、心跳等各种特性的实现。</p>
+</div>
+<div class="paragraph has-source-line data-line-stdin-1608">
+<p>文中<code>ChannelHandler</code>总是和<code>网络I/O事件</code>成套出现，原因是前者实际上就是通道Channel的监听器，监听着通道的网络I/O事件。由于<span class="big">
+<strong>业务实现真实的承载主体</strong></span>是在装饰器类实例化时作为构造器的参数传入的，这就也有了同时提供多份<code>ChannelHandler</code>被装饰者实现的可能性，上文
+中的<code>Transporters</code>也佐证了这一点。</p>
+</div>
+<div class="paragraph has-source-line data-line-stdin-1612">
+<p>实现原理很简单，可以认为它是装饰器的变种实现，不同的是，它组合进了多个被装饰者，装饰者被调用时，所有被装饰者的同名方法会挨个被调用。当然，
+被装饰者们需要用一个集合容器维护，这又让其具备了另外一个特性，就是可以在运行期间动态的添加或者移除被装饰者。</p>
+</div>
+<div class="paragraph has-source-line data-line-stdin-1615">
+<p>因此<code>ChannelHandlerDispatcher</code>会有类似如下模板代码：</p>
+</div>
+<div class="listingblock has-source-line data-line-stdin-1617">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">void</span> XXX(<span style="color:#0a8;font-weight:bold">Channel</span> channel) {
+    <span style="color:#080;font-weight:bold">for</span> (ChannelHandler listener : channelHandlers) {
+        <span style="color:#080;font-weight:bold">try</span> {
+            listener.XXX(channel);
+        } <span style="color:#080;font-weight:bold">catch</span> (<span style="color:#0a8;font-weight:bold">Throwable</span> t) {
+            logger.error(t.getMessage(), t);
+        }
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph has-source-line data-line-stdin-1629">
+<p>具体实现上，Dubbo使用了<code>CopyOnWriteArraySet</code>读写分离、支持并发的容器，如下源码：</p>
+</div>
+<div class="listingblock has-source-line data-line-stdin-1632">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">ChannelHandlerDispatcher</span> <span style="color:#088;font-weight:bold">implements</span> ChannelHandler {
+
+    <span style="color:#088;font-weight:bold">private</span> <span style="color:#088;font-weight:bold">static</span> <span style="color:#088;font-weight:bold">final</span> <span style="color:#0a8;font-weight:bold">Logger</span> logger = LoggerFactory.getLogger(ChannelHandlerDispatcher.class);
+
+    <span style="color:#088;font-weight:bold">private</span> <span style="color:#088;font-weight:bold">final</span> <span style="color:#0a8;font-weight:bold">Collection</span>&lt;ChannelHandler&gt; channelHandlers =
+        <span style="color:#080;font-weight:bold">new</span> <span style="color:#0a8;font-weight:bold">CopyOnWriteArraySet</span>&lt;ChannelHandler&gt;();
+
+    <span style="color:#088;font-weight:bold">public</span> ChannelHandlerDispatcher() {
+    }
+
+    <span style="color:#088;font-weight:bold">public</span> ChannelHandlerDispatcher(ChannelHandler... handlers) {
+        <span style="color:#950">this</span>(handlers == <span style="color:#069">null</span> ? <span style="color:#069">null</span> : <span style="color:#0a8;font-weight:bold">Arrays</span>.asList(handlers));
+    }
+
+    <span style="color:#088;font-weight:bold">public</span> ChannelHandlerDispatcher(<span style="color:#0a8;font-weight:bold">Collection</span>&lt;ChannelHandler&gt; handlers) {
+        <span style="color:#080;font-weight:bold">if</span> (CollectionUtils.isNotEmpty(handlers)) {
+            <span style="color:#950">this</span>.channelHandlers.addAll(handlers);
+        }
+    }
+
+    <span style="color:#088;font-weight:bold">public</span> <span style="color:#0a8;font-weight:bold">Collection</span>&lt;ChannelHandler&gt; getChannelHandlers() {
+        <span style="color:#080;font-weight:bold">return</span> channelHandlers;
+    }
+
+    <span style="color:#088;font-weight:bold">public</span> ChannelHandlerDispatcher addChannelHandler(ChannelHandler handler) {
+        <span style="color:#950">this</span>.channelHandlers.add(handler);
+        <span style="color:#080;font-weight:bold">return</span> <span style="color:#950">this</span>;
+    }
+
+    <span style="color:#088;font-weight:bold">public</span> ChannelHandlerDispatcher removeChannelHandler(ChannelHandler handler) {
+        <span style="color:#950">this</span>.channelHandlers.remove(handler);
+        <span style="color:#080;font-weight:bold">return</span> <span style="color:#950">this</span>;
+    }
+
+    ...<span style="color:#777">//其它像上述模板实现的I/O回调方法</span>
+}</code></pre>
+</div>
+</div>
+<div class="admonitionblock note has-source-line data-line-stdin-1672">
+<table>
+<tbody><tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+CopyOnWrite容器即写时复制的容器。通俗的理解是当我们往一个容器添加元素的时候，不直接往当前容器添加，而是先将当前容器进行Copy，复制出一个新
+的容器，然后新的容器里添加元素，添加完元素之后，再将原容器的引用指向新的容器。这样做的好处是我们可以对CopyOnWrite容器进行并发的读，而不
+需要加锁，因为当前容器不会添加任何元素。所以CopyOnWrite容器也是一种读写分离的思想，读和写不同的容器，适用于读多写少的并发场景。
+</td>
+</tr>
+</tbody></table>
+</div>
+<div class="paragraph has-source-line data-line-stdin-1677">
+<p>注：<span class="small"><span class="big">派发器</span> 本质上是将某个行为委托给同一个接口的多个实例<sub>可能来自多个实现类</sub>来完成，可以根据具体的策略将他们统一平等看待，如上文
+<code>ChannelHandlerDispatcher</code>，也可以有其它的策略，根据业务特性需求选用其中的一到多个。</span></p>
+</div>
+<hr>
+<div class="paragraph has-source-line data-line-stdin-1681">
+<p>完结</p>
+</div>
+</div>
+</div>
+</div>
+</div><script src="res_files/js/scrollToElement.js"></script>
+<script src="res_files/js/processLinks.js"></script>
+<script src="res_files/js/pickSourceLine.js"></script>
+<script type="text/x-mathjax-config;executed=true">
+MathJax.Hub.Config({
+  messageStyle: "none",
+  tex2jax: {
+    inlineMath: [["\\(", "\\)"]],
+    displayMath: [["\\[", "\\]"]],
+    ignoreClass: "nostem|nolatexmath"
+  },
+  asciimath2jax: {
+    delimiters: [["\\$", "\\$"]],
+    ignoreClass: "nostem|noasciimath"
+  },
+  TeX: { equationNumbers: { autoNumber: "none" } }
+});
+</script>
+<script src="res_files/js/MathJax.js"></script>
+<div id="color-picker-wrap" style="display: none; position: fixed; top: 0px; left: 0px; z-index: 9999;"><!----></div></body></html>

@@ -1,0 +1,1975 @@
+
+<!-- saved from url=(0334)http://localhost:63342/ead61b63-b0a6-4ff2-a49a-86be75ccfd1a/source?file=%2FUsers%2Flrq%2FWorkspace%2Fmy_pub_prjs%2FDiving-In-Dubbo%2F%E3%80%90%E5%8D%81%E4%BA%94%E3%80%91Dubbo%E9%85%8D%E7%BD%AE%E7%AE%A1%E7%90%86.adoc&mac=YVB1Adel86+9bcGrt2qZG2HYIBxv+gnQQZReGQkwAaA=&projectUrl=%2FUsers%2Flrq%2FWorkspace%2Fmy_pub_prjs%2FDiving-In-Dubbo -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style>
+/* Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
+/* Uncomment @import statement to use as custom stylesheet */
+/*@import "https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700";*/
+article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section{display:block}
+audio,video{display:inline-block}
+audio:not([controls]){display:none;height:0}
+html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}
+a{background:none}
+a:focus{outline:thin dotted}
+a:active,a:hover{outline:0}
+h1{font-size:2em;margin:.67em 0}
+abbr[title]{border-bottom:1px dotted}
+b,strong{font-weight:bold}
+dfn{font-style:italic}
+hr{-moz-box-sizing:content-box;box-sizing:content-box;height:0}
+mark{background:#ff0;color:#000}
+code,kbd,pre,samp{font-family:monospace;font-size:1em}
+pre{white-space:pre-wrap}
+q{quotes:"\201C" "\201D" "\2018" "\2019"}
+small{font-size:80%}
+sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}
+sup{top:-.5em}
+sub{bottom:-.25em}
+img{border:0}
+svg:not(:root){overflow:hidden}
+figure{margin:0}
+fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}
+legend{border:0;padding:0}
+button,input,select,textarea{font-family:inherit;font-size:100%;margin:0}
+button,input{line-height:normal}
+button,select{text-transform:none}
+button,html input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance:button;cursor:pointer}
+button[disabled],html input[disabled]{cursor:default}
+input[type="checkbox"],input[type="radio"]{box-sizing:border-box;padding:0}
+button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}
+textarea{overflow:auto;vertical-align:top}
+table{border-collapse:collapse;border-spacing:0}
+*,*::before,*::after{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box}
+html,body{font-size:100%}
+body{background:#fff;color:rgba(0,0,0,.8);padding:0;margin:0;font-family:"Noto Serif","DejaVu Serif",serif;font-weight:400;font-style:normal;line-height:1;position:relative;cursor:auto;tab-size:4;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased}
+a:hover{cursor:pointer}
+img,object,embed{max-width:100%;height:auto}
+object,embed{height:100%}
+img{-ms-interpolation-mode:bicubic}
+.left{float:left!important}
+.right{float:right!important}
+.text-left{text-align:left!important}
+.text-right{text-align:right!important}
+.text-center{text-align:center!important}
+.text-justify{text-align:justify!important}
+.hide{display:none}
+img,object,svg{display:inline-block;vertical-align:middle}
+textarea{height:auto;min-height:50px}
+select{width:100%}
+.center{margin-left:auto;margin-right:auto}
+.stretch{width:100%}
+.subheader,.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{line-height:1.45;color:#7a2518;font-weight:400;margin-top:0;margin-bottom:.25em}
+div,dl,dt,dd,ul,ol,li,h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6,pre,form,p,blockquote,th,td{margin:0;padding:0;direction:ltr}
+a{color:#2156a5;text-decoration:underline;line-height:inherit}
+a:hover,a:focus{color:#1d4b8f}
+a img{border:0}
+p{font-family:inherit;font-weight:400;font-size:1em;line-height:1.6;margin-bottom:1.25em;text-rendering:optimizeLegibility}
+p aside{font-size:.875em;line-height:1.35;font-style:italic}
+h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{font-family:"Open Sans","DejaVu Sans",sans-serif;font-weight:300;font-style:normal;color:#ba3925;text-rendering:optimizeLegibility;margin-top:1em;margin-bottom:.5em;line-height:1.0125em}
+h1 small,h2 small,h3 small,#toctitle small,.sidebarblock>.content>.title small,h4 small,h5 small,h6 small{font-size:60%;color:#e99b8f;line-height:0}
+h1{font-size:2.125em}
+h2{font-size:1.6875em}
+h3,#toctitle,.sidebarblock>.content>.title{font-size:1.375em}
+h4,h5{font-size:1.125em}
+h6{font-size:1em}
+hr{border:solid #dddddf;border-width:1px 0 0;clear:both;margin:1.25em 0 1.1875em;height:0}
+em,i{font-style:italic;line-height:inherit}
+strong,b{font-weight:bold;line-height:inherit}
+small{font-size:60%;line-height:inherit}
+code{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;font-weight:400;color:rgba(0,0,0,.9)}
+ul,ol,dl{font-size:1em;line-height:1.6;margin-bottom:1.25em;list-style-position:outside;font-family:inherit}
+ul,ol{margin-left:1.5em}
+ul li ul,ul li ol{margin-left:1.25em;margin-bottom:0;font-size:1em}
+ul.square li ul,ul.circle li ul,ul.disc li ul{list-style:inherit}
+ul.square{list-style-type:square}
+ul.circle{list-style-type:circle}
+ul.disc{list-style-type:disc}
+ol li ul,ol li ol{margin-left:1.25em;margin-bottom:0}
+dl dt{margin-bottom:.3125em;font-weight:bold}
+dl dd{margin-bottom:1.25em}
+abbr,acronym{text-transform:uppercase;font-size:90%;color:rgba(0,0,0,.8);border-bottom:1px dotted #ddd;cursor:help}
+abbr{text-transform:none}
+blockquote{margin:0 0 1.25em;padding:.5625em 1.25em 0 1.1875em;border-left:1px solid #ddd}
+blockquote cite{display:block;font-size:.9375em;color:rgba(0,0,0,.6)}
+blockquote cite::before{content:"\2014 \0020"}
+blockquote cite a,blockquote cite a:visited{color:rgba(0,0,0,.6)}
+blockquote,blockquote p{line-height:1.6;color:rgba(0,0,0,.85)}
+@media screen and (min-width:768px){h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2}
+h1{font-size:2.75em}
+h2{font-size:2.3125em}
+h3,#toctitle,.sidebarblock>.content>.title{font-size:1.6875em}
+h4{font-size:1.4375em}}
+table{background:#fff;margin-bottom:1.25em;border:solid 1px #dedede}
+table thead,table tfoot{background:#f7f8f7}
+table thead tr th,table thead tr td,table tfoot tr th,table tfoot tr td{padding:.5em .625em .625em;font-size:inherit;color:rgba(0,0,0,.8);text-align:left}
+table tr th,table tr td{padding:.5625em .625em;font-size:inherit;color:rgba(0,0,0,.8)}
+table tr.even,table tr.alt{background:#f8f8f7}
+table thead tr th,table tfoot tr th,table tbody tr td,table tr td,table tfoot tr td{display:table-cell;line-height:1.6}
+h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2;word-spacing:-.05em}
+h1 strong,h2 strong,h3 strong,#toctitle strong,.sidebarblock>.content>.title strong,h4 strong,h5 strong,h6 strong{font-weight:400}
+.clearfix::before,.clearfix::after,.float-group::before,.float-group::after{content:" ";display:table}
+.clearfix::after,.float-group::after{clear:both}
+:not(pre):not([class^=L])>code{font-size:.9375em;font-style:normal!important;letter-spacing:0;padding:.1em .5ex;word-spacing:-.15em;background:#f7f7f8;-webkit-border-radius:4px;border-radius:4px;line-height:1.45;text-rendering:optimizeSpeed;word-wrap:break-word}
+:not(pre)>code.nobreak{word-wrap:normal}
+:not(pre)>code.nowrap{white-space:nowrap}
+pre{color:rgba(0,0,0,.9);font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;line-height:1.45;text-rendering:optimizeSpeed}
+pre code,pre pre{color:inherit;font-size:inherit;line-height:inherit}
+pre>code{display:block}
+pre.nowrap,pre.nowrap pre{white-space:pre;word-wrap:normal}
+em em{font-style:normal}
+strong strong{font-weight:400}
+.keyseq{color:rgba(51,51,51,.8)}
+kbd{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;display:inline-block;color:rgba(0,0,0,.8);font-size:.65em;line-height:1.45;background:#f7f7f7;border:1px solid #ccc;-webkit-border-radius:3px;border-radius:3px;-webkit-box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em white inset;box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em #fff inset;margin:0 .15em;padding:.2em .5em;vertical-align:middle;position:relative;top:-.1em;white-space:nowrap}
+.keyseq kbd:first-child{margin-left:0}
+.keyseq kbd:last-child{margin-right:0}
+.menuseq,.menuref{color:#000}
+.menuseq b:not(.caret),.menuref{font-weight:inherit}
+.menuseq{word-spacing:-.02em}
+.menuseq b.caret{font-size:1.25em;line-height:.8}
+.menuseq i.caret{font-weight:bold;text-align:center;width:.45em}
+b.button::before,b.button::after{position:relative;top:-1px;font-weight:400}
+b.button::before{content:"[";padding:0 3px 0 2px}
+b.button::after{content:"]";padding:0 2px 0 3px}
+p a>code:hover{color:rgba(0,0,0,.9)}
+#header,#content,#footnotes,#footer{width:100%;margin-left:auto;margin-right:auto;margin-top:0;margin-bottom:0;max-width:62.5em;*zoom:1;position:relative;padding-left:.9375em;padding-right:.9375em}
+#header::before,#header::after,#content::before,#content::after,#footnotes::before,#footnotes::after,#footer::before,#footer::after{content:" ";display:table}
+#header::after,#content::after,#footnotes::after,#footer::after{clear:both}
+#content{margin-top:1.25em}
+#content::before{content:none}
+#header>h1:first-child{color:rgba(0,0,0,.85);margin-top:2.25rem;margin-bottom:0}
+#header>h1:first-child+#toc{margin-top:8px;border-top:1px solid #dddddf}
+#header>h1:only-child,body.toc2 #header>h1:nth-last-child(2){border-bottom:1px solid #dddddf;padding-bottom:8px}
+#header .details{border-bottom:1px solid #dddddf;line-height:1.45;padding-top:.25em;padding-bottom:.25em;padding-left:.25em;color:rgba(0,0,0,.6);display:-ms-flexbox;display:-webkit-flex;display:flex;-ms-flex-flow:row wrap;-webkit-flex-flow:row wrap;flex-flow:row wrap}
+#header .details span:first-child{margin-left:-.125em}
+#header .details span.email a{color:rgba(0,0,0,.85)}
+#header .details br{display:none}
+#header .details br+span::before{content:"\00a0\2013\00a0"}
+#header .details br+span.author::before{content:"\00a0\22c5\00a0";color:rgba(0,0,0,.85)}
+#header .details br+span#revremark::before{content:"\00a0|\00a0"}
+#header #revnumber{text-transform:capitalize}
+#header #revnumber::after{content:"\00a0"}
+#content>h1:first-child:not([class]){color:rgba(0,0,0,.85);border-bottom:1px solid #dddddf;padding-bottom:8px;margin-top:0;padding-top:1rem;margin-bottom:1.25rem}
+#toc{border-bottom:1px solid #e7e7e9;padding-bottom:.5em}
+#toc>ul{margin-left:.125em}
+#toc ul.sectlevel0>li>a{font-style:italic}
+#toc ul.sectlevel0 ul.sectlevel1{margin:.5em 0}
+#toc ul{font-family:"Open Sans","DejaVu Sans",sans-serif;list-style-type:none}
+#toc li{line-height:1.3334;margin-top:.3334em}
+#toc a{text-decoration:none}
+#toc a:active{text-decoration:underline}
+#toctitle{color:#7a2518;font-size:1.2em}
+@media screen and (min-width:768px){#toctitle{font-size:1.375em}
+body.toc2{padding-left:15em;padding-right:0}
+#toc.toc2{margin-top:0!important;background:#f8f8f7;position:fixed;width:15em;left:0;top:0;border-right:1px solid #e7e7e9;border-top-width:0!important;border-bottom-width:0!important;z-index:1000;padding:1.25em 1em;height:100%;overflow:auto}
+#toc.toc2 #toctitle{margin-top:0;margin-bottom:.8rem;font-size:1.2em}
+#toc.toc2>ul{font-size:.9em;margin-bottom:0}
+#toc.toc2 ul ul{margin-left:0;padding-left:1em}
+#toc.toc2 ul.sectlevel0 ul.sectlevel1{padding-left:0;margin-top:.5em;margin-bottom:.5em}
+body.toc2.toc-right{padding-left:0;padding-right:15em}
+body.toc2.toc-right #toc.toc2{border-right-width:0;border-left:1px solid #e7e7e9;left:auto;right:0}}
+@media screen and (min-width:1280px){body.toc2{padding-left:20em;padding-right:0}
+#toc.toc2{width:20em}
+#toc.toc2 #toctitle{font-size:1.375em}
+#toc.toc2>ul{font-size:.95em}
+#toc.toc2 ul ul{padding-left:1.25em}
+body.toc2.toc-right{padding-left:0;padding-right:20em}}
+#content #toc{border-style:solid;border-width:1px;border-color:#e0e0dc;margin-bottom:1.25em;padding:1.25em;background:#f8f8f7;-webkit-border-radius:4px;border-radius:4px}
+#content #toc>:first-child{margin-top:0}
+#content #toc>:last-child{margin-bottom:0}
+#footer{max-width:100%;background:rgba(0,0,0,.8);padding:1.25em}
+#footer-text{color:rgba(255,255,255,.8);line-height:1.44}
+#content{margin-bottom:.625em}
+.sect1{padding-bottom:.625em}
+@media screen and (min-width:768px){#content{margin-bottom:1.25em}
+.sect1{padding-bottom:1.25em}}
+.sect1:last-child{padding-bottom:0}
+.sect1+.sect1{border-top:1px solid #e7e7e9}
+#content h1>a.anchor,h2>a.anchor,h3>a.anchor,#toctitle>a.anchor,.sidebarblock>.content>.title>a.anchor,h4>a.anchor,h5>a.anchor,h6>a.anchor{position:absolute;z-index:1001;width:1.5ex;margin-left:-1.5ex;display:block;text-decoration:none!important;visibility:hidden;text-align:center;font-weight:400}
+#content h1>a.anchor::before,h2>a.anchor::before,h3>a.anchor::before,#toctitle>a.anchor::before,.sidebarblock>.content>.title>a.anchor::before,h4>a.anchor::before,h5>a.anchor::before,h6>a.anchor::before{content:"\00A7";font-size:.85em;display:block;padding-top:.1em}
+#content h1:hover>a.anchor,#content h1>a.anchor:hover,h2:hover>a.anchor,h2>a.anchor:hover,h3:hover>a.anchor,#toctitle:hover>a.anchor,.sidebarblock>.content>.title:hover>a.anchor,h3>a.anchor:hover,#toctitle>a.anchor:hover,.sidebarblock>.content>.title>a.anchor:hover,h4:hover>a.anchor,h4>a.anchor:hover,h5:hover>a.anchor,h5>a.anchor:hover,h6:hover>a.anchor,h6>a.anchor:hover{visibility:visible}
+#content h1>a.link,h2>a.link,h3>a.link,#toctitle>a.link,.sidebarblock>.content>.title>a.link,h4>a.link,h5>a.link,h6>a.link{color:#ba3925;text-decoration:none}
+#content h1>a.link:hover,h2>a.link:hover,h3>a.link:hover,#toctitle>a.link:hover,.sidebarblock>.content>.title>a.link:hover,h4>a.link:hover,h5>a.link:hover,h6>a.link:hover{color:#a53221}
+details,.audioblock,.imageblock,.literalblock,.listingblock,.stemblock,.videoblock{margin-bottom:1.25em}
+details>summary:first-of-type{cursor:pointer;display:list-item;outline:none;margin-bottom:.75em}
+.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{text-rendering:optimizeLegibility;text-align:left;font-family:"Noto Serif","DejaVu Serif",serif;font-size:1rem;font-style:italic}
+table.tableblock.fit-content>caption.title{white-space:nowrap;width:0}
+.paragraph.lead>p,#preamble>.sectionbody>[class="paragraph"]:first-of-type p{font-size:1.21875em;line-height:1.6;color:rgba(0,0,0,.85)}
+table.tableblock #preamble>.sectionbody>[class="paragraph"]:first-of-type p{font-size:inherit}
+.admonitionblock>table{border-collapse:separate;border:0;background:none;width:100%}
+.admonitionblock>table td.icon{text-align:center;width:80px}
+.admonitionblock>table td.icon img{max-width:none}
+.admonitionblock>table td.icon .title{font-weight:bold;font-family:"Open Sans","DejaVu Sans",sans-serif;text-transform:uppercase}
+.admonitionblock>table td.content{padding-left:1.125em;padding-right:1.25em;border-left:1px solid #dddddf;color:rgba(0,0,0,.6)}
+.admonitionblock>table td.content>:last-child>:last-child{margin-bottom:0}
+.exampleblock>.content{border-style:solid;border-width:1px;border-color:#e6e6e6;margin-bottom:1.25em;padding:1.25em;background:#fff;-webkit-border-radius:4px;border-radius:4px}
+.exampleblock>.content>:first-child{margin-top:0}
+.exampleblock>.content>:last-child{margin-bottom:0}
+.sidebarblock{border-style:solid;border-width:1px;border-color:#dbdbd6;margin-bottom:1.25em;padding:1.25em;background:#f3f3f2;-webkit-border-radius:4px;border-radius:4px}
+.sidebarblock>:first-child{margin-top:0}
+.sidebarblock>:last-child{margin-bottom:0}
+.sidebarblock>.content>.title{color:#7a2518;margin-top:0;text-align:center}
+.exampleblock>.content>:last-child>:last-child,.exampleblock>.content .olist>ol>li:last-child>:last-child,.exampleblock>.content .ulist>ul>li:last-child>:last-child,.exampleblock>.content .qlist>ol>li:last-child>:last-child,.sidebarblock>.content>:last-child>:last-child,.sidebarblock>.content .olist>ol>li:last-child>:last-child,.sidebarblock>.content .ulist>ul>li:last-child>:last-child,.sidebarblock>.content .qlist>ol>li:last-child>:last-child{margin-bottom:0}
+.literalblock pre,.listingblock>.content>pre{-webkit-border-radius:4px;border-radius:4px;word-wrap:break-word;overflow-x:auto;padding:1em;font-size:.8125em}
+@media screen and (min-width:768px){.literalblock pre,.listingblock>.content>pre{font-size:.90625em}}
+@media screen and (min-width:1280px){.literalblock pre,.listingblock>.content>pre{font-size:1em}}
+.literalblock pre,.listingblock>.content>pre:not(.highlight),.listingblock>.content>pre[class="highlight"],.listingblock>.content>pre[class^="highlight "]{background:#f7f7f8}
+.literalblock.output pre{color:#f7f7f8;background:rgba(0,0,0,.9)}
+.listingblock>.content{position:relative}
+.listingblock code[data-lang]::before{display:none;content:attr(data-lang);position:absolute;font-size:.75em;top:.425rem;right:.5rem;line-height:1;text-transform:uppercase;color:inherit;opacity:.5}
+.listingblock:hover code[data-lang]::before{display:block}
+.listingblock.terminal pre .command::before{content:attr(data-prompt);padding-right:.5em;color:inherit;opacity:.5}
+.listingblock.terminal pre .command:not([data-prompt])::before{content:"$"}
+.listingblock pre.highlightjs{padding:0}
+.listingblock pre.highlightjs>code{padding:1em;-webkit-border-radius:4px;border-radius:4px}
+.listingblock pre.prettyprint{border-width:0}
+.prettyprint{background:#f7f7f8}
+pre.prettyprint .linenums{line-height:1.45;margin-left:2em}
+pre.prettyprint li{background:none;list-style-type:inherit;padding-left:0}
+pre.prettyprint li code[data-lang]::before{opacity:1}
+pre.prettyprint li:not(:first-child) code[data-lang]::before{display:none}
+table.linenotable{border-collapse:separate;border:0;margin-bottom:0;background:none}
+table.linenotable td[class]{color:inherit;vertical-align:top;padding:0;line-height:inherit;white-space:normal}
+table.linenotable td.code{padding-left:.75em}
+table.linenotable td.linenos{border-right:1px solid currentColor;opacity:.35;padding-right:.5em}
+pre.pygments .lineno{border-right:1px solid currentColor;opacity:.35;display:inline-block;margin-right:.75em}
+pre.pygments .lineno::before{content:"";margin-right:-.125em}
+.quoteblock{margin:0 1em 1.25em 1.5em;display:table}
+.quoteblock:not(.excerpt)>.title{margin-left:-1.5em;margin-bottom:.75em}
+.quoteblock blockquote,.quoteblock p{color:rgba(0,0,0,.85);font-size:1.15rem;line-height:1.75;word-spacing:.1em;letter-spacing:0;font-style:italic;text-align:justify}
+.quoteblock blockquote{margin:0;padding:0;border:0}
+.quoteblock blockquote::before{content:"\201c";float:left;font-size:2.75em;font-weight:bold;line-height:.6em;margin-left:-.6em;color:#7a2518;text-shadow:0 1px 2px rgba(0,0,0,.1)}
+.quoteblock blockquote>.paragraph:last-child p{margin-bottom:0}
+.quoteblock .attribution{margin-top:.75em;margin-right:.5ex;text-align:right}
+.verseblock{margin:0 1em 1.25em}
+.verseblock pre{font-family:"Open Sans","DejaVu Sans",sans;font-size:1.15rem;color:rgba(0,0,0,.85);font-weight:300;text-rendering:optimizeLegibility}
+.verseblock pre strong{font-weight:400}
+.verseblock .attribution{margin-top:1.25rem;margin-left:.5ex}
+.quoteblock .attribution,.verseblock .attribution{font-size:.9375em;line-height:1.45;font-style:italic}
+.quoteblock .attribution br,.verseblock .attribution br{display:none}
+.quoteblock .attribution cite,.verseblock .attribution cite{display:block;letter-spacing:-.025em;color:rgba(0,0,0,.6)}
+.quoteblock.abstract blockquote::before,.quoteblock.excerpt blockquote::before,.quoteblock .quoteblock blockquote::before{display:none}
+.quoteblock.abstract blockquote,.quoteblock.abstract p,.quoteblock.excerpt blockquote,.quoteblock.excerpt p,.quoteblock .quoteblock blockquote,.quoteblock .quoteblock p{line-height:1.6;word-spacing:0}
+.quoteblock.abstract{margin:0 1em 1.25em;display:block}
+.quoteblock.abstract>.title{margin:0 0 .375em;font-size:1.15em;text-align:center}
+.quoteblock.excerpt>blockquote,.quoteblock .quoteblock{padding:0 0 .25em 1em;border-left:.25em solid #dddddf}
+.quoteblock.excerpt,.quoteblock .quoteblock{margin-left:0}
+.quoteblock.excerpt blockquote,.quoteblock.excerpt p,.quoteblock .quoteblock blockquote,.quoteblock .quoteblock p{color:inherit;font-size:1.0625rem}
+.quoteblock.excerpt .attribution,.quoteblock .quoteblock .attribution{color:inherit;text-align:left;margin-right:0}
+table.tableblock{max-width:100%;border-collapse:separate}
+p.tableblock:last-child{margin-bottom:0}
+td.tableblock>.content>:last-child{margin-bottom:-1.25em}
+td.tableblock>.content>:last-child.sidebarblock{margin-bottom:0}
+table.tableblock,th.tableblock,td.tableblock{border:0 solid #dedede}
+table.grid-all>thead>tr>.tableblock,table.grid-all>tbody>tr>.tableblock{border-width:0 1px 1px 0}
+table.grid-all>tfoot>tr>.tableblock{border-width:1px 1px 0 0}
+table.grid-cols>*>tr>.tableblock{border-width:0 1px 0 0}
+table.grid-rows>thead>tr>.tableblock,table.grid-rows>tbody>tr>.tableblock{border-width:0 0 1px}
+table.grid-rows>tfoot>tr>.tableblock{border-width:1px 0 0}
+table.grid-all>*>tr>.tableblock:last-child,table.grid-cols>*>tr>.tableblock:last-child{border-right-width:0}
+table.grid-all>tbody>tr:last-child>.tableblock,table.grid-all>thead:last-child>tr>.tableblock,table.grid-rows>tbody>tr:last-child>.tableblock,table.grid-rows>thead:last-child>tr>.tableblock{border-bottom-width:0}
+table.frame-all{border-width:1px}
+table.frame-sides{border-width:0 1px}
+table.frame-topbot,table.frame-ends{border-width:1px 0}
+table.stripes-all tr,table.stripes-odd tr:nth-of-type(odd),table.stripes-even tr:nth-of-type(even),table.stripes-hover tr:hover{background:#f8f8f7}
+th.halign-left,td.halign-left{text-align:left}
+th.halign-right,td.halign-right{text-align:right}
+th.halign-center,td.halign-center{text-align:center}
+th.valign-top,td.valign-top{vertical-align:top}
+th.valign-bottom,td.valign-bottom{vertical-align:bottom}
+th.valign-middle,td.valign-middle{vertical-align:middle}
+table thead th,table tfoot th{font-weight:bold}
+tbody tr th{display:table-cell;line-height:1.6;background:#f7f8f7}
+tbody tr th,tbody tr th p,tfoot tr th,tfoot tr th p{color:rgba(0,0,0,.8);font-weight:bold}
+p.tableblock>code:only-child{background:none;padding:0}
+p.tableblock{font-size:1em}
+ol{margin-left:1.75em}
+ul li ol{margin-left:1.5em}
+dl dd{margin-left:1.125em}
+dl dd:last-child,dl dd:last-child>:last-child{margin-bottom:0}
+ol>li p,ul>li p,ul dd,ol dd,.olist .olist,.ulist .ulist,.ulist .olist,.olist .ulist{margin-bottom:.625em}
+ul.checklist,ul.none,ol.none,ul.no-bullet,ol.no-bullet,ol.unnumbered,ul.unstyled,ol.unstyled{list-style-type:none}
+ul.no-bullet,ol.no-bullet,ol.unnumbered{margin-left:.625em}
+ul.unstyled,ol.unstyled{margin-left:0}
+ul.checklist{margin-left:.625em}
+ul.checklist li>p:first-child>.fa-square-o:first-child,ul.checklist li>p:first-child>.fa-check-square-o:first-child{width:1.25em;font-size:.8em;position:relative;bottom:.125em}
+ul.checklist li>p:first-child>input[type="checkbox"]:first-child{margin-right:.25em}
+ul.inline{display:-ms-flexbox;display:-webkit-box;display:flex;-ms-flex-flow:row wrap;-webkit-flex-flow:row wrap;flex-flow:row wrap;list-style:none;margin:0 0 .625em -1.25em}
+ul.inline>li{margin-left:1.25em}
+.unstyled dl dt{font-weight:400;font-style:normal}
+ol.arabic{list-style-type:decimal}
+ol.decimal{list-style-type:decimal-leading-zero}
+ol.loweralpha{list-style-type:lower-alpha}
+ol.upperalpha{list-style-type:upper-alpha}
+ol.lowerroman{list-style-type:lower-roman}
+ol.upperroman{list-style-type:upper-roman}
+ol.lowergreek{list-style-type:lower-greek}
+.hdlist>table,.colist>table{border:0;background:none}
+.hdlist>table>tbody>tr,.colist>table>tbody>tr{background:none}
+td.hdlist1,td.hdlist2{vertical-align:top;padding:0 .625em}
+td.hdlist1{font-weight:bold;padding-bottom:1.25em}
+.literalblock+.colist,.listingblock+.colist{margin-top:-.5em}
+.colist td:not([class]):first-child{padding:.4em .75em 0;line-height:1;vertical-align:top}
+.colist td:not([class]):first-child img{max-width:none}
+.colist td:not([class]):last-child{padding:.25em 0}
+.thumb,.th{line-height:0;display:inline-block;border:solid 4px #fff;-webkit-box-shadow:0 0 0 1px #ddd;box-shadow:0 0 0 1px #ddd}
+.imageblock.left{margin:.25em .625em 1.25em 0}
+.imageblock.right{margin:.25em 0 1.25em .625em}
+.imageblock>.title{margin-bottom:0}
+.imageblock.thumb,.imageblock.th{border-width:6px}
+.imageblock.thumb>.title,.imageblock.th>.title{padding:0 .125em}
+.image.left,.image.right{margin-top:.25em;margin-bottom:.25em;display:inline-block;line-height:0}
+.image.left{margin-right:.625em}
+.image.right{margin-left:.625em}
+a.image{text-decoration:none;display:inline-block}
+a.image object{pointer-events:none}
+sup.footnote,sup.footnoteref{font-size:.875em;position:static;vertical-align:super}
+sup.footnote a,sup.footnoteref a{text-decoration:none}
+sup.footnote a:active,sup.footnoteref a:active{text-decoration:underline}
+#footnotes{padding-top:.75em;padding-bottom:.75em;margin-bottom:.625em}
+#footnotes hr{width:20%;min-width:6.25em;margin:-.25em 0 .75em;border-width:1px 0 0}
+#footnotes .footnote{padding:0 .375em 0 .225em;line-height:1.3334;font-size:.875em;margin-left:1.2em;margin-bottom:.2em}
+#footnotes .footnote a:first-of-type{font-weight:bold;text-decoration:none;margin-left:-1.05em}
+#footnotes .footnote:last-of-type{margin-bottom:0}
+#content #footnotes{margin-top:-.625em;margin-bottom:0;padding:.75em 0}
+.gist .file-data>table{border:0;background:#fff;width:100%;margin-bottom:0}
+.gist .file-data>table td.line-data{width:99%}
+div.unbreakable{page-break-inside:avoid}
+.big{font-size:larger}
+.small{font-size:smaller}
+.underline{text-decoration:underline}
+.overline{text-decoration:overline}
+.line-through{text-decoration:line-through}
+.aqua{color:#00bfbf}
+.aqua-background{background:#00fafa}
+.black{color:#000}
+.black-background{background:#000}
+.blue{color:#0000bf}
+.blue-background{background:#0000fa}
+.fuchsia{color:#bf00bf}
+.fuchsia-background{background:#fa00fa}
+.gray{color:#606060}
+.gray-background{background:#7d7d7d}
+.green{color:#006000}
+.green-background{background:#007d00}
+.lime{color:#00bf00}
+.lime-background{background:#00fa00}
+.maroon{color:#600000}
+.maroon-background{background:#7d0000}
+.navy{color:#000060}
+.navy-background{background:#00007d}
+.olive{color:#606000}
+.olive-background{background:#7d7d00}
+.purple{color:#600060}
+.purple-background{background:#7d007d}
+.red{color:#bf0000}
+.red-background{background:#fa0000}
+.silver{color:#909090}
+.silver-background{background:#bcbcbc}
+.teal{color:#006060}
+.teal-background{background:#007d7d}
+.white{color:#bfbfbf}
+.white-background{background:#fafafa}
+.yellow{color:#bfbf00}
+.yellow-background{background:#fafa00}
+span.icon>.fa{cursor:default}
+a span.icon>.fa{cursor:inherit}
+.admonitionblock td.icon [class^="fa icon-"]{font-size:2.5em;text-shadow:1px 1px 2px rgba(0,0,0,.5);cursor:default}
+.admonitionblock td.icon .icon-note::before{content:"\f05a";color:#19407c}
+.admonitionblock td.icon .icon-tip::before{content:"\f0eb";text-shadow:1px 1px 2px rgba(155,155,0,.8);color:#111}
+.admonitionblock td.icon .icon-warning::before{content:"\f071";color:#bf6900}
+.admonitionblock td.icon .icon-caution::before{content:"\f06d";color:#bf3400}
+.admonitionblock td.icon .icon-important::before{content:"\f06a";color:#bf0000}
+.conum[data-value]{display:inline-block;color:#fff!important;background:rgba(0,0,0,.8);-webkit-border-radius:100px;border-radius:100px;text-align:center;font-size:.75em;width:1.67em;height:1.67em;line-height:1.67em;font-family:"Open Sans","DejaVu Sans",sans-serif;font-style:normal;font-weight:bold}
+.conum[data-value] *{color:#fff!important}
+.conum[data-value]+b{display:none}
+.conum[data-value]::after{content:attr(data-value)}
+pre .conum[data-value]{position:relative;top:-.125em}
+b.conum *{color:inherit!important}
+.conum:not([data-value]):empty{display:none}
+dt,th.tableblock,td.content,div.footnote{text-rendering:optimizeLegibility}
+h1,h2,p,td.content,span.alt{letter-spacing:-.01em}
+p strong,td.content strong,div.footnote strong{letter-spacing:-.005em}
+p,blockquote,dt,td.content,span.alt{font-size:1.0625rem}
+p{margin-bottom:1.25rem}
+.sidebarblock p,.sidebarblock dt,.sidebarblock td.content,p.tableblock{font-size:1em}
+.exampleblock>.content{background:#fffef7;border-color:#e0e0dc;-webkit-box-shadow:0 1px 4px #e0e0dc;box-shadow:0 1px 4px #e0e0dc}
+.print-only{display:none!important}
+@page{margin:1.25cm .75cm}
+@media print{*{-webkit-box-shadow:none!important;box-shadow:none!important;text-shadow:none!important}
+html{font-size:80%}
+a{color:inherit!important;text-decoration:underline!important}
+a.bare,a[href^="#"],a[href^="mailto:"]{text-decoration:none!important}
+a[href^="http:"]:not(.bare)::after,a[href^="https:"]:not(.bare)::after{content:"(" attr(href) ")";display:inline-block;font-size:.875em;padding-left:.25em}
+abbr[title]::after{content:" (" attr(title) ")"}
+pre,blockquote,tr,img,object,svg{page-break-inside:avoid}
+thead{display:table-header-group}
+svg{max-width:100%}
+p,blockquote,dt,td.content{font-size:1em;orphans:3;widows:3}
+h2,h3,#toctitle,.sidebarblock>.content>.title{page-break-after:avoid}
+#toc,.sidebarblock,.exampleblock>.content{background:none!important}
+#toc{border-bottom:1px solid #dddddf!important;padding-bottom:0!important}
+body.book #header{text-align:center}
+body.book #header>h1:first-child{border:0!important;margin:2.5em 0 1em}
+body.book #header .details{border:0!important;display:block;padding:0!important}
+body.book #header .details span:first-child{margin-left:0!important}
+body.book #header .details br{display:block}
+body.book #header .details br+span::before{content:none!important}
+body.book #toc{border:0!important;text-align:left!important;padding:0!important;margin:0!important}
+body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-break-before:always}
+.listingblock code[data-lang]::before{display:block}
+#footer{padding:0 .9375em}
+.hide-on-print{display:none!important}
+.print-only{display:block!important}
+.hide-for-print{display:none!important}
+.show-for-print{display:inherit!important}}
+@media print,amzn-kf8{#header>h1:first-child{margin-top:1.25rem}
+.sect1{padding:0!important}
+.sect1+.sect1{border:0}
+#footer{background:none}
+#footer-text{color:rgba(0,0,0,.6);font-size:.9em}}
+@media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
+/* Stylesheet for CodeRay to match GitHub theme | MIT License | http://foundation.zurb.com */
+pre.CodeRay{background:#f7f7f8}
+.CodeRay .line-numbers{border-right:1px solid currentColor;opacity:.35;padding:0 .5em 0 0}
+.CodeRay span.line-numbers{display:inline-block;margin-right:.75em}
+.CodeRay .line-numbers strong{color:#000}
+table.CodeRay{border-collapse:separate;border:0;margin-bottom:0;background:none}
+table.CodeRay td{vertical-align:top;line-height:inherit}
+table.CodeRay td.line-numbers{text-align:right}
+table.CodeRay td.code{padding:0 0 0 .75em}
+.CodeRay .debug{color:#fff !important;background:#000080 !important}
+.CodeRay .annotation{color:#007}
+.CodeRay .attribute-name{color:#000080}
+.CodeRay .attribute-value{color:#700}
+.CodeRay .binary{color:#509}
+.CodeRay .comment{color:#998;font-style:italic}
+.CodeRay .char{color:#04d}
+.CodeRay .char .content{color:#04d}
+.CodeRay .char .delimiter{color:#039}
+.CodeRay .class{color:#458;font-weight:bold}
+.CodeRay .complex{color:#a08}
+.CodeRay .constant,.CodeRay .predefined-constant{color:#008080}
+.CodeRay .color{color:#099}
+.CodeRay .class-variable{color:#369}
+.CodeRay .decorator{color:#b0b}
+.CodeRay .definition{color:#099}
+.CodeRay .delimiter{color:#000}
+.CodeRay .doc{color:#970}
+.CodeRay .doctype{color:#34b}
+.CodeRay .doc-string{color:#d42}
+.CodeRay .escape{color:#666}
+.CodeRay .entity{color:#800}
+.CodeRay .error{color:#808}
+.CodeRay .exception{color:inherit}
+.CodeRay .filename{color:#099}
+.CodeRay .function{color:#900;font-weight:bold}
+.CodeRay .global-variable{color:#008080}
+.CodeRay .hex{color:#058}
+.CodeRay .integer,.CodeRay .float{color:#099}
+.CodeRay .include{color:#555}
+.CodeRay .inline{color:#000}
+.CodeRay .inline .inline{background:#ccc}
+.CodeRay .inline .inline .inline{background:#bbb}
+.CodeRay .inline .inline-delimiter{color:#d14}
+.CodeRay .inline-delimiter{color:#d14}
+.CodeRay .important{color:#555;font-weight:bold}
+.CodeRay .interpreted{color:#b2b}
+.CodeRay .instance-variable{color:#008080}
+.CodeRay .label{color:#970}
+.CodeRay .local-variable{color:#963}
+.CodeRay .octal{color:#40e}
+.CodeRay .predefined{color:#369}
+.CodeRay .preprocessor{color:#579}
+.CodeRay .pseudo-class{color:#555}
+.CodeRay .directive{font-weight:bold}
+.CodeRay .type{font-weight:bold}
+.CodeRay .predefined-type{color:inherit}
+.CodeRay .reserved,.CodeRay .keyword {color:#000;font-weight:bold}
+.CodeRay .key{color:#808}
+.CodeRay .key .delimiter{color:#606}
+.CodeRay .key .char{color:#80f}
+.CodeRay .value{color:#088}
+.CodeRay .regexp .delimiter{color:#808}
+.CodeRay .regexp .content{color:#808}
+.CodeRay .regexp .modifier{color:#808}
+.CodeRay .regexp .char{color:#d14}
+.CodeRay .regexp .function{color:#404;font-weight:bold}
+.CodeRay .string{color:#d20}
+.CodeRay .string .string .string{background:#ffd0d0}
+.CodeRay .string .content{color:#d14}
+.CodeRay .string .char{color:#d14}
+.CodeRay .string .delimiter{color:#d14}
+.CodeRay .shell{color:#d14}
+.CodeRay .shell .delimiter{color:#d14}
+.CodeRay .symbol{color:#990073}
+.CodeRay .symbol .content{color:#a60}
+.CodeRay .symbol .delimiter{color:#630}
+.CodeRay .tag{color:#008080}
+.CodeRay .tag-special{color:#d70}
+.CodeRay .variable{color:#036}
+.CodeRay .insert{background:#afa}
+.CodeRay .delete{background:#faa}
+.CodeRay .change{color:#aaf;background:#007}
+.CodeRay .head{color:#f8f;background:#505}
+.CodeRay .insert .insert{color:#080}
+.CodeRay .delete .delete{color:#800}
+.CodeRay .change .change{color:#66f}
+.CodeRay .head .head{color:#f4f}
+
+</style>
+<link rel="stylesheet" href="res_files/css/font-awesome.min.css"><link rel="stylesheet" href="res_files/css/dejavu.css"><style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 5px 0px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; -khtml-border-radius: 5px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 1px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: .7em}
+.MathJax_MenuRadioCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuLabel {padding: 1px 2em 3px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #DDDDDD; margin: 4px 3px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: #606872; color: white}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
+</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">.MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style></head><body><div id="MathJax_Message" style="display: none;"></div><div id="content">
+<h1>Dubbo 配置管理</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph has-source-line data-line-stdin-3">
+<p>应用开发中，配置管理的重要性不明而喻。微服务架构模式中，由于组成应用的微服务粒度很小，一个微服务会以集群的方式部署多个实例，彼此之间存在着复杂的协同或调用关系，服务实例甚至以不同的方式部署在不同机房的不同机器上，所有这些都说明在各个微服务进程中单独做配置管理是非常不科学的，因此业界提出使用配置中心做统一维护管理。</p>
+</div>
+<div class="paragraph has-source-line data-line-stdin-5">
+<p>有过微服务开发经验的人都知道，不可能所有的配置都放到配置中心的，一般会根据实际需要将那些和环境配套的、需要在线做服务治理的配置项提到配置中心，也就是说配置分为本地和外部两种，就一个服务实例而言本地配置和配置项默认值组成了外部配置的超集，Dubbo将外部配置看做是动态配置。</p>
+</div>
+<div class="paragraph has-source-line data-line-stdin-7">
+<p>Dubbo中的配置中心实现是一个扩展点，已经提供了包括<code>Redis、Sofa、Nacos、Etcd3、Consul、Zookeeper、Default、Multiple、Multicast</code>多个实现，本文将结合<code>Zookeeper</code>等少数几个剖析Dubbo中的配置中心实现。</p>
+</div>
+<div class="admonitionblock note has-source-line data-line-stdin-11">
+<table>
+<tbody><tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+Dubbo中的注册中心和配置中心一般是实现在一起的，比如用的是同一<code>Zookeeper</code>集群，只是使用的数据节点不一样而已。
+</td>
+</tr>
+</tbody></table>
+</div>
+</div>
+</div>
+<div class="sect1 has-source-line data-line-stdin-13">
+<h2 id="_配置覆写">配置覆写</h2>
+<div class="sectionbody">
+<div class="paragraph has-source-line data-line-stdin-15">
+<p>Dubbo微服务治理中，运维人员可以经配置中心向微服务发出配置覆写请求，如下述示例代码：</p>
+</div>
+<div class="listingblock has-source-line data-line-stdin-17">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java">RegistryFactory registryFactory = ExtensionLoader.getExtensionLoader(
+        RegistryFactory.class).getAdaptiveExtension();
+
+<span style="color:#0a8;font-weight:bold">Registry</span> registry = registryFactory.getRegistry(<span style="color:#0a8;font-weight:bold">URL</span>.valueOf(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">zookeeper://10.20.153.10:2181</span><span style="color:#710">"</span></span>));
+
+registry.register(<span style="color:#0a8;font-weight:bold">URL</span>.valueOf(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">override://0.0.0.0/com.foo.BarService?</span><span style="color:#710">"</span></span> +
+            <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">category=configurators&amp;dynamic=false&amp;application=foo&amp;timeout=1000</span><span style="color:#710">"</span></span>));</code></pre>
+</div>
+</div>
+<div class="paragraph has-source-line data-line-stdin-27">
+<p>示例中的意思是，先获取到一个<code>RegistryFactory</code>创建工厂，由后者获得指定<code>Zookeeper</code>配置中心<code>ZK</code>的<code>Registry</code>本地客户端，调用<code>register()</code>方法写入覆写规则（<sub>将所匹配微服务的<code>timeout</code>设为1000</sub>），由<code>ZK实例</code>负责改写配置，并将信息同步给接入到<code>ZK实例</code>的相应微服务。关于覆写规则，具体如下述Dubbo官方给的描述：</p>
+</div>
+<div class="quoteblock has-source-line data-line-stdin-29">
+<blockquote>
+<div class="paragraph has-source-line data-line-stdin-30">
+<p><code>override://</code> 表示数据采用覆盖方式，支持 <code>override</code> 和 <code>absent</code>，可扩展，<strong>必填</strong>。</p>
+</div>
+<div class="paragraph has-source-line data-line-stdin-32">
+<p><code>0.0.0.0</code> 表示对所有 IP 地址生效，如果只想覆盖某个 IP 的数据，请填入具体 IP，<strong>必填</strong>。</p>
+</div>
+<div class="paragraph has-source-line data-line-stdin-34">
+<p><code>com.foo.BarService</code> 表示只对指定服务生效，<strong>必填</strong>。</p>
+</div>
+<div class="paragraph has-source-line data-line-stdin-36">
+<p><span class="big"><code>category=configurators</code> 表示该数据为动态配置类型，<strong>必填</strong>。</span></p>
+</div>
+<div class="paragraph has-source-line data-line-stdin-38">
+<p><code>dynamic=false</code> 表示该数据为持久数据，当注册方退出时，数据依然保存在注册中心，<strong>必填</strong>。</p>
+</div>
+<div class="paragraph has-source-line data-line-stdin-40">
+<p><code>enabled=true</code> 覆盖规则是否生效，可不填，缺省生效。</p>
+</div>
+<div class="paragraph has-source-line data-line-stdin-42">
+<p><code>application=foo</code> 表示只对指定应用生效，可不填，表示对所有应用生效。</p>
+</div>
+<div class="paragraph has-source-line data-line-stdin-44">
+<p><code>timeout=1000</code> 表示将满足以上条件的 timeout 参数的值覆盖为 1000。如果想覆盖其它参数，直接加在 override 的 URL 参数上。</p>
+</div>
+</blockquote>
+</div>
+<div class="paragraph has-source-line data-line-stdin-47">
+<p>假如我们使用<code>override://10.20.153.10/com.foo.BarService?category=configurators&amp;dynamic=false</code>作为匹配的目标微服务的条件，加入对应的参数就能实现如下对应的操作目的：</p>
+</div>
+<div class="ulist has-source-line data-line-stdin-49">
+<ul>
+<li class="has-source-line data-line-stdin-49">
+<p><code>disbaled=true</code>：<strong>禁用提供者</strong>（<span class="small">通常用于临时踢除某台提供者机器，相似的，禁止消费者访问请使用路由规则</span>）</p>
+</li>
+<li class="has-source-line data-line-stdin-50">
+<p><code>weight=200</code>：<strong>调整权重</strong>（<span class="small">通常用于容量评估，缺省权重为 100</span>）</p>
+</li>
+<li class="has-source-line data-line-stdin-51">
+<p><code>loadbalance=leastactive</code>：<strong>调整负载均衡策略</strong>（<span class="small">缺省负载均衡策略为 random</span>）</p>
+</li>
+<li class="has-source-line data-line-stdin-52">
+<p><code>application=foo&amp;mock=force:return+null</code>：<strong>服务降级</strong>（<span class="small">通常用于临时屏蔽某个出错的非关键服务</span>）</p>
+</li>
+</ul>
+</div>
+<div class="sect2 has-source-line data-line-stdin-54">
+<h3 id="_覆写规则处理">覆写规则处理</h3>
+<div class="paragraph has-source-line data-line-stdin-56">
+<p>如下图所示的类图，覆写规则的处理实现被安排在<code>dubbo-cluster</code>模块中。</p>
+</div>
+<div class="imageblock text-center has-source-line data-line-stdin-58">
+<div class="content">
+<img src="res_files/imgs/15_image" alt="Dubbo 覆写规则" width="550">
+</div>
+</div>
+<div class="paragraph has-source-line data-line-stdin-60">
+<p>从《Dubbo注册中心》这篇文章中我们得知，无论是<code>Consumer</code>还是<code>Provider</code>，他们只是一个概念上的存在，帮助我们识别一份<code>URL</code>数据所代表的含义。覆写规则实质是Dubbo根据所给定<code>override://</code>或<code>absent://</code>类型的<code>URL</code>数据对表征<code>Provider</code>的<code>URL</code>数据的改写处理，Dubbo中将实现这个改写的行为类命名为<code>Configurator</code>。</p>
+</div>
+<div class="paragraph has-source-line data-line-stdin-62">
+<p>在设计上，Dubbo认为<code>Configurator</code>应该是一个扩展点，然而由于于每份<code>Provider</code>都需要它的实现类的一个实例<sub>每个实现类一个实例</sub>，SPI的扩展点的单例模式与这个需求是相悖的，因此利用SPI机制声明一个单例的用于创建<code>Configurator</code>的工厂类——<code>ConfiguratorFactory</code>，每一种工厂实现尽管本身是单例的，但却可以随时根据需要创建<code>Configurator</code>实例。上文已经知道Dubbo中提供了两种覆写表征<code>Provider</code>的<code>URL</code>数据的方式， <code>override</code> 和 <code>absent</code>，这样上述类图中左半边的部分所表示的含义也就是很清楚了。</p>
+</div>
+<div class="sect3 has-source-line data-line-stdin-65">
+<h4 id="_源码实现">源码实现</h4>
+<div class="paragraph has-source-line data-line-stdin-67">
+<p>如下述<code>ConfiguratorFactory</code>扩展点的定义，使用Dubbo的SPI机制生成的代理类调用<code>getConfigurator(url)</code>方法时，它会根据url入参中的<code>protocol</code>部分配置的名称获取到某个<code>ConfiguratorFactory</code>实现类的实例，将当前调用委托给同名方法。</p>
+</div>
+<div class="listingblock has-source-line data-line-stdin-70">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#007">@SPI</span>
+<span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">interface</span> <span style="color:#B06;font-weight:bold">ConfiguratorFactory</span> {
+
+    <span style="color:#777">/**
+     * get the configurator instance.
+     *
+     * @param url - configurator url.
+     * @return configurator instance.
+     */</span>
+    <span style="color:#007">@Adaptive</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">protocol</span><span style="color:#710">"</span></span>)
+    Configurator getConfigurator(<span style="color:#0a8;font-weight:bold">URL</span> url);
+}
+
+<span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">AbsentConfiguratorFactory</span> <span style="color:#088;font-weight:bold">implements</span> ConfiguratorFactory {
+
+    <span style="color:#007">@Override</span>
+    <span style="color:#088;font-weight:bold">public</span> Configurator getConfigurator(<span style="color:#0a8;font-weight:bold">URL</span> url) {
+        <span style="color:#080;font-weight:bold">return</span> <span style="color:#080;font-weight:bold">new</span> AbsentConfigurator(url);
+    }
+
+}
+
+<span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">OverrideConfiguratorFactory</span> <span style="color:#088;font-weight:bold">implements</span> ConfiguratorFactory {
+
+    <span style="color:#007">@Override</span>
+    <span style="color:#088;font-weight:bold">public</span> Configurator getConfigurator(<span style="color:#0a8;font-weight:bold">URL</span> url) {
+        <span style="color:#080;font-weight:bold">return</span> <span style="color:#080;font-weight:bold">new</span> OverrideConfigurator(url);
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph has-source-line data-line-stdin-102">
+<p>上述用到的<code>override://0.0.0.0/com.foo.BarService…​</code>示例中，使用SPI获取的适配类调用<code>getConfigurator(url)</code>方法，内部调用实际上后面被委托给了<code>OverrideConfiguratorFactory</code>的实例<sub>单例</sub>，由其携带入参<code>url</code>创建一个<code>Configurator</code>对象。到这里，接下来再理解<code>Configurator</code>接口中定义的<code>toConfigurators()</code>方法就轻松多了。</p>
+</div>
+<div class="paragraph has-source-line data-line-stdin-104">
+<p>先看看<code>Configurator</code>的接口方法定义，如下，它的每一个实例都会持有一份覆写规则，客户端可以调用<code>configure(url)</code>刷新得到新的URL数据。</p>
+</div>
+<div class="listingblock has-source-line data-line-stdin-107">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">interface</span> <span style="color:#B06;font-weight:bold">Configurator</span> <span style="color:#088;font-weight:bold">extends</span> <span style="color:#0a8;font-weight:bold">Comparable</span>&lt;Configurator&gt; {
+
+    <span style="color:#777">//用于定义覆盖Provider的规则</span>
+    <span style="color:#0a8;font-weight:bold">URL</span> getUrl();
+
+    <span style="color:#777">//将入参所指Provider使用当前Configurator所配规则覆盖，返回新的URL数据</span>
+    <span style="color:#0a8;font-weight:bold">URL</span> configure(<span style="color:#0a8;font-weight:bold">URL</span> url);
+
+    ...<span style="color:#777">//default方法</span>
+}</code></pre>
+</div>
+</div>
+<div class="paragraph has-source-line data-line-stdin-120">
+<p>另外<code>Configurator</code>接口中还定义了两个方法的完整接口定义如下。其中<code>toConfigurators()</code>将入参所有的覆写规则进行汇总处理，其中有任何一个将protocol设置为empty都会导致所有清空所有的覆写规则，列表中若某个URL元素的参数在移除掉掉<code>anyhost</code>这一项后没有其他参数，则会清空此前的覆写规则，最后将汇总得到的<code>Configurator</code>实例按照host<sub>优先</sub>或者priority排序。显然，<code>toConfigurators(urls)</code>方法存在的目的是，将<code>所有历史覆写规则汇总，用于配置中心给Provider重新计算URL配置数据</code>。</p>
+</div>
+<div class="listingblock has-source-line data-line-stdin-124">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#777">/**
+ *
+ Convert override urls to map for use when re-refer. Send all rules every time, the urls will be reassembled and calculated
+ *
+ * URL contract:
+ * &lt;ol&gt;
+ * &lt;li&gt;override://0.0.0.0/...( or override://ip:port...?anyhost=true)&amp;para1=value1... means global rules
+ * (all of the providers take effect)&lt;/li&gt;
+ * &lt;li&gt;override://ip:port...?anyhost=false Special rules (only for a certain provider)&lt;/li&gt;
+ * &lt;li&gt;override:// rule is not supported... ,needs to be calculated by registry itself&lt;/li&gt;
+ * &lt;li&gt;override://0.0.0.0/ without parameters means clearing the override&lt;/li&gt;
+ * &lt;/ol&gt;
+ *
+ * @param urls URL list to convert
+ * @return converted configurator list
+ */</span>
+<span style="color:#088;font-weight:bold">static</span> Optional&lt;<span style="color:#0a8;font-weight:bold">List</span>&lt;Configurator&gt;&gt; toConfigurators(<span style="color:#0a8;font-weight:bold">List</span>&lt;<span style="color:#0a8;font-weight:bold">URL</span>&gt; urls) {
+    <span style="color:#080;font-weight:bold">if</span> (CollectionUtils.isEmpty(urls)) {
+        <span style="color:#080;font-weight:bold">return</span> Optional.empty();
+    }
+
+    ConfiguratorFactory configuratorFactory =
+        ExtensionLoader.getExtensionLoader(ConfiguratorFactory.class)
+            .getAdaptiveExtension();
+
+    <span style="color:#0a8;font-weight:bold">List</span>&lt;Configurator&gt; configurators = <span style="color:#080;font-weight:bold">new</span> <span style="color:#0a8;font-weight:bold">ArrayList</span>&lt;&gt;(urls.size());
+    <span style="color:#080;font-weight:bold">for</span> (<span style="color:#0a8;font-weight:bold">URL</span> url : urls) {
+        <span style="color:#080;font-weight:bold">if</span> (EMPTY_PROTOCOL.equals(url.getProtocol())) {
+            configurators.clear();
+            <span style="color:#080;font-weight:bold">break</span>;
+        }
+        <span style="color:#0a8;font-weight:bold">Map</span>&lt;<span style="color:#0a8;font-weight:bold">String</span>, <span style="color:#0a8;font-weight:bold">String</span>&gt; override = <span style="color:#080;font-weight:bold">new</span> <span style="color:#0a8;font-weight:bold">HashMap</span>&lt;&gt;(url.getParameters());
+        <span style="color:#777">//The anyhost parameter of override may be added automatically, it can't change the judgement of changing url</span>
+        override.remove(ANYHOST_KEY);
+        <span style="color:#080;font-weight:bold">if</span> (override.size() == <span style="color:#00D">0</span>) {
+            configurators.clear();
+            <span style="color:#080;font-weight:bold">continue</span>;
+        }
+        configurators.add(configuratorFactory.getConfigurator(url));
+    }
+    <span style="color:#0a8;font-weight:bold">Collections</span>.sort(configurators);
+    <span style="color:#080;font-weight:bold">return</span> Optional.of(configurators);
+}
+
+<span style="color:#777">/**
+ * Sort by host, then by priority
+ * 1. the url with a specific host ip should have higher priority than 0.0.0.0
+ * 2. if two url has the same host, compare by priority value；
+ */</span>
+<span style="color:#007">@Override</span>
+<span style="color:#080;font-weight:bold">default</span> <span style="color:#339;font-weight:bold">int</span> compareTo(Configurator o) {
+    <span style="color:#080;font-weight:bold">if</span> (o == <span style="color:#069">null</span>) {
+        <span style="color:#080;font-weight:bold">return</span> -<span style="color:#00D">1</span>;
+    }
+
+    <span style="color:#339;font-weight:bold">int</span> ipCompare = getUrl().getHost().compareTo(o.getUrl().getHost());
+    <span style="color:#777">// host is the same, sort by priority</span>
+    <span style="color:#080;font-weight:bold">if</span> (ipCompare == <span style="color:#00D">0</span>) {
+        <span style="color:#339;font-weight:bold">int</span> i = getUrl().getParameter(PRIORITY_KEY, <span style="color:#00D">0</span>);
+        <span style="color:#339;font-weight:bold">int</span> j = o.getUrl().getParameter(PRIORITY_KEY, <span style="color:#00D">0</span>);
+        <span style="color:#080;font-weight:bold">return</span> <span style="color:#0a8;font-weight:bold">Integer</span>.compare(i, j);
+    } <span style="color:#080;font-weight:bold">else</span> {
+        <span style="color:#080;font-weight:bold">return</span> ipCompare;
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph has-source-line data-line-stdin-192">
+<p>最后我们来看看<code>AbstractConfigurator</code>类的实现，基本步骤如下：</p>
+</div>
+<div class="olist arabic has-source-line data-line-stdin-194">
+<ol class="arabic">
+<li class="has-source-line data-line-stdin-194">
+<p>首先排除掉不会出现覆写的情况：</p>
+<div class="ulist has-source-line data-line-stdin-195">
+<ul>
+<li class="has-source-line data-line-stdin-195">
+<p>覆写规则<code>configuratorUrl</code>：</p>
+<div class="olist loweralpha has-source-line data-line-stdin-196">
+<ol class="loweralpha" type="a">
+<li class="has-source-line data-line-stdin-196">
+<p>设置了<code>enabled=false</code>；</p>
+</li>
+<li class="has-source-line data-line-stdin-197">
+<p>没有设置<code>host</code></p>
+</li>
+</ol>
+</div>
+</li>
+<li class="has-source-line data-line-stdin-198">
+<p>入参中<code>url</code>：</p>
+<div class="olist loweralpha has-source-line data-line-stdin-199">
+<ol class="loweralpha" type="a">
+<li class="has-source-line data-line-stdin-199">
+<p>值为 null；</p>
+</li>
+<li class="has-source-line data-line-stdin-200">
+<p><code>getHost()</code>的值为 null；</p>
+</li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li class="has-source-line data-line-stdin-201">
+<p>根据覆写规则使用的版本<sub>是否包含于<code>configVersion</code>这个配置</sub>执行相应逻辑：</p>
+<div class="ulist has-source-line data-line-stdin-202">
+<ul>
+<li class="has-source-line data-line-stdin-202">
+<p><code>≥ 2.7.0</code>：</p>
+<div class="olist loweralpha has-source-line data-line-stdin-203">
+<ol class="loweralpha" type="a">
+<li class="has-source-line data-line-stdin-203">
+<p>若<code>url</code>和<code>configuratorUrl</code>配置的<code>side</code>参数均为<code>consumer</code>，且<code>configuratorUrl</code>配置了<code>port=0</code>：</p>
+<div class="ulist has-source-line data-line-stdin-204">
+<ul>
+<li class="has-source-line data-line-stdin-204">
+<p>返回<code>configureIfMatch(NetUtils.getLocalHost(), url)</code>；</p>
+</li>
+</ul>
+</div>
+</li>
+<li class="has-source-line data-line-stdin-205">
+<p>若<code>url</code>和<code>configuratorUrl</code>配置的<code>side</code>参数均为<code>provider</code>，且二者配置了一样的<code>port</code>值：</p>
+<div class="ulist has-source-line data-line-stdin-206">
+<ul>
+<li class="has-source-line data-line-stdin-206">
+<p>返回configureIfMatch(url.getHost(), url);</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li class="has-source-line data-line-stdin-207">
+<p><code>&lt; 2.7.0</code>：</p>
+<div class="olist loweralpha has-source-line data-line-stdin-208">
+<ol class="loweralpha" type="a">
+<li class="has-source-line data-line-stdin-208">
+<p>返回configureDeprecated(url);</p>
+</li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li class="has-source-line data-line-stdin-209">
+<p>返回原<code>url</code>数据；</p>
+</li>
+</ol>
+</div>
+<div class="listingblock has-source-line data-line-stdin-213">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#088;font-weight:bold">public</span> <span style="color:#0a8;font-weight:bold">URL</span> configure(<span style="color:#0a8;font-weight:bold">URL</span> url) {
+    <span style="color:#777">// If override url is not enabled or is invalid, just return.</span>
+    <span style="color:#080;font-weight:bold">if</span> (!configuratorUrl.getParameter(ENABLED_KEY, <span style="color:#069">true</span>) ||
+            configuratorUrl.getHost() == <span style="color:#069">null</span> || url == <span style="color:#069">null</span> || url.getHost() == <span style="color:#069">null</span>) {
+        <span style="color:#080;font-weight:bold">return</span> url;
+    }
+    <span style="color:#777">/**
+     * This if branch is created since 2.7.0.
+     */</span>
+    <span style="color:#0a8;font-weight:bold">String</span> apiVersion = configuratorUrl.getParameter(CONFIG_VERSION_KEY);
+    <span style="color:#080;font-weight:bold">if</span> (StringUtils.isNotEmpty(apiVersion)) {
+        <span style="color:#0a8;font-weight:bold">String</span> currentSide = url.getParameter(SIDE_KEY);
+        <span style="color:#0a8;font-weight:bold">String</span> configuratorSide = configuratorUrl.getParameter(SIDE_KEY);
+
+        <span style="color:#080;font-weight:bold">if</span> (currentSide.equals(configuratorSide) &amp;&amp; CONSUMER.equals(configuratorSide)
+                &amp;&amp; <span style="color:#00D">0</span> == configuratorUrl.getPort()) {
+            url = configureIfMatch(NetUtils.getLocalHost(), url);
+
+        } <span style="color:#080;font-weight:bold">else</span> <span style="color:#080;font-weight:bold">if</span> (currentSide.equals(configuratorSide) &amp;&amp;
+                PROVIDER.equals(configuratorSide) &amp;&amp; url.getPort() == configuratorUrl.getPort()) {
+            url = configureIfMatch(url.getHost(), url);
+        }
+    }
+    <span style="color:#777">/**
+     * This else branch is deprecated and is left only to keep compatibility with versions before 2.7.0
+     */</span>
+    <span style="color:#080;font-weight:bold">else</span> {
+        url = configureDeprecated(url);
+    }
+    <span style="color:#080;font-weight:bold">return</span> url;
+}</code></pre>
+</div>
+</div>
+<div class="paragraph has-source-line data-line-stdin-247">
+<p>下述继续看看<code>configureIfMatch(host, url)</code>做了什么操作？从下述源码可以看出：</p>
+</div>
+<div class="paragraph has-source-line data-line-stdin-249">
+<p>只有满足下述条件才会被执行覆写处理 <sup>and</sup>：</p>
+</div>
+<div class="olist arabic has-source-line data-line-stdin-251">
+<ol class="arabic">
+<li class="has-source-line data-line-stdin-251">
+<p><code>host == "0.0.0.0"</code> 或者 <code>host.equals(configuratorUrl.getHost())</code>；</p>
+</li>
+<li class="has-source-line data-line-stdin-252">
+<p><code>configuratorUrl</code>中的<code>providerAddresses</code>配置 <sup>or</sup>：</p>
+<div class="ulist has-source-line data-line-stdin-253">
+<ul>
+<li class="has-source-line data-line-stdin-253">
+<p>没有该配置；</p>
+</li>
+<li class="has-source-line data-line-stdin-254">
+<p>值为<code>"0.0.0.0"</code>通配符；</p>
+</li>
+<li class="has-source-line data-line-stdin-255">
+<p>值包含了<code>url</code>的 address 值，也即 <code>host[":" + port]</code>；</p>
+</li>
+</ul>
+</div>
+</li>
+<li class="has-source-line data-line-stdin-256">
+<p><code>configuratorUrl</code>启用排除符的配置项，并没有包含在<code>url</code>中，比如前者中含有<code>~key1=kylin</code>，而后者并不包含<code>key1=kylin</code>；</p>
+</li>
+</ol>
+</div>
+<div class="listingblock has-source-line data-line-stdin-260">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#088;font-weight:bold">private</span> <span style="color:#0a8;font-weight:bold">URL</span> configureIfMatch(<span style="color:#0a8;font-weight:bold">String</span> host, <span style="color:#0a8;font-weight:bold">URL</span> url) {
+    <span style="color:#080;font-weight:bold">if</span> (ANYHOST_VALUE.equals(configuratorUrl.getHost()) || host.equals(configuratorUrl.getHost())) {
+        <span style="color:#777">// TODO, to support wildcards</span>
+        <span style="color:#0a8;font-weight:bold">String</span> providers = configuratorUrl.getParameter(OVERRIDE_PROVIDERS_KEY);
+        <span style="color:#080;font-weight:bold">if</span> (StringUtils.isEmpty(providers) || providers.contains(url.getAddress()) || providers.contains(ANYHOST_VALUE)) {
+            <span style="color:#0a8;font-weight:bold">String</span> configApplication = configuratorUrl.getParameter(APPLICATION_KEY,
+                    configuratorUrl.getUsername());
+            <span style="color:#0a8;font-weight:bold">String</span> currentApplication = url.getParameter(APPLICATION_KEY, url.getUsername());
+            <span style="color:#080;font-weight:bold">if</span> (configApplication == <span style="color:#069">null</span> || ANY_VALUE.equals(configApplication)
+                    || configApplication.equals(currentApplication)) {
+                <span style="color:#0a8;font-weight:bold">Set</span>&lt;<span style="color:#0a8;font-weight:bold">String</span>&gt; conditionKeys = <span style="color:#080;font-weight:bold">new</span> <span style="color:#0a8;font-weight:bold">HashSet</span>&lt;<span style="color:#0a8;font-weight:bold">String</span>&gt;();
+                conditionKeys.add(CATEGORY_KEY);
+                conditionKeys.add(Constants.CHECK_KEY);
+                conditionKeys.add(DYNAMIC_KEY);
+                conditionKeys.add(ENABLED_KEY);
+                conditionKeys.add(GROUP_KEY);
+                conditionKeys.add(VERSION_KEY);
+                conditionKeys.add(APPLICATION_KEY);
+                conditionKeys.add(SIDE_KEY);
+                conditionKeys.add(CONFIG_VERSION_KEY);
+                conditionKeys.add(COMPATIBLE_CONFIG_KEY);
+                <span style="color:#080;font-weight:bold">for</span> (<span style="color:#0a8;font-weight:bold">Map</span>.Entry&lt;<span style="color:#0a8;font-weight:bold">String</span>, <span style="color:#0a8;font-weight:bold">String</span>&gt; entry : configuratorUrl.getParameters().entrySet()) {
+                    <span style="color:#0a8;font-weight:bold">String</span> key = entry.getKey();
+                    <span style="color:#0a8;font-weight:bold">String</span> value = entry.getValue();
+                    <span style="color:#080;font-weight:bold">if</span> (key.startsWith(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">~</span><span style="color:#710">"</span></span>) || APPLICATION_KEY.equals(key) || SIDE_KEY.equals(key)) {
+                        conditionKeys.add(key);
+                        <span style="color:#080;font-weight:bold">if</span> (value != <span style="color:#069">null</span> &amp;&amp; !ANY_VALUE.equals(value)
+                                &amp;&amp; !value.equals(url.getParameter(key.startsWith(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">~</span><span style="color:#710">"</span></span>) ? key.substring(<span style="color:#00D">1</span>) : key))) {
+                            <span style="color:#080;font-weight:bold">return</span> url;
+                        }
+                    }
+                }
+                <span style="color:#080;font-weight:bold">return</span> doConfigure(url, configuratorUrl.removeParameters(conditionKeys));
+            }
+        }
+    }
+    <span style="color:#080;font-weight:bold">return</span> url;
+}</code></pre>
+</div>
+</div>
+<div class="paragraph has-source-line data-line-stdin-301">
+<p>从上述源码中可以看出，覆写中移除了一些常见配置项，包括<code>category、check、dynamic、enabled、group、version、application、side、configVersion、compatible_config</code>，另外加了排除符"~"前缀的配置项也被移除了。</p>
+</div>
+<div class="paragraph has-source-line data-line-stdin-303">
+<p>相对而言，在<code>&lt; 2.7.0</code>版本的实现看似简单些，如下：</p>
+</div>
+<div class="listingblock has-source-line data-line-stdin-305">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#088;font-weight:bold">private</span> <span style="color:#0a8;font-weight:bold">URL</span> configureDeprecated(<span style="color:#0a8;font-weight:bold">URL</span> url) {
+    <span style="color:#080;font-weight:bold">if</span> (configuratorUrl.getPort() != <span style="color:#00D">0</span>) {
+        <span style="color:#080;font-weight:bold">if</span> (url.getPort() == configuratorUrl.getPort()) {
+            <span style="color:#777">//当覆盖规则里头配置了port，且url和该值相等时</span>
+            <span style="color:#080;font-weight:bold">return</span> configureIfMatch(url.getHost(), url);
+        }
+    } <span style="color:#080;font-weight:bold">else</span> {
+        <span style="color:#080;font-weight:bold">if</span> (url.getParameter(SIDE_KEY, PROVIDER).equals(CONSUMER)) {
+            <span style="color:#777">//若url中指定了side=consumer</span>
+            <span style="color:#080;font-weight:bold">return</span> configureIfMatch(NetUtils.getLocalHost(), url);
+        } <span style="color:#080;font-weight:bold">else</span> <span style="color:#080;font-weight:bold">if</span> (url.getParameter(SIDE_KEY, CONSUMER).equals(PROVIDER)) {
+            <span style="color:#777">//若url中指定了side=provider</span>
+            <span style="color:#080;font-weight:bold">return</span> configureIfMatch(ANYHOST_VALUE, url);
+        }
+    }
+    <span style="color:#080;font-weight:bold">return</span> url;
+}</code></pre>
+</div>
+</div>
+<div class="admonitionblock important has-source-line data-line-stdin-326">
+<table>
+<tbody><tr>
+<td class="icon">
+<div class="title">Important</div>
+</td>
+<td class="content">
+<div class="paragraph has-source-line data-line-stdin-327">
+<p>当看到<code>NetUtils.getLocalHost()</code>这一截代码时，读者可能会有些费解卡壳，因为我们的源码是在一个微观的粒度去剖析的，放回到宏观，就比较容易理解了。</p>
+</div>
+<div class="paragraph has-source-line data-line-stdin-329">
+<p>Dubbo微服务中，配置中心和<code>Provider|Consumer</code>是完全解耦的，<code>Provider</code>和<code>Consumer</code>也是通过它解耦了。</p>
+</div>
+<div class="paragraph has-source-line data-line-stdin-331">
+<p>当运维人员向配置中心 Reg 发送一个治理请求后，Reg 仅仅是发生了一个节点（<sub>树形结构中的一条数据</sub>）的数据变化而已，而这种变化是它会通知给使用长连接接入的<code>Provider|Consumer</code>，后者使用本地<code>Registry</code>客户端回调相应的方法，执行规则覆写处理。</p>
+</div>
+<div class="paragraph has-source-line data-line-stdin-333">
+<p>因此看到针对<code>side=consumer</code>这种配置覆写场景中，将入参 url 值的 host 改写为自身的本地IP地址。这个IP地址也是它用于注册到配置中心的那个，<code>ANYHOST_VALUE.equals(configuratorUrl.getHost()) || host.equals(configuratorUrl.getHost())</code>这一条件又保证了只有匹配覆写规则的那个Consumer才能执行该操作。</p>
+</div>
+</td>
+</tr>
+</tbody></table>
+</div>
+<div class="paragraph has-source-line data-line-stdin-336">
+<p>最后轮到<code>Configurator</code>的两个实现上场了，他们只有一行代码的区别，<code>Override</code>模式直接使用覆写规则中的参数覆写，而<code>Absent</code>模式仅仅在原 url 数据没有覆写规则中的参数时才加入。</p>
+</div>
+<div class="listingblock has-source-line data-line-stdin-338">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">AbsentConfigurator</span> <span style="color:#088;font-weight:bold">extends</span> AbstractConfigurator {
+
+    <span style="color:#088;font-weight:bold">public</span> AbsentConfigurator(<span style="color:#0a8;font-weight:bold">URL</span> url) {
+        <span style="color:#950">super</span>(url);
+    }
+
+    <span style="color:#007">@Override</span>
+    <span style="color:#088;font-weight:bold">public</span> <span style="color:#0a8;font-weight:bold">URL</span> doConfigure(<span style="color:#0a8;font-weight:bold">URL</span> currentUrl, <span style="color:#0a8;font-weight:bold">URL</span> configUrl) {
+        <span style="color:#080;font-weight:bold">return</span> currentUrl.addParametersIfAbsent(configUrl.getParameters());
+    }
+
+}
+
+<span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">OverrideConfigurator</span> <span style="color:#088;font-weight:bold">extends</span> AbstractConfigurator {
+
+    <span style="color:#088;font-weight:bold">public</span> OverrideConfigurator(<span style="color:#0a8;font-weight:bold">URL</span> url) {
+        <span style="color:#950">super</span>(url);
+    }
+
+    <span style="color:#007">@Override</span>
+    <span style="color:#088;font-weight:bold">public</span> <span style="color:#0a8;font-weight:bold">URL</span> doConfigure(<span style="color:#0a8;font-weight:bold">URL</span> currentUrl, <span style="color:#0a8;font-weight:bold">URL</span> configUrl) {
+        <span style="color:#080;font-weight:bold">return</span> currentUrl.addParameters(configUrl.getParameters());
+    }
+
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1 has-source-line data-line-stdin-367">
+<h2 id="_外部配置到url数据的转换">外部配置到URL数据的转换</h2>
+<div class="sectionbody">
+<div class="paragraph has-source-line data-line-stdin-369">
+<p>我们都清楚，Dubbo中的配置数据绝大部分是使用配置总线URL做维护、传递和内存本地存取处理的，而处于注册中心的数据是以节点的形式存储存在树形结构中，因而其下发到本地或本地从中拉取的数据，需要执行特定的转换处理才能最终转换为URL形式的数据。</p>
+</div>
+<div class="paragraph has-source-line data-line-stdin-371">
+<p>如下述类图所示，Dubbo在<code>dubbo-cluster</code>模块中定义了实现配置转换的<code>ConfigParser</code>类，将从线上获取的配置数据转换为一序列的URL数据。</p>
+</div>
+<div class="imageblock text-center has-source-line data-line-stdin-373">
+<div class="content">
+<img src="res_files/imgs/15_image(1)" alt="Dubbo 配置下发处理" width="300">
+</div>
+</div>
+<div class="paragraph has-source-line data-line-stdin-375">
+<p>幸运的是线上的数据获取下来组成的文本是符合YAML规范的，因此可以经过它的转换变成本地的结构化数据，再由它转换为URL数据。下面看看其具体实现，源码比较长，依然打散视之。</p>
+</div>
+<div class="paragraph has-source-line data-line-stdin-377">
+<p>首先，将获取的原生数据转换为本地结构化数据，如下，指定自定义的数据类型，告知Yaml如何转换，由其加载成对应类型的数据：</p>
+</div>
+<div class="listingblock has-source-line data-line-stdin-380">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#088;font-weight:bold">private</span> <span style="color:#088;font-weight:bold">static</span> &lt;T&gt; T parseObject(<span style="color:#0a8;font-weight:bold">String</span> rawConfig) {
+    <span style="color:#0a8;font-weight:bold">Constructor</span> constructor = <span style="color:#080;font-weight:bold">new</span> <span style="color:#0a8;font-weight:bold">Constructor</span>(ConfiguratorConfig.class);
+    TypeDescription itemDescription = <span style="color:#080;font-weight:bold">new</span> TypeDescription(ConfiguratorConfig.class);
+    itemDescription.addPropertyParameters(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">items</span><span style="color:#710">"</span></span>, ConfigItem.class);
+    constructor.addTypeDescription(itemDescription);
+
+    Yaml yaml = <span style="color:#080;font-weight:bold">new</span> Yaml(constructor);
+    <span style="color:#080;font-weight:bold">return</span> yaml.load(rawConfig);
+}</code></pre>
+</div>
+</div>
+<div class="paragraph has-source-line data-line-stdin-392">
+<p>然后，根据获取到<code>ConfiguratorConfig</code>类型的数据中的<code>scope</code>值，判定配置是作用在应用级别还是微服务级别，根据级别模式对其所有<code>ConfigItem</code>类型数据项转换成URL类型的数据，汇集成列表返回：</p>
+</div>
+<div class="listingblock has-source-line data-line-stdin-394">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#088;font-weight:bold">public</span> <span style="color:#088;font-weight:bold">static</span> <span style="color:#0a8;font-weight:bold">List</span>&lt;<span style="color:#0a8;font-weight:bold">URL</span>&gt; parseConfigurators(<span style="color:#0a8;font-weight:bold">String</span> rawConfig) {
+    <span style="color:#0a8;font-weight:bold">List</span>&lt;<span style="color:#0a8;font-weight:bold">URL</span>&gt; urls = <span style="color:#080;font-weight:bold">new</span> <span style="color:#0a8;font-weight:bold">ArrayList</span>&lt;&gt;();
+    ConfiguratorConfig configuratorConfig = parseObject(rawConfig);
+
+    <span style="color:#0a8;font-weight:bold">String</span> scope = configuratorConfig.getScope();
+    <span style="color:#0a8;font-weight:bold">List</span>&lt;ConfigItem&gt; items = configuratorConfig.getConfigs();
+
+    <span style="color:#080;font-weight:bold">if</span> (ConfiguratorConfig.SCOPE_APPLICATION.equals(scope)) {
+        items.forEach(item -&gt; urls.addAll(appItemToUrls(item, configuratorConfig)));
+    } <span style="color:#080;font-weight:bold">else</span> {
+        <span style="color:#777">// service scope by default.</span>
+        items.forEach(item -&gt; urls.addAll(serviceItemToUrls(item, configuratorConfig)));
+    }
+    <span style="color:#080;font-weight:bold">return</span> urls;
+}</code></pre>
+</div>
+</div>
+<div class="sect2 has-source-line data-line-stdin-412">
+<h3 id="_到url数据的转换">到URL数据的转换</h3>
+<div class="sect3 has-source-line data-line-stdin-414">
+<h4 id="_共同支持函数">共同支持函数</h4>
+<div class="paragraph has-source-line data-line-stdin-416">
+<p>从上述定义的数据结构<code>ConfiguratorConfig</code>和<code>ConfigItem</code>来看，虽然数据分为两个不同级别的处理，但是数据的组成形式是一样的，具体处理时会有诸多共同之处。</p>
+</div>
+<div class="paragraph has-source-line data-line-stdin-418">
+<p>配置项中的<code>address</code>若被设置为空值，则转换为匹配任意 Provider 或者 Consumer 的通配IP地址 <code>0.0.0.0</code>。</p>
+</div>
+<div class="listingblock has-source-line data-line-stdin-420">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#088;font-weight:bold">private</span> <span style="color:#088;font-weight:bold">static</span> <span style="color:#0a8;font-weight:bold">List</span>&lt;<span style="color:#0a8;font-weight:bold">String</span>&gt; parseAddresses(ConfigItem item) {
+    <span style="color:#0a8;font-weight:bold">List</span>&lt;<span style="color:#0a8;font-weight:bold">String</span>&gt; addresses = item.getAddresses();
+    <span style="color:#080;font-weight:bold">if</span> (addresses == <span style="color:#069">null</span>) {
+        addresses = <span style="color:#080;font-weight:bold">new</span> <span style="color:#0a8;font-weight:bold">ArrayList</span>&lt;&gt;();
+    }
+    <span style="color:#080;font-weight:bold">if</span> (addresses.size() == <span style="color:#00D">0</span>) {
+        addresses.add(ANYHOST_VALUE);
+    }
+    <span style="color:#080;font-weight:bold">return</span> addresses;
+}</code></pre>
+</div>
+</div>
+<div class="paragraph has-source-line data-line-stdin-433">
+<p>设置URL数据的的<code>enabled</code>参数，如果<code>ConfigItem</code>类型的数据中的<code>type</code>值为 null 或者等于<code>general</code>，则从上一级取值，否则在当前数据项中取值。</p>
+</div>
+<div class="listingblock has-source-line data-line-stdin-435">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#088;font-weight:bold">private</span> <span style="color:#088;font-weight:bold">static</span> <span style="color:#339;font-weight:bold">void</span> parseEnabled(ConfigItem item, ConfiguratorConfig config, <span style="color:#0a8;font-weight:bold">StringBuilder</span> urlBuilder) {
+    urlBuilder.append(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">&amp;enabled=</span><span style="color:#710">"</span></span>);
+    <span style="color:#080;font-weight:bold">if</span> (item.getType() == <span style="color:#069">null</span> || ConfigItem.GENERAL_TYPE.equals(item.getType())) {
+        urlBuilder.append(config.getEnabled());
+    } <span style="color:#080;font-weight:bold">else</span> {
+        urlBuilder.append(item.getEnabled());
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph has-source-line data-line-stdin-446">
+<p>将ConfigItem类型的数据转换成URL中形如
+<code>category=dynamicconfigurators[&amp;side={side}][&amp;key<sub>1</sub>=val<sub>1</sub>&amp;key<sub>2</sub>=val<sub>2</sub>&amp;…​&amp;key<sub>n</sub>=val<sub>n</sub>][&amp;providerAddresses=addr<sub>1</sub>,addr<sub>2</sub>,…​,addr<sub>n</sub>]</code>的组成。</p>
+</div>
+<div class="listingblock has-source-line data-line-stdin-449">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#088;font-weight:bold">private</span> <span style="color:#088;font-weight:bold">static</span> <span style="color:#0a8;font-weight:bold">String</span> toParameterString(ConfigItem item) {
+    <span style="color:#0a8;font-weight:bold">StringBuilder</span> sb = <span style="color:#080;font-weight:bold">new</span> <span style="color:#0a8;font-weight:bold">StringBuilder</span>();
+    sb.append(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">category=</span><span style="color:#710">"</span></span>);
+    sb.append(DYNAMIC_CONFIGURATORS_CATEGORY);
+    <span style="color:#080;font-weight:bold">if</span> (item.getSide() != <span style="color:#069">null</span>) {
+        sb.append(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">&amp;side=</span><span style="color:#710">"</span></span>);
+        sb.append(item.getSide());
+    }
+    <span style="color:#0a8;font-weight:bold">Map</span>&lt;<span style="color:#0a8;font-weight:bold">String</span>, <span style="color:#0a8;font-weight:bold">String</span>&gt; parameters = item.getParameters();
+    <span style="color:#080;font-weight:bold">if</span> (CollectionUtils.isEmptyMap(parameters)) {
+        <span style="color:#080;font-weight:bold">throw</span> <span style="color:#080;font-weight:bold">new</span> <span style="color:#C00;font-weight:bold">IllegalStateException</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Invalid configurator rule, please specify at least one parameter </span><span style="color:#710">"</span></span> +
+                <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">you want to change in the rule.</span><span style="color:#710">"</span></span>);
+    }
+
+    parameters.forEach((k, v) -&gt; {
+        sb.append(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">&amp;</span><span style="color:#710">"</span></span>);
+        sb.append(k);
+        sb.append(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">=</span><span style="color:#710">"</span></span>);
+        sb.append(v);
+    });
+
+    <span style="color:#080;font-weight:bold">if</span> (CollectionUtils.isNotEmpty(item.getProviderAddresses())) {
+        sb.append(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">&amp;</span><span style="color:#710">"</span></span>);
+        sb.append(OVERRIDE_PROVIDERS_KEY);
+        sb.append(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">=</span><span style="color:#710">"</span></span>);
+        sb.append(CollectionUtils.join(item.getProviderAddresses(), <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">,</span><span style="color:#710">"</span></span>));
+    }
+
+    <span style="color:#080;font-weight:bold">return</span> sb.toString();
+}</code></pre>
+</div>
+</div>
+<div class="paragraph has-source-line data-line-stdin-482">
+<p>将形如<code>[{group}/]{interfaceName}[:{version}]</code>的<code>serviceKey</code>转换成URL中形如<code>{interfaceName}?[group={group}&amp;][version={version}&amp;]</code>的组成。</p>
+</div>
+<div class="listingblock has-source-line data-line-stdin-485">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#088;font-weight:bold">private</span> <span style="color:#088;font-weight:bold">static</span> <span style="color:#0a8;font-weight:bold">String</span> appendService(<span style="color:#0a8;font-weight:bold">String</span> serviceKey) {
+    <span style="color:#0a8;font-weight:bold">StringBuilder</span> sb = <span style="color:#080;font-weight:bold">new</span> <span style="color:#0a8;font-weight:bold">StringBuilder</span>();
+    <span style="color:#080;font-weight:bold">if</span> (StringUtils.isEmpty(serviceKey)) {
+        <span style="color:#080;font-weight:bold">throw</span> <span style="color:#080;font-weight:bold">new</span> <span style="color:#C00;font-weight:bold">IllegalStateException</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">service field in configuration is null.</span><span style="color:#710">"</span></span>);
+    }
+
+    <span style="color:#0a8;font-weight:bold">String</span> interfaceName = serviceKey;
+    <span style="color:#339;font-weight:bold">int</span> i = interfaceName.indexOf(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">/</span><span style="color:#710">"</span></span>);
+    <span style="color:#080;font-weight:bold">if</span> (i &gt; <span style="color:#00D">0</span>) {
+        sb.append(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">group=</span><span style="color:#710">"</span></span>);
+        sb.append(interfaceName, <span style="color:#00D">0</span>, i);
+        sb.append(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">&amp;</span><span style="color:#710">"</span></span>);
+
+        interfaceName = interfaceName.substring(i + <span style="color:#00D">1</span>);
+    }
+    <span style="color:#339;font-weight:bold">int</span> j = interfaceName.indexOf(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">:</span><span style="color:#710">"</span></span>);
+    <span style="color:#080;font-weight:bold">if</span> (j &gt; <span style="color:#00D">0</span>) {
+        sb.append(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">version=</span><span style="color:#710">"</span></span>);
+        sb.append(interfaceName.substring(j + <span style="color:#00D">1</span>));
+        sb.append(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">&amp;</span><span style="color:#710">"</span></span>);
+        interfaceName = interfaceName.substring(<span style="color:#00D">0</span>, j);
+    }
+    sb.insert(<span style="color:#00D">0</span>, interfaceName + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">?</span><span style="color:#710">"</span></span>);
+
+    <span style="color:#080;font-weight:bold">return</span> sb.toString();
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3 has-source-line data-line-stdin-514">
+<h4 id="_应用级别">应用级别</h4>
+<div class="paragraph has-source-line data-line-stdin-516">
+<p>先获取所有的匹配目标<code>Consumer</code>或者<code>Provider</code>的 address 数据，遍历，挨个取<code>serviceKey</code>集合<code>services</code>，若为空，在返回列表<code>urls</code>中增加一项URL数据<code>override://{addr}/*</code>，否则内部再遍历<code>services</code>，给<code>urls</code>中加入URL数据，形如:</p>
+</div>
+<div class="paragraph has-source-line data-line-stdin-518">
+<p><code>override://{addr}/{interfaceName}?
+ [group={group}&amp;][version={version}&amp;]
+ category=dynamicconfigurators[&amp;side={side}]
+ [&amp;key<sub>1</sub>=val<sub>1</sub>&amp;key<sub>2</sub>=val<sub>2</sub>&amp;…​&amp;key<sub>n</sub>=val<sub>n</sub>]
+ [&amp;providerAddresses=addr<sub>1</sub>,addr<sub>2</sub>,…​,addr<sub>n</sub>]
+ &amp;application={app}&amp;enabled={enabled}
+ &amp;category=appdynamicconfigurators&amp;configVersion={configVersion}</code></p>
+</div>
+<div class="listingblock has-source-line data-line-stdin-527">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#088;font-weight:bold">private</span> <span style="color:#088;font-weight:bold">static</span> <span style="color:#0a8;font-weight:bold">List</span>&lt;<span style="color:#0a8;font-weight:bold">URL</span>&gt; appItemToUrls(ConfigItem item, ConfiguratorConfig config) {
+    <span style="color:#0a8;font-weight:bold">List</span>&lt;<span style="color:#0a8;font-weight:bold">URL</span>&gt; urls = <span style="color:#080;font-weight:bold">new</span> <span style="color:#0a8;font-weight:bold">ArrayList</span>&lt;&gt;();
+    <span style="color:#0a8;font-weight:bold">List</span>&lt;<span style="color:#0a8;font-weight:bold">String</span>&gt; addresses = parseAddresses(item);
+    <span style="color:#080;font-weight:bold">for</span> (<span style="color:#0a8;font-weight:bold">String</span> addr : addresses) {
+        <span style="color:#0a8;font-weight:bold">StringBuilder</span> urlBuilder = <span style="color:#080;font-weight:bold">new</span> <span style="color:#0a8;font-weight:bold">StringBuilder</span>();
+        urlBuilder.append(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">override://</span><span style="color:#710">"</span></span>).append(addr).append(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">/</span><span style="color:#710">"</span></span>);
+        <span style="color:#0a8;font-weight:bold">List</span>&lt;<span style="color:#0a8;font-weight:bold">String</span>&gt; services = item.getServices();
+        <span style="color:#080;font-weight:bold">if</span> (services == <span style="color:#069">null</span>) {
+            services = <span style="color:#080;font-weight:bold">new</span> <span style="color:#0a8;font-weight:bold">ArrayList</span>&lt;&gt;();
+        }
+        <span style="color:#080;font-weight:bold">if</span> (services.size() == <span style="color:#00D">0</span>) {
+            services.add(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">*</span><span style="color:#710">"</span></span>);
+        }
+        <span style="color:#080;font-weight:bold">for</span> (<span style="color:#0a8;font-weight:bold">String</span> s : services) {
+            urlBuilder.append(appendService(s));
+            urlBuilder.append(toParameterString(item));
+
+            urlBuilder.append(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">&amp;application=</span><span style="color:#710">"</span></span>).append(config.getKey());
+
+            parseEnabled(item, config, urlBuilder);
+
+            urlBuilder.append(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">&amp;category=</span><span style="color:#710">"</span></span>).append(APP_DYNAMIC_CONFIGURATORS_CATEGORY);
+            urlBuilder.append(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">&amp;configVersion=</span><span style="color:#710">"</span></span>).append(config.getConfigVersion());
+
+            urls.add(<span style="color:#0a8;font-weight:bold">URL</span>.valueOf(urlBuilder.toString()));
+        }
+    }
+    <span style="color:#080;font-weight:bold">return</span> urls;
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3 has-source-line data-line-stdin-559">
+<h4 id="_微服务级别">微服务级别</h4>
+<div class="paragraph has-source-line data-line-stdin-561">
+<p>先获取所有的匹配目标Consumer或者Provider的 address 数据，遍历，给urls中加入URL数据（如果<code>ConfigItem</code>数据的<code>applications</code>不为空，则内部多一层循环），形如:</p>
+</div>
+<div class="paragraph has-source-line data-line-stdin-563">
+<p><code>override://{addr}/{interfaceName}?
+ [group={group}&amp;][version={version}&amp;]
+ category=dynamicconfigurators[&amp;side={side}]
+ [&amp;key<sub>1</sub>=val<sub>1</sub>&amp;key<sub>2</sub>=val<sub>2</sub>&amp;…​&amp;key<sub>n</sub>=val<sub>n</sub>]
+ [&amp;providerAddresses=addr<sub>1</sub>,addr<sub>2</sub>,…​,addr<sub>n</sub>]
+ &amp;enabled={enabled}
+ &amp;category=dynamicconfigurators&amp;configVersion={configVersion}
+ [&amp;application={app}]</code></p>
+</div>
+<div class="listingblock has-source-line data-line-stdin-572">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#088;font-weight:bold">private</span> <span style="color:#088;font-weight:bold">static</span> <span style="color:#0a8;font-weight:bold">List</span>&lt;<span style="color:#0a8;font-weight:bold">URL</span>&gt; serviceItemToUrls(ConfigItem item, ConfiguratorConfig config) {
+    <span style="color:#0a8;font-weight:bold">List</span>&lt;<span style="color:#0a8;font-weight:bold">URL</span>&gt; urls = <span style="color:#080;font-weight:bold">new</span> <span style="color:#0a8;font-weight:bold">ArrayList</span>&lt;&gt;();
+    <span style="color:#0a8;font-weight:bold">List</span>&lt;<span style="color:#0a8;font-weight:bold">String</span>&gt; addresses = parseAddresses(item);
+
+    addresses.forEach(addr -&gt; {
+        <span style="color:#0a8;font-weight:bold">StringBuilder</span> urlBuilder = <span style="color:#080;font-weight:bold">new</span> <span style="color:#0a8;font-weight:bold">StringBuilder</span>();
+        urlBuilder.append(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">override://</span><span style="color:#710">"</span></span>).append(addr).append(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">/</span><span style="color:#710">"</span></span>);
+
+        urlBuilder.append(appendService(config.getKey()));
+        urlBuilder.append(toParameterString(item));
+
+        parseEnabled(item, config, urlBuilder);
+
+        urlBuilder.append(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">&amp;category=</span><span style="color:#710">"</span></span>).append(DYNAMIC_CONFIGURATORS_CATEGORY);
+        urlBuilder.append(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">&amp;configVersion=</span><span style="color:#710">"</span></span>).append(config.getConfigVersion());
+
+        <span style="color:#0a8;font-weight:bold">List</span>&lt;<span style="color:#0a8;font-weight:bold">String</span>&gt; apps = item.getApplications();
+        <span style="color:#080;font-weight:bold">if</span> (apps != <span style="color:#069">null</span> &amp;&amp; apps.size() &gt; <span style="color:#00D">0</span>) {
+            apps.forEach(app -&gt; urls.add(<span style="color:#0a8;font-weight:bold">URL</span>.valueOf(urlBuilder.append(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">&amp;application=</span><span style="color:#710">"</span></span>).append(app).toString())));
+        } <span style="color:#080;font-weight:bold">else</span> {
+            urls.add(<span style="color:#0a8;font-weight:bold">URL</span>.valueOf(urlBuilder.toString()));
+        }
+    });
+
+    <span style="color:#080;font-weight:bold">return</span> urls;
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1 has-source-line data-line-stdin-601">
+<h2 id="_本地配置">本地配置</h2>
+<div class="sectionbody">
+<div class="paragraph has-source-line data-line-stdin-603">
+<p>宏观上讲，Dubbo中的本地配置实际上包含了多个部分，比如构成工程骨架的元数据、业务逻辑用到的配置项、当前JVM运行的环境参数、微服务治理中的应用本地默认设置等。</p>
+</div>
+<div class="imageblock text-center has-source-line data-line-stdin-605">
+<div class="content">
+<img src="res_files/imgs/15_image(2)" alt="Dubbo 本地配置" width="1000">
+</div>
+</div>
+<div class="paragraph has-source-line data-line-stdin-607">
+<p>本章节涉及的范围只是它的一个子集，如上述类图所示，包括：</p>
+</div>
+<div class="olist arabic has-source-line data-line-stdin-609">
+<ol class="arabic">
+<li class="has-source-line data-line-stdin-609">
+<p><code>系统配置</code>——<code>SystemConfiguration</code>：当前JVM的系统配置，这里的系统特指JVM虚拟机，特定于应用本身；</p>
+</li>
+<li class="has-source-line data-line-stdin-610">
+<p><code>环境配置</code>——<code>EnvironmentConfiguration</code>：当前JVM所在的操作系统的环境配置内容，不受应用支配；</p>
+</li>
+<li class="has-source-line data-line-stdin-611">
+<p><code>属性配置</code>——<code>PropertiesConfiguration</code>：用于业务逻辑控制的配置参数，一般配置在<code>*.properties</code>文件中；</p>
+</li>
+<li class="has-source-line data-line-stdin-612">
+<p><code>内存配置</code>——<code>InmemoryConfiguration</code>：微服务应用运行时产生的配置项数据，应用关闭后就消失不见了；</p>
+</li>
+</ol>
+</div>
+<div class="paragraph has-source-line data-line-stdin-614">
+<p>类图中可以看出，所有这些配置读取实现最终会通过<code>Enviroment</code>类统一体检接口界面。</p>
+</div>
+<div class="sect2 has-source-line data-line-stdin-616">
+<h3 id="_源码剖析">源码剖析</h3>
+<div class="sect3 has-source-line data-line-stdin-618">
+<h4 id="_configuration_接口"><code>Configuration</code> 接口</h4>
+<div class="paragraph has-source-line data-line-stdin-620">
+<p><code>Configuration</code>接口是Dubbo中所有配置项读取用户接口，包括动态配置中使用到的用户接口<code>DynamicConfiguration</code>也扩展自它，实际需要实现的只有<code>getInternalProperty(key)</code>这么一个方法，如下所示：</p>
+</div>
+<div class="listingblock has-source-line data-line-stdin-623">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">interface</span> <span style="color:#B06;font-weight:bold">Configuration</span> {
+
+    <span style="color:#777">//返回的配置数据类型为Object</span>
+    <span style="color:#0a8;font-weight:bold">Object</span> getInternalProperty(<span style="color:#0a8;font-weight:bold">String</span> key);
+
+    ...<span style="color:#777">//其它default方法</span>
+}</code></pre>
+</div>
+</div>
+<div class="paragraph has-source-line data-line-stdin-633">
+<p>另外接口中实现了很多依赖于<code>getInternalProperty(key)</code>工具方法，便利 Dubbo 的应用开发。</p>
+</div>
+<div class="paragraph has-source-line data-line-stdin-635">
+<p><code>getProperty(…​)</code>方法取到的是一个 Object 对象，调用方还需要做相应的数据类型转换处理。</p>
+</div>
+<div class="listingblock has-source-line data-line-stdin-638">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#080;font-weight:bold">default</span> <span style="color:#0a8;font-weight:bold">Object</span> getProperty(<span style="color:#0a8;font-weight:bold">String</span> key) {
+    <span style="color:#080;font-weight:bold">return</span> getProperty(key, <span style="color:#069">null</span>);
+}
+
+<span style="color:#080;font-weight:bold">default</span> <span style="color:#0a8;font-weight:bold">Object</span> getProperty(<span style="color:#0a8;font-weight:bold">String</span> key, <span style="color:#0a8;font-weight:bold">Object</span> defaultValue) {
+    <span style="color:#0a8;font-weight:bold">Object</span> value = getInternalProperty(key);
+    <span style="color:#080;font-weight:bold">return</span> value != <span style="color:#069">null</span> ? value : defaultValue;
+}
+
+
+<span style="color:#080;font-weight:bold">default</span> <span style="color:#339;font-weight:bold">boolean</span> containsKey(<span style="color:#0a8;font-weight:bold">String</span> key) {
+    <span style="color:#080;font-weight:bold">return</span> getProperty(key) != <span style="color:#069">null</span>;
+}</code></pre>
+</div>
+</div>
+<div class="paragraph has-source-line data-line-stdin-655">
+<p><code>getString(…​)</code>方法取到的是一个 String 字符串，内部实现已经使用<code>convert()</code>方法完成了类型的转换处理，调用方无需做数据类型转换处理。由于一般而言，配置数据的都是 String 类型，<code>convert()</code>方法中先使用<code>(String) getProperty(key)</code>获取到一个字符串值，再完成到其它基本类型的转换，否则可以直接使用它完成到其它目标类型的处理，其中<code>we only process String properties for now</code>注解也提示了这点。</p>
+</div>
+<div class="listingblock has-source-line data-line-stdin-658">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#080;font-weight:bold">default</span> <span style="color:#0a8;font-weight:bold">String</span> getString(<span style="color:#0a8;font-weight:bold">String</span> key) {
+    <span style="color:#080;font-weight:bold">return</span> convert(<span style="color:#0a8;font-weight:bold">String</span>.class, key, <span style="color:#069">null</span>);
+}
+
+<span style="color:#080;font-weight:bold">default</span> <span style="color:#0a8;font-weight:bold">String</span> getString(<span style="color:#0a8;font-weight:bold">String</span> key, <span style="color:#0a8;font-weight:bold">String</span> defaultValue) {
+    <span style="color:#080;font-weight:bold">return</span> convert(<span style="color:#0a8;font-weight:bold">String</span>.class, key, defaultValue);
+}
+
+<span style="color:#080;font-weight:bold">default</span> &lt;T&gt; T convert(<span style="color:#0a8;font-weight:bold">Class</span>&lt;T&gt; cls, <span style="color:#0a8;font-weight:bold">String</span> key, T defaultValue) {
+    <span style="color:#777">// we only process String properties for now</span>
+    <span style="color:#0a8;font-weight:bold">String</span> value = (<span style="color:#0a8;font-weight:bold">String</span>) getProperty(key);
+
+    <span style="color:#080;font-weight:bold">if</span> (value == <span style="color:#069">null</span>) {
+        <span style="color:#080;font-weight:bold">return</span> defaultValue;
+    }
+
+    <span style="color:#0a8;font-weight:bold">Object</span> obj = value;
+    <span style="color:#080;font-weight:bold">if</span> (cls.isInstance(value)) {
+        <span style="color:#080;font-weight:bold">return</span> cls.cast(value);
+    }
+
+    <span style="color:#080;font-weight:bold">if</span> (<span style="color:#0a8;font-weight:bold">Boolean</span>.class.equals(cls) || <span style="color:#0a8;font-weight:bold">Boolean</span>.TYPE.equals(cls)) {
+        obj = <span style="color:#0a8;font-weight:bold">Boolean</span>.valueOf(value);
+    } <span style="color:#080;font-weight:bold">else</span> <span style="color:#080;font-weight:bold">if</span> (<span style="color:#0a8;font-weight:bold">Number</span>.class.isAssignableFrom(cls) || cls.isPrimitive()) {
+        <span style="color:#080;font-weight:bold">if</span> (<span style="color:#0a8;font-weight:bold">Integer</span>.class.equals(cls) || <span style="color:#0a8;font-weight:bold">Integer</span>.TYPE.equals(cls)) {
+            obj = <span style="color:#0a8;font-weight:bold">Integer</span>.valueOf(value);
+        } <span style="color:#080;font-weight:bold">else</span> <span style="color:#080;font-weight:bold">if</span> (<span style="color:#0a8;font-weight:bold">Long</span>.class.equals(cls) || <span style="color:#0a8;font-weight:bold">Long</span>.TYPE.equals(cls)) {
+            obj = <span style="color:#0a8;font-weight:bold">Long</span>.valueOf(value);
+        } <span style="color:#080;font-weight:bold">else</span> <span style="color:#080;font-weight:bold">if</span> (<span style="color:#0a8;font-weight:bold">Byte</span>.class.equals(cls) || <span style="color:#0a8;font-weight:bold">Byte</span>.TYPE.equals(cls)) {
+            obj = <span style="color:#0a8;font-weight:bold">Byte</span>.valueOf(value);
+        } <span style="color:#080;font-weight:bold">else</span> <span style="color:#080;font-weight:bold">if</span> (<span style="color:#0a8;font-weight:bold">Short</span>.class.equals(cls) || <span style="color:#0a8;font-weight:bold">Short</span>.TYPE.equals(cls)) {
+            obj = <span style="color:#0a8;font-weight:bold">Short</span>.valueOf(value);
+        } <span style="color:#080;font-weight:bold">else</span> <span style="color:#080;font-weight:bold">if</span> (<span style="color:#0a8;font-weight:bold">Float</span>.class.equals(cls) || <span style="color:#0a8;font-weight:bold">Float</span>.TYPE.equals(cls)) {
+            obj = <span style="color:#0a8;font-weight:bold">Float</span>.valueOf(value);
+        } <span style="color:#080;font-weight:bold">else</span> <span style="color:#080;font-weight:bold">if</span> (<span style="color:#0a8;font-weight:bold">Double</span>.class.equals(cls) || <span style="color:#0a8;font-weight:bold">Double</span>.TYPE.equals(cls)) {
+            obj = <span style="color:#0a8;font-weight:bold">Double</span>.valueOf(value);
+        }
+    } <span style="color:#080;font-weight:bold">else</span> <span style="color:#080;font-weight:bold">if</span> (cls.isEnum()) {
+        obj = <span style="color:#0a8;font-weight:bold">Enum</span>.valueOf(cls.asSubclass(<span style="color:#0a8;font-weight:bold">Enum</span>.class), value);
+    }
+
+    <span style="color:#080;font-weight:bold">return</span> cls.cast(obj);
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3 has-source-line data-line-stdin-705">
+<h4 id="_abstractprefixconfiguration_超类"><code>AbstractPrefixConfiguration</code> 超类</h4>
+<div class="paragraph has-source-line data-line-stdin-707">
+<p>Dubbo允许所有的本地配置实现都加上一个前缀，增加可识别性，其好处很明显，配置项数据比较多时，便于开发运维人员快速在脑海分门别类的对应起来，减轻大脑负。</p>
+</div>
+<div class="paragraph has-source-line data-line-stdin-709">
+<p>前缀由两部分组成，分别是 <code>id</code> 和 <code>prefix</code>，加入程序中取配置的项是<code>key</code>，则内部对应的配置项实际是<code>[{prefix} + "."][{id} + "."]{key}</code>。</p>
+</div>
+<div class="listingblock has-source-line data-line-stdin-713">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#088;font-weight:bold">public</span> <span style="color:#088;font-weight:bold">abstract</span> <span style="color:#339;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">AbstractPrefixConfiguration</span> <span style="color:#088;font-weight:bold">implements</span> <span style="color:#0a8;font-weight:bold">Configuration</span> {
+    <span style="color:#088;font-weight:bold">protected</span> <span style="color:#0a8;font-weight:bold">String</span> id;
+    <span style="color:#088;font-weight:bold">protected</span> <span style="color:#0a8;font-weight:bold">String</span> prefix;
+
+    <span style="color:#088;font-weight:bold">public</span> AbstractPrefixConfiguration(<span style="color:#0a8;font-weight:bold">String</span> prefix, <span style="color:#0a8;font-weight:bold">String</span> id) {
+        <span style="color:#080;font-weight:bold">if</span> (StringUtils.isNotEmpty(prefix) &amp;&amp; !prefix.endsWith(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">.</span><span style="color:#710">"</span></span>)) {
+            <span style="color:#950">this</span>.prefix = prefix + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">.</span><span style="color:#710">"</span></span>;
+        } <span style="color:#080;font-weight:bold">else</span> {
+            <span style="color:#950">this</span>.prefix = prefix;
+        }
+        <span style="color:#950">this</span>.id = id;
+    }
+
+    <span style="color:#007">@Override</span>
+    <span style="color:#088;font-weight:bold">public</span> <span style="color:#0a8;font-weight:bold">Object</span> getProperty(<span style="color:#0a8;font-weight:bold">String</span> key, <span style="color:#0a8;font-weight:bold">Object</span> defaultValue) {
+        <span style="color:#0a8;font-weight:bold">Object</span> value = <span style="color:#069">null</span>;
+        <span style="color:#080;font-weight:bold">if</span> (StringUtils.isNotEmpty(prefix)) {
+            <span style="color:#080;font-weight:bold">if</span> (StringUtils.isNotEmpty(id)) {
+                value = getInternalProperty(prefix + id + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">.</span><span style="color:#710">"</span></span> + key);
+            }
+            <span style="color:#080;font-weight:bold">if</span> (value == <span style="color:#069">null</span>) {
+                value = getInternalProperty(prefix + key);
+            }
+        } <span style="color:#080;font-weight:bold">else</span> {
+            value = getInternalProperty(key);
+        }
+        <span style="color:#080;font-weight:bold">return</span> value != <span style="color:#069">null</span> ? value : defaultValue;
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3 has-source-line data-line-stdin-745">
+<h4 id="_systemconfiguration"><code>SystemConfiguration</code></h4>
+<div class="quoteblock has-source-line data-line-stdin-746">
+<blockquote>
+<div class="paragraph has-source-line data-line-stdin-747">
+<p><em><code>System.getProperty(key)</code>返回的是JVM进程的变量值</em></p>
+</div>
+</blockquote>
+</div>
+<div class="listingblock has-source-line data-line-stdin-751">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">SystemConfiguration</span> <span style="color:#088;font-weight:bold">extends</span> AbstractPrefixConfiguration {
+
+    <span style="color:#088;font-weight:bold">public</span> SystemConfiguration(<span style="color:#0a8;font-weight:bold">String</span> prefix, <span style="color:#0a8;font-weight:bold">String</span> id) {
+        <span style="color:#950">super</span>(prefix, id);
+    }
+
+    <span style="color:#088;font-weight:bold">public</span> SystemConfiguration() {
+        <span style="color:#950">this</span>(<span style="color:#069">null</span>, <span style="color:#069">null</span>);
+    }
+
+    <span style="color:#007">@Override</span>
+    <span style="color:#088;font-weight:bold">public</span> <span style="color:#0a8;font-weight:bold">Object</span> getInternalProperty(<span style="color:#0a8;font-weight:bold">String</span> key) {
+        <span style="color:#080;font-weight:bold">return</span> <span style="color:#0a8;font-weight:bold">System</span>.getProperty(key);
+    }
+
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3 has-source-line data-line-stdin-770">
+<h4 id="_environmentconfiguration"><code>EnvironmentConfiguration</code></h4>
+<div class="quoteblock has-source-line data-line-stdin-771">
+<blockquote>
+<div class="paragraph has-source-line data-line-stdin-772">
+<p><em><code>System.getenv(key)</code>返回的是系统环境变量的值。</em></p>
+</div>
+</blockquote>
+</div>
+<div class="paragraph has-source-line data-line-stdin-775">
+<p>该实现中，如果使用入参 key 取到的值为空，则尝试将 key 中的 "." 替换为 "<em>"，转为形如<code>DUBBO</code></em><code>[A-Z]{1,}_[A-Z]{1,}_…​_[A-Z]{1,}</code>的键，再重新获取配置数据。</p>
+</div>
+<div class="listingblock has-source-line data-line-stdin-778">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">EnvironmentConfiguration</span> <span style="color:#088;font-weight:bold">extends</span> AbstractPrefixConfiguration {
+
+    <span style="color:#088;font-weight:bold">public</span> EnvironmentConfiguration(<span style="color:#0a8;font-weight:bold">String</span> prefix, <span style="color:#0a8;font-weight:bold">String</span> id) {
+        <span style="color:#950">super</span>(prefix, id);
+    }
+
+    <span style="color:#088;font-weight:bold">public</span> EnvironmentConfiguration() {
+        <span style="color:#950">this</span>(<span style="color:#069">null</span>, <span style="color:#069">null</span>);
+    }
+
+    <span style="color:#007">@Override</span>
+    <span style="color:#088;font-weight:bold">public</span> <span style="color:#0a8;font-weight:bold">Object</span> getInternalProperty(<span style="color:#0a8;font-weight:bold">String</span> key) {
+        <span style="color:#0a8;font-weight:bold">String</span> value = <span style="color:#0a8;font-weight:bold">System</span>.getenv(key);
+        <span style="color:#080;font-weight:bold">if</span> (StringUtils.isEmpty(value)) {
+            value = <span style="color:#0a8;font-weight:bold">System</span>.getenv(StringUtils.toOSStyleKey(key));
+        }
+        <span style="color:#080;font-weight:bold">return</span> value;
+    }
+
+}
+
+<span style="color:#088;font-weight:bold">public</span> <span style="color:#088;font-weight:bold">final</span> <span style="color:#339;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">StringUtils</span> {
+    ...
+    public <span style="color:#088;font-weight:bold">static</span> <span style="color:#0a8;font-weight:bold">String</span> toOSStyleKey(<span style="color:#0a8;font-weight:bold">String</span> key) {
+
+        <span style="color:#777">//DOT_REGEX = "\\.";</span>
+        <span style="color:#777">//UNDERLINE_SEPARATOR = "_";</span>
+
+        key = key.toUpperCase().replaceAll(DOT_REGEX, UNDERLINE_SEPARATOR);
+        <span style="color:#080;font-weight:bold">if</span> (!key.startsWith(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">DUBBO_</span><span style="color:#710">"</span></span>)) {
+            key = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">DUBBO_</span><span style="color:#710">"</span></span> + key;
+        }
+        <span style="color:#080;font-weight:bold">return</span> key;
+    }
+    ...
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3 has-source-line data-line-stdin-817">
+<h4 id="_propertiesconfiguration"><code>PropertiesConfiguration</code></h4>
+<div class="paragraph has-source-line data-line-stdin-819">
+<p>该类的实现使用了<code>ConfigUtils.getProperty(key)</code>方法，由其负责加载工程中的<code>*.properties</code>文件。</p>
+</div>
+<div class="listingblock has-source-line data-line-stdin-822">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">PropertiesConfiguration</span> <span style="color:#088;font-weight:bold">extends</span> AbstractPrefixConfiguration {
+    <span style="color:#088;font-weight:bold">private</span> <span style="color:#088;font-weight:bold">static</span> <span style="color:#088;font-weight:bold">final</span> <span style="color:#0a8;font-weight:bold">Logger</span> logger = LoggerFactory.getLogger(PropertiesConfiguration.class);
+
+    <span style="color:#088;font-weight:bold">public</span> PropertiesConfiguration(<span style="color:#0a8;font-weight:bold">String</span> prefix, <span style="color:#0a8;font-weight:bold">String</span> id) {
+        <span style="color:#950">super</span>(prefix, id);
+    }
+
+    <span style="color:#088;font-weight:bold">public</span> PropertiesConfiguration() {
+        <span style="color:#950">this</span>(<span style="color:#069">null</span>, <span style="color:#069">null</span>);
+    }
+
+    <span style="color:#007">@Override</span>
+    <span style="color:#088;font-weight:bold">public</span> <span style="color:#0a8;font-weight:bold">Object</span> getInternalProperty(<span style="color:#0a8;font-weight:bold">String</span> key) {
+        <span style="color:#080;font-weight:bold">return</span> ConfigUtils.getProperty(key);
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3 has-source-line data-line-stdin-841">
+<h4 id="_inmemoryconfiguration"><code>InmemoryConfiguration</code></h4>
+<div class="paragraph has-source-line data-line-stdin-843">
+<p>Dubbo声明了一个<code>LinkedHashMap&lt;String, String&gt;</code>做内存配置的容器，用于存取键值对。</p>
+</div>
+<div class="listingblock has-source-line data-line-stdin-846">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">InmemoryConfiguration</span> <span style="color:#088;font-weight:bold">extends</span> AbstractPrefixConfiguration {
+
+    <span style="color:#777">// stores the configuration key-value pairs</span>
+    <span style="color:#088;font-weight:bold">private</span> <span style="color:#0a8;font-weight:bold">Map</span>&lt;<span style="color:#0a8;font-weight:bold">String</span>, <span style="color:#0a8;font-weight:bold">String</span>&gt; store = <span style="color:#080;font-weight:bold">new</span> <span style="color:#0a8;font-weight:bold">LinkedHashMap</span>&lt;&gt;();
+
+    <span style="color:#088;font-weight:bold">public</span> InmemoryConfiguration(<span style="color:#0a8;font-weight:bold">String</span> prefix, <span style="color:#0a8;font-weight:bold">String</span> id) {
+        <span style="color:#950">super</span>(prefix, id);
+    }
+
+    <span style="color:#088;font-weight:bold">public</span> InmemoryConfiguration() {
+        <span style="color:#950">this</span>(<span style="color:#069">null</span>, <span style="color:#069">null</span>);
+    }
+
+    <span style="color:#007">@Override</span>
+    <span style="color:#088;font-weight:bold">public</span> <span style="color:#0a8;font-weight:bold">Object</span> getInternalProperty(<span style="color:#0a8;font-weight:bold">String</span> key) {
+        <span style="color:#080;font-weight:bold">return</span> store.get(key);
+    }
+
+    <span style="color:#777">/**
+     * Add one property into the store, the previous value will be replaced if the key exists
+     */</span>
+    <span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">void</span> addProperty(<span style="color:#0a8;font-weight:bold">String</span> key, <span style="color:#0a8;font-weight:bold">String</span> value) {
+        store.put(key, value);
+    }
+
+    <span style="color:#777">/**
+     * Add a set of properties into the store
+     */</span>
+    <span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">void</span> addProperties(<span style="color:#0a8;font-weight:bold">Map</span>&lt;<span style="color:#0a8;font-weight:bold">String</span>, <span style="color:#0a8;font-weight:bold">String</span>&gt; properties) {
+        <span style="color:#080;font-weight:bold">if</span> (properties != <span style="color:#069">null</span>) {
+            <span style="color:#950">this</span>.store.putAll(properties);
+        }
+    }
+
+    <span style="color:#777">/**
+     * set store
+     */</span>
+    <span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">void</span> setProperties(<span style="color:#0a8;font-weight:bold">Map</span>&lt;<span style="color:#0a8;font-weight:bold">String</span>, <span style="color:#0a8;font-weight:bold">String</span>&gt; properties) {
+        <span style="color:#080;font-weight:bold">if</span> (properties != <span style="color:#069">null</span>) {
+            <span style="color:#950">this</span>.store = properties;
+        }
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3 has-source-line data-line-stdin-892">
+<h4 id="_environment"><code>Environment</code></h4>
+<div class="paragraph has-source-line data-line-stdin-894">
+<p>正如上文所言上述所有<code>Configuration</code>的实现，最终都是通过<code>Enviroment</code>类对外提供统一的用户界面。从上文的剖析已知他们都扩展自超类<code>AbstractPrefixConfiguration</code>，支持<code>[{prefix} + "."][{id} + "."]{key}</code>前缀，便于分组管理配置信息，一个分组对应它的一个实例。这些实例需要使用<code>Map</code>做缓存管理，其Key的计算方式如下，<code>key</code>的值为<code>([{prefix}][{id}]["."] | "dubbo")</code>：</p>
+</div>
+<div class="listingblock has-source-line data-line-stdin-896">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#088;font-weight:bold">private</span> <span style="color:#088;font-weight:bold">static</span> <span style="color:#0a8;font-weight:bold">String</span> toKey(<span style="color:#0a8;font-weight:bold">String</span> prefix, <span style="color:#0a8;font-weight:bold">String</span> id) {
+    <span style="color:#0a8;font-weight:bold">StringBuilder</span> sb = <span style="color:#080;font-weight:bold">new</span> <span style="color:#0a8;font-weight:bold">StringBuilder</span>();
+    <span style="color:#080;font-weight:bold">if</span> (StringUtils.isNotEmpty(prefix)) {
+        sb.append(prefix);
+    }
+    <span style="color:#080;font-weight:bold">if</span> (StringUtils.isNotEmpty(id)) {
+        sb.append(id);
+    }
+
+    <span style="color:#080;font-weight:bold">if</span> (sb.length() &gt; <span style="color:#00D">0</span> &amp;&amp; sb.charAt(sb.length() - <span style="color:#00D">1</span>) != <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">.</span><span style="color:#710">'</span></span>) {
+        sb.append(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">.</span><span style="color:#710">"</span></span>);
+    }
+
+    <span style="color:#080;font-weight:bold">if</span> (sb.length() &gt; <span style="color:#00D">0</span>) {
+        <span style="color:#080;font-weight:bold">return</span> sb.toString();
+    }
+    <span style="color:#080;font-weight:bold">return</span> CommonConstants.DUBBO;
+}</code></pre>
+</div>
+</div>
+<div class="paragraph has-source-line data-line-stdin-917">
+<p>所有<code>AbstractPrefixConfiguration</code>类型的配置实例都管理在<code>ConcurrentHashMap&lt;String, *&gt;</code>中，传入<code>prefix</code>和<code>id</code>便能方便地获取到缓存中的实例或者新建并加入到其中的实例，因而也可以将<code>Enviroment</code>看做是<code>AbstractPrefixConfiguration</code>类的创建工厂，其实现如下：</p>
+</div>
+<div class="listingblock has-source-line data-line-stdin-920">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#777">//①PropertiesConfiguration</span>
+<span style="color:#088;font-weight:bold">private</span> <span style="color:#0a8;font-weight:bold">Map</span>&lt;<span style="color:#0a8;font-weight:bold">String</span>, PropertiesConfiguration&gt; propertiesConfigs = <span style="color:#080;font-weight:bold">new</span> <span style="color:#0a8;font-weight:bold">ConcurrentHashMap</span>&lt;&gt;();
+<span style="color:#088;font-weight:bold">public</span> PropertiesConfiguration getPropertiesConfig(<span style="color:#0a8;font-weight:bold">String</span> prefix, <span style="color:#0a8;font-weight:bold">String</span> id) {
+    <span style="color:#080;font-weight:bold">return</span> propertiesConfigs.computeIfAbsent(toKey(prefix, id), k -&gt; <span style="color:#080;font-weight:bold">new</span> PropertiesConfiguration(prefix, id));
+}
+
+<span style="color:#777">//②SystemConfiguration</span>
+<span style="color:#088;font-weight:bold">private</span> <span style="color:#0a8;font-weight:bold">Map</span>&lt;<span style="color:#0a8;font-weight:bold">String</span>, SystemConfiguration&gt; systemConfigs = <span style="color:#080;font-weight:bold">new</span> <span style="color:#0a8;font-weight:bold">ConcurrentHashMap</span>&lt;&gt;();
+<span style="color:#088;font-weight:bold">public</span> SystemConfiguration getSystemConfig(<span style="color:#0a8;font-weight:bold">String</span> prefix, <span style="color:#0a8;font-weight:bold">String</span> id) {
+    <span style="color:#080;font-weight:bold">return</span> systemConfigs.computeIfAbsent(toKey(prefix, id), k -&gt; <span style="color:#080;font-weight:bold">new</span> SystemConfiguration(prefix, id));
+}
+
+<span style="color:#777">//③EnvironmentConfiguration</span>
+<span style="color:#088;font-weight:bold">private</span> <span style="color:#0a8;font-weight:bold">Map</span>&lt;<span style="color:#0a8;font-weight:bold">String</span>, EnvironmentConfiguration&gt; environmentConfigs = <span style="color:#080;font-weight:bold">new</span> <span style="color:#0a8;font-weight:bold">ConcurrentHashMap</span>&lt;&gt;();
+<span style="color:#088;font-weight:bold">public</span> EnvironmentConfiguration getEnvironmentConfig(<span style="color:#0a8;font-weight:bold">String</span> prefix, <span style="color:#0a8;font-weight:bold">String</span> id) {
+    <span style="color:#080;font-weight:bold">return</span> environmentConfigs.computeIfAbsent(toKey(prefix, id), k -&gt; <span style="color:#080;font-weight:bold">new</span> EnvironmentConfiguration(prefix, id));
+}
+
+<span style="color:#777">//④InmemoryConfiguration → externalConfigurationMap</span>
+<span style="color:#088;font-weight:bold">private</span> <span style="color:#0a8;font-weight:bold">Map</span>&lt;<span style="color:#0a8;font-weight:bold">String</span>, InmemoryConfiguration&gt; externalConfigs = <span style="color:#080;font-weight:bold">new</span> <span style="color:#0a8;font-weight:bold">ConcurrentHashMap</span>&lt;&gt;();
+<span style="color:#088;font-weight:bold">private</span> <span style="color:#0a8;font-weight:bold">Map</span>&lt;<span style="color:#0a8;font-weight:bold">String</span>, <span style="color:#0a8;font-weight:bold">String</span>&gt; externalConfigurationMap = <span style="color:#080;font-weight:bold">new</span> <span style="color:#0a8;font-weight:bold">HashMap</span>&lt;&gt;();
+<span style="color:#088;font-weight:bold">public</span> InmemoryConfiguration getExternalConfig(<span style="color:#0a8;font-weight:bold">String</span> prefix, <span style="color:#0a8;font-weight:bold">String</span> id) {
+    <span style="color:#080;font-weight:bold">return</span> externalConfigs.computeIfAbsent(toKey(prefix, id), k -&gt; {
+        InmemoryConfiguration configuration = <span style="color:#080;font-weight:bold">new</span> InmemoryConfiguration(prefix, id);
+        configuration.setProperties(externalConfigurationMap);
+        <span style="color:#080;font-weight:bold">return</span> configuration;
+    });
+}
+<span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">void</span> setExternalConfigMap(<span style="color:#0a8;font-weight:bold">Map</span>&lt;<span style="color:#0a8;font-weight:bold">String</span>, <span style="color:#0a8;font-weight:bold">String</span>&gt; externalConfiguration) {
+    <span style="color:#950">this</span>.externalConfigurationMap = externalConfiguration;
+}
+<span style="color:#088;font-weight:bold">public</span> <span style="color:#0a8;font-weight:bold">Map</span>&lt;<span style="color:#0a8;font-weight:bold">String</span>, <span style="color:#0a8;font-weight:bold">String</span>&gt; getExternalConfigurationMap() {
+    <span style="color:#080;font-weight:bold">return</span> externalConfigurationMap;
+}
+<span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">void</span> updateExternalConfigurationMap(<span style="color:#0a8;font-weight:bold">Map</span>&lt;<span style="color:#0a8;font-weight:bold">String</span>, <span style="color:#0a8;font-weight:bold">String</span>&gt; externalMap) {
+    <span style="color:#950">this</span>.externalConfigurationMap.putAll(externalMap);
+}
+
+<span style="color:#777">//⑤InmemoryConfiguration → appExternalConfigurationMap</span>
+<span style="color:#088;font-weight:bold">private</span> <span style="color:#0a8;font-weight:bold">Map</span>&lt;<span style="color:#0a8;font-weight:bold">String</span>, InmemoryConfiguration&gt; appExternalConfigs = <span style="color:#080;font-weight:bold">new</span> <span style="color:#0a8;font-weight:bold">ConcurrentHashMap</span>&lt;&gt;();
+<span style="color:#088;font-weight:bold">private</span> <span style="color:#0a8;font-weight:bold">Map</span>&lt;<span style="color:#0a8;font-weight:bold">String</span>, <span style="color:#0a8;font-weight:bold">String</span>&gt; appExternalConfigurationMap = <span style="color:#080;font-weight:bold">new</span> <span style="color:#0a8;font-weight:bold">HashMap</span>&lt;&gt;();
+<span style="color:#088;font-weight:bold">public</span> InmemoryConfiguration getAppExternalConfig(<span style="color:#0a8;font-weight:bold">String</span> prefix, <span style="color:#0a8;font-weight:bold">String</span> id) {
+    <span style="color:#080;font-weight:bold">return</span> appExternalConfigs.computeIfAbsent(toKey(prefix, id), k -&gt; {
+        InmemoryConfiguration configuration = <span style="color:#080;font-weight:bold">new</span> InmemoryConfiguration(prefix, id);
+        configuration.setProperties(appExternalConfigurationMap);
+        <span style="color:#080;font-weight:bold">return</span> configuration;
+    });
+}
+<span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">void</span> setAppExternalConfigMap(<span style="color:#0a8;font-weight:bold">Map</span>&lt;<span style="color:#0a8;font-weight:bold">String</span>, <span style="color:#0a8;font-weight:bold">String</span>&gt; appExternalConfiguration) {
+    <span style="color:#950">this</span>.appExternalConfigurationMap = appExternalConfiguration;
+}
+}
+<span style="color:#088;font-weight:bold">public</span> <span style="color:#0a8;font-weight:bold">Map</span>&lt;<span style="color:#0a8;font-weight:bold">String</span>, <span style="color:#0a8;font-weight:bold">String</span>&gt; getAppExternalConfigurationMap() {
+    <span style="color:#080;font-weight:bold">return</span> appExternalConfigurationMap;
+}
+<span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">void</span> updateAppExternalConfigurationMap(<span style="color:#0a8;font-weight:bold">Map</span>&lt;<span style="color:#0a8;font-weight:bold">String</span>, <span style="color:#0a8;font-weight:bold">String</span>&gt; externalMap) {
+    <span style="color:#950">this</span>.appExternalConfigurationMap.putAll(externalMap);
+}</code></pre>
+</div>
+</div>
+<div class="paragraph has-source-line data-line-stdin-980">
+<p>上面的源码最后两次使用的<code>InmemoryConfiguration</code>中，其配置容器并没有使用类中定义的<code>LinkedHashMap</code>，而是采用了由外部创建的<code>HashMap</code>实例。</p>
+</div>
+<div class="paragraph has-source-line data-line-stdin-983">
+<p>下一个章节中会提到的<code>DynamicConfiguration</code>动态配置接口类，一个微服务或应用中只会存在一个实例，<code>Environment</code>也可以作为它的持有器，如下：</p>
+</div>
+<div class="listingblock has-source-line data-line-stdin-986">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#088;font-weight:bold">private</span> <span style="color:#0a8;font-weight:bold">Configuration</span> dynamicConfiguration;
+
+<span style="color:#088;font-weight:bold">public</span> Optional&lt;<span style="color:#0a8;font-weight:bold">Configuration</span>&gt; getDynamicConfiguration() {
+    <span style="color:#080;font-weight:bold">return</span> Optional.ofNullable(dynamicConfiguration);
+}
+
+<span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">void</span> setDynamicConfiguration(<span style="color:#0a8;font-weight:bold">Configuration</span> dynamicConfiguration) {
+    <span style="color:#950">this</span>.dynamicConfiguration = dynamicConfiguration;
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1 has-source-line data-line-stdin-998">
+<h2 id="_动态配置">动态配置</h2>
+<div class="sectionbody">
+<div class="paragraph has-source-line data-line-stdin-1000">
+<p>如图所示，Dubbo将动态配置设计成一个扩展的点，参考上文中关于SPI机制下的工程模式可知，实际意图的扩展点是<code>DynamicConfiguration</code>，具体实现机制这里不再赘述。</p>
+</div>
+<div class="imageblock text-center has-source-line data-line-stdin-1002">
+<div class="content">
+<img src="res_files/imgs/15_image(3)" alt="Dubbo Zookeeper动态配置" width="800">
+</div>
+</div>
+<div class="paragraph has-source-line data-line-stdin-1004">
+<p>和<code>DynamicConfiguration</code>密切相关的另一个接口是<code>ConfigurationListener</code>。动态配置中，由配置中心负责维护配置数据，当数据发生变更时，它会下发相关通知，由实现方负责响应这种变化，类似同步本地配置内容，其接口定义如下：</p>
+</div>
+<div class="listingblock has-source-line data-line-stdin-1006">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">interface</span> <span style="color:#B06;font-weight:bold">ConfigurationListener</span> {
+
+    <span style="color:#339;font-weight:bold">void</span> process(ConfigChangeEvent event);
+}</code></pre>
+</div>
+</div>
+<div class="paragraph has-source-line data-line-stdin-1013">
+<p>类图中清晰可见，配置变化的类型有3种，新增、更新和删除。</p>
+</div>
+<div class="sect2 has-source-line data-line-stdin-1015">
+<h3 id="_dynamicconfiguration">DynamicConfiguration</h3>
+<div class="paragraph has-source-line data-line-stdin-1017">
+<p>如下述源码所示，根据框架内部使用的场景它定义如下几个方法，定义的接口方法包括3方面：</p>
+</div>
+<div class="olist arabic has-source-line data-line-stdin-1019">
+<ol class="arabic">
+<li class="has-source-line data-line-stdin-1019">
+<p>从配置中心获取治理规则或者配置项数据，支持超时和分组；</p>
+</li>
+<li class="has-source-line data-line-stdin-1020">
+<p>针对特定配置或者治理规则增加或者删除监听器，也支持分组；</p>
+</li>
+</ol>
+</div>
+<div class="listingblock has-source-line data-line-stdin-1023">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">interface</span> <span style="color:#B06;font-weight:bold">DynamicConfiguration</span> <span style="color:#088;font-weight:bold">extends</span> <span style="color:#0a8;font-weight:bold">Configuration</span> {
+
+    <span style="color:#339;font-weight:bold">void</span> addListener(<span style="color:#0a8;font-weight:bold">String</span> key, <span style="color:#0a8;font-weight:bold">String</span> group, ConfigurationListener listener);
+
+    <span style="color:#339;font-weight:bold">void</span> removeListener(<span style="color:#0a8;font-weight:bold">String</span> key, <span style="color:#0a8;font-weight:bold">String</span> group, ConfigurationListener listener);
+
+    <span style="color:#0a8;font-weight:bold">String</span> getRule(<span style="color:#0a8;font-weight:bold">String</span> key, <span style="color:#0a8;font-weight:bold">String</span> group, <span style="color:#339;font-weight:bold">long</span> timeout) <span style="color:#088;font-weight:bold">throws</span> <span style="color:#C00;font-weight:bold">IllegalStateException</span>;
+
+    <span style="color:#0a8;font-weight:bold">String</span> getProperties(<span style="color:#0a8;font-weight:bold">String</span> key, <span style="color:#0a8;font-weight:bold">String</span> group, <span style="color:#339;font-weight:bold">long</span> timeout) <span style="color:#088;font-weight:bold">throws</span> <span style="color:#C00;font-weight:bold">IllegalStateException</span>;
+}</code></pre>
+</div>
+</div>
+<div class="paragraph has-source-line data-line-stdin-1036">
+<p>另外接口中还增加了一些<code>default</code>方法：1）增删监听器时将分组设置为默认的<code>dubbo</code>；2）将超时设置为-1，获取配置或治理规则时一直等待；</p>
+</div>
+<div class="listingblock has-source-line data-line-stdin-1039">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#0a8;font-weight:bold">String</span> DEFAULT_GROUP = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">dubbo</span><span style="color:#710">"</span></span>;
+
+<span style="color:#080;font-weight:bold">default</span> <span style="color:#339;font-weight:bold">void</span> addListener(<span style="color:#0a8;font-weight:bold">String</span> key, ConfigurationListener listener) {
+    addListener(key, DEFAULT_GROUP, listener);
+}
+
+<span style="color:#080;font-weight:bold">default</span> <span style="color:#339;font-weight:bold">void</span> removeListener(<span style="color:#0a8;font-weight:bold">String</span> key, ConfigurationListener listener) {
+    removeListener(key, DEFAULT_GROUP, listener);
+}
+
+<span style="color:#080;font-weight:bold">default</span> <span style="color:#0a8;font-weight:bold">String</span> getRule(<span style="color:#0a8;font-weight:bold">String</span> key, <span style="color:#0a8;font-weight:bold">String</span> group) {
+    <span style="color:#080;font-weight:bold">return</span> getRule(key, group, -<span style="color:#00D">1L</span>);
+}
+
+<span style="color:#080;font-weight:bold">default</span> <span style="color:#0a8;font-weight:bold">String</span> getProperties(<span style="color:#0a8;font-weight:bold">String</span> key, <span style="color:#0a8;font-weight:bold">String</span> group) <span style="color:#088;font-weight:bold">throws</span> <span style="color:#C00;font-weight:bold">IllegalStateException</span> {
+    <span style="color:#080;font-weight:bold">return</span> getProperties(key, group, -<span style="color:#00D">1L</span>);
+}</code></pre>
+</div>
+</div>
+<div class="paragraph has-source-line data-line-stdin-1059">
+<p>另外<code>DynamicConfiguration</code>接口中还提供了一个<code>getDynamicConfiguration()</code>静态方法，它会首先尝试从<code>Environment</code>获取缓存在其中的<code>DynamicConfiguration</code>实例，若为null，则使用SPI机制获得<code>DynamicConfigurationFactory</code>工厂，并获取目标实例。</p>
+</div>
+<div class="listingblock has-source-line data-line-stdin-1063">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#088;font-weight:bold">static</span> DynamicConfiguration getDynamicConfiguration() {
+    Optional&lt;<span style="color:#0a8;font-weight:bold">Configuration</span>&gt; optional = Environment.getInstance().getDynamicConfiguration();
+    <span style="color:#080;font-weight:bold">return</span> (DynamicConfiguration) optional.orElseGet(() -&gt; getExtensionLoader(DynamicConfigurationFactory.class)
+            .getDefaultExtension()
+            .getDynamicConfiguration(<span style="color:#069">null</span>));
+}
+
+ <span style="color:#777">/**
+ * The format is '{interfaceName}:[version]:[group]'
+ *
+ * @return
+ */</span>
+ <span style="color:#088;font-weight:bold">static</span> <span style="color:#0a8;font-weight:bold">String</span> getRuleKey(<span style="color:#0a8;font-weight:bold">URL</span> url) {
+    <span style="color:#080;font-weight:bold">return</span> url.getColonSeparatedKey();
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2 has-source-line data-line-stdin-1081">
+<h3 id="_zookeeper_配置中心实现"><code>Zookeeper</code> 配置中心实现</h3>
+<div class="paragraph has-source-line data-line-stdin-1083">
+<p>该章节的实现剖析请移步《【三】Zookeeper与Dubbo》，Zookeeper相关实现全部汇集在该文。</p>
+</div>
+<hr>
+<div class="paragraph has-source-line data-line-stdin-1088">
+<p>完结</p>
+</div>
+</div>
+</div>
+</div>
+</div><script src="res_files/js/scrollToElement.js"></script>
+<script src="res_files/js/processLinks.js"></script>
+<script src="res_files/js/pickSourceLine.js"></script>
+<script type="text/x-mathjax-config;executed=true">
+MathJax.Hub.Config({
+  messageStyle: "none",
+  tex2jax: {
+    inlineMath: [["\\(", "\\)"]],
+    displayMath: [["\\[", "\\]"]],
+    ignoreClass: "nostem|nolatexmath"
+  },
+  asciimath2jax: {
+    delimiters: [["\\$", "\\$"]],
+    ignoreClass: "nostem|noasciimath"
+  },
+  TeX: { equationNumbers: { autoNumber: "none" } }
+});
+</script>
+<script src="res_files/js/MathJax.js"></script>
+<div id="color-picker-wrap" style="display: none; position: fixed; top: 0px; left: 0px; z-index: 9999;"><!----></div></body></html>

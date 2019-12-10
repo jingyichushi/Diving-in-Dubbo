@@ -1,0 +1,1888 @@
+
+<!-- saved from url=(0354)http://localhost:63342/ead61b63-b0a6-4ff2-a49a-86be75ccfd1a/source?file=%2FUsers%2Flrq%2FWorkspace%2Fmy_pub_prjs%2FDiving-In-Dubbo%2F%E3%80%90%E4%B9%9D%E3%80%91Dubbo+RPC+%C2%B7+Protocol%E5%8D%8F%E8%AE%AE%EF%BC%88%E4%BA%8C%EF%BC%89.adoc&mac=Z3n5qpr6w3XaKLqRDukAa9AZmhnBLn2xsSWXTEhFQAo=&projectUrl=%2FUsers%2Flrq%2FWorkspace%2Fmy_pub_prjs%2FDiving-In-Dubbo -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style>
+/* Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
+/* Uncomment @import statement to use as custom stylesheet */
+/*@import "https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700";*/
+article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section{display:block}
+audio,video{display:inline-block}
+audio:not([controls]){display:none;height:0}
+html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}
+a{background:none}
+a:focus{outline:thin dotted}
+a:active,a:hover{outline:0}
+h1{font-size:2em;margin:.67em 0}
+abbr[title]{border-bottom:1px dotted}
+b,strong{font-weight:bold}
+dfn{font-style:italic}
+hr{-moz-box-sizing:content-box;box-sizing:content-box;height:0}
+mark{background:#ff0;color:#000}
+code,kbd,pre,samp{font-family:monospace;font-size:1em}
+pre{white-space:pre-wrap}
+q{quotes:"\201C" "\201D" "\2018" "\2019"}
+small{font-size:80%}
+sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}
+sup{top:-.5em}
+sub{bottom:-.25em}
+img{border:0}
+svg:not(:root){overflow:hidden}
+figure{margin:0}
+fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}
+legend{border:0;padding:0}
+button,input,select,textarea{font-family:inherit;font-size:100%;margin:0}
+button,input{line-height:normal}
+button,select{text-transform:none}
+button,html input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance:button;cursor:pointer}
+button[disabled],html input[disabled]{cursor:default}
+input[type="checkbox"],input[type="radio"]{box-sizing:border-box;padding:0}
+button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}
+textarea{overflow:auto;vertical-align:top}
+table{border-collapse:collapse;border-spacing:0}
+*,*::before,*::after{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box}
+html,body{font-size:100%}
+body{background:#fff;color:rgba(0,0,0,.8);padding:0;margin:0;font-family:"Noto Serif","DejaVu Serif",serif;font-weight:400;font-style:normal;line-height:1;position:relative;cursor:auto;tab-size:4;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased}
+a:hover{cursor:pointer}
+img,object,embed{max-width:100%;height:auto}
+object,embed{height:100%}
+img{-ms-interpolation-mode:bicubic}
+.left{float:left!important}
+.right{float:right!important}
+.text-left{text-align:left!important}
+.text-right{text-align:right!important}
+.text-center{text-align:center!important}
+.text-justify{text-align:justify!important}
+.hide{display:none}
+img,object,svg{display:inline-block;vertical-align:middle}
+textarea{height:auto;min-height:50px}
+select{width:100%}
+.center{margin-left:auto;margin-right:auto}
+.stretch{width:100%}
+.subheader,.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{line-height:1.45;color:#7a2518;font-weight:400;margin-top:0;margin-bottom:.25em}
+div,dl,dt,dd,ul,ol,li,h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6,pre,form,p,blockquote,th,td{margin:0;padding:0;direction:ltr}
+a{color:#2156a5;text-decoration:underline;line-height:inherit}
+a:hover,a:focus{color:#1d4b8f}
+a img{border:0}
+p{font-family:inherit;font-weight:400;font-size:1em;line-height:1.6;margin-bottom:1.25em;text-rendering:optimizeLegibility}
+p aside{font-size:.875em;line-height:1.35;font-style:italic}
+h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{font-family:"Open Sans","DejaVu Sans",sans-serif;font-weight:300;font-style:normal;color:#ba3925;text-rendering:optimizeLegibility;margin-top:1em;margin-bottom:.5em;line-height:1.0125em}
+h1 small,h2 small,h3 small,#toctitle small,.sidebarblock>.content>.title small,h4 small,h5 small,h6 small{font-size:60%;color:#e99b8f;line-height:0}
+h1{font-size:2.125em}
+h2{font-size:1.6875em}
+h3,#toctitle,.sidebarblock>.content>.title{font-size:1.375em}
+h4,h5{font-size:1.125em}
+h6{font-size:1em}
+hr{border:solid #dddddf;border-width:1px 0 0;clear:both;margin:1.25em 0 1.1875em;height:0}
+em,i{font-style:italic;line-height:inherit}
+strong,b{font-weight:bold;line-height:inherit}
+small{font-size:60%;line-height:inherit}
+code{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;font-weight:400;color:rgba(0,0,0,.9)}
+ul,ol,dl{font-size:1em;line-height:1.6;margin-bottom:1.25em;list-style-position:outside;font-family:inherit}
+ul,ol{margin-left:1.5em}
+ul li ul,ul li ol{margin-left:1.25em;margin-bottom:0;font-size:1em}
+ul.square li ul,ul.circle li ul,ul.disc li ul{list-style:inherit}
+ul.square{list-style-type:square}
+ul.circle{list-style-type:circle}
+ul.disc{list-style-type:disc}
+ol li ul,ol li ol{margin-left:1.25em;margin-bottom:0}
+dl dt{margin-bottom:.3125em;font-weight:bold}
+dl dd{margin-bottom:1.25em}
+abbr,acronym{text-transform:uppercase;font-size:90%;color:rgba(0,0,0,.8);border-bottom:1px dotted #ddd;cursor:help}
+abbr{text-transform:none}
+blockquote{margin:0 0 1.25em;padding:.5625em 1.25em 0 1.1875em;border-left:1px solid #ddd}
+blockquote cite{display:block;font-size:.9375em;color:rgba(0,0,0,.6)}
+blockquote cite::before{content:"\2014 \0020"}
+blockquote cite a,blockquote cite a:visited{color:rgba(0,0,0,.6)}
+blockquote,blockquote p{line-height:1.6;color:rgba(0,0,0,.85)}
+@media screen and (min-width:768px){h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2}
+h1{font-size:2.75em}
+h2{font-size:2.3125em}
+h3,#toctitle,.sidebarblock>.content>.title{font-size:1.6875em}
+h4{font-size:1.4375em}}
+table{background:#fff;margin-bottom:1.25em;border:solid 1px #dedede}
+table thead,table tfoot{background:#f7f8f7}
+table thead tr th,table thead tr td,table tfoot tr th,table tfoot tr td{padding:.5em .625em .625em;font-size:inherit;color:rgba(0,0,0,.8);text-align:left}
+table tr th,table tr td{padding:.5625em .625em;font-size:inherit;color:rgba(0,0,0,.8)}
+table tr.even,table tr.alt{background:#f8f8f7}
+table thead tr th,table tfoot tr th,table tbody tr td,table tr td,table tfoot tr td{display:table-cell;line-height:1.6}
+h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2;word-spacing:-.05em}
+h1 strong,h2 strong,h3 strong,#toctitle strong,.sidebarblock>.content>.title strong,h4 strong,h5 strong,h6 strong{font-weight:400}
+.clearfix::before,.clearfix::after,.float-group::before,.float-group::after{content:" ";display:table}
+.clearfix::after,.float-group::after{clear:both}
+:not(pre):not([class^=L])>code{font-size:.9375em;font-style:normal!important;letter-spacing:0;padding:.1em .5ex;word-spacing:-.15em;background:#f7f7f8;-webkit-border-radius:4px;border-radius:4px;line-height:1.45;text-rendering:optimizeSpeed;word-wrap:break-word}
+:not(pre)>code.nobreak{word-wrap:normal}
+:not(pre)>code.nowrap{white-space:nowrap}
+pre{color:rgba(0,0,0,.9);font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;line-height:1.45;text-rendering:optimizeSpeed}
+pre code,pre pre{color:inherit;font-size:inherit;line-height:inherit}
+pre>code{display:block}
+pre.nowrap,pre.nowrap pre{white-space:pre;word-wrap:normal}
+em em{font-style:normal}
+strong strong{font-weight:400}
+.keyseq{color:rgba(51,51,51,.8)}
+kbd{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;display:inline-block;color:rgba(0,0,0,.8);font-size:.65em;line-height:1.45;background:#f7f7f7;border:1px solid #ccc;-webkit-border-radius:3px;border-radius:3px;-webkit-box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em white inset;box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em #fff inset;margin:0 .15em;padding:.2em .5em;vertical-align:middle;position:relative;top:-.1em;white-space:nowrap}
+.keyseq kbd:first-child{margin-left:0}
+.keyseq kbd:last-child{margin-right:0}
+.menuseq,.menuref{color:#000}
+.menuseq b:not(.caret),.menuref{font-weight:inherit}
+.menuseq{word-spacing:-.02em}
+.menuseq b.caret{font-size:1.25em;line-height:.8}
+.menuseq i.caret{font-weight:bold;text-align:center;width:.45em}
+b.button::before,b.button::after{position:relative;top:-1px;font-weight:400}
+b.button::before{content:"[";padding:0 3px 0 2px}
+b.button::after{content:"]";padding:0 2px 0 3px}
+p a>code:hover{color:rgba(0,0,0,.9)}
+#header,#content,#footnotes,#footer{width:100%;margin-left:auto;margin-right:auto;margin-top:0;margin-bottom:0;max-width:62.5em;*zoom:1;position:relative;padding-left:.9375em;padding-right:.9375em}
+#header::before,#header::after,#content::before,#content::after,#footnotes::before,#footnotes::after,#footer::before,#footer::after{content:" ";display:table}
+#header::after,#content::after,#footnotes::after,#footer::after{clear:both}
+#content{margin-top:1.25em}
+#content::before{content:none}
+#header>h1:first-child{color:rgba(0,0,0,.85);margin-top:2.25rem;margin-bottom:0}
+#header>h1:first-child+#toc{margin-top:8px;border-top:1px solid #dddddf}
+#header>h1:only-child,body.toc2 #header>h1:nth-last-child(2){border-bottom:1px solid #dddddf;padding-bottom:8px}
+#header .details{border-bottom:1px solid #dddddf;line-height:1.45;padding-top:.25em;padding-bottom:.25em;padding-left:.25em;color:rgba(0,0,0,.6);display:-ms-flexbox;display:-webkit-flex;display:flex;-ms-flex-flow:row wrap;-webkit-flex-flow:row wrap;flex-flow:row wrap}
+#header .details span:first-child{margin-left:-.125em}
+#header .details span.email a{color:rgba(0,0,0,.85)}
+#header .details br{display:none}
+#header .details br+span::before{content:"\00a0\2013\00a0"}
+#header .details br+span.author::before{content:"\00a0\22c5\00a0";color:rgba(0,0,0,.85)}
+#header .details br+span#revremark::before{content:"\00a0|\00a0"}
+#header #revnumber{text-transform:capitalize}
+#header #revnumber::after{content:"\00a0"}
+#content>h1:first-child:not([class]){color:rgba(0,0,0,.85);border-bottom:1px solid #dddddf;padding-bottom:8px;margin-top:0;padding-top:1rem;margin-bottom:1.25rem}
+#toc{border-bottom:1px solid #e7e7e9;padding-bottom:.5em}
+#toc>ul{margin-left:.125em}
+#toc ul.sectlevel0>li>a{font-style:italic}
+#toc ul.sectlevel0 ul.sectlevel1{margin:.5em 0}
+#toc ul{font-family:"Open Sans","DejaVu Sans",sans-serif;list-style-type:none}
+#toc li{line-height:1.3334;margin-top:.3334em}
+#toc a{text-decoration:none}
+#toc a:active{text-decoration:underline}
+#toctitle{color:#7a2518;font-size:1.2em}
+@media screen and (min-width:768px){#toctitle{font-size:1.375em}
+body.toc2{padding-left:15em;padding-right:0}
+#toc.toc2{margin-top:0!important;background:#f8f8f7;position:fixed;width:15em;left:0;top:0;border-right:1px solid #e7e7e9;border-top-width:0!important;border-bottom-width:0!important;z-index:1000;padding:1.25em 1em;height:100%;overflow:auto}
+#toc.toc2 #toctitle{margin-top:0;margin-bottom:.8rem;font-size:1.2em}
+#toc.toc2>ul{font-size:.9em;margin-bottom:0}
+#toc.toc2 ul ul{margin-left:0;padding-left:1em}
+#toc.toc2 ul.sectlevel0 ul.sectlevel1{padding-left:0;margin-top:.5em;margin-bottom:.5em}
+body.toc2.toc-right{padding-left:0;padding-right:15em}
+body.toc2.toc-right #toc.toc2{border-right-width:0;border-left:1px solid #e7e7e9;left:auto;right:0}}
+@media screen and (min-width:1280px){body.toc2{padding-left:20em;padding-right:0}
+#toc.toc2{width:20em}
+#toc.toc2 #toctitle{font-size:1.375em}
+#toc.toc2>ul{font-size:.95em}
+#toc.toc2 ul ul{padding-left:1.25em}
+body.toc2.toc-right{padding-left:0;padding-right:20em}}
+#content #toc{border-style:solid;border-width:1px;border-color:#e0e0dc;margin-bottom:1.25em;padding:1.25em;background:#f8f8f7;-webkit-border-radius:4px;border-radius:4px}
+#content #toc>:first-child{margin-top:0}
+#content #toc>:last-child{margin-bottom:0}
+#footer{max-width:100%;background:rgba(0,0,0,.8);padding:1.25em}
+#footer-text{color:rgba(255,255,255,.8);line-height:1.44}
+#content{margin-bottom:.625em}
+.sect1{padding-bottom:.625em}
+@media screen and (min-width:768px){#content{margin-bottom:1.25em}
+.sect1{padding-bottom:1.25em}}
+.sect1:last-child{padding-bottom:0}
+.sect1+.sect1{border-top:1px solid #e7e7e9}
+#content h1>a.anchor,h2>a.anchor,h3>a.anchor,#toctitle>a.anchor,.sidebarblock>.content>.title>a.anchor,h4>a.anchor,h5>a.anchor,h6>a.anchor{position:absolute;z-index:1001;width:1.5ex;margin-left:-1.5ex;display:block;text-decoration:none!important;visibility:hidden;text-align:center;font-weight:400}
+#content h1>a.anchor::before,h2>a.anchor::before,h3>a.anchor::before,#toctitle>a.anchor::before,.sidebarblock>.content>.title>a.anchor::before,h4>a.anchor::before,h5>a.anchor::before,h6>a.anchor::before{content:"\00A7";font-size:.85em;display:block;padding-top:.1em}
+#content h1:hover>a.anchor,#content h1>a.anchor:hover,h2:hover>a.anchor,h2>a.anchor:hover,h3:hover>a.anchor,#toctitle:hover>a.anchor,.sidebarblock>.content>.title:hover>a.anchor,h3>a.anchor:hover,#toctitle>a.anchor:hover,.sidebarblock>.content>.title>a.anchor:hover,h4:hover>a.anchor,h4>a.anchor:hover,h5:hover>a.anchor,h5>a.anchor:hover,h6:hover>a.anchor,h6>a.anchor:hover{visibility:visible}
+#content h1>a.link,h2>a.link,h3>a.link,#toctitle>a.link,.sidebarblock>.content>.title>a.link,h4>a.link,h5>a.link,h6>a.link{color:#ba3925;text-decoration:none}
+#content h1>a.link:hover,h2>a.link:hover,h3>a.link:hover,#toctitle>a.link:hover,.sidebarblock>.content>.title>a.link:hover,h4>a.link:hover,h5>a.link:hover,h6>a.link:hover{color:#a53221}
+details,.audioblock,.imageblock,.literalblock,.listingblock,.stemblock,.videoblock{margin-bottom:1.25em}
+details>summary:first-of-type{cursor:pointer;display:list-item;outline:none;margin-bottom:.75em}
+.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{text-rendering:optimizeLegibility;text-align:left;font-family:"Noto Serif","DejaVu Serif",serif;font-size:1rem;font-style:italic}
+table.tableblock.fit-content>caption.title{white-space:nowrap;width:0}
+.paragraph.lead>p,#preamble>.sectionbody>[class="paragraph"]:first-of-type p{font-size:1.21875em;line-height:1.6;color:rgba(0,0,0,.85)}
+table.tableblock #preamble>.sectionbody>[class="paragraph"]:first-of-type p{font-size:inherit}
+.admonitionblock>table{border-collapse:separate;border:0;background:none;width:100%}
+.admonitionblock>table td.icon{text-align:center;width:80px}
+.admonitionblock>table td.icon img{max-width:none}
+.admonitionblock>table td.icon .title{font-weight:bold;font-family:"Open Sans","DejaVu Sans",sans-serif;text-transform:uppercase}
+.admonitionblock>table td.content{padding-left:1.125em;padding-right:1.25em;border-left:1px solid #dddddf;color:rgba(0,0,0,.6)}
+.admonitionblock>table td.content>:last-child>:last-child{margin-bottom:0}
+.exampleblock>.content{border-style:solid;border-width:1px;border-color:#e6e6e6;margin-bottom:1.25em;padding:1.25em;background:#fff;-webkit-border-radius:4px;border-radius:4px}
+.exampleblock>.content>:first-child{margin-top:0}
+.exampleblock>.content>:last-child{margin-bottom:0}
+.sidebarblock{border-style:solid;border-width:1px;border-color:#dbdbd6;margin-bottom:1.25em;padding:1.25em;background:#f3f3f2;-webkit-border-radius:4px;border-radius:4px}
+.sidebarblock>:first-child{margin-top:0}
+.sidebarblock>:last-child{margin-bottom:0}
+.sidebarblock>.content>.title{color:#7a2518;margin-top:0;text-align:center}
+.exampleblock>.content>:last-child>:last-child,.exampleblock>.content .olist>ol>li:last-child>:last-child,.exampleblock>.content .ulist>ul>li:last-child>:last-child,.exampleblock>.content .qlist>ol>li:last-child>:last-child,.sidebarblock>.content>:last-child>:last-child,.sidebarblock>.content .olist>ol>li:last-child>:last-child,.sidebarblock>.content .ulist>ul>li:last-child>:last-child,.sidebarblock>.content .qlist>ol>li:last-child>:last-child{margin-bottom:0}
+.literalblock pre,.listingblock>.content>pre{-webkit-border-radius:4px;border-radius:4px;word-wrap:break-word;overflow-x:auto;padding:1em;font-size:.8125em}
+@media screen and (min-width:768px){.literalblock pre,.listingblock>.content>pre{font-size:.90625em}}
+@media screen and (min-width:1280px){.literalblock pre,.listingblock>.content>pre{font-size:1em}}
+.literalblock pre,.listingblock>.content>pre:not(.highlight),.listingblock>.content>pre[class="highlight"],.listingblock>.content>pre[class^="highlight "]{background:#f7f7f8}
+.literalblock.output pre{color:#f7f7f8;background:rgba(0,0,0,.9)}
+.listingblock>.content{position:relative}
+.listingblock code[data-lang]::before{display:none;content:attr(data-lang);position:absolute;font-size:.75em;top:.425rem;right:.5rem;line-height:1;text-transform:uppercase;color:inherit;opacity:.5}
+.listingblock:hover code[data-lang]::before{display:block}
+.listingblock.terminal pre .command::before{content:attr(data-prompt);padding-right:.5em;color:inherit;opacity:.5}
+.listingblock.terminal pre .command:not([data-prompt])::before{content:"$"}
+.listingblock pre.highlightjs{padding:0}
+.listingblock pre.highlightjs>code{padding:1em;-webkit-border-radius:4px;border-radius:4px}
+.listingblock pre.prettyprint{border-width:0}
+.prettyprint{background:#f7f7f8}
+pre.prettyprint .linenums{line-height:1.45;margin-left:2em}
+pre.prettyprint li{background:none;list-style-type:inherit;padding-left:0}
+pre.prettyprint li code[data-lang]::before{opacity:1}
+pre.prettyprint li:not(:first-child) code[data-lang]::before{display:none}
+table.linenotable{border-collapse:separate;border:0;margin-bottom:0;background:none}
+table.linenotable td[class]{color:inherit;vertical-align:top;padding:0;line-height:inherit;white-space:normal}
+table.linenotable td.code{padding-left:.75em}
+table.linenotable td.linenos{border-right:1px solid currentColor;opacity:.35;padding-right:.5em}
+pre.pygments .lineno{border-right:1px solid currentColor;opacity:.35;display:inline-block;margin-right:.75em}
+pre.pygments .lineno::before{content:"";margin-right:-.125em}
+.quoteblock{margin:0 1em 1.25em 1.5em;display:table}
+.quoteblock:not(.excerpt)>.title{margin-left:-1.5em;margin-bottom:.75em}
+.quoteblock blockquote,.quoteblock p{color:rgba(0,0,0,.85);font-size:1.15rem;line-height:1.75;word-spacing:.1em;letter-spacing:0;font-style:italic;text-align:justify}
+.quoteblock blockquote{margin:0;padding:0;border:0}
+.quoteblock blockquote::before{content:"\201c";float:left;font-size:2.75em;font-weight:bold;line-height:.6em;margin-left:-.6em;color:#7a2518;text-shadow:0 1px 2px rgba(0,0,0,.1)}
+.quoteblock blockquote>.paragraph:last-child p{margin-bottom:0}
+.quoteblock .attribution{margin-top:.75em;margin-right:.5ex;text-align:right}
+.verseblock{margin:0 1em 1.25em}
+.verseblock pre{font-family:"Open Sans","DejaVu Sans",sans;font-size:1.15rem;color:rgba(0,0,0,.85);font-weight:300;text-rendering:optimizeLegibility}
+.verseblock pre strong{font-weight:400}
+.verseblock .attribution{margin-top:1.25rem;margin-left:.5ex}
+.quoteblock .attribution,.verseblock .attribution{font-size:.9375em;line-height:1.45;font-style:italic}
+.quoteblock .attribution br,.verseblock .attribution br{display:none}
+.quoteblock .attribution cite,.verseblock .attribution cite{display:block;letter-spacing:-.025em;color:rgba(0,0,0,.6)}
+.quoteblock.abstract blockquote::before,.quoteblock.excerpt blockquote::before,.quoteblock .quoteblock blockquote::before{display:none}
+.quoteblock.abstract blockquote,.quoteblock.abstract p,.quoteblock.excerpt blockquote,.quoteblock.excerpt p,.quoteblock .quoteblock blockquote,.quoteblock .quoteblock p{line-height:1.6;word-spacing:0}
+.quoteblock.abstract{margin:0 1em 1.25em;display:block}
+.quoteblock.abstract>.title{margin:0 0 .375em;font-size:1.15em;text-align:center}
+.quoteblock.excerpt>blockquote,.quoteblock .quoteblock{padding:0 0 .25em 1em;border-left:.25em solid #dddddf}
+.quoteblock.excerpt,.quoteblock .quoteblock{margin-left:0}
+.quoteblock.excerpt blockquote,.quoteblock.excerpt p,.quoteblock .quoteblock blockquote,.quoteblock .quoteblock p{color:inherit;font-size:1.0625rem}
+.quoteblock.excerpt .attribution,.quoteblock .quoteblock .attribution{color:inherit;text-align:left;margin-right:0}
+table.tableblock{max-width:100%;border-collapse:separate}
+p.tableblock:last-child{margin-bottom:0}
+td.tableblock>.content>:last-child{margin-bottom:-1.25em}
+td.tableblock>.content>:last-child.sidebarblock{margin-bottom:0}
+table.tableblock,th.tableblock,td.tableblock{border:0 solid #dedede}
+table.grid-all>thead>tr>.tableblock,table.grid-all>tbody>tr>.tableblock{border-width:0 1px 1px 0}
+table.grid-all>tfoot>tr>.tableblock{border-width:1px 1px 0 0}
+table.grid-cols>*>tr>.tableblock{border-width:0 1px 0 0}
+table.grid-rows>thead>tr>.tableblock,table.grid-rows>tbody>tr>.tableblock{border-width:0 0 1px}
+table.grid-rows>tfoot>tr>.tableblock{border-width:1px 0 0}
+table.grid-all>*>tr>.tableblock:last-child,table.grid-cols>*>tr>.tableblock:last-child{border-right-width:0}
+table.grid-all>tbody>tr:last-child>.tableblock,table.grid-all>thead:last-child>tr>.tableblock,table.grid-rows>tbody>tr:last-child>.tableblock,table.grid-rows>thead:last-child>tr>.tableblock{border-bottom-width:0}
+table.frame-all{border-width:1px}
+table.frame-sides{border-width:0 1px}
+table.frame-topbot,table.frame-ends{border-width:1px 0}
+table.stripes-all tr,table.stripes-odd tr:nth-of-type(odd),table.stripes-even tr:nth-of-type(even),table.stripes-hover tr:hover{background:#f8f8f7}
+th.halign-left,td.halign-left{text-align:left}
+th.halign-right,td.halign-right{text-align:right}
+th.halign-center,td.halign-center{text-align:center}
+th.valign-top,td.valign-top{vertical-align:top}
+th.valign-bottom,td.valign-bottom{vertical-align:bottom}
+th.valign-middle,td.valign-middle{vertical-align:middle}
+table thead th,table tfoot th{font-weight:bold}
+tbody tr th{display:table-cell;line-height:1.6;background:#f7f8f7}
+tbody tr th,tbody tr th p,tfoot tr th,tfoot tr th p{color:rgba(0,0,0,.8);font-weight:bold}
+p.tableblock>code:only-child{background:none;padding:0}
+p.tableblock{font-size:1em}
+ol{margin-left:1.75em}
+ul li ol{margin-left:1.5em}
+dl dd{margin-left:1.125em}
+dl dd:last-child,dl dd:last-child>:last-child{margin-bottom:0}
+ol>li p,ul>li p,ul dd,ol dd,.olist .olist,.ulist .ulist,.ulist .olist,.olist .ulist{margin-bottom:.625em}
+ul.checklist,ul.none,ol.none,ul.no-bullet,ol.no-bullet,ol.unnumbered,ul.unstyled,ol.unstyled{list-style-type:none}
+ul.no-bullet,ol.no-bullet,ol.unnumbered{margin-left:.625em}
+ul.unstyled,ol.unstyled{margin-left:0}
+ul.checklist{margin-left:.625em}
+ul.checklist li>p:first-child>.fa-square-o:first-child,ul.checklist li>p:first-child>.fa-check-square-o:first-child{width:1.25em;font-size:.8em;position:relative;bottom:.125em}
+ul.checklist li>p:first-child>input[type="checkbox"]:first-child{margin-right:.25em}
+ul.inline{display:-ms-flexbox;display:-webkit-box;display:flex;-ms-flex-flow:row wrap;-webkit-flex-flow:row wrap;flex-flow:row wrap;list-style:none;margin:0 0 .625em -1.25em}
+ul.inline>li{margin-left:1.25em}
+.unstyled dl dt{font-weight:400;font-style:normal}
+ol.arabic{list-style-type:decimal}
+ol.decimal{list-style-type:decimal-leading-zero}
+ol.loweralpha{list-style-type:lower-alpha}
+ol.upperalpha{list-style-type:upper-alpha}
+ol.lowerroman{list-style-type:lower-roman}
+ol.upperroman{list-style-type:upper-roman}
+ol.lowergreek{list-style-type:lower-greek}
+.hdlist>table,.colist>table{border:0;background:none}
+.hdlist>table>tbody>tr,.colist>table>tbody>tr{background:none}
+td.hdlist1,td.hdlist2{vertical-align:top;padding:0 .625em}
+td.hdlist1{font-weight:bold;padding-bottom:1.25em}
+.literalblock+.colist,.listingblock+.colist{margin-top:-.5em}
+.colist td:not([class]):first-child{padding:.4em .75em 0;line-height:1;vertical-align:top}
+.colist td:not([class]):first-child img{max-width:none}
+.colist td:not([class]):last-child{padding:.25em 0}
+.thumb,.th{line-height:0;display:inline-block;border:solid 4px #fff;-webkit-box-shadow:0 0 0 1px #ddd;box-shadow:0 0 0 1px #ddd}
+.imageblock.left{margin:.25em .625em 1.25em 0}
+.imageblock.right{margin:.25em 0 1.25em .625em}
+.imageblock>.title{margin-bottom:0}
+.imageblock.thumb,.imageblock.th{border-width:6px}
+.imageblock.thumb>.title,.imageblock.th>.title{padding:0 .125em}
+.image.left,.image.right{margin-top:.25em;margin-bottom:.25em;display:inline-block;line-height:0}
+.image.left{margin-right:.625em}
+.image.right{margin-left:.625em}
+a.image{text-decoration:none;display:inline-block}
+a.image object{pointer-events:none}
+sup.footnote,sup.footnoteref{font-size:.875em;position:static;vertical-align:super}
+sup.footnote a,sup.footnoteref a{text-decoration:none}
+sup.footnote a:active,sup.footnoteref a:active{text-decoration:underline}
+#footnotes{padding-top:.75em;padding-bottom:.75em;margin-bottom:.625em}
+#footnotes hr{width:20%;min-width:6.25em;margin:-.25em 0 .75em;border-width:1px 0 0}
+#footnotes .footnote{padding:0 .375em 0 .225em;line-height:1.3334;font-size:.875em;margin-left:1.2em;margin-bottom:.2em}
+#footnotes .footnote a:first-of-type{font-weight:bold;text-decoration:none;margin-left:-1.05em}
+#footnotes .footnote:last-of-type{margin-bottom:0}
+#content #footnotes{margin-top:-.625em;margin-bottom:0;padding:.75em 0}
+.gist .file-data>table{border:0;background:#fff;width:100%;margin-bottom:0}
+.gist .file-data>table td.line-data{width:99%}
+div.unbreakable{page-break-inside:avoid}
+.big{font-size:larger}
+.small{font-size:smaller}
+.underline{text-decoration:underline}
+.overline{text-decoration:overline}
+.line-through{text-decoration:line-through}
+.aqua{color:#00bfbf}
+.aqua-background{background:#00fafa}
+.black{color:#000}
+.black-background{background:#000}
+.blue{color:#0000bf}
+.blue-background{background:#0000fa}
+.fuchsia{color:#bf00bf}
+.fuchsia-background{background:#fa00fa}
+.gray{color:#606060}
+.gray-background{background:#7d7d7d}
+.green{color:#006000}
+.green-background{background:#007d00}
+.lime{color:#00bf00}
+.lime-background{background:#00fa00}
+.maroon{color:#600000}
+.maroon-background{background:#7d0000}
+.navy{color:#000060}
+.navy-background{background:#00007d}
+.olive{color:#606000}
+.olive-background{background:#7d7d00}
+.purple{color:#600060}
+.purple-background{background:#7d007d}
+.red{color:#bf0000}
+.red-background{background:#fa0000}
+.silver{color:#909090}
+.silver-background{background:#bcbcbc}
+.teal{color:#006060}
+.teal-background{background:#007d7d}
+.white{color:#bfbfbf}
+.white-background{background:#fafafa}
+.yellow{color:#bfbf00}
+.yellow-background{background:#fafa00}
+span.icon>.fa{cursor:default}
+a span.icon>.fa{cursor:inherit}
+.admonitionblock td.icon [class^="fa icon-"]{font-size:2.5em;text-shadow:1px 1px 2px rgba(0,0,0,.5);cursor:default}
+.admonitionblock td.icon .icon-note::before{content:"\f05a";color:#19407c}
+.admonitionblock td.icon .icon-tip::before{content:"\f0eb";text-shadow:1px 1px 2px rgba(155,155,0,.8);color:#111}
+.admonitionblock td.icon .icon-warning::before{content:"\f071";color:#bf6900}
+.admonitionblock td.icon .icon-caution::before{content:"\f06d";color:#bf3400}
+.admonitionblock td.icon .icon-important::before{content:"\f06a";color:#bf0000}
+.conum[data-value]{display:inline-block;color:#fff!important;background:rgba(0,0,0,.8);-webkit-border-radius:100px;border-radius:100px;text-align:center;font-size:.75em;width:1.67em;height:1.67em;line-height:1.67em;font-family:"Open Sans","DejaVu Sans",sans-serif;font-style:normal;font-weight:bold}
+.conum[data-value] *{color:#fff!important}
+.conum[data-value]+b{display:none}
+.conum[data-value]::after{content:attr(data-value)}
+pre .conum[data-value]{position:relative;top:-.125em}
+b.conum *{color:inherit!important}
+.conum:not([data-value]):empty{display:none}
+dt,th.tableblock,td.content,div.footnote{text-rendering:optimizeLegibility}
+h1,h2,p,td.content,span.alt{letter-spacing:-.01em}
+p strong,td.content strong,div.footnote strong{letter-spacing:-.005em}
+p,blockquote,dt,td.content,span.alt{font-size:1.0625rem}
+p{margin-bottom:1.25rem}
+.sidebarblock p,.sidebarblock dt,.sidebarblock td.content,p.tableblock{font-size:1em}
+.exampleblock>.content{background:#fffef7;border-color:#e0e0dc;-webkit-box-shadow:0 1px 4px #e0e0dc;box-shadow:0 1px 4px #e0e0dc}
+.print-only{display:none!important}
+@page{margin:1.25cm .75cm}
+@media print{*{-webkit-box-shadow:none!important;box-shadow:none!important;text-shadow:none!important}
+html{font-size:80%}
+a{color:inherit!important;text-decoration:underline!important}
+a.bare,a[href^="#"],a[href^="mailto:"]{text-decoration:none!important}
+a[href^="http:"]:not(.bare)::after,a[href^="https:"]:not(.bare)::after{content:"(" attr(href) ")";display:inline-block;font-size:.875em;padding-left:.25em}
+abbr[title]::after{content:" (" attr(title) ")"}
+pre,blockquote,tr,img,object,svg{page-break-inside:avoid}
+thead{display:table-header-group}
+svg{max-width:100%}
+p,blockquote,dt,td.content{font-size:1em;orphans:3;widows:3}
+h2,h3,#toctitle,.sidebarblock>.content>.title{page-break-after:avoid}
+#toc,.sidebarblock,.exampleblock>.content{background:none!important}
+#toc{border-bottom:1px solid #dddddf!important;padding-bottom:0!important}
+body.book #header{text-align:center}
+body.book #header>h1:first-child{border:0!important;margin:2.5em 0 1em}
+body.book #header .details{border:0!important;display:block;padding:0!important}
+body.book #header .details span:first-child{margin-left:0!important}
+body.book #header .details br{display:block}
+body.book #header .details br+span::before{content:none!important}
+body.book #toc{border:0!important;text-align:left!important;padding:0!important;margin:0!important}
+body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-break-before:always}
+.listingblock code[data-lang]::before{display:block}
+#footer{padding:0 .9375em}
+.hide-on-print{display:none!important}
+.print-only{display:block!important}
+.hide-for-print{display:none!important}
+.show-for-print{display:inherit!important}}
+@media print,amzn-kf8{#header>h1:first-child{margin-top:1.25rem}
+.sect1{padding:0!important}
+.sect1+.sect1{border:0}
+#footer{background:none}
+#footer-text{color:rgba(0,0,0,.6);font-size:.9em}}
+@media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
+/* Stylesheet for CodeRay to match GitHub theme | MIT License | http://foundation.zurb.com */
+pre.CodeRay{background:#f7f7f8}
+.CodeRay .line-numbers{border-right:1px solid currentColor;opacity:.35;padding:0 .5em 0 0}
+.CodeRay span.line-numbers{display:inline-block;margin-right:.75em}
+.CodeRay .line-numbers strong{color:#000}
+table.CodeRay{border-collapse:separate;border:0;margin-bottom:0;background:none}
+table.CodeRay td{vertical-align:top;line-height:inherit}
+table.CodeRay td.line-numbers{text-align:right}
+table.CodeRay td.code{padding:0 0 0 .75em}
+.CodeRay .debug{color:#fff !important;background:#000080 !important}
+.CodeRay .annotation{color:#007}
+.CodeRay .attribute-name{color:#000080}
+.CodeRay .attribute-value{color:#700}
+.CodeRay .binary{color:#509}
+.CodeRay .comment{color:#998;font-style:italic}
+.CodeRay .char{color:#04d}
+.CodeRay .char .content{color:#04d}
+.CodeRay .char .delimiter{color:#039}
+.CodeRay .class{color:#458;font-weight:bold}
+.CodeRay .complex{color:#a08}
+.CodeRay .constant,.CodeRay .predefined-constant{color:#008080}
+.CodeRay .color{color:#099}
+.CodeRay .class-variable{color:#369}
+.CodeRay .decorator{color:#b0b}
+.CodeRay .definition{color:#099}
+.CodeRay .delimiter{color:#000}
+.CodeRay .doc{color:#970}
+.CodeRay .doctype{color:#34b}
+.CodeRay .doc-string{color:#d42}
+.CodeRay .escape{color:#666}
+.CodeRay .entity{color:#800}
+.CodeRay .error{color:#808}
+.CodeRay .exception{color:inherit}
+.CodeRay .filename{color:#099}
+.CodeRay .function{color:#900;font-weight:bold}
+.CodeRay .global-variable{color:#008080}
+.CodeRay .hex{color:#058}
+.CodeRay .integer,.CodeRay .float{color:#099}
+.CodeRay .include{color:#555}
+.CodeRay .inline{color:#000}
+.CodeRay .inline .inline{background:#ccc}
+.CodeRay .inline .inline .inline{background:#bbb}
+.CodeRay .inline .inline-delimiter{color:#d14}
+.CodeRay .inline-delimiter{color:#d14}
+.CodeRay .important{color:#555;font-weight:bold}
+.CodeRay .interpreted{color:#b2b}
+.CodeRay .instance-variable{color:#008080}
+.CodeRay .label{color:#970}
+.CodeRay .local-variable{color:#963}
+.CodeRay .octal{color:#40e}
+.CodeRay .predefined{color:#369}
+.CodeRay .preprocessor{color:#579}
+.CodeRay .pseudo-class{color:#555}
+.CodeRay .directive{font-weight:bold}
+.CodeRay .type{font-weight:bold}
+.CodeRay .predefined-type{color:inherit}
+.CodeRay .reserved,.CodeRay .keyword {color:#000;font-weight:bold}
+.CodeRay .key{color:#808}
+.CodeRay .key .delimiter{color:#606}
+.CodeRay .key .char{color:#80f}
+.CodeRay .value{color:#088}
+.CodeRay .regexp .delimiter{color:#808}
+.CodeRay .regexp .content{color:#808}
+.CodeRay .regexp .modifier{color:#808}
+.CodeRay .regexp .char{color:#d14}
+.CodeRay .regexp .function{color:#404;font-weight:bold}
+.CodeRay .string{color:#d20}
+.CodeRay .string .string .string{background:#ffd0d0}
+.CodeRay .string .content{color:#d14}
+.CodeRay .string .char{color:#d14}
+.CodeRay .string .delimiter{color:#d14}
+.CodeRay .shell{color:#d14}
+.CodeRay .shell .delimiter{color:#d14}
+.CodeRay .symbol{color:#990073}
+.CodeRay .symbol .content{color:#a60}
+.CodeRay .symbol .delimiter{color:#630}
+.CodeRay .tag{color:#008080}
+.CodeRay .tag-special{color:#d70}
+.CodeRay .variable{color:#036}
+.CodeRay .insert{background:#afa}
+.CodeRay .delete{background:#faa}
+.CodeRay .change{color:#aaf;background:#007}
+.CodeRay .head{color:#f8f;background:#505}
+.CodeRay .insert .insert{color:#080}
+.CodeRay .delete .delete{color:#800}
+.CodeRay .change .change{color:#66f}
+.CodeRay .head .head{color:#f4f}
+
+</style>
+<link rel="stylesheet" href="res_files/css/font-awesome.min.css"><link rel="stylesheet" href="res_files/css/dejavu.css"><style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 5px 0px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; -khtml-border-radius: 5px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 1px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: .7em}
+.MathJax_MenuRadioCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuLabel {padding: 1px 2em 3px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #DDDDDD; margin: 4px 3px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: #606872; color: white}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
+</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">.MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style></head><body><div id="MathJax_Message" style="display: none;"></div><div id="content">
+<h1>Dubbo RPC 之 Protocol协议层（二）</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph has-source-line data-line-stdin-3">
+<p>本文将聚焦于Dubbo协议下的<code>Protocol</code>实现<code>DubboProtocol</code>，以及利用装饰模式实现的<code>ProtocolFilterWrapper</code>和<code>ListenerExporterWrapper</code>。</p>
+</div>
+<div class="admonitionblock note has-source-line data-line-stdin-6">
+<table>
+<tbody><tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+本文所涉及剖析源码不少依赖于Dubbo的SPI机制，在翻阅之前先请仔细阅读《Dubbo之SPI扩展点加载》一文。
+</td>
+</tr>
+</tbody></table>
+</div>
+</div>
+</div>
+<div class="sect1 has-source-line data-line-stdin-8">
+<h2 id="_dubboprotocol_abstractprotocol"><code>DubboProtocol</code> → <code>AbstractProtocol</code></h2>
+<div class="sectionbody">
+<div class="paragraph has-source-line data-line-stdin-10">
+<p>在本文开篇为了搞清楚Protocol协议层的作用，耗费不少笔墨，上来就剖析其实现，难免会感觉吃力，因此之后便着重挨个分析相关的`Result`、<code>Invocation</code>、<code>Invoker</code>，扫清障碍后，下述我们结合代码为本文画上一个圆满的句号。</p>
+</div>
+<div class="sect2 has-source-line data-line-stdin-12">
+<h3 id="_abstractprotocol_基类"><code>AbstractProtocol</code> 基类</h3>
+<div class="paragraph has-source-line data-line-stdin-14">
+<p>同样，该类是为所有协议实现提供最基础的实现，主要着墨点在：</p>
+</div>
+<div class="olist arabic has-source-line data-line-stdin-16">
+<ol class="arabic">
+<li class="has-source-line data-line-stdin-16">
+<p>整个协议实例的资源销毁处理。</p>
+</li>
+<li class="has-source-line data-line-stdin-17">
+<p>对所有的<code>Invoker</code>实现提供一个<code>AsyncToSyncInvoker</code>封装类，其目的是如果其实例所表示的微服务接口没有在签名或者配置总线声明自己使用异步机制调度时，便将其转换为同步调用。</p>
+</li>
+</ol>
+</div>
+<div class="sect3 has-source-line data-line-stdin-19">
+<h4 id="_异步转同步操作_asynctosyncinvoker">异步转同步操作 <code>AsyncToSyncInvoker</code></h4>
+<div class="paragraph has-source-line data-line-stdin-21">
+<p><code>AsyncToSyncInvoker</code>的实现原理很简单，是一个装饰类，实际完成工作的是被装饰的另一个<code>Invoker</code>实例，因此对应接口的几乎所有行为会直接委托给后者，只根据其自身特点将实现<code>invoke()</code>方法加以特别处理。</p>
+</div>
+<div class="paragraph has-source-line data-line-stdin-23">
+<p>过程便是先调用被封装<code>invoker</code>对象的同名<code>invoke()</code>方法，获得一个超类为<code>CompleteableFuture&lt;Result&gt;</code>的<code>Result</code>类的对象R，如果从入参<code>Invocation</code>中检验到不需要使用异步调用模式，则调用后者的<code>get()</code>方法，它会等待直到响应回来，除非超时。除此之外没什么差别，依然返回的是<code>invoker.invoke(invocation)</code>返回的结果R。</p>
+</div>
+<div class="listingblock has-source-line data-line-stdin-26">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">AsyncToSyncInvoker</span>&lt;T&gt; <span style="color:#088;font-weight:bold">implements</span> Invoker&lt;T&gt; {
+
+    <span style="color:#088;font-weight:bold">private</span> Invoker&lt;T&gt; invoker;
+
+    <span style="color:#088;font-weight:bold">public</span> <span style="color:#0a8;font-weight:bold">Result</span> invoke(Invocation invocation) <span style="color:#088;font-weight:bold">throws</span> RpcException {
+        <span style="color:#0a8;font-weight:bold">Result</span> asyncResult = invoker.invoke(invocation);
+
+        <span style="color:#080;font-weight:bold">try</span> {
+            <span style="color:#080;font-weight:bold">if</span> (InvokeMode.SYNC == ((RpcInvocation) invocation).getInvokeMode()) {
+                asyncResult.get(<span style="color:#0a8;font-weight:bold">Integer</span>.MAX_VALUE, <span style="color:#0a8;font-weight:bold">TimeUnit</span>.MILLISECONDS);
+            }
+        } <span style="color:#080;font-weight:bold">catch</span> (<span style="color:#C00;font-weight:bold">InterruptedException</span> | <span style="color:#C00;font-weight:bold">ExecutionException</span> | <span style="color:#0a8;font-weight:bold">Throwable</span> e) {
+            ...
+        }
+        <span style="color:#080;font-weight:bold">return</span> asyncResult;
+    }
+
+    ...
+}</code></pre>
+</div>
+</div>
+<div class="paragraph has-source-line data-line-stdin-48">
+<p>在应用程序作为客户端使用<code>refer()</code>方法引用微服务的时候，<code>AbstractProtocol</code> 基类会利用该<code>AsyncToSyncInvoker</code>对其引用的任何微服务实例进行一层包装适配。因此另外提炼了一个需子类实现的抽象方法，如下：</p>
+</div>
+<div class="listingblock has-source-line data-line-stdin-51">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#777">/**
+* 客户端使用接口的类型和配置总线URL获得一个彼端微服务的引用实例
+*/</span>
+<span style="color:#007">@Override</span>
+<span style="color:#088;font-weight:bold">public</span> &lt;T&gt; Invoker&lt;T&gt; refer(<span style="color:#0a8;font-weight:bold">Class</span>&lt;T&gt; type, <span style="color:#0a8;font-weight:bold">URL</span> url) <span style="color:#088;font-weight:bold">throws</span> RpcException {
+    <span style="color:#080;font-weight:bold">return</span> <span style="color:#080;font-weight:bold">new</span> AsyncToSyncInvoker&lt;&gt;(protocolBindingRefer(type, url));
+}
+
+<span style="color:#088;font-weight:bold">protected</span> <span style="color:#088;font-weight:bold">abstract</span> &lt;T&gt; Invoker&lt;T&gt; protocolBindingRefer
+    (<span style="color:#0a8;font-weight:bold">Class</span>&lt;T&gt; type, <span style="color:#0a8;font-weight:bold">URL</span> url) <span style="color:#088;font-weight:bold">throws</span> RpcException;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3 has-source-line data-line-stdin-64">
+<h4 id="_资源销毁处理">资源销毁处理</h4>
+<div class="paragraph has-source-line data-line-stdin-67">
+<p>一个<code>Invoker</code>对象可以被认为是一个微服务实例，分成两大类，服务端微服务实例和客户端微服务引用实例，仔细阅读过上文应该不难明白他们的差异性，前者是真正提供服务的，其Invoker类无需具体协议实现，而后者是客户端这边的一个概念，使得应用可以像引用本地服务一样去对前者发起请求。</p>
+</div>
+<div class="paragraph has-source-line data-line-stdin-69">
+<p>为了对微服务实例方便进行统一管理，<code>AbstractProtocol</code>申明了如下两个变量，<code>exporterMap</code>用于缓存所有服务端和客户端导出的所有微服务实例，而<code>invokers</code>则仅仅用于缓存所有做RPC调用的微服务引用实例。 细究起来，其实<code>exporterMap</code>和<code>invokers</code>的作用也基本限定在做销毁处理而已，尽管前者将实例封装在一个<code>Exporter</code>类型的对象中。</p>
+</div>
+<div class="listingblock has-source-line data-line-stdin-73">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#088;font-weight:bold">protected</span> <span style="color:#088;font-weight:bold">final</span> <span style="color:#0a8;font-weight:bold">Map</span>&lt;<span style="color:#0a8;font-weight:bold">String</span>, Exporter&lt;?&gt;&gt; exporterMap =
+    <span style="color:#080;font-weight:bold">new</span> <span style="color:#0a8;font-weight:bold">ConcurrentHashMap</span>&lt;<span style="color:#0a8;font-weight:bold">String</span>, Exporter&lt;?&gt;&gt;();
+
+<span style="color:#088;font-weight:bold">protected</span> <span style="color:#088;font-weight:bold">final</span> <span style="color:#0a8;font-weight:bold">Set</span>&lt;Invoker&lt;?&gt;&gt; invokers =
+    <span style="color:#080;font-weight:bold">new</span> ConcurrentHashSet&lt;Invoker&lt;?&gt;&gt;();</code></pre>
+</div>
+</div>
+<div class="paragraph has-source-line data-line-stdin-81">
+<p>资源的销毁过程比较简单，逐个遍历容器中的元素，先从容器中移除其有元素应用，再调用元素自身的<code>destroy()</code>或<code>unexport()</code>方法，实际上方法
+<code>unexport()</code>背后执行的依然是一个Invoker实例的<code>destroy()</code>。</p>
+</div>
+<div class="listingblock has-source-line data-line-stdin-85">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#007">@Override</span>
+<span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">void</span> destroy() {
+    <span style="color:#080;font-weight:bold">for</span> (Invoker&lt;?&gt; invoker : invokers) {
+        <span style="color:#080;font-weight:bold">if</span> (invoker != <span style="color:#069">null</span>) {
+            invokers.remove(invoker);
+            <span style="color:#080;font-weight:bold">try</span> {
+                <span style="color:#080;font-weight:bold">if</span> (logger.isInfoEnabled()) {
+                    logger.info(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Destroy reference: </span><span style="color:#710">"</span></span> + invoker.getUrl());
+                }
+                invoker.destroy();
+            } <span style="color:#080;font-weight:bold">catch</span> (<span style="color:#0a8;font-weight:bold">Throwable</span> t) {
+                logger.warn(t.getMessage(), t);
+            }
+        }
+    }
+    <span style="color:#080;font-weight:bold">for</span> (<span style="color:#0a8;font-weight:bold">String</span> key : <span style="color:#080;font-weight:bold">new</span> <span style="color:#0a8;font-weight:bold">ArrayList</span>&lt;<span style="color:#0a8;font-weight:bold">String</span>&gt;(exporterMap.keySet())) {
+        Exporter&lt;?&gt; exporter = exporterMap.remove(key);
+        <span style="color:#080;font-weight:bold">if</span> (exporter != <span style="color:#069">null</span>) {
+            <span style="color:#080;font-weight:bold">try</span> {
+                <span style="color:#080;font-weight:bold">if</span> (logger.isInfoEnabled()) {
+                    logger.info(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Unexport service: </span><span style="color:#710">"</span></span> + exporter.getInvoker().getUrl());
+                }
+                exporter.unexport();
+            } <span style="color:#080;font-weight:bold">catch</span> (<span style="color:#0a8;font-weight:bold">Throwable</span> t) {
+                logger.warn(t.getMessage(), t);
+            }
+        }
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2 has-source-line data-line-stdin-118">
+<h3 id="_dubbo协议实现_dubboprotocol">Dubbo协议实现 <code>DubboProtocol</code></h3>
+<div class="paragraph has-source-line data-line-stdin-120">
+<p><code>DubboProtocol</code>是基于Dubbo协议对<code>Protocol</code>的实现，前面这半句话说感觉说得颇有问题，协议实际上如文章开头所言，只有在通讯双方发生会话时才有意义，其中包含了信息的编解码处理、流程控制等一序列复杂的约定，而<code>Protocol</code>的实现类仅仅是相关实现细节的最后总组装而已。</p>
+</div>
+<div class="paragraph has-source-line data-line-stdin-122">
+<p>整个<code>DubboProtocol</code>的实现相当复杂，我们下面将按照客户端和服务端分成两个大的章节，逐步深入。</p>
+</div>
+<div class="sect3 has-source-line data-line-stdin-124">
+<h4 id="_服务引用实现">服务引用实现</h4>
+<div class="paragraph has-source-line data-line-stdin-126">
+<p>如下述源码所示，服务引用的过程，实际上是产生微服务Invoker实例的过程，初步看起来流程相当精简。</p>
+</div>
+<div class="listingblock has-source-line data-line-stdin-129">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#088;font-weight:bold">public</span> &lt;T&gt; Invoker&lt;T&gt; protocolBindingRefer(<span style="color:#0a8;font-weight:bold">Class</span>&lt;T&gt; serviceType, <span style="color:#0a8;font-weight:bold">URL</span> url) <span style="color:#088;font-weight:bold">throws</span> RpcException {
+    optimizeSerialization(url);
+
+    <span style="color:#777">// create rpc invoker.</span>
+    DubboInvoker&lt;T&gt; invoker = <span style="color:#080;font-weight:bold">new</span> DubboInvoker&lt;T&gt;(serviceType, url, getClients(url), invokers);
+    invokers.add(invoker);
+
+    <span style="color:#080;font-weight:bold">return</span> invoker;
+}</code></pre>
+</div>
+</div>
+<div class="paragraph has-source-line data-line-stdin-141">
+<p>如前文已经提及Protocol需要负责给客户端引用微服务实例提供用于远端通讯的ExchangeClient，也就是<code>getClients(url)</code>所表示的那一截代码，然而沿着它扩散开来，有如从公园外墙推开一扇门，大有洞天，难以尽收眼底。眼花缭乱之际也是眩晕之时，要一探究竟，咱还是先把绕道其看看和其密切相关的两个<code>ExchangeClient</code>接口实现类——<span class="small"><code>LazyConnectExchangeClient</code> &amp; <code>ReferenceCountExchangeClient</code></span>。</p>
+</div>
+<div class="sect4 has-source-line data-line-stdin-144">
+<h5 id="_referencecountexchangeclient"><code>ReferenceCountExchangeClient</code></h5>
+<div class="paragraph has-source-line data-line-stdin-146">
+<p>微服务开发过程中，一个应用引用多个微服务实例是很常见的事情，一个服务端微服务作为一个应用占用了一个JVM虚拟机，自然就拥有了其所在主机的唯一端口号，而连接它的客户端为了效率上的考量会利用连接池供多个线程并发地访问它，Dubbo的实现中，从单一客户端连接同一个微服务的微服务引用实例是可以存在多份的。这种情况下，一个<code>ExchangeClient</code>对象就可以被这多份实例共享，这时就不能随随便便被<code>close</code>掉，只有不再有微服务引用实例使用它时才可<code>close</code>。基于这种需求，Dubbo专门为<code>ExchangeClient</code>提供了一个使用引用计数的封装类<code>ReferenceCountExchangeClient</code>。</p>
+</div>
+<div class="paragraph has-source-line data-line-stdin-148">
+<p>具体实现上很简单，和一般的装饰器类一样，实现<code>ExchangeClient</code>接口，其无关当前特定业务的接口方法全部委托给其实现同一接口的引用属性<code>client</code>完成，在特定方法进行业务逻辑改写处理。它声明了一个表示引用计数的基于CAS实现的原子变量<code>AtomicInteger referenceCount</code>，被实例化时，执行+1操作，后面一旦被另外其它一个同微服务的服务引用<code>Invoker</code>对象所使用，便再次执行+1操作，而<code>close</code>操作时会首先对其执行-1操作，然后检查该属性是否为0，为0可以调用被封装的<code>client</code>对象的<code>close()</code>方法安全关闭，否则直接忽略掉。</p>
+</div>
+<div class="paragraph has-source-line data-line-stdin-150">
+<p>在当前Protocol协议层Dubbo对<code>ExchangeClient</code>的正常close操作做了更进一步处理，会使用<code>LazyConnectExchangeClient</code>封装将已经关闭的对象，如果当前<code>ReferenceCountExchangeClient</code>实例被再一次调用，该实例被会神奇般的复活。当然为了不导致其多层嵌套引用一个<code>ReferenceCountExchangeClient</code>类型的<code>ExchangeClient</code>实例对象，<code>LazyConnectExchangeClient</code>不再直接封装一个<code>ExchangeClient</code>实例，而是基于后者获取其<code>ExchangeHandler</code>引用实现<code>ExchangeClient</code>接口。</p>
+</div>
+<div class="listingblock has-source-line data-line-stdin-154">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#088;font-weight:bold">final</span> <span style="color:#339;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">ReferenceCountExchangeClient</span> <span style="color:#088;font-weight:bold">implements</span> ExchangeClient {
+
+    <span style="color:#088;font-weight:bold">private</span> <span style="color:#088;font-weight:bold">final</span> <span style="color:#0a8;font-weight:bold">URL</span> url;
+    <span style="color:#088;font-weight:bold">private</span> <span style="color:#088;font-weight:bold">final</span> <span style="color:#0a8;font-weight:bold">AtomicInteger</span> referenceCount = <span style="color:#080;font-weight:bold">new</span> <span style="color:#0a8;font-weight:bold">AtomicInteger</span>(<span style="color:#00D">0</span>);
+
+    <span style="color:#088;font-weight:bold">private</span> ExchangeClient client;
+
+    <span style="color:#088;font-weight:bold">public</span> ReferenceCountExchangeClient(ExchangeClient client) {
+        <span style="color:#950">this</span>.client = client;
+        referenceCount.incrementAndGet();
+        <span style="color:#950">this</span>.url = client.getUrl();
+    }
+    ...
+    <span style="color:#777">/**
+     * close() is not idempotent any longer
+     */</span>
+    <span style="color:#007">@Override</span>
+    <span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">void</span> close() {
+        close(<span style="color:#00D">0</span>);
+    }
+
+    <span style="color:#007">@Override</span>
+    <span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">void</span> close(<span style="color:#339;font-weight:bold">int</span> timeout) {
+        <span style="color:#080;font-weight:bold">if</span> (referenceCount.decrementAndGet() &lt;= <span style="color:#00D">0</span>) {
+            <span style="color:#080;font-weight:bold">if</span> (timeout == <span style="color:#00D">0</span>) {
+                client.close();
+
+            } <span style="color:#080;font-weight:bold">else</span> {
+                client.close(timeout);
+            }
+
+            replaceWithLazyClient();
+        }
+    }
+     <span style="color:#777">/**
+      * when closing the client, the client needs to be set to LazyConnectExchangeClient, and if a new call is made,
+      * the client will "resurrect".
+      *
+      * @return
+      */</span>
+     <span style="color:#088;font-weight:bold">private</span> <span style="color:#339;font-weight:bold">void</span> replaceWithLazyClient() {
+         <span style="color:#777">// this is a defensive operation to avoid client is closed by accident, the initial state of the client is false</span>
+         <span style="color:#0a8;font-weight:bold">URL</span> lazyUrl = URLBuilder.from(url)
+                 .addParameter(LAZY_CONNECT_INITIAL_STATE_KEY, <span style="color:#0a8;font-weight:bold">Boolean</span>.FALSE)
+                 .addParameter(RECONNECT_KEY, <span style="color:#0a8;font-weight:bold">Boolean</span>.FALSE)
+                 .addParameter(SEND_RECONNECT_KEY, <span style="color:#0a8;font-weight:bold">Boolean</span>.TRUE.toString())
+                 .addParameter(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">warning</span><span style="color:#710">"</span></span>, <span style="color:#0a8;font-weight:bold">Boolean</span>.TRUE.toString())
+                 .addParameter(LazyConnectExchangeClient.REQUEST_WITH_WARNING_KEY, <span style="color:#069">true</span>)
+                 .addParameter(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">_client_memo</span><span style="color:#710">"</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">referencecounthandler.replacewithlazyclient</span><span style="color:#710">"</span></span>)
+                 .build();
+
+         <span style="color:#777">/**
+          * the order of judgment in the if statement cannot be changed.
+          */</span>
+         <span style="color:#080;font-weight:bold">if</span> (!(client <span style="color:#080;font-weight:bold">instanceof</span> LazyConnectExchangeClient) || client.isClosed()) {
+             client = <span style="color:#080;font-weight:bold">new</span> LazyConnectExchangeClient(lazyUrl, client.getExchangeHandler());
+         }
+     }
+    <span style="color:#777">/**
+     * The reference count of current ExchangeClient, connection will be closed if all invokers destroyed.
+     */</span>
+    <span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">void</span> incrementAndGetCount() {
+        referenceCount.incrementAndGet();
+    }
+
+    ...
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4 has-source-line data-line-stdin-224">
+<h5 id="_lazyconnectexchangeclient"><code>LazyConnectExchangeClient</code></h5>
+<div class="paragraph has-source-line data-line-stdin-226">
+<p>本质上就如同<code>ReferenceCountExchangeClient</code>一样，<code>LazyConnectExchangeClient</code>也是用于对某个目标<code>ExchangeClient</code>实例进行封装，但实现上功能和目的完全不同，后者的主要目的是在已知“配置总线URL”和“网络事件监听器ExchangeHandler”这两个输入的情况下延迟创建<code>ExchangeClient</code>实例，将这一时刻推迟到业务出站请求之时。</p>
+</div>
+<div class="paragraph has-source-line data-line-stdin-228">
+<p>在《【六】Dubbo远程通讯 之 信息交换层》一文中曾提到，由于Dubbo的分层模型，网络I/O事件的回调是自下往上、逐层执行的，上层是对下一层的封装和增强，因此如果某一层一种组件对象的创建是依赖比其更低一级的，那么只能在其网络I/O事件的回调中反向完成其创建操作，还得使用一些排重手段，保证只会实例化一次，另外还需搭配一些前验代码。</p>
+</div>
+<div class="paragraph has-source-line data-line-stdin-230">
+<p>类似对象创建方式在惰性实例化时也很常见，比如一个类提供了n个方法，其中有几个方法会涉及到实例化。<code>LazyConnectExchangeClient</code>中的<code>client</code>属性采取的便是这种方式。</p>
+</div>
+<div class="paragraph has-source-line data-line-stdin-232">
+<p>如下述代码所示，分为初始化实现和调用两部分：第一部分使用volatile可见性修饰符、ReentrantLock可重入锁、锁的双检这几重机制确保在多线程并发情况下依然只会安全的实例化<code>ExchangeClient</code>对象一次；第二部分则是初始化调用，在每一个出站事件回调方法中均调用第一部分提供的<code>initClient()</code>方法，确保只有一个实例。</p>
+</div>
+<div class="listingblock has-source-line data-line-stdin-236">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#088;font-weight:bold">final</span> <span style="color:#339;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">LazyConnectExchangeClient</span> <span style="color:#088;font-weight:bold">implements</span> ExchangeClient {
+
+    ...
+    private <span style="color:#088;font-weight:bold">final</span> <span style="color:#0a8;font-weight:bold">URL</span> url;
+    <span style="color:#088;font-weight:bold">private</span> <span style="color:#088;font-weight:bold">final</span> ExchangeHandler requestHandler;
+
+
+    <span style="color:#088;font-weight:bold">private</span> <span style="color:#088;font-weight:bold">volatile</span> ExchangeClient client;
+    <span style="color:#088;font-weight:bold">private</span> <span style="color:#088;font-weight:bold">final</span> <span style="color:#0a8;font-weight:bold">Lock</span> connectLock = <span style="color:#080;font-weight:bold">new</span> <span style="color:#0a8;font-weight:bold">ReentrantLock</span>();
+
+    <span style="color:#088;font-weight:bold">private</span> <span style="color:#339;font-weight:bold">void</span> initClient() <span style="color:#088;font-weight:bold">throws</span> RemotingException {
+        <span style="color:#080;font-weight:bold">if</span> (client != <span style="color:#069">null</span>) {
+            <span style="color:#080;font-weight:bold">return</span>;
+        }
+        <span style="color:#080;font-weight:bold">if</span> (logger.isInfoEnabled()) {
+            logger.info(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Lazy connect to </span><span style="color:#710">"</span></span> + url);
+        }
+        connectLock.lock();
+        <span style="color:#080;font-weight:bold">try</span> {
+            <span style="color:#080;font-weight:bold">if</span> (client != <span style="color:#069">null</span>) {
+                <span style="color:#080;font-weight:bold">return</span>;
+            }
+            <span style="color:#950">this</span>.client = Exchangers.connect(url, requestHandler);
+        } <span style="color:#080;font-weight:bold">finally</span> {
+            connectLock.unlock();
+        }
+    }
+<span style="color:#777">//==============================</span>
+<span style="color:#777">//调用initClient初始化ExchangeClient实例</span>
+<span style="color:#777">//==============================</span>
+    <span style="color:#007">@Override</span>
+    <span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">void</span> send(<span style="color:#0a8;font-weight:bold">Object</span> message) <span style="color:#088;font-weight:bold">throws</span> RemotingException {
+        initClient();
+        client.send(message);
+    }
+
+    <span style="color:#007">@Override</span>
+    <span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">void</span> send(<span style="color:#0a8;font-weight:bold">Object</span> message, <span style="color:#339;font-weight:bold">boolean</span> sent) <span style="color:#088;font-weight:bold">throws</span> RemotingException {
+        initClient();
+        client.send(message, sent);
+    }
+
+    <span style="color:#007">@Override</span>
+    <span style="color:#088;font-weight:bold">public</span> CompletableFuture&lt;<span style="color:#0a8;font-weight:bold">Object</span>&gt; request(<span style="color:#0a8;font-weight:bold">Object</span> request, <span style="color:#339;font-weight:bold">int</span> timeout)
+            <span style="color:#088;font-weight:bold">throws</span> RemotingException {
+        warning();
+        initClient();
+        <span style="color:#080;font-weight:bold">return</span> client.request(request, timeout);
+    }
+
+    <span style="color:#007">@Override</span>
+    <span style="color:#088;font-weight:bold">public</span> CompletableFuture&lt;<span style="color:#0a8;font-weight:bold">Object</span>&gt; request(<span style="color:#0a8;font-weight:bold">Object</span> request)
+            <span style="color:#088;font-weight:bold">throws</span> RemotingException {
+        warning();
+        initClient();
+        <span style="color:#080;font-weight:bold">return</span> client.request(request);
+    }
+    ...
+}</code></pre>
+</div>
+</div>
+<div class="paragraph has-source-line data-line-stdin-298">
+<p>于一些不涉及数据出站处理的方法，<code>LazyConnectExchangeClient</code>专门为其提供了如下的前验检查代码，它们分别是“removeAttribute、setAttribute、 reconnect、reset、getChannelHandler”，检查通过则直接使用被封装的<code>ExchangeClient</code>实例完成功能，这类方法的特点是调用方需要感知到行为的发生。</p>
+</div>
+<div class="listingblock has-source-line data-line-stdin-301">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#088;font-weight:bold">private</span> <span style="color:#339;font-weight:bold">void</span> checkClient() {
+    <span style="color:#080;font-weight:bold">if</span> (client == <span style="color:#069">null</span>) {
+        <span style="color:#080;font-weight:bold">throw</span> <span style="color:#080;font-weight:bold">new</span> <span style="color:#C00;font-weight:bold">IllegalStateException</span>(
+                <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">LazyConnectExchangeClient state error. the client has not be init .url:</span><span style="color:#710">"</span></span> + url);
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph has-source-line data-line-stdin-310">
+<p>对于<code>close</code>类操作则处理相对很简单，不满足条件时，直接进行忽略处理，如下所示：</p>
+</div>
+<div class="listingblock has-source-line data-line-stdin-313">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#007">@Override</span>
+<span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">void</span> startClose() {
+    <span style="color:#080;font-weight:bold">if</span> (client != <span style="color:#069">null</span>) {
+        client.startClose();
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph has-source-line data-line-stdin-322">
+<p>有两个在构造方法中出现的配置总线参数，这里有必要提及下，分别是<code>url["send.reconnect"]</code> 和 <code>url["lazyclient_request_with_warning"]</code>。如下述源码所示，前者在当前对象创建时加入到配置总线中，用于确保该内嵌对象在向彼端发送请求之时，所使用的通道Channel是连接着的（<sub>在使用<code>Client</code>发送数据时，若连接断开，则自动连接</sub>）；而后者则是用于确认是否需要提示警告信息，需要的话，则每5000次的方法调用会提醒一次，对于一个频繁使用的微服务，其所使用<code>ExchangeClient</code>不应采用惰性模式。。</p>
+</div>
+<div class="listingblock has-source-line data-line-stdin-325">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#088;font-weight:bold">final</span> <span style="color:#339;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">LazyConnectExchangeClient</span> <span style="color:#088;font-weight:bold">implements</span> ExchangeClient {
+    ...
+    <span style="color:#777">/**
+     * when this warning rises from invocation, program probably have bug.
+     */</span>
+    protected <span style="color:#088;font-weight:bold">static</span> <span style="color:#088;font-weight:bold">final</span> <span style="color:#0a8;font-weight:bold">String</span> REQUEST_WITH_WARNING_KEY = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">lazyclient_request_with_warning</span><span style="color:#710">"</span></span>;
+    <span style="color:#088;font-weight:bold">protected</span> <span style="color:#088;font-weight:bold">final</span> <span style="color:#339;font-weight:bold">boolean</span> requestWithWarning;
+    <span style="color:#088;font-weight:bold">private</span> <span style="color:#088;font-weight:bold">final</span> <span style="color:#339;font-weight:bold">int</span> warning_period = <span style="color:#00D">5000</span>;
+    <span style="color:#088;font-weight:bold">private</span> <span style="color:#0a8;font-weight:bold">AtomicLong</span> warningcount = <span style="color:#080;font-weight:bold">new</span> <span style="color:#0a8;font-weight:bold">AtomicLong</span>(<span style="color:#00D">0</span>);
+
+    <span style="color:#088;font-weight:bold">public</span> LazyConnectExchangeClient(<span style="color:#0a8;font-weight:bold">URL</span> url, ExchangeHandler requestHandler) {
+        <span style="color:#777">// lazy connect, need set send.reconnect = true, to avoid channel bad status.</span>
+        <span style="color:#950">this</span>.url = url.addParameter(SEND_RECONNECT_KEY, <span style="color:#0a8;font-weight:bold">Boolean</span>.TRUE.toString());
+        <span style="color:#950">this</span>.requestHandler = requestHandler;
+
+        <span style="color:#777">//DEFAULT_LAZY_CONNECT_INITIAL_STATE的默认值为true</span>
+        <span style="color:#950">this</span>.initialState = url.getParameter(LAZY_CONNECT_INITIAL_STATE_KEY, DEFAULT_LAZY_CONNECT_INITIAL_STATE);
+        <span style="color:#950">this</span>.requestWithWarning = url.getParameter(REQUEST_WITH_WARNING_KEY, <span style="color:#069">false</span>);
+    }
+
+
+    <span style="color:#777">/**
+     * If {@link #REQUEST_WITH_WARNING_KEY} is configured, then warn once every 5000 invocations.
+     */</span>
+    <span style="color:#088;font-weight:bold">private</span> <span style="color:#339;font-weight:bold">void</span> warning() {
+        <span style="color:#080;font-weight:bold">if</span> (requestWithWarning) {
+            <span style="color:#080;font-weight:bold">if</span> (warningcount.get() % warning_period == <span style="color:#00D">0</span>) {
+                logger.warn(<span style="color:#080;font-weight:bold">new</span> <span style="color:#C00;font-weight:bold">IllegalStateException</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">safe guard client , should not be called ,must have a bug.</span><span style="color:#710">"</span></span>));
+            }
+            warningcount.incrementAndGet();
+        }
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4 has-source-line data-line-stdin-361">
+<h5 id="_exchangeclient候选集准备"><code>ExchangeClient</code>候选集准备</h5>
+<div class="paragraph has-source-line data-line-stdin-363">
+<p>经过上述的两个小章节的铺垫后，这时再回过头来，便可以比较轻松地理解Dubbo中是如何准备<code>ExchangeClient</code>的候选集的。在关于<code>ReferenceCountExchangeClient</code>的实现探究过程中，我们清楚，对于分别占用一个JVM的一对“客户端 ↔ 服务端”来说，他们之间存在通讯连接通道<code>Channel</code><sub>和<code>ExchangeClient</code>一一绑定</sub>可以存 在多份，同时客户端也可以具备多份服务引用<code>Invoker</code>实例，实现上“<code>Invoker</code>服务引用实例”和“<code>ExchangeClient</code>客户端通讯处理实例”的关系可以是一对一或一对多的<sup>独占模式</sup>，也可以使多对一或者多对多的<sup>共享模式</sup>。</p>
+</div>
+<div class="paragraph has-source-line data-line-stdin-365">
+<p>默认情况下，也即没有设置<code>url["connections"]</code>参数，采用的是共享模式，这时可以通过设置<code>url["shareconnections"]</code>或者系统参数<code>env["shareconnections"]</code>，防止默认只有一个共享的通讯连接通道而引发的瓶颈问题。此外,显示配置的情况下使用的是独占模式。</p>
+</div>
+<div class="listingblock has-source-line data-line-stdin-368">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#088;font-weight:bold">private</span> ExchangeClient<span style="color:#339;font-weight:bold">[]</span> getClients(<span style="color:#0a8;font-weight:bold">URL</span> url) {
+    <span style="color:#777">// whether to share connection</span>
+
+    <span style="color:#339;font-weight:bold">boolean</span> useShareConnect = <span style="color:#069">false</span>;
+
+    <span style="color:#339;font-weight:bold">int</span> connections = url.getParameter(CONNECTIONS_KEY, <span style="color:#00D">0</span>);
+    <span style="color:#0a8;font-weight:bold">List</span>&lt;ReferenceCountExchangeClient&gt; shareClients = <span style="color:#069">null</span>;
+    <span style="color:#777">// if not configured, connection is shared, otherwise, one connection for one service</span>
+    <span style="color:#080;font-weight:bold">if</span> (connections == <span style="color:#00D">0</span>) {
+        useShareConnect = <span style="color:#069">true</span>;
+
+        <span style="color:#777">/**
+         * The xml configuration should have a higher priority than properties.
+         */</span>
+        <span style="color:#0a8;font-weight:bold">String</span> shareConnectionsStr = url.getParameter(
+            SHARE_CONNECTIONS_KEY, (<span style="color:#0a8;font-weight:bold">String</span>) <span style="color:#069">null</span>);
+        connections = <span style="color:#0a8;font-weight:bold">Integer</span>.parseInt(StringUtils.isBlank(shareConnectionsStr) ?
+            ConfigUtils.getProperty(SHARE_CONNECTIONS_KEY, DEFAULT_SHARE_CONNECTIONS) :
+                shareConnectionsStr);
+        shareClients = getSharedClient(url, connections);
+    }
+
+    ExchangeClient<span style="color:#339;font-weight:bold">[]</span> clients = <span style="color:#080;font-weight:bold">new</span> ExchangeClient[connections];
+    <span style="color:#080;font-weight:bold">for</span> (<span style="color:#339;font-weight:bold">int</span> i = <span style="color:#00D">0</span>; i &lt; clients.length; i++) {
+        <span style="color:#080;font-weight:bold">if</span> (useShareConnect) {
+            clients[i] = shareClients.get(i);
+
+        } <span style="color:#080;font-weight:bold">else</span> {
+            clients[i] = initClient(url);
+        }
+    }
+
+    <span style="color:#080;font-weight:bold">return</span> clients;
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4 has-source-line data-line-stdin-405">
+<h5 id="_独占模式下的单个exchangeclient的初始化操作">独占模式下的单个<code>ExchangeClient</code>的初始化操作</h5>
+<div class="paragraph has-source-line data-line-stdin-407">
+<p>独占模式下的<code>ExchangeClient</code>的初始化相对来说比较简单：</p>
+</div>
+<div class="olist arabic has-source-line data-line-stdin-409">
+<ol class="arabic">
+<li class="has-source-line data-line-stdin-409">
+<p>首先，由于性能问题，<code>DubboProtocol</code>协议实现在网络传输层不会选用低效的BIO模式，确保能找到<code>(url["server"] | url["client"] | "netty")</code>所指定的<code>Transporter</code>扩展点实现；</p>
+</li>
+<li class="has-source-line data-line-stdin-410">
+<p>然后再配置总线中增设解码<code>url["codec"] = "dubbo"</code>和心跳参数<code>url["heartbeat"] = "60000"</code>，确保：1）在信息交换层采用了Dubbo协议的编解码；2）使用心跳机制维持客户端到服务端的长连接，默认心跳时长为一分钟；</p>
+</li>
+<li class="has-source-line data-line-stdin-411">
+<p>随后就是使用上述增设了参数的配置总线url参数实例化<code>ExchangeClient</code>对象或者<code>LazyConnectExchangeClient</code>对象，后者需总线中已指定<code>url["lazy"] = "true"</code>；</p>
+</li>
+</ol>
+</div>
+<div class="listingblock has-source-line data-line-stdin-414">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#777">/**
+ * Create new connection
+ *
+ * @param url
+ */</span>
+<span style="color:#088;font-weight:bold">private</span> ExchangeClient initClient(<span style="color:#0a8;font-weight:bold">URL</span> url) {
+
+    <span style="color:#777">// client type setting.</span>
+    <span style="color:#0a8;font-weight:bold">String</span> str = url.getParameter(CLIENT_KEY,
+        url.getParameter(SERVER_KEY, DEFAULT_REMOTING_CLIENT));
+
+    url = url.addParameter(CODEC_KEY, DubboCodec.NAME);
+    <span style="color:#777">// enable heartbeat by default</span>
+    url = url.addParameterIfAbsent(HEARTBEAT_KEY, <span style="color:#0a8;font-weight:bold">String</span>.valueOf(DEFAULT_HEARTBEAT));
+
+    <span style="color:#777">// BIO is not allowed since it has severe performance issue.</span>
+    <span style="color:#080;font-weight:bold">if</span> (str != <span style="color:#069">null</span> &amp;&amp; str.length() &gt; <span style="color:#00D">0</span> &amp;&amp;
+            !ExtensionLoader.getExtensionLoader(Transporter.class).hasExtension(str)) {
+        <span style="color:#080;font-weight:bold">throw</span> <span style="color:#080;font-weight:bold">new</span> RpcException(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Unsupported client type: </span><span style="color:#710">"</span></span> + str + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">,</span><span style="color:#710">"</span></span> +
+            <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20"> supported client type is </span><span style="color:#710">"</span></span> + StringUtils.join(
+            ExtensionLoader.getExtensionLoader(Transporter.class).
+                getSupportedExtensions(), <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20"> </span><span style="color:#710">"</span></span>));
+    }
+
+    ExchangeClient client;
+    <span style="color:#080;font-weight:bold">try</span> {
+        <span style="color:#777">// connection should be lazy</span>
+        <span style="color:#080;font-weight:bold">if</span> (url.getParameter(LAZY_CONNECT_KEY, <span style="color:#069">false</span>)) {
+            client = <span style="color:#080;font-weight:bold">new</span> LazyConnectExchangeClient(url, requestHandler);
+
+        } <span style="color:#080;font-weight:bold">else</span> {
+            client = Exchangers.connect(url, requestHandler);
+        }
+
+    } <span style="color:#080;font-weight:bold">catch</span> (RemotingException e) {
+        <span style="color:#080;font-weight:bold">throw</span> <span style="color:#080;font-weight:bold">new</span> RpcException(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Fail to create remoting client for service(</span><span style="color:#710">"</span></span> + url + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">): </span><span style="color:#710">"</span></span> + e.getMessage(), e);
+    }
+
+    <span style="color:#080;font-weight:bold">return</span> client;
+}</code></pre>
+</div>
+</div>
+<div class="paragraph has-source-line data-line-stdin-457">
+<p>我们知道，在微服务开发中，一个服务可以定义多个接口，也即对应着Java中的<code>interface</code>和其中定义的若干方法，一个服务端服务通常占用了一个JVM虚拟机，处于其中的服务接口可能被访问的频度差异非常巨大，也有可能分布是比较均匀的。</p>
+</div>
+</div>
+<div class="sect4 has-source-line data-line-stdin-459">
+<h5 id="_共享模式下的单个exchangeclient的初始化操作">共享模式下的单个<code>ExchangeClient</code>的初始化操作</h5>
+<div class="paragraph has-source-line data-line-stdin-461">
+<p>实际上共享模式只是独占模式的一种特例，因此其<code>ExchangeClient</code>的实例化直接调用了<code>initClient()</code>，这也意味着<code>ReferenceCountExchangeClient</code>可以用于包装<code>LazyConnectExchangeClient</code>，如下述源码所示：</p>
+</div>
+<div class="listingblock has-source-line data-line-stdin-464">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#777">/**
+ * Bulk build client
+ *
+ * @param url
+ * @param connectNum
+ * @return
+ */</span>
+<span style="color:#088;font-weight:bold">private</span> <span style="color:#0a8;font-weight:bold">List</span>&lt;ReferenceCountExchangeClient&gt;
+        buildReferenceCountExchangeClientList(<span style="color:#0a8;font-weight:bold">URL</span> url, <span style="color:#339;font-weight:bold">int</span> connectNum) {
+    <span style="color:#0a8;font-weight:bold">List</span>&lt;ReferenceCountExchangeClient&gt; clients = <span style="color:#080;font-weight:bold">new</span> <span style="color:#0a8;font-weight:bold">ArrayList</span>&lt;&gt;();
+
+    <span style="color:#080;font-weight:bold">for</span> (<span style="color:#339;font-weight:bold">int</span> i = <span style="color:#00D">0</span>; i &lt; connectNum; i++) {
+        clients.add(buildReferenceCountExchangeClient(url));
+    }
+
+    <span style="color:#080;font-weight:bold">return</span> clients;
+}
+
+<span style="color:#777">/**
+ * Build a single client
+ *
+ * @param url
+ * @return
+ */</span>
+<span style="color:#088;font-weight:bold">private</span> ReferenceCountExchangeClient buildReferenceCountExchangeClient(<span style="color:#0a8;font-weight:bold">URL</span> url) {
+    ExchangeClient exchangeClient = initClient(url);
+
+    <span style="color:#080;font-weight:bold">return</span> <span style="color:#080;font-weight:bold">new</span> ReferenceCountExchangeClient(exchangeClient);
+}</code></pre>
+</div>
+</div>
+<div class="paragraph has-source-line data-line-stdin-496">
+<p>共享模式下的初始化之所以复杂，原因是对于同一个微服务的客户端服务引用<code>Invoker</code>，每次其新创建实例的时候，均需要执行对<code>ReferenceCountExchangeClient</code>实例的计数器的<code>+1</code>操作，它可能是一个已经创建了并缓存在<code>Map&lt;String, List&lt;ReferenceCountExchangeClient&gt;&gt;</code>缓存Map中<sub>键为微服务的address地址</sub>。 由于该Map是共享的，并发模式下需要确保其安全，业务上需要确保能够稳定地提供相应数量的共享ReferenceCountExchangeClient对象，因此还需要在 线程安全的前提下实现对已经失效或<code>close</code>掉的实例做替换处理。</p>
+</div>
+<div class="listingblock has-source-line data-line-stdin-499">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#777">/**
+ * &lt;host:port,Exchanger&gt;
+ */</span>
+<span style="color:#088;font-weight:bold">private</span> <span style="color:#088;font-weight:bold">final</span> <span style="color:#0a8;font-weight:bold">Map</span>&lt;<span style="color:#0a8;font-weight:bold">String</span>, <span style="color:#0a8;font-weight:bold">List</span>&lt;ReferenceCountExchangeClient&gt;&gt; referenceClientMap = <span style="color:#080;font-weight:bold">new</span> <span style="color:#0a8;font-weight:bold">ConcurrentHashMap</span>&lt;&gt;();
+<span style="color:#088;font-weight:bold">private</span> <span style="color:#088;font-weight:bold">final</span> <span style="color:#0a8;font-weight:bold">ConcurrentMap</span>&lt;<span style="color:#0a8;font-weight:bold">String</span>, <span style="color:#0a8;font-weight:bold">Object</span>&gt; locks = <span style="color:#080;font-weight:bold">new</span> <span style="color:#0a8;font-weight:bold">ConcurrentHashMap</span>&lt;&gt;();
+
+<span style="color:#777">/**
+ * Get shared connection
+ *
+ * @param url
+ * @param connectNum connectNum must be greater than or equal to 1
+ */</span>
+<span style="color:#088;font-weight:bold">private</span> <span style="color:#0a8;font-weight:bold">List</span>&lt;ReferenceCountExchangeClient&gt; getSharedClient(<span style="color:#0a8;font-weight:bold">URL</span> url, <span style="color:#339;font-weight:bold">int</span> connectNum) {
+    <span style="color:#0a8;font-weight:bold">String</span> key = url.getAddress();
+    <span style="color:#0a8;font-weight:bold">List</span>&lt;ReferenceCountExchangeClient&gt; clients = referenceClientMap.get(key);
+
+    <span style="color:#080;font-weight:bold">if</span> (checkClientCanUse(clients)) {
+        batchClientRefIncr(clients);
+        <span style="color:#080;font-weight:bold">return</span> clients;
+    }
+
+    locks.putIfAbsent(key, <span style="color:#080;font-weight:bold">new</span> <span style="color:#0a8;font-weight:bold">Object</span>());
+    <span style="color:#088;font-weight:bold">synchronized</span> (locks.get(key)) {
+        clients = referenceClientMap.get(key);
+        <span style="color:#777">// dubbo check</span>
+        <span style="color:#080;font-weight:bold">if</span> (checkClientCanUse(clients)) {
+            batchClientRefIncr(clients);
+            <span style="color:#080;font-weight:bold">return</span> clients;
+        }
+
+        <span style="color:#777">// connectNum must be greater than or equal to 1</span>
+        connectNum = <span style="color:#0a8;font-weight:bold">Math</span>.max(connectNum, <span style="color:#00D">1</span>);
+
+        <span style="color:#777">// If the clients is empty, then the first initialization is</span>
+        <span style="color:#080;font-weight:bold">if</span> (CollectionUtils.isEmpty(clients)) {
+            clients = buildReferenceCountExchangeClientList(url, connectNum);
+            referenceClientMap.put(key, clients);
+
+        } <span style="color:#080;font-weight:bold">else</span> {
+            <span style="color:#080;font-weight:bold">for</span> (<span style="color:#339;font-weight:bold">int</span> i = <span style="color:#00D">0</span>; i &lt; clients.size(); i++) {
+                ReferenceCountExchangeClient referenceCountExchangeClient
+                    = clients.get(i);
+                <span style="color:#777">// If there is a client in the list that is no longer available,</span>
+                <span style="color:#777">//create a new one to replace him.</span>
+                <span style="color:#080;font-weight:bold">if</span> (referenceCountExchangeClient == <span style="color:#069">null</span> ||
+                        referenceCountExchangeClient.isClosed()) {
+                    clients.set(i, buildReferenceCountExchangeClient(url));
+                    <span style="color:#080;font-weight:bold">continue</span>;
+                }
+
+                referenceCountExchangeClient.incrementAndGetCount();
+            }
+        }
+
+        <span style="color:#777">/**
+         * I understand that the purpose of the remove operation
+         * here is to avoid the expired url key
+         * always occupying this memory space.
+         */</span>
+        locks.remove(key);
+
+        <span style="color:#080;font-weight:bold">return</span> clients;
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph has-source-line data-line-stdin-566">
+<p>上述代码中也使用了很常见的锁的双检机制，当传入给<code>checkClientCanUse</code>的<code>ReferenceCountExchangeClient</code>对象列表中的只要有一个对象处于无效或者close状态，便随后进入主体逻辑中，确保满足数目要求的基础上，列表中所有的对象均可用，也即<code>ExchangeClient</code>所代表的客户端和服务端保 持长连状态。否则只会简单的对属于目标服务的下的<code>ReferenceCountExchangeClient</code>进行<code>+1</code>操作。</p>
+</div>
+<div class="listingblock has-source-line data-line-stdin-569">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#777">/**
+ * Check if the client list is all available
+ *
+ * @param referenceCountExchangeClients
+ * @return true-available，false-unavailable
+ */</span>
+<span style="color:#088;font-weight:bold">private</span> <span style="color:#339;font-weight:bold">boolean</span> checkClientCanUse(<span style="color:#0a8;font-weight:bold">List</span>&lt;ReferenceCountExchangeClient&gt; referenceCountExchangeClients) {
+    <span style="color:#080;font-weight:bold">if</span> (CollectionUtils.isEmpty(referenceCountExchangeClients)) {
+        <span style="color:#080;font-weight:bold">return</span> <span style="color:#069">false</span>;
+    }
+
+    <span style="color:#080;font-weight:bold">for</span> (ReferenceCountExchangeClient referenceCountExchangeClient : referenceCountExchangeClients) {
+        <span style="color:#777">// As long as one client is not available, you need to replace the unavailable client with the available one.</span>
+        <span style="color:#080;font-weight:bold">if</span> (referenceCountExchangeClient == <span style="color:#069">null</span> || referenceCountExchangeClient.isClosed()) {
+            <span style="color:#080;font-weight:bold">return</span> <span style="color:#069">false</span>;
+        }
+    }
+
+    <span style="color:#080;font-weight:bold">return</span> <span style="color:#069">true</span>;
+}
+
+<span style="color:#777">/**
+ * Increase the reference Count if we create new invoker shares same connection, the connection will be closed without any reference.
+ *
+ * @param referenceCountExchangeClients
+ */</span>
+<span style="color:#088;font-weight:bold">private</span> <span style="color:#339;font-weight:bold">void</span> batchClientRefIncr(<span style="color:#0a8;font-weight:bold">List</span>&lt;ReferenceCountExchangeClient&gt; referenceCountExchangeClients) {
+    <span style="color:#080;font-weight:bold">if</span> (CollectionUtils.isEmpty(referenceCountExchangeClients)) {
+        <span style="color:#080;font-weight:bold">return</span>;
+    }
+
+    <span style="color:#080;font-weight:bold">for</span> (ReferenceCountExchangeClient referenceCountExchangeClient : referenceCountExchangeClients) {
+        <span style="color:#080;font-weight:bold">if</span> (referenceCountExchangeClient != <span style="color:#069">null</span>) {
+            referenceCountExchangeClient.incrementAndGetCount();
+        }
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3 has-source-line data-line-stdin-609">
+<h4 id="_服务导出实现">服务导出实现</h4>
+<div class="paragraph has-source-line data-line-stdin-611">
+<p>上述有关<code>DubboProtocol</code>源码的分析中，已经刻意地忽略掉了<code>requestHandler</code>创建的问题，在前述有关Protocol协议层的讨论中也没有提及客户端服务导出的相关逻辑。实际上服务导出并不限于服务端，它同时也存在于客户端。</p>
+</div>
+<div class="paragraph has-source-line data-line-stdin-613">
+<p>在前面的Dubbo实现源码剖析中，我们已经知道，不管是客户端还是服务端，都可以直接使用其通道Channel向彼端主动发送消息数据，但是对于来自彼端的请求则于应用层来说是被动的，只能在网络I/O事件就绪后，由框架回调应用层的逻辑代码。因此Dubbo在协议层需要在回调方法<code>received()</code>中，将收到的代表原生请求<code>message</code>类型为<code>Invocation</code>的请求转给对应的微服务实例或微服务引用实例处理，处理完再返回结果。</p>
+</div>
+<div class="paragraph has-source-line data-line-stdin-615">
+<p>因此：</p>
+</div>
+<div class="ulist has-source-line data-line-stdin-617">
+<ul>
+<li class="has-source-line data-line-stdin-617">
+<p>在微服务的原生Java方法发起调用之前，服务端需要导出提供服务的<code>Invoker</code>，而客户端则需要导出引用服务的<code>Invoker</code>，便于发起RPC调用；</p>
+</li>
+<li class="has-source-line data-line-stdin-618">
+<p>无论是客户端还是服务端，均需要根据某种规则获取到<code>Invoker</code>对象<sub>微服务或其客户端引用的实例</sub>；</p>
+</li>
+<li class="has-source-line data-line-stdin-619">
+<p>对于服务端还需要创建该<code>Invoker</code>的<code>ExchangeServer</code>服务实例，服务连入客户端；</p>
+</li>
+<li class="has-source-line data-line-stdin-620">
+<p>实现<code>ExchangeHandler</code>被装饰者业务逻辑，响应<code>Invocation</code>类型入站请求<sub>详见下述相关章节</sub>；</p>
+</li>
+</ul>
+</div>
+<div class="sect4 has-source-line data-line-stdin-622">
+<h5 id="_invoker实例服务实例引用实例导出"><code>Invoker</code>实例<sub>服务实例&amp;引用实例</sub>导出</h5>
+<div class="paragraph has-source-line data-line-stdin-624">
+<p>在服务导出实现源码中，<code>Exporter</code>接口及其实现类<code>DubboExporter&lt;T&gt; → AbstractExporter&lt;T&gt;</code>，存在的目的更多的是保持框架分层业务语义上的完整性， 用于封装一个<code>Invoker</code>实例，便于后续进行销毁处理。其实例化也即导出，调用<code>unexport</code>时便驱动执行<code>Invoker</code>实例的<code>destroy()</code>方法，为了确保只会销毁操作不会重复执行，声明了一个辅助变量——<code>volatile boolean unexported</code>。</p>
+</div>
+<div class="paragraph has-source-line data-line-stdin-626">
+<p>所有被导出<code>Invoker</code>实例先被装入一个<code>DubboExporter</code>实例，随后整体载入到<code>Map&lt;String, Exporter&lt;?&gt;&gt; exporterMap</code>缓存中，其中的键值的表示形式为“<code>[group/]serviceName[:version]:port</code>”<sub>[XXX]：XXX可选</sub>，其中包含的4个元素分别对应配置总线URL中的值：1）<code>url["group"]</code>；2）<code>url.path</code>；3）<code>url["version"]</code>；4）<code>url.port</code>。</p>
+</div>
+<div class="paragraph has-source-line data-line-stdin-628">
+<p>服务导出是由Dubbo框架调用方法<code>public &lt;T&gt; Exporter&lt;T&gt; export(Invoker&lt;T&gt; invoker) throws RpcException</code>完成的，其传入的Invoker要么是框架使用动态代理方式实现的，要么就是协议层中的由第三方提供的类似<code>DubboInvoker</code>实现。</p>
+</div>
+<div class="listingblock has-source-line data-line-stdin-631">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#088;font-weight:bold">public</span> &lt;T&gt; Exporter&lt;T&gt; <span style="color:#080;font-weight:bold">export</span>(Invoker&lt;T&gt; invoker) <span style="color:#088;font-weight:bold">throws</span> RpcException {
+    <span style="color:#0a8;font-weight:bold">URL</span> url = invoker.getUrl();
+
+    <span style="color:#777">// export service.</span>
+    <span style="color:#777">// 构建完Key之后，将invoker缓存起来</span>
+    <span style="color:#0a8;font-weight:bold">String</span> key = serviceKey(url);
+    DubboExporter&lt;T&gt; exporter = <span style="color:#080;font-weight:bold">new</span> DubboExporter&lt;T&gt;(invoker, key, exporterMap);
+    exporterMap.put(key, exporter);
+
+    ...
+
+    <span style="color:#777">//配置总线告知是server端才需要创建服务实例，分下参见下文</span>
+    openServer(url);
+    optimizeSerialization(url);
+
+    <span style="color:#080;font-weight:bold">return</span> exporter;
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4 has-source-line data-line-stdin-651">
+<h5 id="_exchangeserver创建"><code>ExchangeServer</code>创建</h5>
+<div class="paragraph has-source-line data-line-stdin-653">
+<p>默认而言，如果服务配置总线中没有设置<code>url["isserver"]</code>，Dubbo会默认为当前的<code>export()</code>操作准备提供服务的<code>ExchangeServer</code>实例。上述提到，引用同一个服务端微服务实例的所有<code>ReferenceCountExchangeClient</code>对象会被装入到一个列表中，最后再以<code>&lt;host:port,Exchanger&gt;</code>的形式缓存起来，也即类型为<code>ConcurrentHashMap&lt;String, List&lt;ReferenceCountExchangeClient&gt;&gt;</code>的<code>referenceClientMap</code>变量。</p>
+</div>
+<div class="paragraph has-source-line data-line-stdin-655">
+<p>同样，所有服务端提供服务的<code>ExchangeServer</code>也会以类似的形式缓存在<code>ConcurrentHashMap&lt;String, ExchangeServer&gt;</code>类型的serverMap中，在创建服务实例时，若发现已经存在对应的实例，则会使用配置总线对其参数做重设处理。</p>
+</div>
+<div class="listingblock has-source-line data-line-stdin-658">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#088;font-weight:bold">private</span> <span style="color:#088;font-weight:bold">final</span> <span style="color:#0a8;font-weight:bold">Map</span>&lt;<span style="color:#0a8;font-weight:bold">String</span>, ExchangeServer&gt; serverMap = <span style="color:#080;font-weight:bold">new</span> <span style="color:#0a8;font-weight:bold">ConcurrentHashMap</span>&lt;&gt;();
+
+<span style="color:#088;font-weight:bold">private</span> <span style="color:#339;font-weight:bold">void</span> openServer(<span style="color:#0a8;font-weight:bold">URL</span> url) {
+    <span style="color:#777">// find server.</span>
+    <span style="color:#0a8;font-weight:bold">String</span> key = url.getAddress();
+    <span style="color:#777">//client can export a service which's only for server to invoke</span>
+    <span style="color:#339;font-weight:bold">boolean</span> isServer = url.getParameter(IS_SERVER_KEY, <span style="color:#069">true</span>);
+    <span style="color:#080;font-weight:bold">if</span> (isServer) {
+        ExchangeServer server = serverMap.get(key);
+
+        <span style="color:#777">//使用双检模式创建服务实例</span>
+        <span style="color:#080;font-weight:bold">if</span> (server == <span style="color:#069">null</span>) {
+            <span style="color:#088;font-weight:bold">synchronized</span> (<span style="color:#950">this</span>) {
+                server = serverMap.get(key);
+                <span style="color:#080;font-weight:bold">if</span> (server == <span style="color:#069">null</span>) {
+                    serverMap.put(key, createServer(url));
+                }
+            }
+        } <span style="color:#080;font-weight:bold">else</span> {
+            <span style="color:#777">// server supports reset, use together with override</span>
+            server.reset(url);
+        }
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph has-source-line data-line-stdin-685">
+<p>下述创建<code>ExchangeServer</code>实例的创建过程中，<code>Exchangers.bind(url, requestHandler)</code>为最核心的一句，需要指定<code>url["channel.readonly.sent"] = (|true)、url["heartbeat"] = (|60000)、url["codec"] = "dubbo"</code>，同时需要确保当前应用中存在由<code>url["server"]</code>和<code>url["client"]</code>所配置的<code>Transporter</code>扩展点。</p>
+</div>
+<div class="listingblock has-source-line data-line-stdin-687">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#088;font-weight:bold">private</span> ExchangeServer createServer(<span style="color:#0a8;font-weight:bold">URL</span> url) {
+    <span style="color:#777">//配置总线相关参数设置</span>
+    url = URLBuilder.from(url)
+            <span style="color:#777">// send readonly event when server closes, it's enabled by default</span>
+            .addParameterIfAbsent(CHANNEL_READONLYEVENT_SENT_KEY, <span style="color:#0a8;font-weight:bold">Boolean</span>.TRUE.toString())
+            <span style="color:#777">// enable heartbeat by default</span>
+            .addParameterIfAbsent(HEARTBEAT_KEY, <span style="color:#0a8;font-weight:bold">String</span>.valueOf(DEFAULT_HEARTBEAT))
+            .addParameter(CODEC_KEY, DubboCodec.NAME)
+            .build();
+    <span style="color:#0a8;font-weight:bold">String</span> str = url.getParameter(SERVER_KEY, DEFAULT_REMOTING_SERVER);
+
+    <span style="color:#777">//校验是否配置服务类型已经存在相应的实现，由SPI指定</span>
+    <span style="color:#080;font-weight:bold">if</span> (str != <span style="color:#069">null</span> &amp;&amp; str.length() &gt; <span style="color:#00D">0</span> &amp;&amp; !ExtensionLoader.
+            getExtensionLoader(Transporter.class).hasExtension(str)) {
+        <span style="color:#080;font-weight:bold">throw</span> <span style="color:#080;font-weight:bold">new</span> RpcException(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Unsupported server type: </span><span style="color:#710">"</span></span> + str + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">, url: </span><span style="color:#710">"</span></span> + url);
+    }
+
+    ExchangeServer server;
+    <span style="color:#080;font-weight:bold">try</span> {
+        server = Exchangers.bind(url, requestHandler);
+    } <span style="color:#080;font-weight:bold">catch</span> (RemotingException e) {
+        <span style="color:#080;font-weight:bold">throw</span> <span style="color:#080;font-weight:bold">new</span> RpcException(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Fail to start server(url: </span><span style="color:#710">"</span></span>
+            + url + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">) </span><span style="color:#710">"</span></span> + e.getMessage(), e);
+    }
+
+    str = url.getParameter(CLIENT_KEY);
+    <span style="color:#080;font-weight:bold">if</span> (str != <span style="color:#069">null</span> &amp;&amp; str.length() &gt; <span style="color:#00D">0</span>) {
+        <span style="color:#0a8;font-weight:bold">Set</span>&lt;<span style="color:#0a8;font-weight:bold">String</span>&gt; supportedTypes = ExtensionLoader.getExtensionLoader(
+            Transporter.class).getSupportedExtensions();
+        <span style="color:#080;font-weight:bold">if</span> (!supportedTypes.contains(str)) {
+            <span style="color:#080;font-weight:bold">throw</span> <span style="color:#080;font-weight:bold">new</span> RpcException(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Unsupported client type: </span><span style="color:#710">"</span></span> + str);
+        }
+    }
+
+    <span style="color:#080;font-weight:bold">return</span> server;
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4 has-source-line data-line-stdin-726">
+<h5 id="_响应rpc调用">响应RPC调用</h5>
+<div class="paragraph has-source-line data-line-stdin-728">
+<p>前面已经阐述过入站的网络数据包括Request请求和Response响应，当他们的网络I/O事件就绪时，便会触发绑定在通道上的<code>HeaderExchangeHandler</code>事件监听器 A 的<code>received()</code>方法，处于更加底层的<span class="big">信息交换层</span>会将其中的<code>Request</code>请求（<sub>需要返回响应</sub>）转发给<code>ExchangeHandler</code>对象 B 定义的<code>reply()</code>方法，由其构建<code>CompletableFuture&lt;Object&gt;</code>类型的响应结果。<sup>①</sup></p>
+</div>
+<div class="paragraph has-source-line data-line-stdin-730">
+<p><span class="small">注：<br>
+1）<code><strong>ExchangeHandler</strong>：public CompletableFuture&lt;Object&gt; reply(ExchangeChannel channel, Object message) throws RemotingException</code>；<br>
+2）<code><strong>ChannelHandler</strong>：public void received(Channel channel, Object message) throws RemotingException</code></span></p>
+</div>
+<div class="admonitionblock important has-source-line data-line-stdin-735">
+<table>
+<tbody><tr>
+<td class="icon">
+<div class="title">Important</div>
+</td>
+<td class="content">
+B的类型是一个扩充版的<code>ChannelHandler</code>，而A的类型<code>HeaderExchangeHandler</code>则是前者装饰者实现，也即A封装了B，A的I/O回调最终都会委托给B。
+</td>
+</tr>
+</tbody></table>
+</div>
+<div class="paragraph has-source-line data-line-stdin-737">
+<p>在Dubbo协议层中，对类型为<code>Invocation</code><sub>非<code>[Request、Response、String]</code>外</sub>的入站请求做了同样的处理，也就是<code>ExchangeHandler#reply()</code>方法会进一步调用<code>Invoker</code>实例的<code>invoke()</code>方法，以完成对应Java原生方法的调用，或者由Java原生方法转换后的跨机网络请求。<sup>②</sup></p>
+</div>
+<div class="paragraph has-source-line data-line-stdin-739">
+<p>需要注意的是，上述讨论的两种被调用的场景①和②，<code>reply()</code>均属于同一个<code>ExchangeHandler</code>对象，因此要求第一种场景中，其Request对象封装的<code>mData</code>也是<code>Invocation</code>类型的，否则会抛出异常。</p>
+</div>
+<div class="paragraph has-source-line data-line-stdin-741">
+<p>大体实现如下述源码所示，会首先从<code>exporterMap</code>缓存中取得相对应的<code>Invoker</code>实例，使用它回调表征原生Java方法的<code>Invocation</code>对象：</p>
+</div>
+<div class="listingblock has-source-line data-line-stdin-744">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#088;font-weight:bold">private</span> ExchangeHandler requestHandler = <span style="color:#080;font-weight:bold">new</span> ExchangeHandlerAdapter() {
+    ...
+    <span style="color:#007">@Override</span>
+    <span style="color:#088;font-weight:bold">public</span> CompletableFuture&lt;<span style="color:#0a8;font-weight:bold">Object</span>&gt; reply(ExchangeChannel channel, <span style="color:#0a8;font-weight:bold">Object</span> message) <span style="color:#088;font-weight:bold">throws</span> RemotingException {
+
+        <span style="color:#777">//当前ExchangeHandlerAdapter只响应消息为Invocation类型的请求</span>
+        <span style="color:#080;font-weight:bold">if</span> (!(message <span style="color:#080;font-weight:bold">instanceof</span> Invocation)) {
+            <span style="color:#080;font-weight:bold">throw</span> <span style="color:#080;font-weight:bold">new</span> RemotingException(channel, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Unsupported request: </span><span style="color:#710">"</span></span>
+                    + (message == <span style="color:#069">null</span> ? <span style="color:#069">null</span> : (message.getClass().getName() + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">: </span><span style="color:#710">"</span></span> + message))
+                    + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">, channel: consumer: </span><span style="color:#710">"</span></span> + channel.getRemoteAddress()
+                    + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20"> --&gt; provider: </span><span style="color:#710">"</span></span> + channel.getLocalAddress());
+        }
+
+        Invocation inv = (Invocation) message;
+        Invoker&lt;?&gt; invoker = getInvoker(channel, inv);
+        ...
+
+        RpcContext.getContext().setRemoteAddress(channel.getRemoteAddress());
+
+        <span style="color:#777">//间接完成对应Java原生方法的调用或者由Java原生方法转换后的跨机网络请求</span>
+        <span style="color:#0a8;font-weight:bold">Result</span> result = invoker.invoke(inv);
+
+        <span style="color:#777">//先调用completionFuture()将CompletionStage&lt;Result&gt;</span>
+        <span style="color:#777">//  转换成CompletableFuture&lt;Result&gt;</span>
+        <span style="color:#777">//再调用thenApply(Function.identity())装换成CompletableFuture&lt;Object&gt;</span>
+        <span style="color:#777">//利用了泛型出参自带类型转换特性，也即：</span>
+        <span style="color:#777">// &lt;U&gt; CompletableFuture&lt;U&gt; thenApply(Function&lt;? super T,? extends U&gt; fn)</span>
+        <span style="color:#080;font-weight:bold">return</span> result.completionFuture().thenApply(Function.identity());
+    }
+
+    <span style="color:#007">@Override</span>
+    <span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">void</span> received(<span style="color:#0a8;font-weight:bold">Channel</span> channel, <span style="color:#0a8;font-weight:bold">Object</span> message) <span style="color:#088;font-weight:bold">throws</span> RemotingException {
+        <span style="color:#080;font-weight:bold">if</span> (message <span style="color:#080;font-weight:bold">instanceof</span> Invocation) {
+            reply((ExchangeChannel) channel, message);
+
+        } <span style="color:#080;font-weight:bold">else</span> {
+            <span style="color:#950">super</span>.received(channel, message);
+        }
+    }
+    ...
+
+
+<span style="color:#777">//根据当前通道内含信息及Invocation对象中的本地参数容器构建serviceKey，</span>
+<span style="color:#777">//由其从exporterMap键值对中最终获取到Invoker对象</span>
+Invoker&lt;?&gt; getInvoker(<span style="color:#0a8;font-weight:bold">Channel</span> channel, Invocation inv) <span style="color:#088;font-weight:bold">throws</span> RemotingException {
+    <span style="color:#339;font-weight:bold">int</span> port = channel.getLocalAddress().getPort();
+    <span style="color:#0a8;font-weight:bold">String</span> path = inv.getAttachments().get(PATH_KEY);
+
+    ...
+    String serviceKey = serviceKey(port, path,
+        inv.getAttachments().get(VERSION_KEY), inv.getAttachments().get(GROUP_KEY));
+
+    DubboExporter&lt;?&gt; exporter = (DubboExporter&lt;?&gt;) exporterMap.get(serviceKey);
+
+    <span style="color:#080;font-weight:bold">if</span> (exporter == <span style="color:#069">null</span>) {
+        <span style="color:#080;font-weight:bold">throw</span> <span style="color:#080;font-weight:bold">new</span> RemotingException(channel, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Not found exported service: </span><span style="color:#710">"</span></span>
+            + serviceKey + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20"> in </span><span style="color:#710">"</span></span> + exporterMap.keySet() + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">, may be version or group mismatch </span><span style="color:#710">"</span></span>
+            + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">, channel: consumer: </span><span style="color:#710">"</span></span> + channel.getRemoteAddress() + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20"> --&gt; provider: </span><span style="color:#710">"</span></span>
+            + channel.getLocalAddress() + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">, message:</span><span style="color:#710">"</span></span> + inv);
+    }
+
+    <span style="color:#080;font-weight:bold">return</span> exporter.getInvoker();
+}</code></pre>
+</div>
+</div>
+<div class="paragraph has-source-line data-line-stdin-811">
+<p>另外，Dubbo允许为微服务实例或者引用实例配置<code>url["ondisconnect"]</code>和<code>url["onconnect"]</code>，监听链入或者断链时的监听，如下述示例配置的<code>ondisconnect</code>：</p>
+</div>
+<div class="listingblock has-source-line data-line-stdin-814">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="xml"><span style="color:#070;font-weight:bold">&lt;beans&gt;</span>
+    <span style="color:#070;font-weight:bold">&lt;bean</span> <span style="color:#b48">id</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">demoService</span><span style="color:#710">"</span></span> <span style="color:#b48">class</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">org.apache.dubbo.samples.impl.DemoServiceImpl</span><span style="color:#710">"</span></span><span style="color:#070;font-weight:bold">/&gt;</span>
+    <span style="color:#070;font-weight:bold">&lt;dubbo:service</span> <span style="color:#b48">async</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">true</span><span style="color:#710">"</span></span> <span style="color:#b48">interface</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">org.apache.dubbo.samples.api.DemoService</span><span style="color:#710">"</span></span>
+        <span style="color:#b48">version</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">1.2.3</span><span style="color:#710">"</span></span> <span style="color:#b48">group</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">dubbo-simple</span><span style="color:#710">"</span></span> <span style="color:#b48">ref</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">demoService</span><span style="color:#710">"</span></span> <span style="color:#b48">ondisconnect</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">disCallback</span><span style="color:#710">"</span></span>
+        <span style="color:#b48">executes</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">4500</span><span style="color:#710">"</span></span> <span style="color:#b48">retries</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">7</span><span style="color:#710">"</span></span> <span style="color:#b48">owner</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">vict</span><span style="color:#710">"</span></span> <span style="color:#b48">timeout</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">5300</span><span style="color:#710">"</span></span><span style="color:#070;font-weight:bold">/&gt;</span>
+<span style="color:#070;font-weight:bold">&lt;/beans&gt;</span></code></pre>
+</div>
+</div>
+<div class="paragraph has-source-line data-line-stdin-823">
+<p>实际也就是对5种典型的网络I/O事件的<code>connected</code>和<code>disconnected</code>做适配处理，为其创建相应的<code>RpcInvocation</code>类的<code>Invocation</code>实例，以该实例和被回调方法接受的通道<code>channel</code>入参为参数，调用当前被装饰<code>ExchangeHandler</code>对象的<code>received()</code>方法。当然，只有在配置了链入或者断链的监听方法，对应事件回调中才会运行实际的<code>received(channel, invocation)</code>业务代码。</p>
+</div>
+<div class="listingblock has-source-line data-line-stdin-826">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#088;font-weight:bold">private</span> ExchangeHandler requestHandler = <span style="color:#080;font-weight:bold">new</span> ExchangeHandlerAdapter() {
+    ...
+
+    <span style="color:#007">@Override</span>
+    <span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">void</span> connected(<span style="color:#0a8;font-weight:bold">Channel</span> channel) <span style="color:#088;font-weight:bold">throws</span> RemotingException {
+        invoke(channel, ON_CONNECT_KEY);
+    }
+
+    <span style="color:#007">@Override</span>
+    <span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">void</span> disconnected(<span style="color:#0a8;font-weight:bold">Channel</span> channel) <span style="color:#088;font-weight:bold">throws</span> RemotingException {
+        <span style="color:#080;font-weight:bold">if</span> (logger.isDebugEnabled()) {
+            logger.debug(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">disconnected from </span><span style="color:#710">"</span></span> + channel.getRemoteAddress()
+                + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">,url:</span><span style="color:#710">"</span></span> + channel.getUrl());
+        }
+        invoke(channel, ON_DISCONNECT_KEY);
+    }
+
+    <span style="color:#088;font-weight:bold">private</span> <span style="color:#339;font-weight:bold">void</span> invoke(<span style="color:#0a8;font-weight:bold">Channel</span> channel, <span style="color:#0a8;font-weight:bold">String</span> methodKey) {
+        Invocation invocation = createInvocation(channel, channel.getUrl(), methodKey);
+        <span style="color:#080;font-weight:bold">if</span> (invocation != <span style="color:#069">null</span>) {
+            <span style="color:#080;font-weight:bold">try</span> {
+                received(channel, invocation);
+            } <span style="color:#080;font-weight:bold">catch</span> (<span style="color:#0a8;font-weight:bold">Throwable</span> t) {
+                logger.warn(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Failed to invoke event method </span><span style="color:#710">"</span></span> +
+                    invocation.getMethodName() + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">(), cause: </span><span style="color:#710">"</span></span> + t.getMessage(), t);
+            }
+        }
+    }
+
+    <span style="color:#088;font-weight:bold">private</span> Invocation createInvocation(<span style="color:#0a8;font-weight:bold">Channel</span> channel, <span style="color:#0a8;font-weight:bold">URL</span> url, <span style="color:#0a8;font-weight:bold">String</span> methodKey) {
+        <span style="color:#0a8;font-weight:bold">String</span> method = url.getParameter(methodKey);
+        <span style="color:#080;font-weight:bold">if</span> (method == <span style="color:#069">null</span> || method.length() == <span style="color:#00D">0</span>) {
+            <span style="color:#080;font-weight:bold">return</span> <span style="color:#069">null</span>;
+        }
+
+        RpcInvocation invocation = <span style="color:#080;font-weight:bold">new</span> RpcInvocation(method, <span style="color:#080;font-weight:bold">new</span> <span style="color:#0a8;font-weight:bold">Class</span>&lt;?&gt;[<span style="color:#00D">0</span>], <span style="color:#080;font-weight:bold">new</span> <span style="color:#0a8;font-weight:bold">Object</span>[<span style="color:#00D">0</span>]);
+        invocation.setAttachment(PATH_KEY, url.getPath());
+        invocation.setAttachment(GROUP_KEY, url.getParameter(GROUP_KEY));
+        invocation.setAttachment(INTERFACE_KEY, url.getParameter(INTERFACE_KEY));
+        invocation.setAttachment(VERSION_KEY, url.getParameter(VERSION_KEY));
+        <span style="color:#080;font-weight:bold">if</span> (url.getParameter(STUB_EVENT_KEY, <span style="color:#069">false</span>)) {
+            invocation.setAttachment(STUB_EVENT_KEY, <span style="color:#0a8;font-weight:bold">Boolean</span>.TRUE.toString());
+        }
+
+        <span style="color:#080;font-weight:bold">return</span> invocation;
+    }
+};</code></pre>
+</div>
+</div>
+<div class="paragraph has-source-line data-line-stdin-876">
+<p>上述<code>createInvocation(…​)</code>方法的实现表明，微服务实例或者引用实例的链入或者断链监听是通过本地存根机制实现的，这里暂时忽略处理，后续在分析PRC中的代理实现时会对类似AOP的存根机制做深入剖析，具体参考《Dubbo服务代理》一文。</p>
+</div>
+</div>
+<div class="sect4 has-source-line data-line-stdin-878">
+<h5 id="_其它">其它</h5>
+<div class="paragraph has-source-line data-line-stdin-880">
+<p>有关DubboProtocol的源码实现基本已剖析完，但前文提及的<code>requestHandler</code>类似于幽灵般的存在，服务实例和服务引用实例都有使用到，它的实现始终是从<code>exporterMap</code>缓存中获取的，但<code>refer()</code>产生的<code>Invoker</code>服务引用实例机会就是漂浮着的存在，并没有被存入<code>exporterMap</code>，仅从当前框架层几乎没法一览全貌，尚待后续。</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1 has-source-line data-line-stdin-882">
+<h2 id="_protocolfilterwrapper_protocol"><code>ProtocolFilterWrapper</code> &gt;&gt; <code>Protocol</code></h2>
+<div class="sectionbody">
+<div class="paragraph has-source-line data-line-stdin-884">
+<p>在微服务开发涉及RPC请求的场景中，常常有些和特定业务无关的需求，比如某个接口访问量的数据采集、记录访问日志、设置访问令牌等。类似的场景，在一般类似Spring的开发框架会采用拦截器来实现，同样Dubbo中也提供了类似的机制，拦截服务提供方和服务消费方的RPC调用，Dubbo中类似TPS限额的不少内置特性也是基于这一机制实现。</p>
+</div>
+<div class="paragraph has-source-line data-line-stdin-886">
+<p>Dubbo内部给的实现方案是，采用装饰者模式，对<code>Protocol</code>实现做一层装饰，在其导出微服务实例，或者引出微服务引用实例时，加入一个拦截链，供框架或者应用层纳入更多的特性，大致源码如下：</p>
+</div>
+<div class="listingblock has-source-line data-line-stdin-888">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">ProtocolFilterWrapper</span> <span style="color:#088;font-weight:bold">implements</span> Protocol {
+
+    <span style="color:#088;font-weight:bold">private</span> <span style="color:#088;font-weight:bold">final</span> Protocol protocol;
+
+    <span style="color:#088;font-weight:bold">public</span> ProtocolFilterWrapper(Protocol protocol) {
+        <span style="color:#080;font-weight:bold">if</span> (protocol == <span style="color:#069">null</span>) {
+            <span style="color:#080;font-weight:bold">throw</span> <span style="color:#080;font-weight:bold">new</span> <span style="color:#C00;font-weight:bold">IllegalArgumentException</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">protocol == null</span><span style="color:#710">"</span></span>);
+        }
+        <span style="color:#950">this</span>.protocol = protocol;
+    }
+
+    <span style="color:#007">@Override</span>
+    <span style="color:#088;font-weight:bold">public</span> &lt;T&gt; Exporter&lt;T&gt; <span style="color:#080;font-weight:bold">export</span>(Invoker&lt;T&gt; invoker) <span style="color:#088;font-weight:bold">throws</span> RpcException {
+        <span style="color:#080;font-weight:bold">if</span> (REGISTRY_PROTOCOL.equals(invoker.getUrl().getProtocol())) {
+            <span style="color:#080;font-weight:bold">return</span> protocol.export(invoker);
+        }
+        <span style="color:#080;font-weight:bold">return</span> protocol.export(buildInvokerChain(invoker, SERVICE_FILTER_KEY, CommonConstants.PROVIDER));
+    }
+
+    <span style="color:#007">@Override</span>
+    <span style="color:#088;font-weight:bold">public</span> &lt;T&gt; Invoker&lt;T&gt; refer(<span style="color:#0a8;font-weight:bold">Class</span>&lt;T&gt; type, <span style="color:#0a8;font-weight:bold">URL</span> url) <span style="color:#088;font-weight:bold">throws</span> RpcException {
+        <span style="color:#080;font-weight:bold">if</span> (REGISTRY_PROTOCOL.equals(url.getProtocol())) {
+            <span style="color:#080;font-weight:bold">return</span> protocol.refer(type, url);
+        }
+        <span style="color:#080;font-weight:bold">return</span> buildInvokerChain(protocol.refer(type, url), REFERENCE_FILTER_KEY, CommonConstants.CONSUMER);
+    }
+    ...
+}</code></pre>
+</div>
+</div>
+<div class="sect2 has-source-line data-line-stdin-920">
+<h3 id="_filter接口定义"><code>Filter</code>接口定义</h3>
+<div class="paragraph has-source-line data-line-stdin-922">
+<p>Dubbo的内部RPC调用过程是异步的，出站请求和相对应的入站响应是两个界限明显的分段过程，前者不会因为后者还未执行完没有获得结果而阻塞，因此表征原生方法调用的<code>Result invoke(Invocation invocation)</code>出参<code>Result</code>会被设计成扩展<code>CompletionStage&lt;Result&gt;</code>的接口，RPC处理结果是基于响应式回调机制设置给<code>Result</code>的。同样，其拦截器也应该相应被设计成两阶段式的，如下述接口定义，其中用于响应阶段的<code>Listener</code>是可选的，如果实现了，需要接口实现类扩展自<code>ListenableFilter</code>抽象类。</p>
+</div>
+<div class="listingblock has-source-line data-line-stdin-924">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#007">@SPI</span>
+<span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">interface</span> <span style="color:#B06;font-weight:bold">Filter</span> {
+    <span style="color:#777">/**
+     * Does not need to override/implement this method.
+     */</span>
+    <span style="color:#0a8;font-weight:bold">Result</span> invoke(Invoker&lt;?&gt; invoker, Invocation invocation)
+        <span style="color:#088;font-weight:bold">throws</span> RpcException;
+
+
+    <span style="color:#339;font-weight:bold">interface</span> <span style="color:#B06;font-weight:bold">Listener</span> {
+
+        <span style="color:#339;font-weight:bold">void</span> onResponse(<span style="color:#0a8;font-weight:bold">Result</span> appResponse, Invoker&lt;?&gt; invoker, Invocation invocation);
+
+        <span style="color:#339;font-weight:bold">void</span> onError(<span style="color:#0a8;font-weight:bold">Throwable</span> t, Invoker&lt;?&gt; invoker, Invocation invocation);
+    }
+}
+
+<span style="color:#088;font-weight:bold">public</span> <span style="color:#088;font-weight:bold">abstract</span> <span style="color:#339;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">ListenableFilter</span> <span style="color:#088;font-weight:bold">implements</span> <span style="color:#0a8;font-weight:bold">Filter</span> {
+
+    <span style="color:#088;font-weight:bold">protected</span> Listener listener = <span style="color:#069">null</span>;
+
+    <span style="color:#088;font-weight:bold">public</span> Listener listener() {
+        <span style="color:#080;font-weight:bold">return</span> listener;
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2 has-source-line data-line-stdin-952">
+<h3 id="_拦截器执行原理">拦截器执行原理</h3>
+<div class="paragraph has-source-line data-line-stdin-954">
+<p>Dubbo中的拦截器的调度实现设计得非常巧妙，尽管其执行也是按顺序挨个执行的，但并没有直接呆板地使用列表遍历的形式，而是采用类似单向链表的形式，上一个拦截器运行完，会接着驱动下一个拦截器来接棒执行。</p>
+</div>
+<div class="paragraph has-source-line data-line-stdin-956">
+<p>具体实现上，Dubbo会为每一个<code>Filter</code>创建并实例化一个<code>Invoker</code>的匿名内部类，在其<code>invoke()</code>方法体中执行当前<code>Filter</code>对象的<code>Result invoke(Invoker&lt;?&gt; invoker, Invocation invocation)</code>方法，<code>Filter</code>对象所对应的实现类要确保在该方法体内以其两个入参执行类似如下的一个代码片段：</p>
+</div>
+<div class="listingblock has-source-line data-line-stdin-958">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java">...<span style="color:#777">//前验处理或前置特性业务逻辑实现</span>
+
+Result result = invoker.invoke(invocation);
+
+...<span style="color:#777">//后验处理或后置特性业务逻辑实现</span>
+
+return result;</code></pre>
+</div>
+</div>
+<div class="paragraph has-source-line data-line-stdin-967">
+<p>不难看出，在当前<code>Invoker</code>对象上执行其<code>invoke(Invocation)</code>方法，其执行结果取决于其在<code>Filter</code>对象上调用<code>invoke(Invoker&lt;?&gt;, Invocation)</code>方法传入的首个<code>Invoker</code>类型入参。</p>
+</div>
+<div class="paragraph has-source-line data-line-stdin-969">
+<p>这里可以认为这个入参是被当前对象所属的匿名内部类给装饰了，如果它也是类似被装饰的<code>Invoker</code>类型对象， 那么最后代码执行轨迹就会递归地一直往下调用直到碰到异常或者首次能返回<code>Result</code>值的为止，随后便由下往上逐层返回这个结果。</p>
+</div>
+<div class="paragraph has-source-line data-line-stdin-971">
+<p>可以看出每个<code>Invoker</code>对象可以根据当前特性需要决定是先执行自身业务逻辑还是先调用它所装饰的另一个<code>Invoker</code>对象的<code>invoke(Invocation)</code>方法，也就是说个体上而言，装饰者和被装饰者的逻辑执行顺序是不确定的，但总体而言，经过层层装饰之后形成的递归关系，理解起来感觉比较混乱。然而这种类似AOP的环绕场景，从RPC调用的视觉来看瞬觉廓然开朗，就是每一个<code>Filter</code>装饰者<sub>间接等价</sub>可以根据自身需要决定逻辑代码的执行时刻：1）在发出出站请求之前； 2）在收到入站响应之后；3）上述两个时刻。</p>
+</div>
+<div class="paragraph has-source-line data-line-stdin-973">
+<p>熟悉Servlet过滤器实现原理的童鞋此时定会心领神会，笑意舒展，直观如下图所示：</p>
+</div>
+<div class="imageblock has-source-line data-line-stdin-975">
+<div class="content">
+<img src="res_files/imgs/9_image" alt="Servlet过滤器原理">
+</div>
+</div>
+<div class="paragraph has-source-line data-line-stdin-977">
+<p>概括下：<span class="big"><strong>在顺序上越排在前面的<code>Filter</code>，其前置逻辑越先执行，而后置逻辑则越后执行</strong></span>。</p>
+</div>
+</div>
+<div class="sect2 has-source-line data-line-stdin-979">
+<h3 id="_拦截器调度源码">拦截器调度源码</h3>
+<div class="paragraph has-source-line data-line-stdin-981">
+<p>弄懂机制后，读源码就比较轻松了，总体实现代码如下：</p>
+</div>
+<div class="listingblock has-source-line data-line-stdin-984">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#088;font-weight:bold">private</span> <span style="color:#088;font-weight:bold">static</span> &lt;T&gt; Invoker&lt;T&gt; buildInvokerChain(<span style="color:#088;font-weight:bold">final</span> Invoker&lt;T&gt; invoker, <span style="color:#0a8;font-weight:bold">String</span> key, <span style="color:#0a8;font-weight:bold">String</span> group) {
+    Invoker&lt;T&gt; last = invoker;
+    <span style="color:#0a8;font-weight:bold">List</span>&lt;<span style="color:#0a8;font-weight:bold">Filter</span>&gt; filters = ExtensionLoader.getExtensionLoader(<span style="color:#0a8;font-weight:bold">Filter</span>.class)
+        .getActivateExtension(invoker.getUrl(), key, group);
+
+    <span style="color:#080;font-weight:bold">if</span> (!filters.isEmpty()) {
+        <span style="color:#080;font-weight:bold">for</span> (<span style="color:#339;font-weight:bold">int</span> i = filters.size() - <span style="color:#00D">1</span>; i &gt;= <span style="color:#00D">0</span>; i--) {
+            <span style="color:#088;font-weight:bold">final</span> <span style="color:#0a8;font-weight:bold">Filter</span> filter = filters.get(i);
+            <span style="color:#088;font-weight:bold">final</span> Invoker&lt;T&gt; next = last;
+            last = <span style="color:#080;font-weight:bold">new</span> Invoker&lt;T&gt;() {
+
+                <span style="color:#007">@Override</span>
+                <span style="color:#088;font-weight:bold">public</span> <span style="color:#0a8;font-weight:bold">Result</span> invoke(Invocation invocation) <span style="color:#088;font-weight:bold">throws</span> RpcException {
+                    <span style="color:#0a8;font-weight:bold">Result</span> asyncResult;
+                    <span style="color:#080;font-weight:bold">try</span> {
+                        asyncResult = filter.invoke(next, invocation);
+                    } <span style="color:#080;font-weight:bold">catch</span> (<span style="color:#C00;font-weight:bold">Exception</span> e) {
+                        <span style="color:#777">// onError callback</span>
+                        <span style="color:#080;font-weight:bold">if</span> (filter <span style="color:#080;font-weight:bold">instanceof</span> ListenableFilter) {
+                            <span style="color:#0a8;font-weight:bold">Filter</span>.Listener listener = ((ListenableFilter) filter).listener();
+                            <span style="color:#080;font-weight:bold">if</span> (listener != <span style="color:#069">null</span>) {
+                                listener.onError(e, invoker, invocation);
+                            }
+                        }
+                        <span style="color:#080;font-weight:bold">throw</span> e;
+                    }
+                    <span style="color:#080;font-weight:bold">return</span> asyncResult;
+                }
+                ...
+            };
+        }
+    }
+    <span style="color:#080;font-weight:bold">return</span> <span style="color:#080;font-weight:bold">new</span> CallbackRegistrationInvoker&lt;&gt;(last, filters);
+}</code></pre>
+</div>
+</div>
+<div class="paragraph has-source-line data-line-stdin-1021">
+<p>上述这段代码中，有几个需要注意的地方：</p>
+</div>
+<div class="olist arabic has-source-line data-line-stdin-1023">
+<ol class="arabic">
+<li class="has-source-line data-line-stdin-1023">
+<p>入参<code>invoker</code>对象是作为首个被装饰者出现的，也即它是实际处理RPC调用的微服务实例或者微服务引用实例，使用<code>getActivateExtension</code>获取到的所有<code>filters</code>已经按照优先级排好序，越高的越靠近底层的RPC调用。</p>
+</li>
+<li class="has-source-line data-line-stdin-1025">
+<p><code>Invocation</code>类型入参基本不会发生变化，是伴随整个拦截链的，隐含的意思是，<code>Fitler</code>实现可以根据需要在其本地参数容器存入相应的键值对，让其在链中传播，供其他<code>Fitler</code>实现联动逻辑。这种特性也适用于可携带本地参数容器的<code>Result</code>。</p>
+</li>
+<li class="has-source-line data-line-stdin-1027">
+<p>`catch<code>代码块表示，拦截链中包括当前节点在内的其它前驱中某个</code>Filter<code><sub>两个阶段都有可能会发生</sub>处理出现了异常，并且显示地Throw出来了，若这些</code>Filter<code>属监听型，则回调其</code>onError()<code>，通知异常发生。另外异常也可以由</code>Result``携带返回，这后面一种类型的异常处理，整个拦截链依然可以无感知地继续work。</p>
+</li>
+</ol>
+</div>
+<div class="paragraph has-source-line data-line-stdin-1029">
+<p>另外上述有关<code>Invoker</code>内部类实现逻辑中省略了如下的代码段，结合上述代码，不难理解最初被装饰的那个<code>invoker</code>对象始终是业务逻辑运行的主战场，其它环绕它执行的<code>Invoker</code>是独立于业务逻辑之外的增强和补充，因而链上的所有Invoker节点都使用<code>invoker</code>获取相关状态。</p>
+</div>
+<div class="listingblock has-source-line data-line-stdin-1032">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#080;font-weight:bold">new</span> Invoker&lt;T&gt;() {
+
+    <span style="color:#007">@Override</span>
+    <span style="color:#088;font-weight:bold">public</span> <span style="color:#0a8;font-weight:bold">Class</span>&lt;T&gt; getInterface() {
+        <span style="color:#080;font-weight:bold">return</span> invoker.getInterface();
+    }
+
+    <span style="color:#007">@Override</span>
+    <span style="color:#088;font-weight:bold">public</span> <span style="color:#0a8;font-weight:bold">URL</span> getUrl() {
+        <span style="color:#080;font-weight:bold">return</span> invoker.getUrl();
+    }
+
+    <span style="color:#007">@Override</span>
+    <span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">boolean</span> isAvailable() {
+        <span style="color:#080;font-weight:bold">return</span> invoker.isAvailable();
+    }
+    <span style="color:#007">@Override</span>
+    <span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">void</span> destroy() {
+        invoker.destroy();
+    }
+
+    <span style="color:#007">@Override</span>
+    <span style="color:#088;font-weight:bold">public</span> <span style="color:#0a8;font-weight:bold">String</span> toString() {
+        <span style="color:#080;font-weight:bold">return</span> invoker.toString();
+    }
+    ...
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2 has-source-line data-line-stdin-1062">
+<h3 id="_filter共享反馈结果"><code>Filter</code>共享反馈结果</h3>
+<div class="paragraph has-source-line data-line-stdin-1064">
+<p>拦截器实现中，并非所有内部<code>Invoker</code>装饰者<sub>等价于Fiter</sub>实现会回调<code>onError()</code>，结果正常时也不会被回调<code>onResponse()</code>，如果异常结果携带在出参<code>Result</code>中，这些回调就根本不会发生。而特性上要求所有加入到链中的Filter，只要有要求均能在有结果<sub>包括Exception</sub>获得通知。因此在上一章节中代码片段中出现了<code>return new CallbackRegistrationInvoker&lt;&gt;(last, filters)</code>，它表示<em>last</em>这个<code>Invoker</code>对象最后又被装饰了一次，目的是让链所有的<code>ListenableFilter</code>能通过回调感知到处理结果，如下述源码所示：</p>
+</div>
+<div class="listingblock has-source-line data-line-stdin-1067">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#088;font-weight:bold">static</span> <span style="color:#339;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">CallbackRegistrationInvoker</span>&lt;T&gt; <span style="color:#088;font-weight:bold">implements</span> Invoker&lt;T&gt; {
+
+    <span style="color:#088;font-weight:bold">private</span> <span style="color:#088;font-weight:bold">final</span> Invoker&lt;T&gt; filterInvoker;
+    <span style="color:#088;font-weight:bold">private</span> <span style="color:#088;font-weight:bold">final</span> <span style="color:#0a8;font-weight:bold">List</span>&lt;<span style="color:#0a8;font-weight:bold">Filter</span>&gt; filters;
+
+    <span style="color:#088;font-weight:bold">public</span> CallbackRegistrationInvoker(Invoker&lt;T&gt; filterInvoker, <span style="color:#0a8;font-weight:bold">List</span>&lt;<span style="color:#0a8;font-weight:bold">Filter</span>&gt; filters) {
+        <span style="color:#950">this</span>.filterInvoker = filterInvoker;
+        <span style="color:#950">this</span>.filters = filters;
+    }
+
+    <span style="color:#007">@Override</span>
+    <span style="color:#088;font-weight:bold">public</span> <span style="color:#0a8;font-weight:bold">Result</span> invoke(Invocation invocation) <span style="color:#088;font-weight:bold">throws</span> RpcException {
+        <span style="color:#0a8;font-weight:bold">Result</span> asyncResult = filterInvoker.invoke(invocation);
+
+        asyncResult = asyncResult.whenCompleteWithContext((r, t) -&gt; {
+            <span style="color:#080;font-weight:bold">for</span> (<span style="color:#339;font-weight:bold">int</span> i = filters.size() - <span style="color:#00D">1</span>; i &gt;= <span style="color:#00D">0</span>; i--) {
+                <span style="color:#0a8;font-weight:bold">Filter</span> filter = filters.get(i);
+                <span style="color:#777">// onResponse callback</span>
+                <span style="color:#080;font-weight:bold">if</span> (filter <span style="color:#080;font-weight:bold">instanceof</span> ListenableFilter) {
+                    <span style="color:#0a8;font-weight:bold">Filter</span>.Listener listener = ((ListenableFilter) filter).listener();
+                    <span style="color:#080;font-weight:bold">if</span> (listener != <span style="color:#069">null</span>) {
+                        <span style="color:#080;font-weight:bold">if</span> (t == <span style="color:#069">null</span>) {
+                            listener.onResponse(r, filterInvoker, invocation);
+                        } <span style="color:#080;font-weight:bold">else</span> {
+                            listener.onError(t, filterInvoker, invocation);
+                        }
+                    }
+                } <span style="color:#080;font-weight:bold">else</span> {
+                    filter.onResponse(r, filterInvoker, invocation);
+                }
+            }
+        });
+        <span style="color:#080;font-weight:bold">return</span> asyncResult;
+    }
+    ...<span style="color:#777">//类似上一章节最后呈现的那段代码</span>
+}</code></pre>
+</div>
+</div>
+<div class="paragraph has-source-line data-line-stdin-1106">
+<p>细究两处异常处理实现，如果前者先发生，后者是没有机会执行的，可以认为前者是短路型异常处理。原因是<code>CallbackRegistrationInvoker</code>是最后一个被执行的<code>Invoker</code>装饰者对象。不论是哪种方案，`onError`的回调时机都处于拦截链回退的途中。</p>
+</div>
+<hr>
+<div class="paragraph has-source-line data-line-stdin-1110">
+<p>完结</p>
+</div>
+</div>
+</div>
+</div>
+</div><script src="res_files/js/scrollToElement.js"></script>
+<script src="res_files/js/processLinks.js"></script>
+<script src="res_files/js/pickSourceLine.js"></script>
+<script type="text/x-mathjax-config;executed=true">
+MathJax.Hub.Config({
+  messageStyle: "none",
+  tex2jax: {
+    inlineMath: [["\\(", "\\)"]],
+    displayMath: [["\\[", "\\]"]],
+    ignoreClass: "nostem|nolatexmath"
+  },
+  asciimath2jax: {
+    delimiters: [["\\$", "\\$"]],
+    ignoreClass: "nostem|noasciimath"
+  },
+  TeX: { equationNumbers: { autoNumber: "none" } }
+});
+</script>
+<script src="res_files/js/MathJax.js"></script>
+<div id="color-picker-wrap" style="display: none; position: fixed; top: 0px; left: 0px; z-index: 9999;"><!----></div></body></html>

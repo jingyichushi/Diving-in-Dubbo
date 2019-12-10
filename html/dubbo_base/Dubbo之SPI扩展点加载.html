@@ -1,0 +1,2102 @@
+
+<!-- saved from url=(0345)http://localhost:63342/ead61b63-b0a6-4ff2-a49a-86be75ccfd1a/source?file=%2FUsers%2Flrq%2FWorkspace%2Fmy_pub_prjs%2FDiving-In-Dubbo%2FDubbo%E5%9F%BA%E7%A1%80%2FDubbo%E4%B9%8BSPI%E6%89%A9%E5%B1%95%E7%82%B9%E5%8A%A0%E8%BD%BD.adoc&mac=sObL0quh+ZlZTr+py3vQYXm+rMXWEdqK//5wBNbqnM8=&projectUrl=%2FUsers%2Flrq%2FWorkspace%2Fmy_pub_prjs%2FDiving-In-Dubbo -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style>
+/* Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
+/* Uncomment @import statement to use as custom stylesheet */
+/*@import "https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700";*/
+article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section{display:block}
+audio,video{display:inline-block}
+audio:not([controls]){display:none;height:0}
+html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}
+a{background:none}
+a:focus{outline:thin dotted}
+a:active,a:hover{outline:0}
+h1{font-size:2em;margin:.67em 0}
+abbr[title]{border-bottom:1px dotted}
+b,strong{font-weight:bold}
+dfn{font-style:italic}
+hr{-moz-box-sizing:content-box;box-sizing:content-box;height:0}
+mark{background:#ff0;color:#000}
+code,kbd,pre,samp{font-family:monospace;font-size:1em}
+pre{white-space:pre-wrap}
+q{quotes:"\201C" "\201D" "\2018" "\2019"}
+small{font-size:80%}
+sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}
+sup{top:-.5em}
+sub{bottom:-.25em}
+img{border:0}
+svg:not(:root){overflow:hidden}
+figure{margin:0}
+fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}
+legend{border:0;padding:0}
+button,input,select,textarea{font-family:inherit;font-size:100%;margin:0}
+button,input{line-height:normal}
+button,select{text-transform:none}
+button,html input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance:button;cursor:pointer}
+button[disabled],html input[disabled]{cursor:default}
+input[type="checkbox"],input[type="radio"]{box-sizing:border-box;padding:0}
+button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}
+textarea{overflow:auto;vertical-align:top}
+table{border-collapse:collapse;border-spacing:0}
+*,*::before,*::after{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box}
+html,body{font-size:100%}
+body{background:#fff;color:rgba(0,0,0,.8);padding:0;margin:0;font-family:"Noto Serif","DejaVu Serif",serif;font-weight:400;font-style:normal;line-height:1;position:relative;cursor:auto;tab-size:4;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased}
+a:hover{cursor:pointer}
+img,object,embed{max-width:100%;height:auto}
+object,embed{height:100%}
+img{-ms-interpolation-mode:bicubic}
+.left{float:left!important}
+.right{float:right!important}
+.text-left{text-align:left!important}
+.text-right{text-align:right!important}
+.text-center{text-align:center!important}
+.text-justify{text-align:justify!important}
+.hide{display:none}
+img,object,svg{display:inline-block;vertical-align:middle}
+textarea{height:auto;min-height:50px}
+select{width:100%}
+.center{margin-left:auto;margin-right:auto}
+.stretch{width:100%}
+.subheader,.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{line-height:1.45;color:#7a2518;font-weight:400;margin-top:0;margin-bottom:.25em}
+div,dl,dt,dd,ul,ol,li,h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6,pre,form,p,blockquote,th,td{margin:0;padding:0;direction:ltr}
+a{color:#2156a5;text-decoration:underline;line-height:inherit}
+a:hover,a:focus{color:#1d4b8f}
+a img{border:0}
+p{font-family:inherit;font-weight:400;font-size:1em;line-height:1.6;margin-bottom:1.25em;text-rendering:optimizeLegibility}
+p aside{font-size:.875em;line-height:1.35;font-style:italic}
+h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{font-family:"Open Sans","DejaVu Sans",sans-serif;font-weight:300;font-style:normal;color:#ba3925;text-rendering:optimizeLegibility;margin-top:1em;margin-bottom:.5em;line-height:1.0125em}
+h1 small,h2 small,h3 small,#toctitle small,.sidebarblock>.content>.title small,h4 small,h5 small,h6 small{font-size:60%;color:#e99b8f;line-height:0}
+h1{font-size:2.125em}
+h2{font-size:1.6875em}
+h3,#toctitle,.sidebarblock>.content>.title{font-size:1.375em}
+h4,h5{font-size:1.125em}
+h6{font-size:1em}
+hr{border:solid #dddddf;border-width:1px 0 0;clear:both;margin:1.25em 0 1.1875em;height:0}
+em,i{font-style:italic;line-height:inherit}
+strong,b{font-weight:bold;line-height:inherit}
+small{font-size:60%;line-height:inherit}
+code{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;font-weight:400;color:rgba(0,0,0,.9)}
+ul,ol,dl{font-size:1em;line-height:1.6;margin-bottom:1.25em;list-style-position:outside;font-family:inherit}
+ul,ol{margin-left:1.5em}
+ul li ul,ul li ol{margin-left:1.25em;margin-bottom:0;font-size:1em}
+ul.square li ul,ul.circle li ul,ul.disc li ul{list-style:inherit}
+ul.square{list-style-type:square}
+ul.circle{list-style-type:circle}
+ul.disc{list-style-type:disc}
+ol li ul,ol li ol{margin-left:1.25em;margin-bottom:0}
+dl dt{margin-bottom:.3125em;font-weight:bold}
+dl dd{margin-bottom:1.25em}
+abbr,acronym{text-transform:uppercase;font-size:90%;color:rgba(0,0,0,.8);border-bottom:1px dotted #ddd;cursor:help}
+abbr{text-transform:none}
+blockquote{margin:0 0 1.25em;padding:.5625em 1.25em 0 1.1875em;border-left:1px solid #ddd}
+blockquote cite{display:block;font-size:.9375em;color:rgba(0,0,0,.6)}
+blockquote cite::before{content:"\2014 \0020"}
+blockquote cite a,blockquote cite a:visited{color:rgba(0,0,0,.6)}
+blockquote,blockquote p{line-height:1.6;color:rgba(0,0,0,.85)}
+@media screen and (min-width:768px){h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2}
+h1{font-size:2.75em}
+h2{font-size:2.3125em}
+h3,#toctitle,.sidebarblock>.content>.title{font-size:1.6875em}
+h4{font-size:1.4375em}}
+table{background:#fff;margin-bottom:1.25em;border:solid 1px #dedede}
+table thead,table tfoot{background:#f7f8f7}
+table thead tr th,table thead tr td,table tfoot tr th,table tfoot tr td{padding:.5em .625em .625em;font-size:inherit;color:rgba(0,0,0,.8);text-align:left}
+table tr th,table tr td{padding:.5625em .625em;font-size:inherit;color:rgba(0,0,0,.8)}
+table tr.even,table tr.alt{background:#f8f8f7}
+table thead tr th,table tfoot tr th,table tbody tr td,table tr td,table tfoot tr td{display:table-cell;line-height:1.6}
+h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2;word-spacing:-.05em}
+h1 strong,h2 strong,h3 strong,#toctitle strong,.sidebarblock>.content>.title strong,h4 strong,h5 strong,h6 strong{font-weight:400}
+.clearfix::before,.clearfix::after,.float-group::before,.float-group::after{content:" ";display:table}
+.clearfix::after,.float-group::after{clear:both}
+:not(pre):not([class^=L])>code{font-size:.9375em;font-style:normal!important;letter-spacing:0;padding:.1em .5ex;word-spacing:-.15em;background:#f7f7f8;-webkit-border-radius:4px;border-radius:4px;line-height:1.45;text-rendering:optimizeSpeed;word-wrap:break-word}
+:not(pre)>code.nobreak{word-wrap:normal}
+:not(pre)>code.nowrap{white-space:nowrap}
+pre{color:rgba(0,0,0,.9);font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;line-height:1.45;text-rendering:optimizeSpeed}
+pre code,pre pre{color:inherit;font-size:inherit;line-height:inherit}
+pre>code{display:block}
+pre.nowrap,pre.nowrap pre{white-space:pre;word-wrap:normal}
+em em{font-style:normal}
+strong strong{font-weight:400}
+.keyseq{color:rgba(51,51,51,.8)}
+kbd{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;display:inline-block;color:rgba(0,0,0,.8);font-size:.65em;line-height:1.45;background:#f7f7f7;border:1px solid #ccc;-webkit-border-radius:3px;border-radius:3px;-webkit-box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em white inset;box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em #fff inset;margin:0 .15em;padding:.2em .5em;vertical-align:middle;position:relative;top:-.1em;white-space:nowrap}
+.keyseq kbd:first-child{margin-left:0}
+.keyseq kbd:last-child{margin-right:0}
+.menuseq,.menuref{color:#000}
+.menuseq b:not(.caret),.menuref{font-weight:inherit}
+.menuseq{word-spacing:-.02em}
+.menuseq b.caret{font-size:1.25em;line-height:.8}
+.menuseq i.caret{font-weight:bold;text-align:center;width:.45em}
+b.button::before,b.button::after{position:relative;top:-1px;font-weight:400}
+b.button::before{content:"[";padding:0 3px 0 2px}
+b.button::after{content:"]";padding:0 2px 0 3px}
+p a>code:hover{color:rgba(0,0,0,.9)}
+#header,#content,#footnotes,#footer{width:100%;margin-left:auto;margin-right:auto;margin-top:0;margin-bottom:0;max-width:62.5em;*zoom:1;position:relative;padding-left:.9375em;padding-right:.9375em}
+#header::before,#header::after,#content::before,#content::after,#footnotes::before,#footnotes::after,#footer::before,#footer::after{content:" ";display:table}
+#header::after,#content::after,#footnotes::after,#footer::after{clear:both}
+#content{margin-top:1.25em}
+#content::before{content:none}
+#header>h1:first-child{color:rgba(0,0,0,.85);margin-top:2.25rem;margin-bottom:0}
+#header>h1:first-child+#toc{margin-top:8px;border-top:1px solid #dddddf}
+#header>h1:only-child,body.toc2 #header>h1:nth-last-child(2){border-bottom:1px solid #dddddf;padding-bottom:8px}
+#header .details{border-bottom:1px solid #dddddf;line-height:1.45;padding-top:.25em;padding-bottom:.25em;padding-left:.25em;color:rgba(0,0,0,.6);display:-ms-flexbox;display:-webkit-flex;display:flex;-ms-flex-flow:row wrap;-webkit-flex-flow:row wrap;flex-flow:row wrap}
+#header .details span:first-child{margin-left:-.125em}
+#header .details span.email a{color:rgba(0,0,0,.85)}
+#header .details br{display:none}
+#header .details br+span::before{content:"\00a0\2013\00a0"}
+#header .details br+span.author::before{content:"\00a0\22c5\00a0";color:rgba(0,0,0,.85)}
+#header .details br+span#revremark::before{content:"\00a0|\00a0"}
+#header #revnumber{text-transform:capitalize}
+#header #revnumber::after{content:"\00a0"}
+#content>h1:first-child:not([class]){color:rgba(0,0,0,.85);border-bottom:1px solid #dddddf;padding-bottom:8px;margin-top:0;padding-top:1rem;margin-bottom:1.25rem}
+#toc{border-bottom:1px solid #e7e7e9;padding-bottom:.5em}
+#toc>ul{margin-left:.125em}
+#toc ul.sectlevel0>li>a{font-style:italic}
+#toc ul.sectlevel0 ul.sectlevel1{margin:.5em 0}
+#toc ul{font-family:"Open Sans","DejaVu Sans",sans-serif;list-style-type:none}
+#toc li{line-height:1.3334;margin-top:.3334em}
+#toc a{text-decoration:none}
+#toc a:active{text-decoration:underline}
+#toctitle{color:#7a2518;font-size:1.2em}
+@media screen and (min-width:768px){#toctitle{font-size:1.375em}
+body.toc2{padding-left:15em;padding-right:0}
+#toc.toc2{margin-top:0!important;background:#f8f8f7;position:fixed;width:15em;left:0;top:0;border-right:1px solid #e7e7e9;border-top-width:0!important;border-bottom-width:0!important;z-index:1000;padding:1.25em 1em;height:100%;overflow:auto}
+#toc.toc2 #toctitle{margin-top:0;margin-bottom:.8rem;font-size:1.2em}
+#toc.toc2>ul{font-size:.9em;margin-bottom:0}
+#toc.toc2 ul ul{margin-left:0;padding-left:1em}
+#toc.toc2 ul.sectlevel0 ul.sectlevel1{padding-left:0;margin-top:.5em;margin-bottom:.5em}
+body.toc2.toc-right{padding-left:0;padding-right:15em}
+body.toc2.toc-right #toc.toc2{border-right-width:0;border-left:1px solid #e7e7e9;left:auto;right:0}}
+@media screen and (min-width:1280px){body.toc2{padding-left:20em;padding-right:0}
+#toc.toc2{width:20em}
+#toc.toc2 #toctitle{font-size:1.375em}
+#toc.toc2>ul{font-size:.95em}
+#toc.toc2 ul ul{padding-left:1.25em}
+body.toc2.toc-right{padding-left:0;padding-right:20em}}
+#content #toc{border-style:solid;border-width:1px;border-color:#e0e0dc;margin-bottom:1.25em;padding:1.25em;background:#f8f8f7;-webkit-border-radius:4px;border-radius:4px}
+#content #toc>:first-child{margin-top:0}
+#content #toc>:last-child{margin-bottom:0}
+#footer{max-width:100%;background:rgba(0,0,0,.8);padding:1.25em}
+#footer-text{color:rgba(255,255,255,.8);line-height:1.44}
+#content{margin-bottom:.625em}
+.sect1{padding-bottom:.625em}
+@media screen and (min-width:768px){#content{margin-bottom:1.25em}
+.sect1{padding-bottom:1.25em}}
+.sect1:last-child{padding-bottom:0}
+.sect1+.sect1{border-top:1px solid #e7e7e9}
+#content h1>a.anchor,h2>a.anchor,h3>a.anchor,#toctitle>a.anchor,.sidebarblock>.content>.title>a.anchor,h4>a.anchor,h5>a.anchor,h6>a.anchor{position:absolute;z-index:1001;width:1.5ex;margin-left:-1.5ex;display:block;text-decoration:none!important;visibility:hidden;text-align:center;font-weight:400}
+#content h1>a.anchor::before,h2>a.anchor::before,h3>a.anchor::before,#toctitle>a.anchor::before,.sidebarblock>.content>.title>a.anchor::before,h4>a.anchor::before,h5>a.anchor::before,h6>a.anchor::before{content:"\00A7";font-size:.85em;display:block;padding-top:.1em}
+#content h1:hover>a.anchor,#content h1>a.anchor:hover,h2:hover>a.anchor,h2>a.anchor:hover,h3:hover>a.anchor,#toctitle:hover>a.anchor,.sidebarblock>.content>.title:hover>a.anchor,h3>a.anchor:hover,#toctitle>a.anchor:hover,.sidebarblock>.content>.title>a.anchor:hover,h4:hover>a.anchor,h4>a.anchor:hover,h5:hover>a.anchor,h5>a.anchor:hover,h6:hover>a.anchor,h6>a.anchor:hover{visibility:visible}
+#content h1>a.link,h2>a.link,h3>a.link,#toctitle>a.link,.sidebarblock>.content>.title>a.link,h4>a.link,h5>a.link,h6>a.link{color:#ba3925;text-decoration:none}
+#content h1>a.link:hover,h2>a.link:hover,h3>a.link:hover,#toctitle>a.link:hover,.sidebarblock>.content>.title>a.link:hover,h4>a.link:hover,h5>a.link:hover,h6>a.link:hover{color:#a53221}
+details,.audioblock,.imageblock,.literalblock,.listingblock,.stemblock,.videoblock{margin-bottom:1.25em}
+details>summary:first-of-type{cursor:pointer;display:list-item;outline:none;margin-bottom:.75em}
+.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{text-rendering:optimizeLegibility;text-align:left;font-family:"Noto Serif","DejaVu Serif",serif;font-size:1rem;font-style:italic}
+table.tableblock.fit-content>caption.title{white-space:nowrap;width:0}
+.paragraph.lead>p,#preamble>.sectionbody>[class="paragraph"]:first-of-type p{font-size:1.21875em;line-height:1.6;color:rgba(0,0,0,.85)}
+table.tableblock #preamble>.sectionbody>[class="paragraph"]:first-of-type p{font-size:inherit}
+.admonitionblock>table{border-collapse:separate;border:0;background:none;width:100%}
+.admonitionblock>table td.icon{text-align:center;width:80px}
+.admonitionblock>table td.icon img{max-width:none}
+.admonitionblock>table td.icon .title{font-weight:bold;font-family:"Open Sans","DejaVu Sans",sans-serif;text-transform:uppercase}
+.admonitionblock>table td.content{padding-left:1.125em;padding-right:1.25em;border-left:1px solid #dddddf;color:rgba(0,0,0,.6)}
+.admonitionblock>table td.content>:last-child>:last-child{margin-bottom:0}
+.exampleblock>.content{border-style:solid;border-width:1px;border-color:#e6e6e6;margin-bottom:1.25em;padding:1.25em;background:#fff;-webkit-border-radius:4px;border-radius:4px}
+.exampleblock>.content>:first-child{margin-top:0}
+.exampleblock>.content>:last-child{margin-bottom:0}
+.sidebarblock{border-style:solid;border-width:1px;border-color:#dbdbd6;margin-bottom:1.25em;padding:1.25em;background:#f3f3f2;-webkit-border-radius:4px;border-radius:4px}
+.sidebarblock>:first-child{margin-top:0}
+.sidebarblock>:last-child{margin-bottom:0}
+.sidebarblock>.content>.title{color:#7a2518;margin-top:0;text-align:center}
+.exampleblock>.content>:last-child>:last-child,.exampleblock>.content .olist>ol>li:last-child>:last-child,.exampleblock>.content .ulist>ul>li:last-child>:last-child,.exampleblock>.content .qlist>ol>li:last-child>:last-child,.sidebarblock>.content>:last-child>:last-child,.sidebarblock>.content .olist>ol>li:last-child>:last-child,.sidebarblock>.content .ulist>ul>li:last-child>:last-child,.sidebarblock>.content .qlist>ol>li:last-child>:last-child{margin-bottom:0}
+.literalblock pre,.listingblock>.content>pre{-webkit-border-radius:4px;border-radius:4px;word-wrap:break-word;overflow-x:auto;padding:1em;font-size:.8125em}
+@media screen and (min-width:768px){.literalblock pre,.listingblock>.content>pre{font-size:.90625em}}
+@media screen and (min-width:1280px){.literalblock pre,.listingblock>.content>pre{font-size:1em}}
+.literalblock pre,.listingblock>.content>pre:not(.highlight),.listingblock>.content>pre[class="highlight"],.listingblock>.content>pre[class^="highlight "]{background:#f7f7f8}
+.literalblock.output pre{color:#f7f7f8;background:rgba(0,0,0,.9)}
+.listingblock>.content{position:relative}
+.listingblock code[data-lang]::before{display:none;content:attr(data-lang);position:absolute;font-size:.75em;top:.425rem;right:.5rem;line-height:1;text-transform:uppercase;color:inherit;opacity:.5}
+.listingblock:hover code[data-lang]::before{display:block}
+.listingblock.terminal pre .command::before{content:attr(data-prompt);padding-right:.5em;color:inherit;opacity:.5}
+.listingblock.terminal pre .command:not([data-prompt])::before{content:"$"}
+.listingblock pre.highlightjs{padding:0}
+.listingblock pre.highlightjs>code{padding:1em;-webkit-border-radius:4px;border-radius:4px}
+.listingblock pre.prettyprint{border-width:0}
+.prettyprint{background:#f7f7f8}
+pre.prettyprint .linenums{line-height:1.45;margin-left:2em}
+pre.prettyprint li{background:none;list-style-type:inherit;padding-left:0}
+pre.prettyprint li code[data-lang]::before{opacity:1}
+pre.prettyprint li:not(:first-child) code[data-lang]::before{display:none}
+table.linenotable{border-collapse:separate;border:0;margin-bottom:0;background:none}
+table.linenotable td[class]{color:inherit;vertical-align:top;padding:0;line-height:inherit;white-space:normal}
+table.linenotable td.code{padding-left:.75em}
+table.linenotable td.linenos{border-right:1px solid currentColor;opacity:.35;padding-right:.5em}
+pre.pygments .lineno{border-right:1px solid currentColor;opacity:.35;display:inline-block;margin-right:.75em}
+pre.pygments .lineno::before{content:"";margin-right:-.125em}
+.quoteblock{margin:0 1em 1.25em 1.5em;display:table}
+.quoteblock:not(.excerpt)>.title{margin-left:-1.5em;margin-bottom:.75em}
+.quoteblock blockquote,.quoteblock p{color:rgba(0,0,0,.85);font-size:1.15rem;line-height:1.75;word-spacing:.1em;letter-spacing:0;font-style:italic;text-align:justify}
+.quoteblock blockquote{margin:0;padding:0;border:0}
+.quoteblock blockquote::before{content:"\201c";float:left;font-size:2.75em;font-weight:bold;line-height:.6em;margin-left:-.6em;color:#7a2518;text-shadow:0 1px 2px rgba(0,0,0,.1)}
+.quoteblock blockquote>.paragraph:last-child p{margin-bottom:0}
+.quoteblock .attribution{margin-top:.75em;margin-right:.5ex;text-align:right}
+.verseblock{margin:0 1em 1.25em}
+.verseblock pre{font-family:"Open Sans","DejaVu Sans",sans;font-size:1.15rem;color:rgba(0,0,0,.85);font-weight:300;text-rendering:optimizeLegibility}
+.verseblock pre strong{font-weight:400}
+.verseblock .attribution{margin-top:1.25rem;margin-left:.5ex}
+.quoteblock .attribution,.verseblock .attribution{font-size:.9375em;line-height:1.45;font-style:italic}
+.quoteblock .attribution br,.verseblock .attribution br{display:none}
+.quoteblock .attribution cite,.verseblock .attribution cite{display:block;letter-spacing:-.025em;color:rgba(0,0,0,.6)}
+.quoteblock.abstract blockquote::before,.quoteblock.excerpt blockquote::before,.quoteblock .quoteblock blockquote::before{display:none}
+.quoteblock.abstract blockquote,.quoteblock.abstract p,.quoteblock.excerpt blockquote,.quoteblock.excerpt p,.quoteblock .quoteblock blockquote,.quoteblock .quoteblock p{line-height:1.6;word-spacing:0}
+.quoteblock.abstract{margin:0 1em 1.25em;display:block}
+.quoteblock.abstract>.title{margin:0 0 .375em;font-size:1.15em;text-align:center}
+.quoteblock.excerpt>blockquote,.quoteblock .quoteblock{padding:0 0 .25em 1em;border-left:.25em solid #dddddf}
+.quoteblock.excerpt,.quoteblock .quoteblock{margin-left:0}
+.quoteblock.excerpt blockquote,.quoteblock.excerpt p,.quoteblock .quoteblock blockquote,.quoteblock .quoteblock p{color:inherit;font-size:1.0625rem}
+.quoteblock.excerpt .attribution,.quoteblock .quoteblock .attribution{color:inherit;text-align:left;margin-right:0}
+table.tableblock{max-width:100%;border-collapse:separate}
+p.tableblock:last-child{margin-bottom:0}
+td.tableblock>.content>:last-child{margin-bottom:-1.25em}
+td.tableblock>.content>:last-child.sidebarblock{margin-bottom:0}
+table.tableblock,th.tableblock,td.tableblock{border:0 solid #dedede}
+table.grid-all>thead>tr>.tableblock,table.grid-all>tbody>tr>.tableblock{border-width:0 1px 1px 0}
+table.grid-all>tfoot>tr>.tableblock{border-width:1px 1px 0 0}
+table.grid-cols>*>tr>.tableblock{border-width:0 1px 0 0}
+table.grid-rows>thead>tr>.tableblock,table.grid-rows>tbody>tr>.tableblock{border-width:0 0 1px}
+table.grid-rows>tfoot>tr>.tableblock{border-width:1px 0 0}
+table.grid-all>*>tr>.tableblock:last-child,table.grid-cols>*>tr>.tableblock:last-child{border-right-width:0}
+table.grid-all>tbody>tr:last-child>.tableblock,table.grid-all>thead:last-child>tr>.tableblock,table.grid-rows>tbody>tr:last-child>.tableblock,table.grid-rows>thead:last-child>tr>.tableblock{border-bottom-width:0}
+table.frame-all{border-width:1px}
+table.frame-sides{border-width:0 1px}
+table.frame-topbot,table.frame-ends{border-width:1px 0}
+table.stripes-all tr,table.stripes-odd tr:nth-of-type(odd),table.stripes-even tr:nth-of-type(even),table.stripes-hover tr:hover{background:#f8f8f7}
+th.halign-left,td.halign-left{text-align:left}
+th.halign-right,td.halign-right{text-align:right}
+th.halign-center,td.halign-center{text-align:center}
+th.valign-top,td.valign-top{vertical-align:top}
+th.valign-bottom,td.valign-bottom{vertical-align:bottom}
+th.valign-middle,td.valign-middle{vertical-align:middle}
+table thead th,table tfoot th{font-weight:bold}
+tbody tr th{display:table-cell;line-height:1.6;background:#f7f8f7}
+tbody tr th,tbody tr th p,tfoot tr th,tfoot tr th p{color:rgba(0,0,0,.8);font-weight:bold}
+p.tableblock>code:only-child{background:none;padding:0}
+p.tableblock{font-size:1em}
+ol{margin-left:1.75em}
+ul li ol{margin-left:1.5em}
+dl dd{margin-left:1.125em}
+dl dd:last-child,dl dd:last-child>:last-child{margin-bottom:0}
+ol>li p,ul>li p,ul dd,ol dd,.olist .olist,.ulist .ulist,.ulist .olist,.olist .ulist{margin-bottom:.625em}
+ul.checklist,ul.none,ol.none,ul.no-bullet,ol.no-bullet,ol.unnumbered,ul.unstyled,ol.unstyled{list-style-type:none}
+ul.no-bullet,ol.no-bullet,ol.unnumbered{margin-left:.625em}
+ul.unstyled,ol.unstyled{margin-left:0}
+ul.checklist{margin-left:.625em}
+ul.checklist li>p:first-child>.fa-square-o:first-child,ul.checklist li>p:first-child>.fa-check-square-o:first-child{width:1.25em;font-size:.8em;position:relative;bottom:.125em}
+ul.checklist li>p:first-child>input[type="checkbox"]:first-child{margin-right:.25em}
+ul.inline{display:-ms-flexbox;display:-webkit-box;display:flex;-ms-flex-flow:row wrap;-webkit-flex-flow:row wrap;flex-flow:row wrap;list-style:none;margin:0 0 .625em -1.25em}
+ul.inline>li{margin-left:1.25em}
+.unstyled dl dt{font-weight:400;font-style:normal}
+ol.arabic{list-style-type:decimal}
+ol.decimal{list-style-type:decimal-leading-zero}
+ol.loweralpha{list-style-type:lower-alpha}
+ol.upperalpha{list-style-type:upper-alpha}
+ol.lowerroman{list-style-type:lower-roman}
+ol.upperroman{list-style-type:upper-roman}
+ol.lowergreek{list-style-type:lower-greek}
+.hdlist>table,.colist>table{border:0;background:none}
+.hdlist>table>tbody>tr,.colist>table>tbody>tr{background:none}
+td.hdlist1,td.hdlist2{vertical-align:top;padding:0 .625em}
+td.hdlist1{font-weight:bold;padding-bottom:1.25em}
+.literalblock+.colist,.listingblock+.colist{margin-top:-.5em}
+.colist td:not([class]):first-child{padding:.4em .75em 0;line-height:1;vertical-align:top}
+.colist td:not([class]):first-child img{max-width:none}
+.colist td:not([class]):last-child{padding:.25em 0}
+.thumb,.th{line-height:0;display:inline-block;border:solid 4px #fff;-webkit-box-shadow:0 0 0 1px #ddd;box-shadow:0 0 0 1px #ddd}
+.imageblock.left{margin:.25em .625em 1.25em 0}
+.imageblock.right{margin:.25em 0 1.25em .625em}
+.imageblock>.title{margin-bottom:0}
+.imageblock.thumb,.imageblock.th{border-width:6px}
+.imageblock.thumb>.title,.imageblock.th>.title{padding:0 .125em}
+.image.left,.image.right{margin-top:.25em;margin-bottom:.25em;display:inline-block;line-height:0}
+.image.left{margin-right:.625em}
+.image.right{margin-left:.625em}
+a.image{text-decoration:none;display:inline-block}
+a.image object{pointer-events:none}
+sup.footnote,sup.footnoteref{font-size:.875em;position:static;vertical-align:super}
+sup.footnote a,sup.footnoteref a{text-decoration:none}
+sup.footnote a:active,sup.footnoteref a:active{text-decoration:underline}
+#footnotes{padding-top:.75em;padding-bottom:.75em;margin-bottom:.625em}
+#footnotes hr{width:20%;min-width:6.25em;margin:-.25em 0 .75em;border-width:1px 0 0}
+#footnotes .footnote{padding:0 .375em 0 .225em;line-height:1.3334;font-size:.875em;margin-left:1.2em;margin-bottom:.2em}
+#footnotes .footnote a:first-of-type{font-weight:bold;text-decoration:none;margin-left:-1.05em}
+#footnotes .footnote:last-of-type{margin-bottom:0}
+#content #footnotes{margin-top:-.625em;margin-bottom:0;padding:.75em 0}
+.gist .file-data>table{border:0;background:#fff;width:100%;margin-bottom:0}
+.gist .file-data>table td.line-data{width:99%}
+div.unbreakable{page-break-inside:avoid}
+.big{font-size:larger}
+.small{font-size:smaller}
+.underline{text-decoration:underline}
+.overline{text-decoration:overline}
+.line-through{text-decoration:line-through}
+.aqua{color:#00bfbf}
+.aqua-background{background:#00fafa}
+.black{color:#000}
+.black-background{background:#000}
+.blue{color:#0000bf}
+.blue-background{background:#0000fa}
+.fuchsia{color:#bf00bf}
+.fuchsia-background{background:#fa00fa}
+.gray{color:#606060}
+.gray-background{background:#7d7d7d}
+.green{color:#006000}
+.green-background{background:#007d00}
+.lime{color:#00bf00}
+.lime-background{background:#00fa00}
+.maroon{color:#600000}
+.maroon-background{background:#7d0000}
+.navy{color:#000060}
+.navy-background{background:#00007d}
+.olive{color:#606000}
+.olive-background{background:#7d7d00}
+.purple{color:#600060}
+.purple-background{background:#7d007d}
+.red{color:#bf0000}
+.red-background{background:#fa0000}
+.silver{color:#909090}
+.silver-background{background:#bcbcbc}
+.teal{color:#006060}
+.teal-background{background:#007d7d}
+.white{color:#bfbfbf}
+.white-background{background:#fafafa}
+.yellow{color:#bfbf00}
+.yellow-background{background:#fafa00}
+span.icon>.fa{cursor:default}
+a span.icon>.fa{cursor:inherit}
+.admonitionblock td.icon [class^="fa icon-"]{font-size:2.5em;text-shadow:1px 1px 2px rgba(0,0,0,.5);cursor:default}
+.admonitionblock td.icon .icon-note::before{content:"\f05a";color:#19407c}
+.admonitionblock td.icon .icon-tip::before{content:"\f0eb";text-shadow:1px 1px 2px rgba(155,155,0,.8);color:#111}
+.admonitionblock td.icon .icon-warning::before{content:"\f071";color:#bf6900}
+.admonitionblock td.icon .icon-caution::before{content:"\f06d";color:#bf3400}
+.admonitionblock td.icon .icon-important::before{content:"\f06a";color:#bf0000}
+.conum[data-value]{display:inline-block;color:#fff!important;background:rgba(0,0,0,.8);-webkit-border-radius:100px;border-radius:100px;text-align:center;font-size:.75em;width:1.67em;height:1.67em;line-height:1.67em;font-family:"Open Sans","DejaVu Sans",sans-serif;font-style:normal;font-weight:bold}
+.conum[data-value] *{color:#fff!important}
+.conum[data-value]+b{display:none}
+.conum[data-value]::after{content:attr(data-value)}
+pre .conum[data-value]{position:relative;top:-.125em}
+b.conum *{color:inherit!important}
+.conum:not([data-value]):empty{display:none}
+dt,th.tableblock,td.content,div.footnote{text-rendering:optimizeLegibility}
+h1,h2,p,td.content,span.alt{letter-spacing:-.01em}
+p strong,td.content strong,div.footnote strong{letter-spacing:-.005em}
+p,blockquote,dt,td.content,span.alt{font-size:1.0625rem}
+p{margin-bottom:1.25rem}
+.sidebarblock p,.sidebarblock dt,.sidebarblock td.content,p.tableblock{font-size:1em}
+.exampleblock>.content{background:#fffef7;border-color:#e0e0dc;-webkit-box-shadow:0 1px 4px #e0e0dc;box-shadow:0 1px 4px #e0e0dc}
+.print-only{display:none!important}
+@page{margin:1.25cm .75cm}
+@media print{*{-webkit-box-shadow:none!important;box-shadow:none!important;text-shadow:none!important}
+html{font-size:80%}
+a{color:inherit!important;text-decoration:underline!important}
+a.bare,a[href^="#"],a[href^="mailto:"]{text-decoration:none!important}
+a[href^="http:"]:not(.bare)::after,a[href^="https:"]:not(.bare)::after{content:"(" attr(href) ")";display:inline-block;font-size:.875em;padding-left:.25em}
+abbr[title]::after{content:" (" attr(title) ")"}
+pre,blockquote,tr,img,object,svg{page-break-inside:avoid}
+thead{display:table-header-group}
+svg{max-width:100%}
+p,blockquote,dt,td.content{font-size:1em;orphans:3;widows:3}
+h2,h3,#toctitle,.sidebarblock>.content>.title{page-break-after:avoid}
+#toc,.sidebarblock,.exampleblock>.content{background:none!important}
+#toc{border-bottom:1px solid #dddddf!important;padding-bottom:0!important}
+body.book #header{text-align:center}
+body.book #header>h1:first-child{border:0!important;margin:2.5em 0 1em}
+body.book #header .details{border:0!important;display:block;padding:0!important}
+body.book #header .details span:first-child{margin-left:0!important}
+body.book #header .details br{display:block}
+body.book #header .details br+span::before{content:none!important}
+body.book #toc{border:0!important;text-align:left!important;padding:0!important;margin:0!important}
+body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-break-before:always}
+.listingblock code[data-lang]::before{display:block}
+#footer{padding:0 .9375em}
+.hide-on-print{display:none!important}
+.print-only{display:block!important}
+.hide-for-print{display:none!important}
+.show-for-print{display:inherit!important}}
+@media print,amzn-kf8{#header>h1:first-child{margin-top:1.25rem}
+.sect1{padding:0!important}
+.sect1+.sect1{border:0}
+#footer{background:none}
+#footer-text{color:rgba(0,0,0,.6);font-size:.9em}}
+@media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
+/* Stylesheet for CodeRay to match GitHub theme | MIT License | http://foundation.zurb.com */
+pre.CodeRay{background:#f7f7f8}
+.CodeRay .line-numbers{border-right:1px solid currentColor;opacity:.35;padding:0 .5em 0 0}
+.CodeRay span.line-numbers{display:inline-block;margin-right:.75em}
+.CodeRay .line-numbers strong{color:#000}
+table.CodeRay{border-collapse:separate;border:0;margin-bottom:0;background:none}
+table.CodeRay td{vertical-align:top;line-height:inherit}
+table.CodeRay td.line-numbers{text-align:right}
+table.CodeRay td.code{padding:0 0 0 .75em}
+.CodeRay .debug{color:#fff !important;background:#000080 !important}
+.CodeRay .annotation{color:#007}
+.CodeRay .attribute-name{color:#000080}
+.CodeRay .attribute-value{color:#700}
+.CodeRay .binary{color:#509}
+.CodeRay .comment{color:#998;font-style:italic}
+.CodeRay .char{color:#04d}
+.CodeRay .char .content{color:#04d}
+.CodeRay .char .delimiter{color:#039}
+.CodeRay .class{color:#458;font-weight:bold}
+.CodeRay .complex{color:#a08}
+.CodeRay .constant,.CodeRay .predefined-constant{color:#008080}
+.CodeRay .color{color:#099}
+.CodeRay .class-variable{color:#369}
+.CodeRay .decorator{color:#b0b}
+.CodeRay .definition{color:#099}
+.CodeRay .delimiter{color:#000}
+.CodeRay .doc{color:#970}
+.CodeRay .doctype{color:#34b}
+.CodeRay .doc-string{color:#d42}
+.CodeRay .escape{color:#666}
+.CodeRay .entity{color:#800}
+.CodeRay .error{color:#808}
+.CodeRay .exception{color:inherit}
+.CodeRay .filename{color:#099}
+.CodeRay .function{color:#900;font-weight:bold}
+.CodeRay .global-variable{color:#008080}
+.CodeRay .hex{color:#058}
+.CodeRay .integer,.CodeRay .float{color:#099}
+.CodeRay .include{color:#555}
+.CodeRay .inline{color:#000}
+.CodeRay .inline .inline{background:#ccc}
+.CodeRay .inline .inline .inline{background:#bbb}
+.CodeRay .inline .inline-delimiter{color:#d14}
+.CodeRay .inline-delimiter{color:#d14}
+.CodeRay .important{color:#555;font-weight:bold}
+.CodeRay .interpreted{color:#b2b}
+.CodeRay .instance-variable{color:#008080}
+.CodeRay .label{color:#970}
+.CodeRay .local-variable{color:#963}
+.CodeRay .octal{color:#40e}
+.CodeRay .predefined{color:#369}
+.CodeRay .preprocessor{color:#579}
+.CodeRay .pseudo-class{color:#555}
+.CodeRay .directive{font-weight:bold}
+.CodeRay .type{font-weight:bold}
+.CodeRay .predefined-type{color:inherit}
+.CodeRay .reserved,.CodeRay .keyword {color:#000;font-weight:bold}
+.CodeRay .key{color:#808}
+.CodeRay .key .delimiter{color:#606}
+.CodeRay .key .char{color:#80f}
+.CodeRay .value{color:#088}
+.CodeRay .regexp .delimiter{color:#808}
+.CodeRay .regexp .content{color:#808}
+.CodeRay .regexp .modifier{color:#808}
+.CodeRay .regexp .char{color:#d14}
+.CodeRay .regexp .function{color:#404;font-weight:bold}
+.CodeRay .string{color:#d20}
+.CodeRay .string .string .string{background:#ffd0d0}
+.CodeRay .string .content{color:#d14}
+.CodeRay .string .char{color:#d14}
+.CodeRay .string .delimiter{color:#d14}
+.CodeRay .shell{color:#d14}
+.CodeRay .shell .delimiter{color:#d14}
+.CodeRay .symbol{color:#990073}
+.CodeRay .symbol .content{color:#a60}
+.CodeRay .symbol .delimiter{color:#630}
+.CodeRay .tag{color:#008080}
+.CodeRay .tag-special{color:#d70}
+.CodeRay .variable{color:#036}
+.CodeRay .insert{background:#afa}
+.CodeRay .delete{background:#faa}
+.CodeRay .change{color:#aaf;background:#007}
+.CodeRay .head{color:#f8f;background:#505}
+.CodeRay .insert .insert{color:#080}
+.CodeRay .delete .delete{color:#800}
+.CodeRay .change .change{color:#66f}
+.CodeRay .head .head{color:#f4f}
+
+</style>
+<link rel="stylesheet" href="../res_files/css/font-awesome.min.css"><link rel="stylesheet" href="../res_files/css/dejavu.css"><style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 5px 0px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; -khtml-border-radius: 5px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 1px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: .7em}
+.MathJax_MenuRadioCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuLabel {padding: 1px 2em 3px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #DDDDDD; margin: 4px 3px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: #606872; color: white}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
+</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">.MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style></head><body><div id="MathJax_Message" style="display: none;"></div><div id="content">
+<h1>Dubbo之SPI扩展点加载</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph has-source-line data-line-stdin-3">
+<p>Dubbo中的一个重要理念是“微内核、可扩展”，其高可扩展性离不开SPI<sub>扩展点发现机制</sub>的支持，它是对Java原生SPI的增强实现，同时规避了后者的一些不足：</p>
+</div>
+<div class="olist arabic has-source-line data-line-stdin-5">
+<ol class="arabic">
+<li class="has-source-line data-line-stdin-5">
+<p>按需加载扩展点具类，避免JDK标准SPI的一次性加载带来的初始化耗时以及扩展点具类没被用上的资源浪费；</p>
+</li>
+<li class="has-source-line data-line-stdin-6">
+<p><strong>AOP</strong> 支持，抽调公共逻辑，对同一扩展点具类做装饰处理，依需要在其方法前后增加逻辑代码；</p>
+</li>
+<li class="has-source-line data-line-stdin-7">
+<p><strong>IoC</strong> 支持，一个扩展点可以直接 setter 注入其它扩展点；</p>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note has-source-line data-line-stdin-11">
+<table>
+<tbody><tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+为方便阐述，下述将所有<code>扩展点实现</code>统称为<code>扩展点具类</code>，也即扩展点的某种具体实现类。
+</td>
+</tr>
+</tbody></table>
+</div>
+</div>
+</div>
+<div class="sect1 has-source-line data-line-stdin-13">
+<h2 id="_基础">基础</h2>
+<div class="sectionbody">
+<div class="sect2 has-source-line data-line-stdin-15">
+<h3 id="_基本使用">基本使用</h3>
+<div class="sect3 has-source-line data-line-stdin-16">
+<h4 id="_约定">约定：</h4>
+<div class="paragraph has-source-line data-line-stdin-17">
+<p>在扩展类的 jar 包内，放置扩展点配置文件<code>META-INF/dubbo/</code>接口全限定名，内容为：<code>配置名=扩展实现类全限定名</code>，多个实现类用换行符分隔。</p>
+</div>
+<div class="admonitionblock note has-source-line data-line-stdin-20">
+<table>
+<tbody><tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+注意：这里的配置文件是放在你自己的 jar 包内，不是 dubbo 本身的 jar 包内，Dubbo 会全 ClassPath 扫描所有 jar 包内同名的这个文件，然后进行合并
+</td>
+</tr>
+</tbody></table>
+</div>
+</div>
+<div class="sect3 has-source-line data-line-stdin-22">
+<h4 id="_示例">示例：</h4>
+<div class="paragraph has-source-line data-line-stdin-23">
+<p>以扩展 Dubbo 的协议为例，在协议的实现 jar 包内放置文本文件：<code>META-INF/dubbo/org.apache.dubbo.rpc.Protocol</code>，内容为：</p>
+</div>
+<div class="paragraph has-source-line data-line-stdin-25">
+<p><code>xxx=com.alibaba.xxx.XxxProtocol</code></p>
+</div>
+<div class="paragraph has-source-line data-line-stdin-27">
+<p>实现类内容：</p>
+</div>
+<div class="listingblock has-source-line data-line-stdin-30">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#080;font-weight:bold">package</span> <span style="color:#707;font-weight:bold">com.alibaba.xxx</span>;
+
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">org.apache.dubbo.rpc.Protocol</span>;
+
+<span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">XxxProtocol</span> <span style="color:#088;font-weight:bold">implements</span> Protocol {
+    <span style="color:#777">// ...</span>
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3 has-source-line data-line-stdin-39">
+<h4 id="_配置模块中的配置">配置模块中的配置</h4>
+<div class="paragraph has-source-line data-line-stdin-41">
+<p>Dubbo 配置模块中，扩展点均有对应配置属性或标签，通过配置指定使用哪个扩展实现。比如：</p>
+</div>
+<div class="paragraph has-source-line data-line-stdin-43">
+<p><code>&lt;dubbo:protocol name="xxx" /&gt;</code></p>
+</div>
+<div class="admonitionblock note has-source-line data-line-stdin-46">
+<table>
+<tbody><tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+扩展点使用单一实例加载（请确保扩展实现的线程安全性），缓存在<code>ExtensionLoader</code>中。
+</td>
+</tr>
+</tbody></table>
+</div>
+</div>
+</div>
+<div class="sect2 has-source-line data-line-stdin-48">
+<h3 id="_高级特性">高级特性</h3>
+<div class="paragraph has-source-line data-line-stdin-50">
+<p>Dubbo中的SPI机制是通过<code>ExtensionLoader</code>实现的，它的一些高阶特性需要通过注解@Activate和@Adaptive搭配完成。</p>
+</div>
+<div class="sect3 has-source-line data-line-stdin-52">
+<h4 id="_扩展点自动包装_aop支持">扩展点自动包装 <sub>AOP支持</sub></h4>
+<div class="paragraph has-source-line data-line-stdin-54">
+<p>在《Dubbo与设计模式》一文中，已经对装饰者模式进行过深入的探讨。Dubbo中所谓的扩展点AOP支持，其实现其实是装饰者对被装饰者在行为委派时就其前后增加对应的特性业务代码，将对应扩展点的公共逻辑抽离到装饰者<sup>Wrapper类</sup>。如对某扩展点提供了<code>Wrapper装饰者类</code>，那么Dubbo会就此扩展点其它<code>非Wrapper类实现</code>做包装处理，返回是该<code>Wrapper类</code>的实例。</p>
+</div>
+<div class="paragraph has-source-line data-line-stdin-56">
+<p>以上文出现的RPC框架层中的子层协议层扩展点<code>Protocol</code>为例，Dubbo使用该机制实现了RPC中的拦截链特性，具体请参看《 Dubbo RPC 之 Protocol协议层（二）》一文。</p>
+</div>
+</div>
+<div class="sect3 has-source-line data-line-stdin-58">
+<h4 id="_扩展点自动装配_ioc支持">扩展点自动装配 <sub>IoC支持</sub></h4>
+<div class="paragraph has-source-line data-line-stdin-60">
+<p><code>ExtensionLoader</code>在加载扩展点时，会对<code>setter</code>方法进行判定，如果其入参是另外一个扩展点的话，如果扩展点有多个实现的话，需要采用<code>扩展点自适应机制</code>来确定使用哪个。</p>
+</div>
+</div>
+<div class="sect3 has-source-line data-line-stdin-62">
+<h4 id="_扩展点自适应_adaptive">扩展点自适应 <sub>@Adaptive</sub></h4>
+<div class="paragraph has-source-line data-line-stdin-64">
+<p>当一个扩展点有多个实现时，依赖它的扩展点需要有某种机制确定到底使用最终使用哪个。Dubbo中被俗称为配置总线的URL，主要用于将配置作为参数在方法调用帧间传递，其背后实际上一个Key-Value<sup>键值对</sup>形式的Map容器，<code>ExtensionLoader</code>利用<code>URL + @Adaptive</code> 这对组合来确定选用哪个实现。</p>
+</div>
+<div class="paragraph has-source-line data-line-stdin-66">
+<p><code>ExtensionLoader</code>会综合<code>URL + @Adaptive + 被依赖扩展点接口类</code>获得<code>Adaptive</code>实例，从而使得在方法执行时才决定被选用的其它扩展点具类成为可能，而当前对应<code>Adaptive</code>实现是在加载扩展点里动态生成。以 Dubbo 的 `Transporter`扩展点为例：</p>
+</div>
+<div class="listingblock has-source-line data-line-stdin-69">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">interface</span> <span style="color:#B06;font-weight:bold">Transporter</span> {
+    <span style="color:#007">@Adaptive</span>({<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">server</span><span style="color:#710">"</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">transport</span><span style="color:#710">"</span></span>})
+    Server bind(<span style="color:#0a8;font-weight:bold">URL</span> url, ChannelHandler handler) <span style="color:#088;font-weight:bold">throws</span> RemotingException;
+
+    <span style="color:#007">@Adaptive</span>({<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">client</span><span style="color:#710">"</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">transport</span><span style="color:#710">"</span></span>})
+    Client connect(<span style="color:#0a8;font-weight:bold">URL</span> url, ChannelHandler handler) <span style="color:#088;font-weight:bold">throws</span> RemotingException;
+}</code></pre>
+</div>
+</div>
+<div class="paragraph has-source-line data-line-stdin-78">
+<p>实例中，对于 <code>bind()</code> 方法，<code>Adaptive</code> 实现先查找 <code>server</code> key，如果该 Key 没有值则找 <code>transport</code> key 值，来决定代理到哪个实际扩展点。</p>
+</div>
+</div>
+<div class="sect3 has-source-line data-line-stdin-80">
+<h4 id="_扩展点自激活_activate">扩展点自激活 <sub>@Activate</sub></h4>
+<div class="quoteblock has-source-line data-line-stdin-82">
+<blockquote>
+<div class="paragraph has-source-line data-line-stdin-83">
+<p>对于集合类扩展点，比如：Filter, InvokerListener, ExportListener, TelnetHandler, StatusChecker 等，可以同时加载多个实现，此时，可以用自动激活来简化配置。</p>
+</div>
+</blockquote>
+</div>
+<div class="paragraph has-source-line data-line-stdin-86">
+<p>如：</p>
+</div>
+<div class="listingblock has-source-line data-line-stdin-88">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">org.apache.dubbo.common.extension.Activate</span>;
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">org.apache.dubbo.rpc.Filter</span>;
+
+<span style="color:#007">@Activate</span> <span style="color:#777">// 无条件自动激活</span>
+<span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">XxxFilter</span> <span style="color:#088;font-weight:bold">implements</span> <span style="color:#0a8;font-weight:bold">Filter</span> {
+    <span style="color:#777">// ...</span>
+}</code></pre>
+</div>
+</div>
+<div class="paragraph has-source-line data-line-stdin-97">
+<p>或：</p>
+</div>
+<div class="listingblock has-source-line data-line-stdin-99">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">org.apache.dubbo.common.extension.Activate</span>;
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">org.apache.dubbo.rpc.Filter</span>;
+
+<span style="color:#007">@Activate</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">xxx</span><span style="color:#710">"</span></span>) <span style="color:#777">// 当配置了xxx参数，并且参数为有效值时激活，比如配了cache="lru"，自动激活CacheFilter。</span>
+<span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">XxxFilter</span> <span style="color:#088;font-weight:bold">implements</span> <span style="color:#0a8;font-weight:bold">Filter</span> {
+    <span style="color:#777">// ...</span>
+}</code></pre>
+</div>
+</div>
+<div class="paragraph has-source-line data-line-stdin-108">
+<p>或：</p>
+</div>
+<div class="listingblock has-source-line data-line-stdin-110">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">org.apache.dubbo.common.extension.Activate</span>;
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">org.apache.dubbo.rpc.Filter</span>;
+
+<span style="color:#007">@Activate</span>(group = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">provider</span><span style="color:#710">"</span></span>, value = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">xxx</span><span style="color:#710">"</span></span>) <span style="color:#777">// 只对提供方激活，group可选"provider"或"consumer"</span>
+<span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">XxxFilter</span> <span style="color:#088;font-weight:bold">implements</span> <span style="color:#0a8;font-weight:bold">Filter</span> {
+    <span style="color:#777">// ...</span>
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1 has-source-line data-line-stdin-120">
+<h2 id="_实现">实现</h2>
+<div class="sectionbody">
+<div class="paragraph has-source-line data-line-stdin-122">
+<p>在具体实现上，概括来讲，Dubbo将整个过程大体分为如下3步：</p>
+</div>
+<div class="olist arabic has-source-line data-line-stdin-124">
+<ol class="arabic">
+<li class="has-source-line data-line-stdin-124">
+<p>读取<code>classpath</code>下的SPI配置文件；</p>
+</li>
+<li class="has-source-line data-line-stdin-125">
+<p>根据配置解析得到扩展点具类及其依赖扩展点具类的Class对象集；</p>
+</li>
+<li class="has-source-line data-line-stdin-126">
+<p>根据当前扩展点所持有的Class对象集按需实例化某个具类，包括注入其它扩展点具类实例；</p>
+</li>
+</ol>
+</div>
+<div class="paragraph has-source-line data-line-stdin-128">
+<p>但为了方便理解，下面剖析具体实现的章节将按照由表入里、依赖前置的原则逐层展开。</p>
+</div>
+<div class="sect2 has-source-line data-line-stdin-130">
+<h3 id="_获取扩展点加载器">获取扩展点加载器</h3>
+<div class="listingblock has-source-line data-line-stdin-132">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java">ExtensionLoader.getExtensionLoader(SomeSPI.class).getXXXExtension(... args)</code></pre>
+</div>
+</div>
+<div class="paragraph has-source-line data-line-stdin-136">
+<p>每当需要获取一个扩展点实例时，总会调用一段类似如上片段的代码，其中<code>ExtensionLoader</code>是SPI实现的核心类，是按需延时加载扩展点具类的加载器，每一个被<code>@SPI</code>标注的扩展点会对应它的一个实例，Dubbo使用一个<code>ConcurrentMap&lt;Class&lt;?&gt;, ExtensionLoader&lt;?&gt;&gt;</code>类型的Map容器将这种关系缓存起来，避免重复加载。</p>
+</div>
+<div class="paragraph has-source-line data-line-stdin-139">
+<p><code>ExtensionLoader</code>构造函数是私有的，它的实例进行使用工厂方法获得，在实例化时，会对其中两个最为关键的<code>final</code>型属性赋值，<code>type</code>是表征扩展点的接口类型，而<code>objectFactory</code>是用于最终获取扩展点实例的工厂。</p>
+</div>
+<div class="listingblock has-source-line data-line-stdin-142">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">ExtensionLoader</span>&lt;T&gt; {
+    ...
+    private <span style="color:#088;font-weight:bold">static</span> <span style="color:#088;font-weight:bold">final</span> <span style="color:#0a8;font-weight:bold">ConcurrentMap</span>&lt;<span style="color:#0a8;font-weight:bold">Class</span>&lt;?&gt;, ExtensionLoader&lt;?&gt;&gt;
+        EXTENSION_LOADERS = <span style="color:#080;font-weight:bold">new</span> <span style="color:#0a8;font-weight:bold">ConcurrentHashMap</span>&lt;&gt;();
+
+    <span style="color:#088;font-weight:bold">private</span> <span style="color:#088;font-weight:bold">final</span> ExtensionFactory objectFactory;
+
+    <span style="color:#088;font-weight:bold">private</span> <span style="color:#088;font-weight:bold">final</span> <span style="color:#0a8;font-weight:bold">Class</span>&lt;?&gt; type;
+
+    <span style="color:#088;font-weight:bold">private</span> ExtensionLoader(<span style="color:#0a8;font-weight:bold">Class</span>&lt;?&gt; type) {
+        <span style="color:#950">this</span>.type = type;
+        objectFactory = (type == ExtensionFactory.class ? <span style="color:#069">null</span> :
+            ExtensionLoader.getExtensionLoader(ExtensionFactory.class).getAdaptiveExtension());
+    }
+
+    <span style="color:#088;font-weight:bold">private</span> <span style="color:#088;font-weight:bold">static</span> &lt;T&gt; <span style="color:#339;font-weight:bold">boolean</span> withExtensionAnnotation(<span style="color:#0a8;font-weight:bold">Class</span>&lt;T&gt; type) {
+        <span style="color:#080;font-weight:bold">return</span> type.isAnnotationPresent(SPI.class);
+    }
+
+    <span style="color:#007">@SuppressWarnings</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">unchecked</span><span style="color:#710">"</span></span>)
+    <span style="color:#088;font-weight:bold">public</span> <span style="color:#088;font-weight:bold">static</span> &lt;T&gt; ExtensionLoader&lt;T&gt; getExtensionLoader(<span style="color:#0a8;font-weight:bold">Class</span>&lt;T&gt; type) {
+        <span style="color:#080;font-weight:bold">if</span> (type == <span style="color:#069">null</span>) {
+            <span style="color:#080;font-weight:bold">throw</span> <span style="color:#080;font-weight:bold">new</span> <span style="color:#C00;font-weight:bold">IllegalArgumentException</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Extension type == null</span><span style="color:#710">"</span></span>);
+        }
+        <span style="color:#080;font-weight:bold">if</span> (!type.isInterface()) {
+            <span style="color:#080;font-weight:bold">throw</span> <span style="color:#080;font-weight:bold">new</span> <span style="color:#C00;font-weight:bold">IllegalArgumentException</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Extension type (</span><span style="color:#710">"</span></span> + type + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">) is not an interface!</span><span style="color:#710">"</span></span>);
+        }
+        <span style="color:#080;font-weight:bold">if</span> (!withExtensionAnnotation(type)) {
+            <span style="color:#080;font-weight:bold">throw</span> <span style="color:#080;font-weight:bold">new</span> <span style="color:#C00;font-weight:bold">IllegalArgumentException</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Extension type (</span><span style="color:#710">"</span></span> + type +
+                    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">) is not an extension, because it is NOT annotated with @</span><span style="color:#710">"</span></span> + SPI.class.getSimpleName() + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">!</span><span style="color:#710">"</span></span>);
+        }
+
+        ExtensionLoader&lt;T&gt; loader = (ExtensionLoader&lt;T&gt;) EXTENSION_LOADERS.get(type);
+        <span style="color:#080;font-weight:bold">if</span> (loader == <span style="color:#069">null</span>) {
+            EXTENSION_LOADERS.putIfAbsent(type, <span style="color:#080;font-weight:bold">new</span> ExtensionLoader&lt;T&gt;(type));
+            loader = (ExtensionLoader&lt;T&gt;) EXTENSION_LOADERS.get(type);
+        }
+        <span style="color:#080;font-weight:bold">return</span> loader;
+    }
+    ...
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2 has-source-line data-line-stdin-187">
+<h3 id="_获取扩展点实例">获取扩展点实例</h3>
+<div class="paragraph has-source-line data-line-stdin-189">
+<p>获得扩展点加载器后，便可使用该加载器将扩展点具类类型的实例化，<code>getXXXExtension(…​ args)</code>已经表示可用的实例化方法依据特性要求存在8种形式，为方便进一步讨论，下述细分为两章节加以剖析，将扩展点方法按特性分成两组，前4组用于实例化那种指定一个Key键只能对应一个实现的扩展点具类，后4组则完全用于实例化带有自激活特性的扩展点具类。</p>
+</div>
+<div class="sect3 has-source-line data-line-stdin-191">
+<h4 id="_实例化具名扩展点具类">实例化具名扩展点具类</h4>
+<div class="paragraph has-source-line data-line-stdin-193">
+<p>除了自激活型扩展点具类，其它类型的扩展点均可以认为是带键<sup>Key</sup>的：a）SPI配置文件的键值对；b）<code>@SPI</code>标注中指定的名称；c）<code>@Adaptive</code>标注在扩展点具类上。</p>
+</div>
+<div class="olist arabic has-source-line data-line-stdin-195">
+<ol class="arabic">
+<li class="has-source-line data-line-stdin-195">
+<p><code>T getAdaptiveExtension()</code>：若某注解点有一个实现标注了<code>@Adaptive</code>，利用该方法可以直接获取其实例，于一个注解点，Dubbo只允许一个有该标注的实现；</p>
+</li>
+<li class="has-source-line data-line-stdin-196">
+<p><code>T getDefaultExtension()</code>：若<code>@SPI</code>注解带有值，那么Dubbo使用该值可以获取一个默认的扩展点具类；</p>
+</li>
+<li class="has-source-line data-line-stdin-197">
+<p><code>T getExtension(String name)</code>：由SPI配置文件中出现的键值对中的键来实例化对应值表示的扩展点具类，实际上<code>getDefaultExtension()</code>最终也是通过委托它实现；</p>
+</li>
+<li class="has-source-line data-line-stdin-198">
+<p><code>T getLoadedExtension(String name)</code>：和<code>getExtension(String name)</code>的不同之处在于，它只试图去获取已经完成实例化的扩展点具类，如果不存在既有实例，便直接返回<code>null</code>值；</p>
+</li>
+</ol>
+</div>
+<div class="paragraph has-source-line data-line-stdin-200">
+<p>于具名扩展点实现类来说，需要有个存储其实例的缓存，这个缓存是一个指向<code>Holder</code>对象的引用，或者是含有它的Map容器，其实例是采用惰性机制进行实例化，其只能实例化一次，一个实现只存在单一的实例。Dubbo中无处不在的并发，<code>Key</code>键所对应的扩展点具类对象自然成了被争用的资源，需要加锁处理。然而在加锁时该对象可能还不存在，因而引入了一个持有它的单元素容器类<code>Holder</code>，加锁前均能获取或者新生成一个对应的<code>Holder</code>实例，获得锁后再判别对应扩展点具类是否存在实例，不存在则调用<code>createAdaptiveExtension()</code><sub>(c)</sub>或者<code>createExtension()</code><sub>(a)+(b)</sub>创建对象。</p>
+</div>
+<div class="listingblock has-source-line data-line-stdin-204">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">ExtensionLoader</span>&lt;T&gt; {
+
+    ...
+    private <span style="color:#088;font-weight:bold">volatile</span> <span style="color:#0a8;font-weight:bold">Throwable</span> createAdaptiveInstanceError;
+
+    <span style="color:#088;font-weight:bold">private</span> <span style="color:#088;font-weight:bold">final</span> Holder&lt;<span style="color:#0a8;font-weight:bold">Object</span>&gt; cachedAdaptiveInstance = <span style="color:#080;font-weight:bold">new</span> Holder&lt;&gt;();
+
+    <span style="color:#088;font-weight:bold">private</span> <span style="color:#088;font-weight:bold">final</span> <span style="color:#0a8;font-weight:bold">ConcurrentMap</span>&lt;<span style="color:#0a8;font-weight:bold">String</span>, Holder&lt;<span style="color:#0a8;font-weight:bold">Object</span>&gt;&gt; cachedInstances
+        = <span style="color:#080;font-weight:bold">new</span> <span style="color:#0a8;font-weight:bold">ConcurrentHashMap</span>&lt;&gt;();
+
+
+    <span style="color:#088;font-weight:bold">public</span> T getAdaptiveExtension() {
+        <span style="color:#0a8;font-weight:bold">Object</span> instance = cachedAdaptiveInstance.get();
+        <span style="color:#080;font-weight:bold">if</span> (instance == <span style="color:#069">null</span>) {
+            <span style="color:#080;font-weight:bold">if</span> (createAdaptiveInstanceError != <span style="color:#069">null</span>) {
+                <span style="color:#080;font-weight:bold">throw</span> <span style="color:#080;font-weight:bold">new</span> <span style="color:#C00;font-weight:bold">IllegalStateException</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Failed to create adaptive instance: </span><span style="color:#710">"</span></span> +
+                        createAdaptiveInstanceError.toString(),
+                        createAdaptiveInstanceError);
+            }
+
+            <span style="color:#088;font-weight:bold">synchronized</span> (cachedAdaptiveInstance) {
+                instance = cachedAdaptiveInstance.get();
+                <span style="color:#080;font-weight:bold">if</span> (instance == <span style="color:#069">null</span>) {
+                    <span style="color:#080;font-weight:bold">try</span> {
+                        instance = createAdaptiveExtension();
+                        cachedAdaptiveInstance.set(instance);
+                    } <span style="color:#080;font-weight:bold">catch</span> (<span style="color:#0a8;font-weight:bold">Throwable</span> t) {
+                        createAdaptiveInstanceError = t;
+                        <span style="color:#080;font-weight:bold">throw</span> <span style="color:#080;font-weight:bold">new</span> <span style="color:#C00;font-weight:bold">IllegalStateException</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Failed to create adaptive instance: </span><span style="color:#710">"</span></span> + t.toString(), t);
+                    }
+                }
+            }
+        }
+
+        <span style="color:#080;font-weight:bold">return</span> (T) instance;
+    }
+
+    <span style="color:#088;font-weight:bold">public</span> T getExtension(<span style="color:#0a8;font-weight:bold">String</span> name) {
+        <span style="color:#080;font-weight:bold">if</span> (StringUtils.isEmpty(name)) {
+            <span style="color:#080;font-weight:bold">throw</span> <span style="color:#080;font-weight:bold">new</span> <span style="color:#C00;font-weight:bold">IllegalArgumentException</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Extension name == null</span><span style="color:#710">"</span></span>);
+        }
+
+        <span style="color:#777">//直接使用true表示获取默认扩展点实例</span>
+        <span style="color:#080;font-weight:bold">if</span> (<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">true</span><span style="color:#710">"</span></span>.equals(name)) {
+            <span style="color:#080;font-weight:bold">return</span> getDefaultExtension();
+        }
+        <span style="color:#088;font-weight:bold">final</span> Holder&lt;<span style="color:#0a8;font-weight:bold">Object</span>&gt; holder = getOrCreateHolder(name);
+        <span style="color:#0a8;font-weight:bold">Object</span> instance = holder.get();
+        <span style="color:#080;font-weight:bold">if</span> (instance == <span style="color:#069">null</span>) {
+            <span style="color:#088;font-weight:bold">synchronized</span> (holder) {
+                instance = holder.get();
+                <span style="color:#080;font-weight:bold">if</span> (instance == <span style="color:#069">null</span>) {
+                    instance = createExtension(name);
+                    holder.set(instance);
+                }
+            }
+        }
+        <span style="color:#080;font-weight:bold">return</span> (T) instance;
+    }
+
+    <span style="color:#777">/**
+     * Return default extension, return &lt;code&gt;null&lt;/code&gt; if it's not configured.
+     */</span>
+    <span style="color:#088;font-weight:bold">public</span> T getDefaultExtension() {
+        getExtensionClasses();
+        <span style="color:#080;font-weight:bold">if</span> (StringUtils.isBlank(cachedDefaultName) || <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">true</span><span style="color:#710">"</span></span>.equals(cachedDefaultName)) {
+            <span style="color:#080;font-weight:bold">return</span> <span style="color:#069">null</span>;
+        }
+        <span style="color:#777">//获得cachedDefaultName后，反过来调用getExtension()</span>
+        <span style="color:#080;font-weight:bold">return</span> getExtension(cachedDefaultName);
+    }
+
+    <span style="color:#088;font-weight:bold">public</span> T getLoadedExtension(<span style="color:#0a8;font-weight:bold">String</span> name) {
+        <span style="color:#080;font-weight:bold">if</span> (StringUtils.isEmpty(name)) {
+            <span style="color:#080;font-weight:bold">throw</span> <span style="color:#080;font-weight:bold">new</span> <span style="color:#C00;font-weight:bold">IllegalArgumentException</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Extension name == null</span><span style="color:#710">"</span></span>);
+        }
+        Holder&lt;<span style="color:#0a8;font-weight:bold">Object</span>&gt; holder = getOrCreateHolder(name);
+        <span style="color:#080;font-weight:bold">return</span> (T) holder.get();
+    }
+
+    <span style="color:#777">//cachedInstances本身已经是线程安全的，顾无需重复加锁</span>
+    <span style="color:#088;font-weight:bold">private</span> Holder&lt;<span style="color:#0a8;font-weight:bold">Object</span>&gt; getOrCreateHolder(<span style="color:#0a8;font-weight:bold">String</span> name) {
+        Holder&lt;<span style="color:#0a8;font-weight:bold">Object</span>&gt; holder = cachedInstances.get(name);
+        <span style="color:#080;font-weight:bold">if</span> (holder == <span style="color:#069">null</span>) {
+            cachedInstances.putIfAbsent(name, <span style="color:#080;font-weight:bold">new</span> Holder&lt;&gt;());
+            holder = cachedInstances.get(name);
+        }
+        <span style="color:#080;font-weight:bold">return</span> holder;
+    }
+    ...
+}</code></pre>
+</div>
+</div>
+<div class="paragraph has-source-line data-line-stdin-298">
+<p>上述代码中出现了一个声明了<code>volatile</code>可见性保证的<code>Throwable</code>类型字段<code>createAdaptiveInstanceError</code>，目的很明显——当多个线程同一时间针对某一特定扩展点调用<code>getAdaptiveExtension()</code>时，获得锁的线程若遇到异常，可以依靠<code>volatile</code>第一时间告诉其他参与争用的线程，避免重复执行必然发生错误的代码段。</p>
+</div>
+</div>
+<div class="sect3 has-source-line data-line-stdin-300">
+<h4 id="_实例化自激活扩展点具类">实例化自激活扩展点具类</h4>
+<div class="paragraph has-source-line data-line-stdin-302">
+<p>另外还存在如下其它4种形如<code>getActivateExtension(URL url, …​ args)</code>的方法，用于实例化当前扩展点所有具有自激活特性的实现，上文中已提及于一个扩展点，标注了<code>@Activate</code>自激活的扩展点具类是可以存在多个，并且它存在3种形式：a）无条件自激活；b）设置<code>group="provider" | "consumer"</code>限定作用方；c）配置总线中存在Key键<sub>@Activate注解中的配置值</sub>所对应的配置才激活。</p>
+</div>
+<div class="olist arabic has-source-line data-line-stdin-304">
+<ol class="arabic">
+<li class="has-source-line data-line-stdin-304">
+<p><code>List&lt;T&gt; getActivateExtension(URL url, String key)</code></p>
+</li>
+<li class="has-source-line data-line-stdin-305">
+<p><code>List&lt;T&gt; getActivateExtension(URL url, String key, String group)</code></p>
+</li>
+<li class="has-source-line data-line-stdin-306">
+<p><code>List&lt;T&gt; getActivateExtension(URL url, String[] values)</code></p>
+</li>
+<li class="has-source-line data-line-stdin-307">
+<p><code>List&lt;T&gt; getActivateExtension(URL url, String[] values, String group)</code></p>
+</li>
+</ol>
+</div>
+<div class="paragraph has-source-line data-line-stdin-309">
+<p>如果<code>@Activate</code>注解中没有配置<code>group</code>，那么当前自激活扩展点具类可以作用于<code>provider</code>和<code>consumer</code>双方，否则只能作用在出现在配置中的一方：</p>
+</div>
+<div class="listingblock has-source-line data-line-stdin-312">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#088;font-weight:bold">private</span> <span style="color:#339;font-weight:bold">boolean</span> isMatchGroup(<span style="color:#0a8;font-weight:bold">String</span> group, <span style="color:#0a8;font-weight:bold">String</span><span style="color:#339;font-weight:bold">[]</span> groups) {
+    <span style="color:#080;font-weight:bold">if</span> (StringUtils.isEmpty(group)) {
+        <span style="color:#080;font-weight:bold">return</span> <span style="color:#069">true</span>;
+    }
+    <span style="color:#080;font-weight:bold">if</span> (groups != <span style="color:#069">null</span> &amp;&amp; groups.length &gt; <span style="color:#00D">0</span>) {
+        <span style="color:#080;font-weight:bold">for</span> (<span style="color:#0a8;font-weight:bold">String</span> g : groups) {
+            <span style="color:#080;font-weight:bold">if</span> (group.equals(g)) {
+                <span style="color:#080;font-weight:bold">return</span> <span style="color:#069">true</span>;
+            }
+        }
+    }
+    <span style="color:#080;font-weight:bold">return</span> <span style="color:#069">false</span>;
+}</code></pre>
+</div>
+</div>
+<div class="paragraph has-source-line data-line-stdin-328">
+<p>满足Key键的自激活扩展点具类，当前配置总线中需要存在非对应Key键的非空<sub><code>false</code>|<code>0</code>|<code>null</code>|<code>N/A</code></sub>配置值，其中总线URL中的Key键可能是加了前缀为RPC方法名称<sub>"somemethod"+"."</sub>的：</p>
+</div>
+<div class="listingblock has-source-line data-line-stdin-330">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">ConfigUtils</span> {
+    ...
+    public <span style="color:#088;font-weight:bold">static</span> <span style="color:#339;font-weight:bold">boolean</span> isNotEmpty(<span style="color:#0a8;font-weight:bold">String</span> value) {
+        <span style="color:#080;font-weight:bold">return</span> !isEmpty(value);
+    }
+
+    <span style="color:#088;font-weight:bold">public</span> <span style="color:#088;font-weight:bold">static</span> <span style="color:#339;font-weight:bold">boolean</span> isEmpty(<span style="color:#0a8;font-weight:bold">String</span> value) {
+        <span style="color:#080;font-weight:bold">return</span> StringUtils.isEmpty(value)
+                || <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">false</span><span style="color:#710">"</span></span>.equalsIgnoreCase(value)
+                || <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">0</span><span style="color:#710">"</span></span>.equalsIgnoreCase(value)
+                || <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">null</span><span style="color:#710">"</span></span>.equalsIgnoreCase(value)
+                || <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">N/A</span><span style="color:#710">"</span></span>.equalsIgnoreCase(value);
+    }
+    ...
+}
+
+<span style="color:#088;font-weight:bold">private</span> <span style="color:#339;font-weight:bold">boolean</span> isActive(<span style="color:#0a8;font-weight:bold">String</span><span style="color:#339;font-weight:bold">[]</span> keys, <span style="color:#0a8;font-weight:bold">URL</span> url) {
+    <span style="color:#080;font-weight:bold">if</span> (keys.length == <span style="color:#00D">0</span>) {
+        <span style="color:#080;font-weight:bold">return</span> <span style="color:#069">true</span>;
+    }
+    <span style="color:#080;font-weight:bold">for</span> (<span style="color:#0a8;font-weight:bold">String</span> key : keys) {
+        <span style="color:#080;font-weight:bold">for</span> (<span style="color:#0a8;font-weight:bold">Map</span>.Entry&lt;<span style="color:#0a8;font-weight:bold">String</span>, <span style="color:#0a8;font-weight:bold">String</span>&gt; entry : url.getParameters().entrySet()) {
+            <span style="color:#0a8;font-weight:bold">String</span> k = entry.getKey();
+            <span style="color:#0a8;font-weight:bold">String</span> v = entry.getValue();
+            <span style="color:#080;font-weight:bold">if</span> ((k.equals(key) || k.endsWith(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">.</span><span style="color:#710">"</span></span> + key))
+                    &amp;&amp; ConfigUtils.isNotEmpty(v)) {
+                <span style="color:#080;font-weight:bold">return</span> <span style="color:#069">true</span>;
+            }
+        }
+    }
+    <span style="color:#080;font-weight:bold">return</span> <span style="color:#069">false</span>;
+}</code></pre>
+</div>
+</div>
+<div class="paragraph has-source-line data-line-stdin-365">
+<p>于扩展点中接口前声明的<code>@Activate</code>，其配置中所表示的扩展点具类集合是Dubbo默认支持的，一般会采用首个，当没有找到对应名字的扩展点具类时会采用第二个，以此类推，开发者也可以通过在配置总线设置 <sub><code>"-"</code>+(<code>"default"</code>|<code>"Name4SpiImpl"</code>)</sub> 前缀将其指定的扩展点实现排除，若为<em>-default</em>， <code>@Activate</code> 中的所有配置<sub>指定依赖了哪些扩展点具类的Key键</sub>均会被忽略。在调用<code>getActivateExtension()</code>方法时，除非排除，Dubbo会自动加入所有自适配扩展点具类实例，记为ListO，他们会按照配置的<code>order</code>值的从小到大排序。假如<code>values</code>中配有<code>"default"</code>，将自定义加载的其它扩展点具类对象一分为二变成前后ListA和ListB两个集合，那么最终得到的所有扩展点具类实例集合<code>ListR=[ListA + ListO + ListB]</code>。在没有配<code>"default"</code>时，可以认为ListA是空值，此时有<code>ListR=[ListO + ListB]</code>。另外如果values参数中包含了应该在ListO中出现的元素<sub>对应扩展点具类名称</sub>，那么对应实例将会“移入”到ListA或ListB中，这个特性让Dubbo可以在调用时决定所有依赖扩展点具类实例的最终执行顺序。</p>
+</div>
+<div class="listingblock has-source-line data-line-stdin-368">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#088;font-weight:bold">public</span> <span style="color:#0a8;font-weight:bold">List</span>&lt;T&gt; getActivateExtension(<span style="color:#0a8;font-weight:bold">URL</span> url, <span style="color:#0a8;font-weight:bold">String</span><span style="color:#339;font-weight:bold">[]</span> values, <span style="color:#0a8;font-weight:bold">String</span> group) {
+    <span style="color:#0a8;font-weight:bold">List</span>&lt;T&gt; exts = <span style="color:#080;font-weight:bold">new</span> <span style="color:#0a8;font-weight:bold">ArrayList</span>&lt;&gt;();
+    <span style="color:#0a8;font-weight:bold">List</span>&lt;<span style="color:#0a8;font-weight:bold">String</span>&gt; names = values == <span style="color:#069">null</span> ? <span style="color:#080;font-weight:bold">new</span> <span style="color:#0a8;font-weight:bold">ArrayList</span>&lt;&gt;(<span style="color:#00D">0</span>) : <span style="color:#0a8;font-weight:bold">Arrays</span>.asList(values);
+    <span style="color:#080;font-weight:bold">if</span> (!names.contains(REMOVE_VALUE_PREFIX + DEFAULT_KEY)) {
+        getExtensionClasses();
+        <span style="color:#080;font-weight:bold">for</span> (<span style="color:#0a8;font-weight:bold">Map</span>.Entry&lt;<span style="color:#0a8;font-weight:bold">String</span>, <span style="color:#0a8;font-weight:bold">Object</span>&gt; entry : cachedActivates.entrySet()) {
+            <span style="color:#0a8;font-weight:bold">String</span> name = entry.getKey();
+            <span style="color:#0a8;font-weight:bold">Object</span> activate = entry.getValue();
+
+            <span style="color:#0a8;font-weight:bold">String</span><span style="color:#339;font-weight:bold">[]</span> activateGroup, activateValue;
+
+            <span style="color:#080;font-weight:bold">if</span> (activate <span style="color:#080;font-weight:bold">instanceof</span> Activate) {
+                activateGroup = ((Activate) activate).group();
+                activateValue = ((Activate) activate).value();
+            } <span style="color:#080;font-weight:bold">else</span> <span style="color:#080;font-weight:bold">if</span> (activate <span style="color:#080;font-weight:bold">instanceof</span> com.alibaba.dubbo.common.extension.Activate) {
+                activateGroup = ((com.alibaba.dubbo.common.extension.Activate) activate).group();
+                activateValue = ((com.alibaba.dubbo.common.extension.Activate) activate).value();
+            } <span style="color:#080;font-weight:bold">else</span> {
+                <span style="color:#080;font-weight:bold">continue</span>;
+            }
+            <span style="color:#080;font-weight:bold">if</span> (isMatchGroup(group, activateGroup)
+                    <span style="color:#777">//参数中已经出现的扩展点实现实例移入到ListA或ListB中</span>
+                    &amp;&amp; !names.contains(name)
+                    <span style="color:#777">//参数中加了“-”前缀的自适配实现被排除掉</span>
+                    &amp;&amp; !names.contains(REMOVE_VALUE_PREFIX + name)
+                    &amp;&amp; isActive(activateValue, url)) {
+                exts.add(getExtension(name));
+            }
+        }
+        exts.sort(ActivateComparator.COMPARATOR);
+    }
+    <span style="color:#0a8;font-weight:bold">List</span>&lt;T&gt; usrs = <span style="color:#080;font-weight:bold">new</span> <span style="color:#0a8;font-weight:bold">ArrayList</span>&lt;&gt;();
+    <span style="color:#080;font-weight:bold">for</span> (<span style="color:#339;font-weight:bold">int</span> i = <span style="color:#00D">0</span>; i &lt; names.size(); i++) {
+        <span style="color:#0a8;font-weight:bold">String</span> name = names.get(i);
+        <span style="color:#080;font-weight:bold">if</span> (!name.startsWith(REMOVE_VALUE_PREFIX)
+                &amp;&amp; !names.contains(REMOVE_VALUE_PREFIX + name)) {
+            <span style="color:#777">//default之前的实例呈现在ListA位置，自适配的为ListO</span>
+            <span style="color:#080;font-weight:bold">if</span> (DEFAULT_KEY.equals(name)) {
+                <span style="color:#080;font-weight:bold">if</span> (!usrs.isEmpty()) {
+                    exts.addAll(<span style="color:#00D">0</span>, usrs);
+                    usrs.clear();
+                }
+            } <span style="color:#080;font-weight:bold">else</span> {
+                usrs.add(getExtension(name));
+            }
+        }
+    }
+    <span style="color:#777">//加入最后的ListB部分</span>
+    <span style="color:#080;font-weight:bold">if</span> (!usrs.isEmpty()) {
+        exts.addAll(usrs);
+    }
+    <span style="color:#777">//得到[ListA + ListO + ListB]或[ListO + ListB]</span>
+    <span style="color:#080;font-weight:bold">return</span> exts;
+}</code></pre>
+</div>
+</div>
+<div class="paragraph has-source-line data-line-stdin-425">
+<p>其它3个变种方法均是对上述这个方法的调用，如下：</p>
+</div>
+<div class="listingblock has-source-line data-line-stdin-428">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#088;font-weight:bold">public</span> <span style="color:#0a8;font-weight:bold">List</span>&lt;T&gt; getActivateExtension(<span style="color:#0a8;font-weight:bold">URL</span> url, <span style="color:#0a8;font-weight:bold">String</span> key) {
+    <span style="color:#080;font-weight:bold">return</span> getActivateExtension(url, key, <span style="color:#069">null</span>);
+}
+<span style="color:#088;font-weight:bold">public</span> <span style="color:#0a8;font-weight:bold">List</span>&lt;T&gt; getActivateExtension(<span style="color:#0a8;font-weight:bold">URL</span> url, <span style="color:#0a8;font-weight:bold">String</span><span style="color:#339;font-weight:bold">[]</span> values) {
+    <span style="color:#080;font-weight:bold">return</span> getActivateExtension(url, values, <span style="color:#069">null</span>);
+}
+<span style="color:#088;font-weight:bold">public</span> <span style="color:#0a8;font-weight:bold">List</span>&lt;T&gt; getActivateExtension(<span style="color:#0a8;font-weight:bold">URL</span> url, <span style="color:#0a8;font-weight:bold">String</span> key, <span style="color:#0a8;font-weight:bold">String</span> group) {
+    <span style="color:#0a8;font-weight:bold">String</span> value = url.getParameter(key);
+    <span style="color:#080;font-weight:bold">return</span> getActivateExtension(url, StringUtils.isEmpty(value)
+        ? <span style="color:#069">null</span> : COMMA_SPLIT_PATTERN.split(value), group);
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2 has-source-line data-line-stdin-442">
+<h3 id="_获取扩展点具类元数据">获取扩展点具类元数据</h3>
+<div class="paragraph has-source-line data-line-stdin-444">
+<p>上述关于<code>ExtensionLoader</code>的整个源码剖析阐述中，更多关于SPI功能性的，比较浅层次。获取到实例前的最关键一环是得到扩展点的具类信息，也即需要得到产生实例的元数据，上述多次出现的<code>getExtensionClasses()</code>正是确保元数据先加载的一个步骤，该方法利用锁和锁的双检形式保证了只会被加载一次，如下源码所示：</p>
+</div>
+<div class="listingblock has-source-line data-line-stdin-447">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#088;font-weight:bold">private</span> <span style="color:#0a8;font-weight:bold">Map</span>&lt;<span style="color:#0a8;font-weight:bold">String</span>, <span style="color:#0a8;font-weight:bold">Class</span>&lt;?&gt;&gt; getExtensionClasses() {
+    <span style="color:#0a8;font-weight:bold">Map</span>&lt;<span style="color:#0a8;font-weight:bold">String</span>, <span style="color:#0a8;font-weight:bold">Class</span>&lt;?&gt;&gt; classes = cachedClasses.get();
+    <span style="color:#080;font-weight:bold">if</span> (classes == <span style="color:#069">null</span>) {
+        <span style="color:#088;font-weight:bold">synchronized</span> (cachedClasses) {
+            classes = cachedClasses.get();
+            <span style="color:#080;font-weight:bold">if</span> (classes == <span style="color:#069">null</span>) {
+                classes = loadExtensionClasses();
+                cachedClasses.set(classes);
+            }
+        }
+    }
+    <span style="color:#080;font-weight:bold">return</span> classes;
+}</code></pre>
+</div>
+</div>
+<div class="sect3 has-source-line data-line-stdin-463">
+<h4 id="_spi文件解析">SPI文件解析</h4>
+<div class="paragraph has-source-line data-line-stdin-465">
+<p>Dubbo的SPI机制中，扩展点实际上是一个接口，其具体实现是由应用配置在<code>META-INF/dubbo</code>资源目录中的一个和接口同名的文件中，在编译期间是不知道该具体实现的，只有等到需要用时，才会综合“<code>配置总线URL、@SPI、@Adaptive、@Activate</code>”等信息去决定加载对应的具类，然后由后者获得对应的实例，因此解析RPC配置文件必须前置且很非常关键的一步。</p>
+</div>
+<div class="sect4 has-source-line data-line-stdin-467">
+<h5 id="_读取spi配置文件集">读取SPI配置文件集</h5>
+<div class="paragraph has-source-line data-line-stdin-469">
+<p>第一步需要获取到当前方法调用帧中正在使用的<code>ClassLoader</code>，再结合默认给定的SPI配置<code>classpath</code>目录和当前扩展点接口类名获取到所有SPI配置文件。一个Java工程中，通常会依赖其它的jar包，和当前工程一样，他们都各自有自己的<code>classpath</code>目录，里面除了包含被编译过的class文件外，一般也会含有一些放置在<code>./META-INF</code>目录中的配置文件。当调用<code>ClassLoader</code>的<code>getResources(fileName)</code>方法或<code>ClassLoader.getSystemResources(fileName)</code>时，这些依赖jar包中的配置文件也会一同被获取到，因而需要迭代获得多个SPI配置文件，逐个执行文件解析。</p>
+</div>
+<div class="listingblock has-source-line data-line-stdin-472">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#088;font-weight:bold">private</span> <span style="color:#339;font-weight:bold">void</span> loadDirectory(<span style="color:#0a8;font-weight:bold">Map</span>&lt;<span style="color:#0a8;font-weight:bold">String</span>, <span style="color:#0a8;font-weight:bold">Class</span>&lt;?&gt;&gt; extensionClasses, <span style="color:#0a8;font-weight:bold">String</span> dir, <span style="color:#0a8;font-weight:bold">String</span> type) {
+    <span style="color:#0a8;font-weight:bold">String</span> fileName = dir + type;
+    <span style="color:#080;font-weight:bold">try</span> {
+        <span style="color:#0a8;font-weight:bold">Enumeration</span>&lt;java.net.URL&gt; urls;
+        <span style="color:#0a8;font-weight:bold">ClassLoader</span> classLoader = findClassLoader();
+        <span style="color:#080;font-weight:bold">if</span> (classLoader != <span style="color:#069">null</span>) {
+            urls = classLoader.getResources(fileName);
+        } <span style="color:#080;font-weight:bold">else</span> {
+            urls = <span style="color:#0a8;font-weight:bold">ClassLoader</span>.getSystemResources(fileName);
+        }
+        <span style="color:#080;font-weight:bold">if</span> (urls != <span style="color:#069">null</span>) {
+            <span style="color:#080;font-weight:bold">while</span> (urls.hasMoreElements()) {
+                java.net.URL resourceURL = urls.nextElement();
+                loadResource(extensionClasses, classLoader, resourceURL);
+            }
+        }
+    } <span style="color:#080;font-weight:bold">catch</span> (<span style="color:#0a8;font-weight:bold">Throwable</span> t) {
+        logger.error(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Exception occurred when loading extension class (interface: </span><span style="color:#710">"</span></span> +
+                type + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">, description file: </span><span style="color:#710">"</span></span> + fileName + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">).</span><span style="color:#710">"</span></span>, t);
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph has-source-line data-line-stdin-497">
+<p>上述代码中的<code>findClassLoader()</code>，实际上是调用<code>ClassUtils.getClassLoader(ExtensionLoader.class)</code>获得当前<code>ClassLoader</code>实例，它总是按照如是顺序其尝试获取该实例：1）<code>Thread.currentThread().getContextClassLoader()</code>；2）<code>ExtensionLoader.class.getClassLoader()</code>；3）<code>ClassLoader.getSystemClassLoader()</code>。在尝试了3种方式还是获取不到一个<code>ClassLoader</code>实例时，Dubbo便会直接使用<code>ClassLoader.getSystemResources(fileName)</code>。</p>
+</div>
+<div class="quoteblock has-source-line data-line-stdin-499">
+<blockquote>
+<div class="paragraph has-source-line data-line-stdin-500">
+<p><code>META-INF/services/</code>、<code>META-INF/dubbo/</code>、<code>META-INF/dubbo/internal/</code>三个值，都是dubbo寻找扩展实现类的配置文件存放路径，也就是我在上述（一）注解@SPI中讲到的以接口全限定名命名的配置文件存放的路径。区别在于<code>META-INF/services/</code>是dubbo为了兼容jdk的SPI扩展机制思想而设存在的，<code>META-INF/dubbo/internal/</code>是dubbo内部提供的扩展的配置文件路径，而<code>META-INF/dubbo/</code>是为了给用户自定义的扩展实现配置文件存放。</p>
+</div>
+</blockquote>
+</div>
+<div class="paragraph has-source-line data-line-stdin-503">
+<p>也就是说Dubbo中的SPI配置文件所在classpath的位置是有要求，不能随便放置，具体实现表达如下：</p>
+</div>
+<div class="listingblock has-source-line data-line-stdin-506">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#088;font-weight:bold">private</span> <span style="color:#088;font-weight:bold">static</span> <span style="color:#088;font-weight:bold">final</span> <span style="color:#0a8;font-weight:bold">String</span> SERVICES_DIRECTORY = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">META-INF/services/</span><span style="color:#710">"</span></span>;
+
+<span style="color:#088;font-weight:bold">private</span> <span style="color:#088;font-weight:bold">static</span> <span style="color:#088;font-weight:bold">final</span> <span style="color:#0a8;font-weight:bold">String</span> DUBBO_DIRECTORY = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">META-INF/dubbo/</span><span style="color:#710">"</span></span>;
+
+<span style="color:#088;font-weight:bold">private</span> <span style="color:#088;font-weight:bold">static</span> <span style="color:#088;font-weight:bold">final</span> <span style="color:#0a8;font-weight:bold">String</span> DUBBO_INTERNAL_DIRECTORY = DUBBO_DIRECTORY + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">internal/</span><span style="color:#710">"</span></span>;
+
+
+<span style="color:#777">/**
+ * synchronized in getExtensionClasses
+ * */</span>
+<span style="color:#088;font-weight:bold">private</span> <span style="color:#0a8;font-weight:bold">Map</span>&lt;<span style="color:#0a8;font-weight:bold">String</span>, <span style="color:#0a8;font-weight:bold">Class</span>&lt;?&gt;&gt; loadExtensionClasses() {
+
+    <span style="color:#777">//默认扩展点加载，下文将加以阐述</span>
+    cacheDefaultExtensionName();
+
+    <span style="color:#0a8;font-weight:bold">Map</span>&lt;<span style="color:#0a8;font-weight:bold">String</span>, <span style="color:#0a8;font-weight:bold">Class</span>&lt;?&gt;&gt; extensionClasses = <span style="color:#080;font-weight:bold">new</span> <span style="color:#0a8;font-weight:bold">HashMap</span>&lt;&gt;();
+    loadDirectory(extensionClasses, DUBBO_INTERNAL_DIRECTORY, type.getName());
+    loadDirectory(extensionClasses, DUBBO_DIRECTORY, type.getName());
+    loadDirectory(extensionClasses, SERVICES_DIRECTORY, type.getName());
+
+    <span style="color:#080;font-weight:bold">return</span> extensionClasses;
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4 has-source-line data-line-stdin-531">
+<h5 id="_逐行解析spi配置文件">逐行解析SPI配置文件</h5>
+<div class="paragraph has-source-line data-line-stdin-533">
+<p>接下来便是由SPI配置文件逐行解析出配置信息，如下源码，总体步骤如下：</p>
+</div>
+<div class="olist arabic has-source-line data-line-stdin-535">
+<ol class="arabic">
+<li class="has-source-line data-line-stdin-535">
+<p>由参数<code>resourceURL</code>获取到文件字节流；</p>
+</li>
+<li class="has-source-line data-line-stdin-536">
+<p>使用装饰器<code>InputStreamReader</code>基于字节流得到字符流；</p>
+</li>
+<li class="has-source-line data-line-stdin-537">
+<p>套上另外一个装饰器<code>BufferedReader</code>获取到带有缓冲功能的字符流；</p>
+</li>
+<li class="has-source-line data-line-stdin-538">
+<p>逐行读取字符流，将当前行的注释信息忽略，随后取得等号<code>"="</code>两边的名称和扩展点类名；</p>
+</li>
+<li class="has-source-line data-line-stdin-539">
+<p>针对当前行执行类的元数据加载操作；</p>
+</li>
+</ol>
+</div>
+<div class="listingblock has-source-line data-line-stdin-543">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#088;font-weight:bold">private</span> <span style="color:#339;font-weight:bold">void</span> loadResource(<span style="color:#0a8;font-weight:bold">Map</span>&lt;<span style="color:#0a8;font-weight:bold">String</span>, <span style="color:#0a8;font-weight:bold">Class</span>&lt;?&gt;&gt; extensionClasses, <span style="color:#0a8;font-weight:bold">ClassLoader</span> classLoader, java.net.URL resourceURL) {
+    <span style="color:#080;font-weight:bold">try</span> {
+        <span style="color:#080;font-weight:bold">try</span> (<span style="color:#0a8;font-weight:bold">BufferedReader</span> reader = <span style="color:#080;font-weight:bold">new</span> <span style="color:#0a8;font-weight:bold">BufferedReader</span>(<span style="color:#080;font-weight:bold">new</span> <span style="color:#0a8;font-weight:bold">InputStreamReader</span>(resourceURL.openStream(), StandardCharsets.UTF_8))) {
+            <span style="color:#0a8;font-weight:bold">String</span> line;
+            <span style="color:#080;font-weight:bold">while</span> ((line = reader.readLine()) != <span style="color:#069">null</span>) {
+                <span style="color:#088;font-weight:bold">final</span> <span style="color:#339;font-weight:bold">int</span> ci = line.indexOf(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">#</span><span style="color:#710">'</span></span>);
+                <span style="color:#080;font-weight:bold">if</span> (ci &gt;= <span style="color:#00D">0</span>) {
+                    line = line.substring(<span style="color:#00D">0</span>, ci);
+                }
+                line = line.trim();
+                <span style="color:#080;font-weight:bold">if</span> (line.length() &gt; <span style="color:#00D">0</span>) {
+                    <span style="color:#080;font-weight:bold">try</span> {
+                        <span style="color:#0a8;font-weight:bold">String</span> name = <span style="color:#069">null</span>;
+                        <span style="color:#339;font-weight:bold">int</span> i = line.indexOf(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">'</span><span style="color:#D20">=</span><span style="color:#710">'</span></span>);
+                        <span style="color:#080;font-weight:bold">if</span> (i &gt; <span style="color:#00D">0</span>) {
+                            name = line.substring(<span style="color:#00D">0</span>, i).trim();
+                            line = line.substring(i + <span style="color:#00D">1</span>).trim();
+                        }
+                        <span style="color:#080;font-weight:bold">if</span> (line.length() &gt; <span style="color:#00D">0</span>) {
+                            loadClass(extensionClasses, resourceURL, <span style="color:#0a8;font-weight:bold">Class</span>.forName(line, <span style="color:#069">true</span>, classLoader), name);
+                        }
+                    } <span style="color:#080;font-weight:bold">catch</span> (<span style="color:#0a8;font-weight:bold">Throwable</span> t) {
+                        <span style="color:#C00;font-weight:bold">IllegalStateException</span> e = <span style="color:#080;font-weight:bold">new</span> <span style="color:#C00;font-weight:bold">IllegalStateException</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Failed to load extension class (interface: </span><span style="color:#710">"</span></span> + type + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">, class line: </span><span style="color:#710">"</span></span> + line + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">) in </span><span style="color:#710">"</span></span> + resourceURL + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">, cause: </span><span style="color:#710">"</span></span> + t.getMessage(), t);
+                        exceptions.put(line, e);
+                    }
+                }
+            }
+        }
+    } <span style="color:#080;font-weight:bold">catch</span> (<span style="color:#0a8;font-weight:bold">Throwable</span> t) {
+        logger.error(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Exception occurred when loading extension class (interface: </span><span style="color:#710">"</span></span> +
+                type + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">, class file: </span><span style="color:#710">"</span></span> + resourceURL + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">) in </span><span style="color:#710">"</span></span> + resourceURL, t);
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph has-source-line data-line-stdin-580">
+<p>注：<span class="small">上述代码中使用了Java7中的<code>try(…​){}catch(…​){}</code>，会自动完成I/O中资源的回收处理。</span></p>
+</div>
+<div class="admonitionblock important has-source-line data-line-stdin-583">
+<table>
+<tbody><tr>
+<td class="icon">
+<div class="title">Important</div>
+</td>
+<td class="content">
+Dubbo利用<code>Class.forName()</code>方法根据扩展点具类全名获取到对应的Class对象<sub>具类元数据</sub>，它会自动完成类的定位、加载、链接。由于指定<code>initialize=true</code>，同一具类若没有初始化过，Java会执行Class对象的初始化处理。
+</td>
+</tr>
+</tbody></table>
+</div>
+<div class="listingblock has-source-line data-line-stdin-585">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#088;font-weight:bold">public</span> <span style="color:#088;font-weight:bold">static</span> <span style="color:#0a8;font-weight:bold">Class</span>&lt;?&gt; forName(<span style="color:#0a8;font-weight:bold">String</span> name, <span style="color:#339;font-weight:bold">boolean</span> initialize, <span style="color:#0a8;font-weight:bold">ClassLoader</span> loader)</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3 has-source-line data-line-stdin-589">
+<h4 id="_扩展点具类元数据加载">扩展点具类元数据加载</h4>
+<div class="paragraph has-source-line data-line-stdin-591">
+<p><code>loadClass()</code>是为扩展点准备好其所有实现<sup>具类</sup>的元数据，也即表示具类的<code>Class&lt;?&gt;对象</code>，有了它们才能进一步获取到具类的实例。</p>
+</div>
+<div class="paragraph has-source-line data-line-stdin-594">
+<p>类加载，也即<code>loadClass()</code>所表示的这个过程，由于特性要求涉及到不少技术点，整个过程比较复杂，按惯例，还是化繁为简，先零后整，逐个击破。</p>
+</div>
+<div class="admonitionblock important has-source-line data-line-stdin-597">
+<table>
+<tbody><tr>
+<td class="icon">
+<div class="title">Important</div>
+</td>
+<td class="content">
+<code>ExtensionLoader</code>会为每一个扩展点准备它的一个实例，<code>loadClass()</code>这一环已经是在加载扩展点具类信息了，但所有的具类信息都是汇总在同一个<code>ExtensionLoader</code>实例下加以管理的。
+</td>
+</tr>
+</tbody></table>
+</div>
+<div class="paragraph has-source-line data-line-stdin-599">
+<p>扩展点的实例惰性加载的第一步是获取具类元数据，第二步才是根据这些准备好的元数据按照当前配置总线要求完成某个具类的实例化操作。上述已经提到，第一步对于当前<code>type</code>扩展点只会执行一次，第二步则是每一个具类会执行一次实例的初始化操作，后续需要他们的时候均能直接从缓存提取到。</p>
+</div>
+<div class="paragraph has-source-line data-line-stdin-601">
+<p>具类的加载过程采用的是分治思想，按照当前具类的类注解<sub>@Adaptive、@Activate、@Extension</sub>、构造函数<sub>是否入参为当前扩展点接口类</sub>拆解成4种具类的加载过程：1）自适配具类；2）装饰型具类；3）自激活型具类；4） 一般具类。</p>
+</div>
+<div class="paragraph has-source-line data-line-stdin-603">
+<p>在SPI配置文件中，可以根据需要就对应扩展点具类以<code>","</code>作为分隔符赋予多个名字。JDK中标准的SPI配置是没有Key键的，为了兼容，<code>ExtensionLoader</code>使用<code>findAnnotationName()</code>方法创建Key，规则是若具类配置了<code>@Extension</code>注解，取其名称，否则取具类本身的名称或者去除扩展点接口名后缀后得到的小写字符串。</p>
+</div>
+<div class="paragraph has-source-line data-line-stdin-605">
+<p>整个具类元数据的总体加载过程如下：</p>
+</div>
+<div class="listingblock has-source-line data-line-stdin-608">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#088;font-weight:bold">private</span> <span style="color:#339;font-weight:bold">void</span> loadClass(<span style="color:#0a8;font-weight:bold">Map</span>&lt;<span style="color:#0a8;font-weight:bold">String</span>, <span style="color:#0a8;font-weight:bold">Class</span>&lt;?&gt;&gt; extensionClasses, java.net.URL resourceURL, <span style="color:#0a8;font-weight:bold">Class</span>&lt;?&gt; clazz, <span style="color:#0a8;font-weight:bold">String</span> name) <span style="color:#088;font-weight:bold">throws</span> <span style="color:#C00;font-weight:bold">NoSuchMethodException</span> {
+    <span style="color:#777">//具类必须是扩展点接口的实现类</span>
+    <span style="color:#080;font-weight:bold">if</span> (!type.isAssignableFrom(clazz)) {
+        <span style="color:#080;font-weight:bold">throw</span> <span style="color:#080;font-weight:bold">new</span> <span style="color:#C00;font-weight:bold">IllegalStateException</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Error occurred when loading extension class (interface: </span><span style="color:#710">"</span></span> +
+                type + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">, class line: </span><span style="color:#710">"</span></span> + clazz.getName() + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">), class </span><span style="color:#710">"</span></span>
+                + clazz.getName() + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20"> is not subtype of interface.</span><span style="color:#710">"</span></span>);
+    }
+
+    <span style="color:#080;font-weight:bold">if</span> (clazz.isAnnotationPresent(Adaptive.class)) {
+    <span style="color:#777">//自适配具类元数据加载</span>
+        cacheAdaptiveClass(clazz);
+    } <span style="color:#080;font-weight:bold">else</span> <span style="color:#080;font-weight:bold">if</span> (isWrapperClass(clazz)) {
+    <span style="color:#777">//装饰型具类元数据加载</span>
+        cacheWrapperClass(clazz);
+    } <span style="color:#080;font-weight:bold">else</span> {
+        clazz.getConstructor();<span style="color:#777">//确保有一个无参构造函数，没有则报错</span>
+
+        <span style="color:#080;font-weight:bold">if</span> (StringUtils.isEmpty(name)) {
+            name = findAnnotationName(clazz);
+            <span style="color:#080;font-weight:bold">if</span> (name.length() == <span style="color:#00D">0</span>) {
+                <span style="color:#080;font-weight:bold">throw</span> <span style="color:#080;font-weight:bold">new</span> <span style="color:#C00;font-weight:bold">IllegalStateException</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">No such extension name for the class </span><span style="color:#710">"</span></span> + clazz.getName() + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20"> in the config </span><span style="color:#710">"</span></span> + resourceURL);
+            }
+        }
+
+        <span style="color:#0a8;font-weight:bold">String</span><span style="color:#339;font-weight:bold">[]</span> names = NAME_SEPARATOR.split(name);
+        <span style="color:#080;font-weight:bold">if</span> (ArrayUtils.isNotEmpty(names)) {
+            <span style="color:#777">//自激活型具类元数据加载</span>
+            cacheActivateClass(clazz, names[<span style="color:#00D">0</span>]);
+
+            <span style="color:#080;font-weight:bold">for</span> (<span style="color:#0a8;font-weight:bold">String</span> n : names) {
+                <span style="color:#777">//一般具类元数据加载</span>
+                cacheName(clazz, n);
+                saveInExtensionClass(extensionClasses, clazz, n);
+            }
+        }
+    }
+}
+
+<span style="color:#088;font-weight:bold">private</span> <span style="color:#0a8;font-weight:bold">String</span> findAnnotationName(<span style="color:#0a8;font-weight:bold">Class</span>&lt;?&gt; clazz) {
+    org.apache.dubbo.common.Extension extension = clazz.getAnnotation(org.apache.dubbo.common.Extension.class);
+    <span style="color:#080;font-weight:bold">if</span> (extension != <span style="color:#069">null</span>) {
+        <span style="color:#080;font-weight:bold">return</span> extension.value();
+    }
+
+    <span style="color:#0a8;font-weight:bold">String</span> name = clazz.getSimpleName();
+    <span style="color:#080;font-weight:bold">if</span> (name.endsWith(type.getSimpleName())) {
+        name = name.substring(<span style="color:#00D">0</span>, name.length() - type.getSimpleName().length());
+    }
+    <span style="color:#080;font-weight:bold">return</span> name.toLowerCase();
+}</code></pre>
+</div>
+</div>
+<div class="paragraph has-source-line data-line-stdin-661">
+<p>每一种细分具类都有对应的缓存装载其类型元数据，也相应需要配合一些验重逻辑，下述分子章节进一步阐述：</p>
+</div>
+<div class="sect4 has-source-line data-line-stdin-663">
+<h5 id="_自适配具类">自适配具类</h5>
+<div class="paragraph has-source-line data-line-stdin-665">
+<p>保证只会有一个标注了<code>@Adaptive</code>注解的具类，注意它使用一个声明了<code>volatile</code>可见性的属性进行存取。</p>
+</div>
+<div class="listingblock has-source-line data-line-stdin-668">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#088;font-weight:bold">private</span> <span style="color:#088;font-weight:bold">volatile</span> <span style="color:#0a8;font-weight:bold">Class</span>&lt;?&gt; cachedAdaptiveClass = <span style="color:#069">null</span>;
+
+<span style="color:#777">/**
+* cache Adaptive class which is annotated with &lt;code&gt;Adaptive&lt;/code&gt;
+ */</span>
+<span style="color:#088;font-weight:bold">private</span> <span style="color:#339;font-weight:bold">void</span> cacheAdaptiveClass(<span style="color:#0a8;font-weight:bold">Class</span>&lt;?&gt; clazz) {
+    <span style="color:#080;font-weight:bold">if</span> (cachedAdaptiveClass == <span style="color:#069">null</span>) {
+        cachedAdaptiveClass = clazz;
+    } <span style="color:#080;font-weight:bold">else</span> <span style="color:#080;font-weight:bold">if</span> (!cachedAdaptiveClass.equals(clazz)) {
+        <span style="color:#080;font-weight:bold">throw</span> <span style="color:#080;font-weight:bold">new</span> <span style="color:#C00;font-weight:bold">IllegalStateException</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">More than 1 adaptive class found: </span><span style="color:#710">"</span></span>
+                + cachedAdaptiveClass.getName()
+                + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">, </span><span style="color:#710">"</span></span> + clazz.getName());
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4 has-source-line data-line-stdin-685">
+<h5 id="_装饰型具类">装饰型具类</h5>
+<div class="paragraph has-source-line data-line-stdin-686">
+<p>可以层层装饰，因此使用<code>Set</code>作为集合容器。代码中以当前扩展点的接口类信息作为入参调用<code>clazz.getConstructor(type)</code>便轻松判断当前具类是否为装饰类。</p>
+</div>
+<div class="listingblock has-source-line data-line-stdin-689">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#088;font-weight:bold">private</span> <span style="color:#0a8;font-weight:bold">Set</span>&lt;<span style="color:#0a8;font-weight:bold">Class</span>&lt;?&gt;&gt; cachedWrapperClasses;
+
+<span style="color:#777">/**
+ * cache wrapper class
+ * &lt;p&gt;
+ * like: ProtocolFilterWrapper, ProtocolListenerWrapper
+ */</span>
+<span style="color:#088;font-weight:bold">private</span> <span style="color:#339;font-weight:bold">void</span> cacheWrapperClass(<span style="color:#0a8;font-weight:bold">Class</span>&lt;?&gt; clazz) {
+    <span style="color:#080;font-weight:bold">if</span> (cachedWrapperClasses == <span style="color:#069">null</span>) {
+        cachedWrapperClasses = <span style="color:#080;font-weight:bold">new</span> ConcurrentHashSet&lt;&gt;();
+    }
+    cachedWrapperClasses.add(clazz);
+}
+
+<span style="color:#777">/**
+ * test if clazz is a wrapper class
+ * &lt;p&gt;
+ * which has Constructor with given class type as its only argument
+ */</span>
+<span style="color:#088;font-weight:bold">private</span> <span style="color:#339;font-weight:bold">boolean</span> isWrapperClass(<span style="color:#0a8;font-weight:bold">Class</span>&lt;?&gt; clazz) {
+    <span style="color:#080;font-weight:bold">try</span> {
+        clazz.getConstructor(type);
+        <span style="color:#080;font-weight:bold">return</span> <span style="color:#069">true</span>;
+    } <span style="color:#080;font-weight:bold">catch</span> (<span style="color:#C00;font-weight:bold">NoSuchMethodException</span> e) {
+        <span style="color:#080;font-weight:bold">return</span> <span style="color:#069">false</span>;
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4 has-source-line data-line-stdin-719">
+<h5 id="_自激活型具类">自激活型具类</h5>
+<div class="paragraph has-source-line data-line-stdin-721">
+<p>可以有多个，比如<code>Filter</code>，和一般的具类缓存类的元数据<code>Class&lt;?&gt;</code>对象不同，它只缓存“名字”和“@Activate对象”的键值信息。存取容器Map的值应该<code>Activate</code>类型，但因该注解有两个，为兼容，委曲求全，被声明成了Object类型。</p>
+</div>
+<div class="listingblock has-source-line data-line-stdin-724">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#088;font-weight:bold">private</span> <span style="color:#088;font-weight:bold">final</span> <span style="color:#0a8;font-weight:bold">Map</span>&lt;<span style="color:#0a8;font-weight:bold">String</span>, <span style="color:#0a8;font-weight:bold">Object</span>&gt; cachedActivates = <span style="color:#080;font-weight:bold">new</span> <span style="color:#0a8;font-weight:bold">ConcurrentHashMap</span>&lt;&gt;();
+
+<span style="color:#777">/**
+ * cache Activate class which is annotated with &lt;code&gt;Activate&lt;/code&gt;
+ * &lt;p&gt;
+ * for compatibility, also cache class with old alibaba Activate annotation
+ */</span>
+<span style="color:#088;font-weight:bold">private</span> <span style="color:#339;font-weight:bold">void</span> cacheActivateClass(<span style="color:#0a8;font-weight:bold">Class</span>&lt;?&gt; clazz, <span style="color:#0a8;font-weight:bold">String</span> name) {
+    Activate activate = clazz.getAnnotation(Activate.class);
+    <span style="color:#080;font-weight:bold">if</span> (activate != <span style="color:#069">null</span>) {
+        cachedActivates.put(name, activate);
+    } <span style="color:#080;font-weight:bold">else</span> {
+        <span style="color:#777">// support com.alibaba.dubbo.common.extension.Activate</span>
+        com.alibaba.dubbo.common.extension.Activate oldActivate = clazz.getAnnotation(com.alibaba.dubbo.common.extension.Activate.class);
+        <span style="color:#080;font-weight:bold">if</span> (oldActivate != <span style="color:#069">null</span>) {
+            cachedActivates.put(name, oldActivate);
+        }
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4 has-source-line data-line-stdin-746">
+<h5 id="_一般具类">一般具类</h5>
+<div class="paragraph has-source-line data-line-stdin-748">
+<p>可以有多个，缓存了“名称”和“类的元数据<code>Class&lt;?&gt;</code>对象”的键值信息。如下<code>ExtensionLoader</code>还反向缓存了他们间的关系，由于一般具类可以有多个“名称”，因此会存在多个“名称”指向同一个<code>Class&lt;?&gt;</code>对象”的情况。</p>
+</div>
+<div class="listingblock has-source-line data-line-stdin-751">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#088;font-weight:bold">private</span> <span style="color:#088;font-weight:bold">final</span> Holder&lt;<span style="color:#0a8;font-weight:bold">Map</span>&lt;<span style="color:#0a8;font-weight:bold">String</span>, <span style="color:#0a8;font-weight:bold">Class</span>&lt;?&gt;&gt;&gt; cachedClasses = <span style="color:#080;font-weight:bold">new</span> Holder&lt;&gt;();
+
+<span style="color:#088;font-weight:bold">private</span> <span style="color:#088;font-weight:bold">final</span> <span style="color:#0a8;font-weight:bold">ConcurrentMap</span>&lt;<span style="color:#0a8;font-weight:bold">Class</span>&lt;?&gt;, <span style="color:#0a8;font-weight:bold">String</span>&gt; cachedNames = <span style="color:#080;font-weight:bold">new</span> <span style="color:#0a8;font-weight:bold">ConcurrentHashMap</span>&lt;&gt;();
+
+<span style="color:#777">/**
+ * cache name
+ */</span>
+<span style="color:#088;font-weight:bold">private</span> <span style="color:#339;font-weight:bold">void</span> cacheName(<span style="color:#0a8;font-weight:bold">Class</span>&lt;?&gt; clazz, <span style="color:#0a8;font-weight:bold">String</span> name) {
+    <span style="color:#080;font-weight:bold">if</span> (!cachedNames.containsKey(clazz)) {
+        cachedNames.put(clazz, name);
+    }
+}
+
+<span style="color:#777">/**
+ * put clazz in extensionClasses
+ */</span>
+<span style="color:#088;font-weight:bold">private</span> <span style="color:#339;font-weight:bold">void</span> saveInExtensionClass(<span style="color:#0a8;font-weight:bold">Map</span>&lt;<span style="color:#0a8;font-weight:bold">String</span>, <span style="color:#0a8;font-weight:bold">Class</span>&lt;?&gt;&gt; extensionClasses, <span style="color:#0a8;font-weight:bold">Class</span>&lt;?&gt; clazz, <span style="color:#0a8;font-weight:bold">String</span> name) {
+    <span style="color:#0a8;font-weight:bold">Class</span>&lt;?&gt; c = extensionClasses.get(name);
+    <span style="color:#080;font-weight:bold">if</span> (c == <span style="color:#069">null</span>) {
+        extensionClasses.put(name, clazz);
+    } <span style="color:#080;font-weight:bold">else</span> <span style="color:#080;font-weight:bold">if</span> (c != clazz) {
+        <span style="color:#080;font-weight:bold">throw</span> <span style="color:#080;font-weight:bold">new</span> <span style="color:#C00;font-weight:bold">IllegalStateException</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Duplicate extension </span><span style="color:#710">"</span></span> + type.getName() + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20"> name </span><span style="color:#710">"</span></span> + name + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20"> on </span><span style="color:#710">"</span></span> + c.getName() + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20"> and </span><span style="color:#710">"</span></span> + clazz.getName());
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2 has-source-line data-line-stdin-779">
+<h3 id="_实例化扩展点具类">实例化扩展点具类</h3>
+<div class="paragraph has-source-line data-line-stdin-781">
+<p>有了各扩展点具类的元数据信息<sub><code>Class&lt;?&gt;</code></sub>后，创建其实例就比较简单了。对于所有类型的具类来说，获得其实例实际上需要三步：</p>
+</div>
+<div class="olist arabic has-source-line data-line-stdin-783">
+<ol class="arabic">
+<li class="has-source-line data-line-stdin-783">
+<p>检查是否存在一个对应的实例，有直接返回，没有则继续第二步；</p>
+</li>
+<li class="has-source-line data-line-stdin-784">
+<p>使用<code>Class&lt;?&gt;</code>生成一个对象；</p>
+</li>
+<li class="has-source-line data-line-stdin-785">
+<p>注入处理：业务特性需求，有些具类需要依赖其它的扩展点接口，从而添加了相应的<code>setter</code>，需要给第二步生成的对象注入被依赖扩展点具类实例；</p>
+</li>
+</ol>
+</div>
+<div class="sect3 has-source-line data-line-stdin-788">
+<h4 id="_扩展点具类实例化处理">扩展点具类实例化处理</h4>
+<div class="paragraph has-source-line data-line-stdin-790">
+<p>注：<span class="small">自适配具类存在两种形式，一种是开发人员使用<code>@Adaptive</code>注解的扩展点实现，另一类是由Dubbo根据扩展点中其方法中的的<code>@Adaptive</code>注解来生成的扩展点实现。整个实例化过程有点不一样，另起章节讨论</span></p>
+</div>
+<div class="paragraph has-source-line data-line-stdin-792">
+<p>开发者为Dubbo提供了扩展点具类后，需要加入到相应SPI扩展点配置文件中，否则就成了孤魂野鬼不会发生作用，要用它时也找不到。键值对的硬性要求这一点，确保了尽管有多种类型的具类，但他们的实例获取方式是一致的，使用的基本都是<code>createExtension()</code>。</p>
+</div>
+<div class="admonitionblock note has-source-line data-line-stdin-795">
+<table>
+<tbody><tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+Dubbo要求同一个扩展点的不同具类需要配置不同的名称，否则会强行抛错。
+</td>
+</tr>
+</tbody></table>
+</div>
+<div class="paragraph has-source-line data-line-stdin-797">
+<p>Dubbo的SPI规定一个具类只能存在一个实例，也就是说扩展点使用的是单例模式，因此声明了一个全局<code>ConcurrentMap&lt;Class&lt;?&gt;, Object&gt;</code>类型的容器缓存类到对象间的关系，确保唯一性。</p>
+</div>
+<div class="paragraph has-source-line data-line-stdin-799">
+<p>仔细阅读过上文的，不难看出扩展点的具类的构造函数只能存在两种形式：1）无参；2）类型为当前扩展点接口的单一入参。前者简单调用<code>clazz.newInstance()</code>便能获取到实例<code>instance</code>。</p>
+</div>
+<div class="paragraph has-source-line data-line-stdin-801">
+<p>后一种形式，也就是上文提及的用于支持类AOP特性的<code>Wrapper装饰者类</code>，它的目的是用于装饰前一种无参构造函数扩展点具类，不会为其单独创建实例，借助缓存<code>cachedWrapperClasses</code>，<code>ExtensionLoader</code>挨个遍历其元素，对<code>instance</code>加以层层包装并完成注入处理。</p>
+</div>
+<div class="paragraph has-source-line data-line-stdin-803">
+<p>实例创建过程中有点特殊的是，无论对应具类的实例是从缓存中获取的，还是新创建的，都会执行自动装配和自动包装这两个步骤，具体原因不明。</p>
+</div>
+<div class="listingblock has-source-line data-line-stdin-807">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#088;font-weight:bold">private</span> <span style="color:#088;font-weight:bold">static</span> <span style="color:#088;font-weight:bold">final</span> <span style="color:#0a8;font-weight:bold">ConcurrentMap</span>&lt;<span style="color:#0a8;font-weight:bold">Class</span>&lt;?&gt;, <span style="color:#0a8;font-weight:bold">Object</span>&gt; EXTENSION_INSTANCES
+    = <span style="color:#080;font-weight:bold">new</span> <span style="color:#0a8;font-weight:bold">ConcurrentHashMap</span>&lt;&gt;();
+
+<span style="color:#088;font-weight:bold">private</span> T createExtension(<span style="color:#0a8;font-weight:bold">String</span> name) {
+    <span style="color:#0a8;font-weight:bold">Class</span>&lt;?&gt; clazz = getExtensionClasses().get(name);
+    <span style="color:#080;font-weight:bold">if</span> (clazz == <span style="color:#069">null</span>) {
+        <span style="color:#080;font-weight:bold">throw</span> findException(name);
+    }
+    <span style="color:#080;font-weight:bold">try</span> {
+        T instance = (T) EXTENSION_INSTANCES.get(clazz);
+        <span style="color:#080;font-weight:bold">if</span> (instance == <span style="color:#069">null</span>) {
+            EXTENSION_INSTANCES.putIfAbsent(clazz, clazz.newInstance());
+            instance = (T) EXTENSION_INSTANCES.get(clazz);
+        }
+        <span style="color:#777">//自动装配</span>
+        injectExtension(instance);
+
+        <span style="color:#777">//自动包装</span>
+        <span style="color:#0a8;font-weight:bold">Set</span>&lt;<span style="color:#0a8;font-weight:bold">Class</span>&lt;?&gt;&gt; wrapperClasses = cachedWrapperClasses;
+        <span style="color:#080;font-weight:bold">if</span> (CollectionUtils.isNotEmpty(wrapperClasses)) {
+            <span style="color:#080;font-weight:bold">for</span> (<span style="color:#0a8;font-weight:bold">Class</span>&lt;?&gt; wrapperClass : wrapperClasses) {
+                <span style="color:#777">//1.取得装饰者扩展点具类</span>
+                <span style="color:#777">//2.使用type获取构造函数</span>
+                <span style="color:#777">//3.将instance传入调用构造函数创建示例，完成包装处理</span>
+                instance = injectExtension((T) wrapperClass.getConstructor(type).newInstance(instance));
+            }
+        }
+        <span style="color:#080;font-weight:bold">return</span> instance;
+    } <span style="color:#080;font-weight:bold">catch</span> (<span style="color:#0a8;font-weight:bold">Throwable</span> t) {
+        <span style="color:#080;font-weight:bold">throw</span> <span style="color:#080;font-weight:bold">new</span> <span style="color:#C00;font-weight:bold">IllegalStateException</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Extension instance (name: </span><span style="color:#710">"</span></span> + name + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">, class: </span><span style="color:#710">"</span></span> +
+                type + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">) couldn't be instantiated: </span><span style="color:#710">"</span></span> + t.getMessage(), t);
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph has-source-line data-line-stdin-844">
+<p>上文中有两处关于异常的点比较特殊，<code>throw findException(name)</code>和<code>exceptions.put(line, e)</code>，不难看出<code>ExtensionLoader</code>将加载具类元数据时候出现的错误延迟到创建实例时才抛出，系统运行期间这两个时段可能是紧接着发生的，也可能前后相距比较大的时差，上文可以找到线索。</p>
+</div>
+<div class="admonitionblock important has-source-line data-line-stdin-847">
+<table>
+<tbody><tr>
+<td class="icon">
+<div class="title">Important</div>
+</td>
+<td class="content">
+<div class="paragraph has-source-line data-line-stdin-848">
+<p>扩展点具类的实例创建过程相当简短精悍，自动装配、包装处理的风轻云淡，在研读相关实现源码时，有时会因为忽略掉这些细节而迷失方向，有些断片般的迷离。从SPI的自动包装的实现过程可以看出，一个扩展点，如果有多个包装类，那么在实例化的时候，它的任意其它非包装类扩展点具类，均会被这些类包装一遍，最后返回一个经过了层层包裹的对象，并且每一层都已经完成依赖注入处理，返回实例的最终行为是它们的总和。</p>
+</div>
+</td>
+</tr>
+</tbody></table>
+</div>
+</div>
+<div class="sect3 has-source-line data-line-stdin-851">
+<h4 id="_依赖注入处理">依赖注入处理</h4>
+<div class="paragraph has-source-line data-line-stdin-853">
+<p>上述用到的注入方法<code>injectExtension()</code>，是完成自动装配的，简单讲就是遍历目标对象的所有<code>setter</code>方法，若方法入参不为基本类型，便试图调用<code>objectFactory.getExtension()</code>获取一个扩展点实例，取到了则给设入处理。</p>
+</div>
+<div class="listingblock has-source-line data-line-stdin-856">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#088;font-weight:bold">private</span> T injectExtension(T instance) {
+
+    <span style="color:#080;font-weight:bold">if</span> (objectFactory == <span style="color:#069">null</span>) {
+        <span style="color:#080;font-weight:bold">return</span> instance;
+    }
+
+    <span style="color:#080;font-weight:bold">try</span> {
+        <span style="color:#080;font-weight:bold">for</span> (<span style="color:#0a8;font-weight:bold">Method</span> method : instance.getClass().getMethods()) {
+            <span style="color:#080;font-weight:bold">if</span> (!isSetter(method)) {
+                <span style="color:#080;font-weight:bold">continue</span>;
+            }
+            <span style="color:#080;font-weight:bold">if</span> (method.getAnnotation(DisableInject.class) != <span style="color:#069">null</span>) {
+                <span style="color:#080;font-weight:bold">continue</span>;
+            }
+
+            <span style="color:#777">//获取入参类型</span>
+            <span style="color:#0a8;font-weight:bold">Class</span>&lt;?&gt; pt = method.getParameterTypes()[<span style="color:#00D">0</span>];
+            <span style="color:#080;font-weight:bold">if</span> (ReflectUtils.isPrimitives(pt)) {
+                <span style="color:#080;font-weight:bold">continue</span>;
+            }
+
+            <span style="color:#080;font-weight:bold">try</span> {
+                <span style="color:#0a8;font-weight:bold">String</span> property = getSetterProperty(method);
+                <span style="color:#0a8;font-weight:bold">Object</span> object = objectFactory.getExtension(pt, property);
+                <span style="color:#080;font-weight:bold">if</span> (object != <span style="color:#069">null</span>) {
+                    method.invoke(instance, object);
+                }
+            } <span style="color:#080;font-weight:bold">catch</span> (<span style="color:#C00;font-weight:bold">Exception</span> e) {
+                logger.error(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Failed to inject via method </span><span style="color:#710">"</span></span> + method.getName()
+                        + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20"> of interface </span><span style="color:#710">"</span></span> + type.getName() + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">: </span><span style="color:#710">"</span></span> + e.getMessage(), e);
+            }
+
+        }
+    } <span style="color:#080;font-weight:bold">catch</span> (<span style="color:#C00;font-weight:bold">Exception</span> e) {
+        logger.error(e.getMessage(), e);
+    }
+    <span style="color:#080;font-weight:bold">return</span> instance;
+}
+
+<span style="color:#088;font-weight:bold">private</span> <span style="color:#0a8;font-weight:bold">String</span> getSetterProperty(<span style="color:#0a8;font-weight:bold">Method</span> method) {
+    <span style="color:#080;font-weight:bold">return</span> method.getName().length() &gt; <span style="color:#00D">3</span> ?
+        method.getName().substring(<span style="color:#00D">3</span>, <span style="color:#00D">4</span>).toLowerCase()
+            + method.getName().substring(<span style="color:#00D">4</span>) : <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#710">"</span></span>;
+}
+
+<span style="color:#777">//含有一个入参的public型set方法</span>
+<span style="color:#088;font-weight:bold">private</span> <span style="color:#339;font-weight:bold">boolean</span> isSetter(<span style="color:#0a8;font-weight:bold">Method</span> method) {
+    <span style="color:#080;font-weight:bold">return</span> method.getName().startsWith(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">set</span><span style="color:#710">"</span></span>)
+            &amp;&amp; method.getParameterTypes().length == <span style="color:#00D">1</span>
+            &amp;&amp; <span style="color:#0a8;font-weight:bold">Modifier</span>.isPublic(method.getModifiers());
+}</code></pre>
+</div>
+</div>
+<div class="paragraph has-source-line data-line-stdin-910">
+<p>上述代码中说明，可以使用<code>@DisableInject</code>注解显示告知当前具类忽略掉扩展点注入处理。另外可以认为<code>objectFactory.getExtension()</code>实际上就是调用了某扩展点所对应的<code>ExtensionLoader</code>实例<sub>由入参类型获得</sub>的<code>getExtension(name)</code>方法。</p>
+</div>
+</div>
+</div>
+<div class="sect2 has-source-line data-line-stdin-913">
+<h3 id="_自适配具类的实例化">自适配具类的实例化</h3>
+<div class="paragraph has-source-line data-line-stdin-915">
+<p>自适配具类中，由于其<code>Class&lt;?&gt;</code>对象是单独使用<code>cachedAdaptiveClass</code>缓存的，因而其实例化相对比较直接。但是当前扩展点若没有具类注解<code>@Adaptive</code>，<code>ExtensionLoader</code>会使用拼接字符串的方式动态生成当前扩展点接口实现的全部代码，随后完成其编译操作获得所生成具类的元数据——一个<code>Class&lt;?&gt;</code>对象。</p>
+</div>
+<div class="listingblock has-source-line data-line-stdin-918">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#088;font-weight:bold">private</span> T createAdaptiveExtension() {
+    <span style="color:#080;font-weight:bold">try</span> {
+        <span style="color:#080;font-weight:bold">return</span> injectExtension((T) getAdaptiveExtensionClass().newInstance());
+    } <span style="color:#080;font-weight:bold">catch</span> (<span style="color:#C00;font-weight:bold">Exception</span> e) {
+        <span style="color:#080;font-weight:bold">throw</span> <span style="color:#080;font-weight:bold">new</span> <span style="color:#C00;font-weight:bold">IllegalStateException</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Can't create adaptive extension </span><span style="color:#710">"</span></span> + type + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">, cause: </span><span style="color:#710">"</span></span> + e.getMessage(), e);
+    }
+}
+
+<span style="color:#088;font-weight:bold">private</span> <span style="color:#0a8;font-weight:bold">Class</span>&lt;?&gt; getAdaptiveExtensionClass() {
+    getExtensionClasses();
+    <span style="color:#080;font-weight:bold">if</span> (cachedAdaptiveClass != <span style="color:#069">null</span>) {
+        <span style="color:#080;font-weight:bold">return</span> cachedAdaptiveClass;
+    }
+
+    <span style="color:#777">//没有提供@Adaptive标注的具类时，动态创建代理具类</span>
+    <span style="color:#080;font-weight:bold">return</span> cachedAdaptiveClass = createAdaptiveExtensionClass();
+}
+
+<span style="color:#088;font-weight:bold">private</span> <span style="color:#0a8;font-weight:bold">Class</span>&lt;?&gt; createAdaptiveExtensionClass() {
+    <span style="color:#777">//生成代码</span>
+    <span style="color:#0a8;font-weight:bold">String</span> code = <span style="color:#080;font-weight:bold">new</span> AdaptiveClassCodeGenerator(type, cachedDefaultName).generate();
+
+    <span style="color:#777">//获取classloader</span>
+    <span style="color:#0a8;font-weight:bold">ClassLoader</span> classLoader = findClassLoader();
+
+    <span style="color:#777">//使用SPI获取用于编译字符串得到类的Compiler</span>
+    org.apache.dubbo.common.compiler.Compiler compiler =
+        ExtensionLoader.getExtensionLoader(org.apache.dubbo.common.compiler.Compiler.class)
+            .getAdaptiveExtension();
+
+    <span style="color:#777">//完成字符串到Class&lt;?&gt;对象的转换处理</span>
+    <span style="color:#080;font-weight:bold">return</span> compiler.compile(code, classLoader);
+}</code></pre>
+</div>
+</div>
+<div class="paragraph has-source-line data-line-stdin-955">
+<p>其中<code>AdaptiveClassCodeGenerator</code>以<code>@SPI</code>注解配置的值作为默认值生成一个后缀为"$Adaptive"的代理具类，该代理具类会将扩展点接口中标注了<code>@Adaptive</code>的方法委托给通过<code>ExtensionLoader</code>获取到的当前扩展点具类实例的同名方法。</p>
+</div>
+<div class="paragraph has-source-line data-line-stdin-957">
+<p>假设我们定义了如下一个扩展点接口：</p>
+</div>
+<div class="listingblock has-source-line data-line-stdin-959">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#080;font-weight:bold">package</span> <span style="color:#707;font-weight:bold">org.apache.dubbo.common.extension.ext2</span>
+<span style="color:#007">@SPI</span>
+<span style="color:#707;font-weight:bold">public</span> <span style="color:#707;font-weight:bold">interface</span> <span style="color:#707;font-weight:bold">EgSpi</span> {
+    <span style="color:#007">@Adaptive</span>({<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">key_first</span><span style="color:#710">"</span></span>,<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">key_second</span><span style="color:#710">"</span></span>,<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">key_third</span><span style="color:#710">"</span></span>})
+    <span style="color:#707;font-weight:bold">String</span> <span style="color:#707;font-weight:bold">echo</span>(<span style="color:#707;font-weight:bold">UrlHolder</span> <span style="color:#707;font-weight:bold">holder</span>, <span style="color:#707;font-weight:bold">String</span> <span style="color:#707;font-weight:bold">s</span>);
+
+    <span style="color:#0a8;font-weight:bold">String</span> bang(<span style="color:#0a8;font-weight:bold">URL</span> url, <span style="color:#339;font-weight:bold">int</span> i);
+
+    <span style="color:#007">@Adaptive</span>
+    <span style="color:#339;font-weight:bold">void</span> conn(<span style="color:#0a8;font-weight:bold">URL</span> url, <span style="color:#339;font-weight:bold">int</span> timeout);
+}</code></pre>
+</div>
+</div>
+<div class="paragraph has-source-line data-line-stdin-973">
+<p>经<code>AdaptiveClassCodeGenerator</code>处理后会生成下述代码，为了便于阅读，对代码进行了美化处理。</p>
+</div>
+<div class="listingblock has-source-line data-line-stdin-976">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#080;font-weight:bold">package</span> <span style="color:#707;font-weight:bold">org.apache.dubbo.common.extension.ext2</span>;
+<span style="color:#080;font-weight:bold">import</span> <span style="color:#B44;font-weight:bold">org.apache.dubbo.common.extension.ExtensionLoader</span>;
+<span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">class</span> <span style="color:#B06;font-weight:bold">EgSpi</span><span style="color:#F00;background-color:#FAA">$</span>Adaptive <span style="color:#088;font-weight:bold">implements</span> EgSpi {
+    <span style="color:#088;font-weight:bold">public</span> <span style="color:#0a8;font-weight:bold">String</span> echo(UrlHolder holder, <span style="color:#0a8;font-weight:bold">String</span> str) {
+        <span style="color:#080;font-weight:bold">if</span> (holder == <span style="color:#069">null</span>) <span style="color:#080;font-weight:bold">throw</span> <span style="color:#080;font-weight:bold">new</span> <span style="color:#C00;font-weight:bold">IllegalArgumentException</span>(
+                <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">UrlHolder argument == null</span><span style="color:#710">"</span></span>);
+        <span style="color:#080;font-weight:bold">if</span> (holder.getUrl() == <span style="color:#069">null</span>) <span style="color:#080;font-weight:bold">throw</span> <span style="color:#080;font-weight:bold">new</span> <span style="color:#C00;font-weight:bold">IllegalArgumentException</span>(
+                <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">UrlHolder argument getUrl() == null</span><span style="color:#710">"</span></span>);
+
+        <span style="color:#0a8;font-weight:bold">URL</span> url = holder.getUrl();
+        <span style="color:#0a8;font-weight:bold">String</span> extName = url.getParameter(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">key_first</span><span style="color:#710">"</span></span>,
+            url.getParameter(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">key_second</span><span style="color:#710">"</span></span>, url.getParameter(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">key_third</span><span style="color:#710">"</span></span>)));
+
+        <span style="color:#080;font-weight:bold">if</span> (extName == <span style="color:#069">null</span>)
+            <span style="color:#080;font-weight:bold">throw</span> <span style="color:#080;font-weight:bold">new</span> <span style="color:#C00;font-weight:bold">IllegalStateException</span>(
+                    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Failed to get extension (EgSpi) name from url (</span><span style="color:#710">"</span></span>
+                            + url.toString() + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">) use keys([eg.spi])</span><span style="color:#710">"</span></span>);
+        EgSpi extension = (EgSpi) ExtensionLoader.getExtensionLoader
+                (EgSpi.class).getExtension(extName);
+        <span style="color:#080;font-weight:bold">return</span> extension.echo(holder, str);
+    }
+
+    <span style="color:#088;font-weight:bold">public</span> <span style="color:#0a8;font-weight:bold">String</span> bang(<span style="color:#0a8;font-weight:bold">URL</span> url, <span style="color:#339;font-weight:bold">int</span> i) {
+        <span style="color:#080;font-weight:bold">throw</span> <span style="color:#080;font-weight:bold">new</span> <span style="color:#C00;font-weight:bold">UnsupportedOperationException</span>(
+                <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">The method public abstract String EgSpi.bang(URL,int)</span><span style="color:#710">"</span></span> +
+                        <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20"> of interface EgSpi is not adaptive method!</span><span style="color:#710">"</span></span>);
+    }
+
+    <span style="color:#088;font-weight:bold">public</span> <span style="color:#339;font-weight:bold">void</span> conn(<span style="color:#0a8;font-weight:bold">URL</span> urlArg, <span style="color:#339;font-weight:bold">int</span> timeout) {
+        <span style="color:#080;font-weight:bold">if</span> (urlArg == <span style="color:#069">null</span>) <span style="color:#080;font-weight:bold">throw</span> <span style="color:#080;font-weight:bold">new</span> <span style="color:#C00;font-weight:bold">IllegalArgumentException</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">url == null</span><span style="color:#710">"</span></span>);
+        <span style="color:#0a8;font-weight:bold">URL</span> url = urlArg;
+        <span style="color:#0a8;font-weight:bold">String</span> extName = url.getParameter(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">eg.spi</span><span style="color:#710">"</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">test</span><span style="color:#710">"</span></span>);
+        <span style="color:#080;font-weight:bold">if</span> (extName == <span style="color:#069">null</span>)
+            <span style="color:#080;font-weight:bold">throw</span> <span style="color:#080;font-weight:bold">new</span> <span style="color:#C00;font-weight:bold">IllegalStateException</span>(
+                    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Failed to get extension (EgSpi) name from url (</span><span style="color:#710">"</span></span>
+                            + url.toString() + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">) use keys([eg.spi])</span><span style="color:#710">"</span></span>);
+        EgSpi extension = (EgSpi) ExtensionLoader.getExtensionLoader
+                (EgSpi.class).getExtension(extName);
+        extension.conn(urlArg, timeout);
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph has-source-line data-line-stdin-1020">
+<p>从上述生成代码可以看出：</p>
+</div>
+<div class="olist arabic has-source-line data-line-stdin-1022">
+<ol class="arabic">
+<li class="has-source-line data-line-stdin-1022">
+<p>扩展点中没有声明<code>@Adaptive</code>注解的方法，对应生成代理具类的方法只会简单抛错处理；</p>
+</li>
+<li class="has-source-line data-line-stdin-1023">
+<p>针对已声明<code>@Adaptive</code>注解的方法，正常生成代理逻辑：</p>
+<div class="olist loweralpha has-source-line data-line-stdin-1024">
+<ol class="loweralpha" type="a">
+<li class="has-source-line data-line-stdin-1024">
+<p>Dubbo会找到首个类型为<strong>URL</strong>的入参<sub>传入配置总线</sub>获取目标具类的实例；</p>
+</li>
+<li class="has-source-line data-line-stdin-1025">
+<p>如果没有类型为<strong>URL</strong>的入参，会试图迭代所有入参，挨个试探是否能含有<code>getUrl()</code>方法，若有则通过它获取到<strong>URL</strong>配置总线；</p>
+</li>
+<li class="has-source-line data-line-stdin-1026">
+<p>Dubbo的SPI机制中，每一个扩展点具类都会有一个唯一对应的Key键，扩展点调用方需要使用该Key键通过<code>ExtensionLoader</code>动态获取到扩展点实例，调用方可以借助配置总线URL传入Key键，在URL中需要有合适的配置项，<code>@Adaptive</code>注解的值正是为此提供支持的，值可以配置多个，按顺序取用，直到首次找到可用的扩展点实例为止；</p>
+</li>
+<li class="has-source-line data-line-stdin-1027">
+<p>如果<code>@Adaptive</code>没有配置值，则当前扩展点所在配置总线中配置项<sub>字符串型的Key键</sub>被设定为：取扩展点接口名，按词分割，取小写，最后以"."拼接；</p>
+</li>
+<li class="has-source-line data-line-stdin-1028">
+<p>配置总线中若没有相应配置项，则使用由<code>@SPI</code>注解得到名词<sub><code>cachedDefaultName</code></sub>，如果该值为null，会因<code>extName == null</code>抛错；</p>
+</li>
+</ol>
+</div>
+</li>
+<li class="has-source-line data-line-stdin-1029">
+<p>不管是直接还是间接获取的<code>URL</code>配置总线，均不能为<code>null</code>;</p>
+</li>
+<li class="has-source-line data-line-stdin-1030">
+<p>生成类的包名和扩展点所处的包名一致；</p>
+</li>
+</ol>
+</div>
+<div class="sect3 has-source-line data-line-stdin-1032">
+<h4 id="_自适配具类的源码生成">自适配具类的源码生成</h4>
+<div class="paragraph has-source-line data-line-stdin-1034">
+<p>源码生成总体实现上并没有多复杂，基本原理是利用当前扩展点接口本身信息和<code>@Adaptive</code>注解信息生成扩展点代理具类，就其各个方法，从入参寻找到配置总线URL，以<code>@Adaptive</code>的值作为配置项从中取到目标扩展点具类的名称，<code>ExtensionLoader</code>使用该名称动态地获得扩展点实例，从而最终得以将生成具类的当前委托给目标具类。</p>
+</div>
+<div class="sect5 has-source-line data-line-stdin-1036">
+<h6 id="_类声明">类声明</h6>
+<div class="paragraph has-source-line data-line-stdin-1038">
+<p>声明代理具类的实现比较简单，简单的对应关系如下：</p>
+</div>
+<div class="olist arabic has-source-line data-line-stdin-1040">
+<ol class="arabic">
+<li class="has-source-line data-line-stdin-1040">
+<p><code>package</code>语句：和扩展点同包，<code>type.getPackage().getName()</code></p>
+</li>
+<li class="has-source-line data-line-stdin-1041">
+<p>引入<code>ExtensionLoader</code>依赖：<code>ExtensionLoader.class.getName()</code></p>
+</li>
+<li class="has-source-line data-line-stdin-1042">
+<p>类声明：<code>String.format("public class %s$Adaptive implements %s", type.getSimpleName(), type.getCanonicalName())</code></p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect5 has-source-line data-line-stdin-1045">
+<h6 id="_方法签名生成">方法签名生成</h6>
+<div class="paragraph has-source-line data-line-stdin-1047">
+<p>众所周知，总体上Java的一个方法包含了方法名、出参、入参、方法体，以及抛出异常声明<sub>异常也是一种出参</sub>，其中方法名取的就是当前扩展点接口的名称——<code>method.getName()</code>。凡是参数，具有自己的类型，Java中可以统一用<code>Class&lt;?&gt;</code>表示，类型可能含有泛型等复杂组成，因而生成代理具类源码时需要有完整的文本表示，也即需要使用<code>.getCanonicalName()</code>取得，另外一个好处是由于它使用的是全名，就避免了复杂的<code>import</code>导入处理。</p>
+</div>
+<div class="paragraph has-source-line data-line-stdin-1049">
+<p>Java中的出参是单一的，直接使用<code> method.getReturnType().getCanonicalName()</code>，而入参和异常出参稍微复杂点，如下：</p>
+</div>
+<div class="listingblock has-source-line data-line-stdin-1051">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#777">//generate method arguments</span>
+<span style="color:#088;font-weight:bold">private</span> <span style="color:#0a8;font-weight:bold">String</span> generateMethodArguments(<span style="color:#0a8;font-weight:bold">Method</span> method) {
+    <span style="color:#0a8;font-weight:bold">Class</span>&lt;?&gt;<span style="color:#339;font-weight:bold">[]</span> pts = method.getParameterTypes();
+    <span style="color:#080;font-weight:bold">return</span> IntStream.range(<span style="color:#00D">0</span>, pts.length)
+                    .mapToObj(i -&gt; <span style="color:#0a8;font-weight:bold">String</span>.format(CODE_METHOD_ARGUMENT, pts[i].getCanonicalName(), i))
+                    .collect(Collectors.joining(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">, </span><span style="color:#710">"</span></span>));
+}
+
+<span style="color:#777">//generate method throws</span>
+<span style="color:#088;font-weight:bold">private</span> <span style="color:#0a8;font-weight:bold">String</span> generateMethodThrows(<span style="color:#0a8;font-weight:bold">Method</span> method) {
+    <span style="color:#0a8;font-weight:bold">Class</span>&lt;?&gt;<span style="color:#339;font-weight:bold">[]</span> ets = method.getExceptionTypes();
+    <span style="color:#080;font-weight:bold">if</span> (ets.length &gt; <span style="color:#00D">0</span>) {
+        <span style="color:#0a8;font-weight:bold">String</span> list = <span style="color:#0a8;font-weight:bold">Arrays</span>.stream(ets).map(<span style="color:#0a8;font-weight:bold">Class</span>::getCanonicalName).collect(Collectors.joining(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">, </span><span style="color:#710">"</span></span>));
+        <span style="color:#080;font-weight:bold">return</span> <span style="color:#0a8;font-weight:bold">String</span>.format(CODE_METHOD_THROWS, list);
+    } <span style="color:#080;font-weight:bold">else</span> {
+        <span style="color:#080;font-weight:bold">return</span> <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#710">"</span></span>;
+    }
+}
+
+<span style="color:#088;font-weight:bold">private</span> <span style="color:#0a8;font-weight:bold">String</span> generateReturnAndInvocation(<span style="color:#0a8;font-weight:bold">Method</span> method) {
+    <span style="color:#0a8;font-weight:bold">String</span> returnStatement = method.getReturnType().equals(<span style="color:#339;font-weight:bold">void</span>.class) ? <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#710">"</span></span> : <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">return </span><span style="color:#710">"</span></span>;
+
+    <span style="color:#0a8;font-weight:bold">String</span> args = IntStream.range(<span style="color:#00D">0</span>, method.getParameters().length)
+            .mapToObj(i -&gt; <span style="color:#0a8;font-weight:bold">String</span>.format(CODE_EXTENSION_METHOD_INVOKE_ARGUMENT, i))
+            .collect(Collectors.joining(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">, </span><span style="color:#710">"</span></span>));
+
+    <span style="color:#080;font-weight:bold">return</span> returnStatement + <span style="color:#0a8;font-weight:bold">String</span>.format(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">extension.%s(%s);</span><span style="color:#b0b">\n</span><span style="color:#710">"</span></span>, method.getName(), args);
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect5 has-source-line data-line-stdin-1083">
+<h6 id="_方法体生成">方法体生成</h6>
+<div class="paragraph has-source-line data-line-stdin-1085">
+<p>方法体生成的代码涉及细节稍微比较多，下面挑拣几个重要的点阐述下：</p>
+</div>
+<div class="paragraph has-source-line data-line-stdin-1087">
+<p>先说说解决获取URL的问题，如下源码所示，大概思路是遍历所有入参，对每个入参的所有方法逐个检查，如果找到返回类型为URL且非<code>static</code>的<code>public</code>型无参<code>getter</code>方法，则直接：</p>
+</div>
+<div class="listingblock has-source-line data-line-stdin-1090">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#088;font-weight:bold">private</span> <span style="color:#0a8;font-weight:bold">String</span> generateUrlAssignmentIndirectly(<span style="color:#0a8;font-weight:bold">Method</span> method) {
+    <span style="color:#0a8;font-weight:bold">Class</span>&lt;?&gt;<span style="color:#339;font-weight:bold">[]</span> pts = method.getParameterTypes();
+
+    <span style="color:#777">// find URL getter method</span>
+    <span style="color:#080;font-weight:bold">for</span> (<span style="color:#339;font-weight:bold">int</span> i = <span style="color:#00D">0</span>; i &lt; pts.length; ++i) {
+        <span style="color:#080;font-weight:bold">for</span> (<span style="color:#0a8;font-weight:bold">Method</span> m : pts[i].getMethods()) {
+            <span style="color:#0a8;font-weight:bold">String</span> name = m.getName();
+            <span style="color:#080;font-weight:bold">if</span> ((name.startsWith(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">get</span><span style="color:#710">"</span></span>) || name.length() &gt; <span style="color:#00D">3</span>)
+                    &amp;&amp; <span style="color:#0a8;font-weight:bold">Modifier</span>.isPublic(m.getModifiers())
+                    &amp;&amp; !<span style="color:#0a8;font-weight:bold">Modifier</span>.isStatic(m.getModifiers())
+                    &amp;&amp; m.getParameterTypes().length == <span style="color:#00D">0</span>
+                    &amp;&amp; m.getReturnType() == <span style="color:#0a8;font-weight:bold">URL</span>.class) {
+                <span style="color:#080;font-weight:bold">return</span> generateGetUrlNullCheck(i, pts[i], name);
+            }
+        }
+    }
+
+    <span style="color:#777">// getter method not found, throw</span>
+    <span style="color:#080;font-weight:bold">throw</span> <span style="color:#080;font-weight:bold">new</span> <span style="color:#C00;font-weight:bold">IllegalStateException</span>(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Failed to create adaptive class for interface </span><span style="color:#710">"</span></span> + type.getName()
+                    + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">: not found url parameter or url attribute in parameters of method </span><span style="color:#710">"</span></span> + method.getName());
+
+}
+
+<span style="color:#777">/**
+ * 1, test if argi is null
+ * 2, test if argi.getXX() returns null
+ * 3, assign url with argi.getXX()
+ */</span>
+<span style="color:#088;font-weight:bold">private</span> <span style="color:#0a8;font-weight:bold">String</span> generateGetUrlNullCheck(<span style="color:#339;font-weight:bold">int</span> index, <span style="color:#0a8;font-weight:bold">Class</span>&lt;?&gt; type, <span style="color:#0a8;font-weight:bold">String</span> method) {
+    <span style="color:#777">// Null point check</span>
+    <span style="color:#0a8;font-weight:bold">StringBuilder</span> code = <span style="color:#080;font-weight:bold">new</span> <span style="color:#0a8;font-weight:bold">StringBuilder</span>();
+    code.append(<span style="color:#0a8;font-weight:bold">String</span>.format(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">if (arg%d == null) throw new IllegalArgumentException(</span><span style="color:#b0b">\"</span><span style="color:#D20">%s argument == null</span><span style="color:#b0b">\"</span><span style="color:#D20">);</span><span style="color:#b0b">\n</span><span style="color:#710">"</span></span>,
+            index, type.getName()));
+    code.append(<span style="color:#0a8;font-weight:bold">String</span>.format(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">if (arg%d.%s() == null) throw new IllegalArgumentException(</span><span style="color:#b0b">\"</span><span style="color:#D20">%s argument %s() == null</span><span style="color:#b0b">\"</span><span style="color:#D20">);</span><span style="color:#b0b">\n</span><span style="color:#710">"</span></span>,
+            index, method, type.getName(), method));
+
+    code.append(<span style="color:#0a8;font-weight:bold">String</span>.format(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">%s url = arg%d.%s();</span><span style="color:#b0b">\n</span><span style="color:#710">"</span></span>, <span style="color:#0a8;font-weight:bold">URL</span>.class.getName(), index, method));
+    <span style="color:#080;font-weight:bold">return</span> code.toString();
+}</code></pre>
+</div>
+</div>
+<div class="admonitionblock note has-source-line data-line-stdin-1134">
+<table>
+<tbody><tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+<div class="paragraph has-source-line data-line-stdin-1135">
+<p>java中的访问修饰符总共有12个，分别是<code>pubic、private、protected、static、final、synchronized、volatile、transient、native、interface、abstract、strictfp</code>，他们可以汇总在一个2字节的int类型变量加以表达，<code>0000 0000 0000 0000</code>，从低到高，分别各占一位，元素含有该修饰符就标记为1，否则为0，比如某个方法加了<code>synchronized</code>修饰符，那第6位便是1。Method对象中有一个<code>modifiers</code>变量，2字节的int类型，它告知外界这个方法的可见性、是否为static等。这样便可以使用高效的位操作判别方法的特性，比如检测方法是否是static的：</p>
+</div>
+<div class="listingblock has-source-line data-line-stdin-1138">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#777">//0x00000008 = 0000 0000 0000 1000</span>
+
+<span style="color:#777">//The {@code int} value representing the {@code static} modifier.</span>
+<span style="color:#088;font-weight:bold">public</span> <span style="color:#088;font-weight:bold">static</span> <span style="color:#088;font-weight:bold">final</span> <span style="color:#339;font-weight:bold">int</span> STATIC = <span style="color:#02b">0x00000008</span>;
+
+<span style="color:#088;font-weight:bold">public</span> <span style="color:#088;font-weight:bold">static</span> <span style="color:#339;font-weight:bold">boolean</span> isStatic(<span style="color:#339;font-weight:bold">int</span> mod) {
+    <span style="color:#080;font-weight:bold">return</span> (mod &amp; STATIC) != <span style="color:#00D">0</span>;
+}</code></pre>
+</div>
+</div>
+</td>
+</tr>
+</tbody></table>
+</div>
+<div class="paragraph has-source-line data-line-stdin-1150">
+<p>上文已经提到对于没有提供值的<code>@Adaptive</code>方法注解，Dubbo会默认生成一个配置项，如下所示：</p>
+</div>
+<div class="listingblock has-source-line data-line-stdin-1153">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#088;font-weight:bold">private</span> <span style="color:#0a8;font-weight:bold">String</span><span style="color:#339;font-weight:bold">[]</span> getMethodAdaptiveValue(Adaptive adaptiveAnnotation) {
+    <span style="color:#0a8;font-weight:bold">String</span><span style="color:#339;font-weight:bold">[]</span> value = adaptiveAnnotation.value();
+    <span style="color:#777">// value is not set, use the value generated from class name as the key</span>
+    <span style="color:#080;font-weight:bold">if</span> (value.length == <span style="color:#00D">0</span>) {
+        <span style="color:#0a8;font-weight:bold">String</span> splitName = StringUtils.camelToSplitName(type.getSimpleName(), <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">.</span><span style="color:#710">"</span></span>);
+        value = <span style="color:#080;font-weight:bold">new</span> <span style="color:#0a8;font-weight:bold">String</span><span style="color:#339;font-weight:bold">[]</span>{splitName};
+    }
+    <span style="color:#080;font-weight:bold">return</span> value;
+}</code></pre>
+</div>
+</div>
+<div class="paragraph has-source-line data-line-stdin-1165">
+<p>最后在<code>@Adaptive</code>注解中，如果出现了<code>"protocol"</code>，如果其出现在前面，会优先以它作为扩展点的名称获取扩展点实例，否则只有没有在URL中找到对应配置值是才使用它。如下述代码片段所示：</p>
+</div>
+<div class="listingblock has-source-line data-line-stdin-1167">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span style="color:#777">//①场景：@Adaptive({"protocol", "key2"})</span>
+<span style="color:#0a8;font-weight:bold">String</span> extName = url.getProtocol() == <span style="color:#069">null</span> ? (url.getParameter(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">key2</span><span style="color:#710">"</span></span>)) : url.getProtocol();
+
+<span style="color:#777">//②场景：@Adaptive({"key1", "protocol"})</span>
+<span style="color:#0a8;font-weight:bold">String</span> extName = url.getParameter(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">key1</span><span style="color:#710">"</span></span>, url.getProtocol());
+
+<span style="color:#777">//③场景：@Adaptive({"key1", "protocol", "key2"})</span>
+<span style="color:#0a8;font-weight:bold">String</span> extName = url.getParameter(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">key1</span><span style="color:#710">"</span></span>, url.getProtocol() == <span style="color:#069">null</span> ? (url.getParameter(<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">key2</span><span style="color:#710">"</span></span>)) : url.getProtocol());</code></pre>
+</div>
+</div>
+<hr>
+<div class="paragraph has-source-line data-line-stdin-1180">
+<p>关于Dubbo SPI，最重要的一环这里没有涉及，就代码生成之后的动态编译处理。搞Java业务开发，这些比较深入的技能点，一般是没法接触到的，下文我将带大家去探访。</p>
+</div>
+<div class="paragraph has-source-line data-line-stdin-1183">
+<p>完结</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div><script src="../res_files/js/scrollToElement.js"></script>
+<script src="../res_files/js/processLinks.js"></script>
+<script src="../res_files/js/pickSourceLine.js"></script>
+<script type="text/x-mathjax-config;executed=true">
+MathJax.Hub.Config({
+  messageStyle: "none",
+  tex2jax: {
+    inlineMath: [["\\(", "\\)"]],
+    displayMath: [["\\[", "\\]"]],
+    ignoreClass: "nostem|nolatexmath"
+  },
+  asciimath2jax: {
+    delimiters: [["\\$", "\\$"]],
+    ignoreClass: "nostem|noasciimath"
+  },
+  TeX: { equationNumbers: { autoNumber: "none" } }
+});
+</script>
+<script src="../res_files/js/MathJax.js"></script>
+<div id="color-picker-wrap" style="display: none; position: fixed; top: 0px; left: 0px; z-index: 9999;"><!----></div></body></html>
