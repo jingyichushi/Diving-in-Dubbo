@@ -81,7 +81,7 @@ image::./res/imgs/web_dis_load_balance_ip.png[IP负载均衡]
 ``RS``集群和``DS``~不作为网关出现~处于同一物理网络中的，Client发送一个``<Src:CIP,Dst:VIP>``IP请求报文，当``DS``接受请求后挑中某个``RS``作为目标机，并将其当前报文中的MAC地址设成``R_MAC``，随后发送一个ARP广播出去，私有``loopback``环回接口绑定了VIP的所有``RS``接受到请求后，只有MAC地址为``R_MAC``的``RS``服务器会响应请求。
 
 
-image::./res/imgs/web_dis_load_balance_DR.png[DR负载均衡]
+image::./res/imgs/web_dis_load_balance_dr.png[DR负载均衡]
 
 [NOTE]
 ====
