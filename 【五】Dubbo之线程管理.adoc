@@ -386,7 +386,7 @@ public class ChannelEventRunnable implements Runnable {
 
 === **Dispatcher**的各种线程派发细节
 
-WrappedChannelHandler的每一个子类代表一种线程派发模型，它们决定了是否对网络I/O事件是否派发到业务线程池去异步执行，对应关系如下：
+WrappedChannelHandler的每一个子类代表一种线程派发模型，它们决定了是否对网络I/O事件回调方法派发到业务线程池中去执行，对应关系如下：
 
 . *all* `AllChannelHandler` → connected、disconnected、received、caught
 . *connection* `ConnectionOrderedChannelHandler` → connected、disconnected、received、caught
@@ -399,9 +399,9 @@ WrappedChannelHandler的每一个子类代表一种线程派发模型，它们�
 上述陈列的对应关系看起来让人有些懵，结合上文可知，虽然不同的派发方式对同一种网络I/O事件执行了业务线程派发处理，但是具体实现方式是不同的。
 
 
-初看起来``received``回调事件是指Channel接收到请求，然而这个理解是不准确的，通讯过程中Client和Server以Channel作为信息发送的通道，本文中的线程派发过程中，我们可以初略的认为Netty就是那个Channel，Client通过Channel发送请求给Server，随后Channel会告知Server I/O就绪——回调Server提供的``received``实现，这时Server端接受到的是一个称为Request的请求对象。
+初看起来``received``回调事件是指Channel接收到请求，然而这个理解是不准确的，通讯过程中Client和Server以Channel作为信息收发通道，本文中的线程派发过程中，我们可以初略的认为Netty就是那个Channel，Client通过Channel发送请求给Server，随后Channel会告知Server I/O就绪——回调Server提供的``received``实现，这时Server端接受到的是一个称为Request的请求对象。
 
-如果Channel是双工的，Server通过同一Channel给Client了发送了Request请求，若干ms后，Client处理完Server发给它的请求，会通过Channel回送一个响应给Server，Server端I/O就绪后，同样Channel也会告知Server I/O就绪，同样也是回调Server提供的``received``实现，只不过这次Server端接受到的是一个称为Response的响应对象。
+如果Channel是双向的，Server通过同一Channel给Client了发送了Request请求，若干ms后，Client处理完Server发给它的请求，会通过Channel回送一个响应给Server，Server端I/O就绪后，同样Channel也会告知Server I/O就绪，同样也是回调Server提供的``received``实现，只不过这次Server端接受到的是一个称为Response的响应对象。
 
 以``ExecutionChannelHandler``和``MessageOnlyChannelHandler``为例。
 
@@ -426,7 +426,7 @@ public class ExecutionChannelHandler extends WrappedChannelHandler {
                 if (t instanceof RejectedExecutionException) {
                     Request request = (Request) message;
 
-                    if (request.isTwoWay()) {//检测到时双工方式
+                    if (request.isTwoWay()) {//检测到时双向方式
                         String msg = "Server side(" + url.getIp() + "," + url.getPort()
                                 + ") thread pool is exhausted, detail msg:" + t.getMessage();
                         Response response = new Response(request.getId(), request.getVersion());

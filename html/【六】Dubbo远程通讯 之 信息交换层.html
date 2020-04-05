@@ -624,7 +624,7 @@ table.CodeRay td.code{padding:0 0 0 .75em}
 </blockquote>
 </div>
 <div class="paragraph has-source-line data-line-stdin-9">
-<p>由上述表述可以看出，平常所熟悉的<code>请求-响应</code>模式表面上是一问一答的，实际一个应答背后可能对应着多个交互往来，另外其通讯是基于双工通道的。</p>
+<p>由上述表述可以看出，平常所熟悉的<code>请求-响应</code>模式表面上是一问一答的，实际一个应答背后可能对应着多个交互往来，另外其通讯是基于双向通道的。</p>
 </div>
 <div class="paragraph has-source-line data-line-stdin-11">
 <p>Dubbo将端到端的网络通讯相关的行为封装网络传输层<sup><strong>Transporter</strong></sup>，具体的网络I/O则委托给了类似Netty等的网络通讯中间件，而更关注业务语义的

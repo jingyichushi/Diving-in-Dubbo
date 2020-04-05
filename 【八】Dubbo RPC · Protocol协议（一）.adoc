@@ -1084,7 +1084,7 @@ public class InjvmProtocol extends AbstractProtocol implements Protocol {
 [IMPORTANT]
 这里的``DubboInvoker``，其实例所代表的微服务是客户端一方的概念，表示引用服务端暴露的服务。
 
-``DubboInvoker``是协议层中Dubbo协议下的``Invoker``实现，当然主要是完成原生方法调用转换后的RPC方法调用，它在连接池中以轮询方式选用一个``ExchangeClient``实例将请求发送出去，随后返回一个``AsyncRpcResult``实例，在双工模式需要返回响应的情况下，需要等到服务端处理完请求返回响应才完成这个``CompleteableFuture<AsyncRpcResult>``，否则返回的是一个值为null，已经完成处理的值。
+``DubboInvoker``是协议层中Dubbo协议下的``Invoker``实现，当然主要是完成原生方法调用转换后的RPC方法调用，它在连接池中以轮询方式选用一个``ExchangeClient``实例将请求发送出去，随后返回一个``AsyncRpcResult``实例，在双向模式需要返回响应的情况下，需要等到服务端处理完请求返回响应才完成这个``CompleteableFuture<AsyncRpcResult>``，否则返回的是一个值为null，已经完成处理的值。
 
 === 状态管理
 
@@ -1232,7 +1232,7 @@ public class DubboInvoker<T> extends AbstractInvoker<T> {
 
 有必要提一下的是，DubboInvoker的构造函数中使用``new String[]{INTERFACE_KEY, GROUP_KEY, TOKEN_KEY, TIMEOUT_KEY}``表示基于Dubbo协议的微服务实例所关注的配置总线中的元数据，分别是“1）唯一标识微服务的接口；2）所属分组；3）运行环境所需的token；4）超时时间”，像``Invocation``实现一样，将他们从配置总线中设置为自身的附属参数，方便取用。
 
-最后，需要看看上述用于判定当前请求是否为单工模式的``RpcUtils#isOneway(url, inv)``方法的实现，如下，默认是双工模式，否则需要显示设定``url[methodName + ".return"] = false``。
+最后，需要看看上述用于判定当前请求是否为单向模式的``RpcUtils#isOneway(url, inv)``方法的实现，如下，默认是双向模式，否则需要显示设定``url[methodName + ".return"] = false``。
 
 [source,java]
 ----

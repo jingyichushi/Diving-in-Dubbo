@@ -1179,7 +1179,7 @@ Channel信息通道NioSocketChannel，并随后将其注册到workerGroup线程�
 提供的<code>received</code>实现，这时Server端接受到的是一个称为Request的请求对象。</p>
 </div>
 <div class="paragraph has-source-line data-line-stdin-432">
-<p>如果Channel是双工的，Server通过同一Channel给Client了发送了Request请求，若干ms后，Client处理完Server发给它的请求，会通过Channel回送一
+<p>如果Channel是双向的，Server通过同一Channel给Client了发送了Request请求，若干ms后，Client处理完Server发给它的请求，会通过Channel回送一
 个响应给Server，Server端I/O就绪后，同样Channel也会告知Server I/O就绪，同样也是回调Server提供的<code>received</code>实现，只不过这次Server
 端接受到的是一个称为Response的响应对象。</p>
 </div>
@@ -1207,7 +1207,7 @@ Channel信息通道NioSocketChannel，并随后将其注册到workerGroup线程�
                 <span style="color:#080;font-weight:bold">if</span> (t <span style="color:#080;font-weight:bold">instanceof</span> <span style="color:#C00;font-weight:bold">RejectedExecutionException</span>) {
                     Request request = (Request) message;
 
-                    <span style="color:#080;font-weight:bold">if</span> (request.isTwoWay()) {<span style="color:#777">//检测到时双工方式</span>
+                    <span style="color:#080;font-weight:bold">if</span> (request.isTwoWay()) {<span style="color:#777">//检测到时双向方式</span>
                         <span style="color:#0a8;font-weight:bold">String</span> msg = <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">Server side(</span><span style="color:#710">"</span></span> + url.getIp() + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">,</span><span style="color:#710">"</span></span> + url.getPort()
                                 + <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">"</span><span style="color:#D20">) thread pool is exhausted, detail msg:</span><span style="color:#710">"</span></span> + t.getMessage();
                         Response response = <span style="color:#080;font-weight:bold">new</span> Response(request.getId(), request.getVersion());
