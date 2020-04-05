@@ -1,19 +1,13 @@
 = Dubbo之线程管理
 
 == 模型由来
-Java线程和内核线程的1对1的关系使得其产生、销毁、切换都会耗费大量的CPU时间，每一个线程也最少占据1M的内存资源，这些都限制着Java不可能像类似
-GoLang这类采用协程机制的编程语言可以任意创建执行任务用的轻量级线程。同时由于受到JVM实现方式的限制，其I/O的实现也还尚未完全逼近操作系统内核的
-异步I/O。
+Java线程和内核线程的1对1的关系使得其产生、销毁、切换都会耗费大量的CPU时间，每一个线程也最少占据1M的内存资源，这些都限制着Java不可能像类似GoLang这类采用协程机制的编程语言可以任意创建执行任务用的轻量级线程。同时由于受到JVM实现方式的限制，其I/O的实现也还尚未完全逼近操作系统内核的异步I/O。
 
 [NOTE]
 [small]#“*阻塞I/O、非阻塞I/O、I/O复用（select和poll）、信号驱动I/O（SIGIO）、异步I/O*”这5种I/O模型，效率依次递增#。
 
 
-因而线程和I/O是Java开发中始终不可逃避的两个中心话题，可以说近些年Java生态的发展，始终没有离开对二者进行的优化设计。Netty正是巧妙的使用了
-多路复用机制，使得业务线程不必阻塞等待在I/O操作上，单位时间可以获得更大的吞吐量。隔壁JS社区NodeJs异步编程的高速发展更是直接刺激着Vertx全异步
-编程框架的诞生，后者则直接是由Netty发展起来的。实际上单独避开I/O谈线程或者反过来都是不妥的，I/O模型只是尽量在设法降低业务线程的阻塞等待耗时，
-让其有机会利用这段CPU时间去执行其它任务，反之线程模型则是讲究如何更好地利用好优化的I/O模型，因而二者相辅相成，目标都是在尽最大限度的压榨CPU等
-硬件资源，提升系统性能。
+因而线程和I/O是Java开发中始终不可逃避的两个中心话题，可以说近些年Java生态的发展，始终没有离开对二者进行的优化设计。Netty正是巧妙的使用了多路复用机制，使得业务线程不必阻塞等待在I/O操作上，单位时间可以获得更大的吞吐量。隔壁JS社区NodeJs异步编程的高速发展更是直接刺激着Vertx全异步编程框架的诞生，后者则直接是由Netty发展起来的。实际上单独避开I/O谈线程或者反过来都是不妥的，I/O模型只是尽量在设法降低业务线程的阻塞等待耗时，让其有机会利用这段CPU时间去执行其它任务，反之线程模型则是讲究如何更好地利用好优化的I/O模型，因而二者相辅相成，目标都是在尽最大限度的压榨CPU等硬件资源，提升系统性能。
 
 == Dubbo方案——**Dispatcher** 派发模型
 
@@ -57,35 +51,22 @@ ____
 
 == **Dispatcher** 原理
 
-Dubbo本身的大部分职责是负责RPC通讯，I/O处理占据了大量内容。由上文得知从网络I/O切换到业务处理这个过程中，需要平衡好线程和I/O间的关系——1）线程间
-切换是个耗时的动作；2）任何时候都不应该造成I/O线程阻塞。
+Dubbo本身的大部分职责是负责RPC通讯，I/O处理占据了大量内容。由上文得知从网络I/O切换到业务处理这个过程中，需要平衡好线程和I/O间的关系——1）线程间切换是个耗时的动作；2）任何时候都不应该造成I/O线程阻塞。
 
-上面反复提及的网络I/O实质是网络Socket通讯，Dubbo将该部分委托给诸如Grizzly、Mina、Netty等的网络I/O中间件，由他们处理具体的网络I/O，Dubbo只负责
-响应对应的5种网络I/O事件，分别是[big]##*connected、sent、received、disconnected、caught*##，其中[big]##*sent、received*##分别
-对应于RPC的请求和响应，是直接与业务方接入接出相关的。毋庸置疑，为保证吞吐量这些中间件已经采用了优化过的线程模型，也就是使用多路复用I/O，有专门的
-线程负责网络连接，由另外的work线程池负责处理读写I/O操作——从 SocketChannel 中读取报文或向 SocketChannel 写入报文。以如下图所示的Netty
-服务端为例，bossGroup这个线程池中的NioEventLoop线程是专门负责Accept来自Client发起的请求，连接建立成功后，会为Client生成一个对应的
-Channel信息通道NioSocketChannel，并随后将其注册到workerGroup线程池中某个NioEventLoop线程上~一般被称为work线程~，后者会不断的轮询注册
-到自身的NioSocketChannel，检测是否有读写事件准备好，若有，调用对应的ChannelHandler进行处理。
+上面反复提及的网络I/O实质是网络Socket通讯，Dubbo将该部分委托给诸如Grizzly、Mina、Netty等的网络I/O中间件，由他们处理具体的网络I/O，Dubbo只负责响应对应的5种网络I/O事件，分别是[big]##*connected、sent、received、disconnected、caught*##，其中[big]##*sent、received*##分别对应于RPC的请求和响应，是直接与业务方接入接出相关的。毋庸置疑，为保证吞吐量这些中间件已经采用了优化过的线程模型，也就是使用多路复用I/O，有专门的线程负责网络连接，由另外的work线程池负责处理读写I/O操作——从 SocketChannel 中读取报文或向 SocketChannel 写入报文。以如下图所示的Netty服务端为例，bossGroup这个线程池中的NioEventLoop线程是专门负责Accept来自Client发起的请求，连接建立成功后，会为Client生成一个对应的Channel信息通道NioSocketChannel，并随后将其注册到workerGroup线程池中某个NioEventLoop线程上~一般被称为work线程~，后者会不断的轮询注册到自身的NioSocketChannel，检测是否有读写事件准备好，若有，调用对应的ChannelHandler进行处理。
 
 image::res/imgs/netty_server_model.png[caption="图 1: ", title="Netty 线程模型", alt="Netty 线程模型", width="850",]
 
 
-但是上图所表达的这个模型依然是有欠缺的，work线程负责调度执行的ChannelHandler，是执行业务处理的处所，但也肩负着网络I/O的读写处理，于CPU密
-集型耗时任务而言，会阻塞work线程，严重影响Netty对Socket的处理速度，导致响应不及时，因而Netty建议另外使用专门的业务线程池异步执行耗时任务。
-link:https://www.infoq.cn/article/jd-netty[《京东的 Netty 实践，京麦 TCP 网关长连接容器架构》]一文中提到使用Netty实现TCP网关，除了
-上文中提到bossGroup和workerGroup这两个线程池，还多出一个executorGroup线程池。关于他们的用途，文中描述如下：
+但是上图所表达的这个模型依然是有欠缺的，work线程负责调度执行的ChannelHandler，是执行业务处理的处所，但也肩负着网络I/O的读写处理，于CPU密集型耗时任务而言，会阻塞work线程，严重影响Netty对Socket的处理速度，导致响应不及时，因而Netty建议另外使用专门的业务线程池异步执行耗时任务。link:https://www.infoq.cn/article/jd-netty[《京东的 Netty 实践，京麦 TCP 网关长连接容器架构》]一文中提到使用Netty实现TCP网关，除了上文中提到bossGroup和workerGroup这两个线程池，还多出一个executorGroup线程池。关于他们的用途，文中描述如下：
 
 ____
-BossGroup用于接收客户端的TCP连接，WorkerGroup用于处理 I/O、执行系统Task和定时任务，ExecutorGroup用于处理网关业务加解密、限流、路由，
-及将请求转发给后端的抓取服务等业务操作。
+BossGroup用于接收客户端的TCP连接，WorkerGroup用于处理 I/O、执行系统Task和定时任务，ExecutorGroup用于处理网关业务加解密、限流、路由，及将请求转发给后端的抓取服务等业务操作。
 ____
 
 image::res/imgs/netty_thread_model_sample.jpg[caption="图 2: ", title="Netty 线程模型 实例", alt="Netty 线程模型 实例", width="850",]
 
-自然，在同一套体系下优秀的实践总是得以沿袭和被相互借鉴，**Dispatcher**也是参透了这套精髓，如下图所示~只有work线程这部分是Dubbo源码直接接触的部分~
-的link:https://www.cnblogs.com/java-zhao/p/7822766.html[Dubbo线程模型]，work线程会将流程转给Dubbo管理的Client线程池或者Server线程池，
-**Dispatcher**决定了业务执行是否有3或者5这个步骤，若没有，对应的业务会直接在work线程中执行。
+自然，在同一套体系下优秀的实践总是得以沿袭和被相互借鉴，**Dispatcher**也是参透了这套精髓，如下图所示~只有work线程这部分是Dubbo源码直接接触的部分~的link:https://www.cnblogs.com/java-zhao/p/7822766.html[Dubbo线程模型]，work线程会将流程转给Dubbo管理的Client线程池或者Server线程池，**Dispatcher**决定了业务执行是否有3或者5这个步骤，若没有，对应的业务会直接在work线程中执行。
 
 
 image::res/imgs/dubbo_thread_model.png[caption="图 3: ", title="Dubbo线程模型", alt="Dubbo线程模型", width="850",]
@@ -102,16 +83,13 @@ ____
 ====
 ____
 
-由于考虑到线程切换本身也是个耗时操作，**Dispatcher**的几个不同实现方案正是根据不同的应用场景分别提炼的解决方案，可以根据业务需求决定采用
-哪种**Dispatcher**实现方案来完成对应的网络I/O事件。
+由于考虑到线程切换本身也是个耗时操作，**Dispatcher**的几个不同实现方案正是根据不同的应用场景分别提炼的解决方案，可以根据业务需求决定采用哪种**Dispatcher**实现方案来完成对应的网络I/O事件。
 
 == 具体实现
 
 === **Dispatcher**实现方式
 
-先看其定义，接口使用Dubbo的SPI机制，默认采用的**all**模式，其两个参数，一个是用于传递处理网络I/O事件的ChannelHandler，另一个是用于传递
-参数的URL，而返回参数又是一个ChannelHandler。从上文分析可知，**Dispatcher**做线程派发的对象正是ChannelHandler处理的网络I/O事件，由接
-口定义大概可以猜出，其实现是对ChannelHandler做增强处理，使之符合线程派发这个需求目标。
+先看其定义，接口使用Dubbo的SPI机制，默认采用的**all**模式，其两个参数，一个是用于传递处理网络I/O事件的ChannelHandler，另一个是用于传递参数的URL，而返回参数又是一个ChannelHandler。从上文分析可知，**Dispatcher**做线程派发的对象正是ChannelHandler处理的网络I/O事件，由接口定义大概可以猜出，其实现是对ChannelHandler做增强处理，使之符合线程派发这个需求目标。
 
 [source,java]
 ----
@@ -162,14 +140,12 @@ public class DirectDispatcher implements Dispatcher {
 }
 ----
 
-再细看如下的类URML图，从下半截可以看出除了__DirectDispatcher__外，**Dispatcher**的其它每一个实现均会创建一种类型的``ChannelHandlerDelegate``，
-由类图的上半截得知，整个实现采用了装饰器模式，抽象基类``WrappedChannelHandler``下的每一种装饰器实现均对应了一种线程派发方式。
+再细看如下的类URML图，从下半截可以看出除了__DirectDispatcher__外，**Dispatcher**的其它每一个实现均会创建一种类型的``ChannelHandlerDelegate``，由类图的上半截得知，整个实现采用了装饰器模式，抽象基类``WrappedChannelHandler``下的每一种装饰器实现均对应了一种线程派发方式。
 
 image::res/imgs/dubbo_dispatcher.png[caption="图 4: ", title="Dubbo Dispatcher UML示意图", alt="Dubbo Dispatcher UML示意图", width="1024",]
 
 
-所谓线程派发，简言之，是将某个具体行为的方法调用转换为**Runnable**提交到线程池异步执行，由线程池的调度器决定它的执行时机，当前线程的方法执行
-栈帧将会立即返回被释放。最简单的示例如下述源码：
+所谓线程派发，简言之，是将某个具体行为的方法调用转换为**Runnable**提交到业务线程池执行，由线程池的调度器决定它的执行时机，当前线程的方法执行栈帧将会立即返回被释放。最简单的示例如下述源码：
 [source,java]
 ----
 public class MessageOnlyChannelHandler extends WrappedChannelHandler {
@@ -198,9 +174,7 @@ public class MessageOnlyChannelHandler extends WrappedChannelHandler {
 
 ==== *WrappedChannelHandler*
 
-WrappedChannelHandler这个抽象基类简化了具体线程派发的实现，将诸如获取任务执行调度器的公共部分都放在基类中，其它的网络I/O事件响应都是简单地调用
-所包装ChannelHandler的对应方法，由实现类根据需要覆写为异步执行。如果没有通过SPI机制指定ThreadPool，Dubbo会使用全局的SHARED_EXECUTOR作为
-异步任务调度执行器，它持有一个可缓冲的线程池，否则会为每一个Client或者Server创建一个由具体ThreadPool持有的指定类型的线程池。
+WrappedChannelHandler这个抽象基类简化了具体线程派发的实现，将诸如获取任务执行调度器的公共部分都放在基类中，其它的网络I/O事件响应都是简单地调用所包装ChannelHandler的对应方法，由实现类根据需要将对应的网络I/O事件回调方法在业务线程池上执行。如果没有通过SPI机制指定ThreadPool，Dubbo会使用全局的SHARED_EXECUTOR作为任务调度执行器，它持有一个可缓冲的线程池，否则会为每一个Client或者Server创建一个由具体ThreadPool持有的指定类型的线程池。
 
 [NOTE]
 可缓冲的线程池，特点是当线程池的大小超过了处理任务所需要的线程时，就会回收部分最近60秒不执行任务的空闲的线程，线程池大小只收到操作系统（或者说JVM）能够创建的最大线程数的限制
@@ -238,7 +212,7 @@ public class WrappedChannelHandler implements ChannelHandlerDelegate {
     }
 
 //========================
-//executor是用于异步执行任务的调度器，由具体派发实现决定如何调用。
+//executor是用于执行任务的调度器，由具体派发实现决定如何调用。
 //========================
     protected static final ExecutorService SHARED_EXECUTOR = Executors.newCachedThreadPool(new NamedThreadFactory("DubboSharedHandler", true));
 
@@ -284,7 +258,7 @@ public class WrappedChannelHandler implements ChannelHandlerDelegate {
     }
 
 //========================
-//简单调用所包装ChannelHandler的对应方法，由子类根据需要改写为异步执行
+//简单调用所包装ChannelHandler的对应方法，由子类根据需要委派给业务线程池执行
 //========================
     @Override
     public void connected(Channel channel) throws RemotingException {
@@ -425,13 +399,9 @@ WrappedChannelHandler的每一个子类代表一种线程派发模型，它们�
 上述陈列的对应关系看起来让人有些懵，结合上文可知，虽然不同的派发方式对同一种网络I/O事件执行了业务线程派发处理，但是具体实现方式是不同的。
 
 
-初看起来``received``回调事件是指Channel接收到请求，然而这个理解是不准确的，通讯过程中Client和Server以Channel作为信息发送的通道，本文中的
-线程派发过程中，我们可以初略的认为Netty就是那个Channel，Client通过Channel发送请求给Server，随后Channel会告知Server I/O就绪——回调Server
-提供的``received``实现，这时Server端接受到的是一个称为Request的请求对象。
+初看起来``received``回调事件是指Channel接收到请求，然而这个理解是不准确的，通讯过程中Client和Server以Channel作为信息发送的通道，本文中的线程派发过程中，我们可以初略的认为Netty就是那个Channel，Client通过Channel发送请求给Server，随后Channel会告知Server I/O就绪——回调Server提供的``received``实现，这时Server端接受到的是一个称为Request的请求对象。
 
-如果Channel是双工的，Server通过同一Channel给Client了发送了Request请求，若干ms后，Client处理完Server发给它的请求，会通过Channel回送一
-个响应给Server，Server端I/O就绪后，同样Channel也会告知Server I/O就绪，同样也是回调Server提供的``received``实现，只不过这次Server
-端接受到的是一个称为Response的响应对象。
+如果Channel是双工的，Server通过同一Channel给Client了发送了Request请求，若干ms后，Client处理完Server发给它的请求，会通过Channel回送一个响应给Server，Server端I/O就绪后，同样Channel也会告知Server I/O就绪，同样也是回调Server提供的``received``实现，只不过这次Server端接受到的是一个称为Response的响应对象。
 
 以``ExecutionChannelHandler``和``MessageOnlyChannelHandler``为例。
 
@@ -497,8 +467,7 @@ public class MessageOnlyChannelHandler extends WrappedChannelHandler {
 }
 ----
 
-*connection* 类型的线程派发模型实现有点特殊，为确保连接和断连能够有序的执行，``ConnectionOrderedChannelHandler``单独维护了一个任务
-执行调度器，其队列是LinkedBlockingQueue。如下述源码：
+*connection* 类型的线程派发模型实现有点特殊，为确保连接和断连能够有序的执行，``ConnectionOrderedChannelHandler``单独维护了一个任务执行调度器，其队列是LinkedBlockingQueue。如下述源码：
 
 [source,java]
 ----
@@ -553,9 +522,7 @@ public class ConnectionOrderedChannelHandler extends WrappedChannelHandler {
 
 === 产生——端的派发特性支持
 
-上文已经分析过，**Dispatcher**实际上是产生一个``ChannelHandler``的装饰器，由具体的装饰器实现决定是否将Netty等网络I/O框架在回调对应的事件
-时是否将流程分派到业务线程执行。如下所示，Client和Server在初始化时会先调用``ChannelHandlers.wrap()``将传入的``ChannelHandler``做装饰
-处理，根据配置选用目标``Dispatcher``。
+上文已经分析过，**Dispatcher**实际上是产生一个``ChannelHandler``的装饰器，由具体的装饰器实现决定是否将Netty等网络I/O框架在回调对应的事件时是否将流程分派到业务线程执行。如下所示，Client和Server在初始化时会先调用``ChannelHandlers.wrap()``将传入的``ChannelHandler``做装饰处理，根据配置选用目标``Dispatcher``。
 
 
 
@@ -612,9 +579,7 @@ public class NettyClient extends AbstractClient {
 === 消亡——端的线程池优雅终止
 
 
-所谓线程池优雅终止就是在执行close操作之前让正在运行中的业务线程有机会获得资源完成其剩下的工作，而非一招致命。**Dispatcher**的实现始终没有离开
-``ExecutorService``的有力支持，其线程池优雅终止实现也是基于这个任务执行调度器，在进一步阐述Dubbo线程池优雅终止的实现方案前，先看看ExecutorService
-中有关``shutdown``操作的定义。
+所谓线程池优雅终止就是在执行close操作之前让正在运行中的业务线程有机会获得资源完成其剩下的工作，而非一招致命。**Dispatcher**的实现始终没有离开``ExecutorService``的有力支持，其线程池优雅终止实现也是基于这个任务执行调度器，在进一步阐述业务线程池优雅终止的实现方案前，先看看ExecutorService中有关``shutdown``操作的定义。
 [source,java]
 ----
 public interface ExecutorService extends Executor {
@@ -702,8 +667,7 @@ public interface ExecutorService extends Executor {
 
 . ``void shutdown()`` 顺序关闭先前已经提交的任务，不再接受新任务。调用完方法后，会立即返回，并不会等待所有已经提交的任务完成。
 
-. ``List<Runnable> shutdownNow()``尝试终止所有正在执行的任务，返回正在等待尚未执行任务列表。调用完方法后，会立即返回，并不会等待所有
-正在执行的任务终止。
+. ``List<Runnable> shutdownNow()``尝试终止所有正在执行的任务，返回正在等待尚未执行任务列表。调用完方法后，会立即返回，并不会等待所有正在执行的任务终止。
 
     除尽力尝试停止处理正在执行的任务之外，没有任何保证。 例如，典型的实现将通过Thread.interrupt取消，因此任何无法响应中断的任务都可能永远不会终止。
 
@@ -713,13 +677,11 @@ public interface ExecutorService extends Executor {
     2）出现超时
     3）当前线程被 interrupted
 
-如下Java 线程的状态转换图所示Java 线程进入终止状态的前提是线程进入 RUNNABLE 状态，而实际上线程也可能处在休眠状态，也就是说，我们要想终止
-一个线程，首先要把线程的状态从休眠状态转换到 RUNNABLE 状态。
+如下Java 线程的状态转换图所示Java 线程进入终止状态的前提是线程进入 RUNNABLE 状态，而实际上线程也可能处在休眠状态，也就是说，我们要想终止一个线程，首先要把线程的状态从休眠状态转换到 RUNNABLE 状态。
 
 image::res/imgs/thread_interrupted.png[caption="图 5: ", title="线程状态转换图", alt="线程状态转换图", width="390",]
 
-Java Thread类提供的``interrupt()`` 方法可以将休眠状态的线程转换到**RUNNABLE**状态，这让线程有机会执行完剩下的任务部分，借助这个特性，
-另外加上一个**volatile类型的线程终止的标志位**可以在java使用一个线程通知另外一个线程实现线程池优雅终止。
+Java Thread类提供的``interrupt()`` 方法可以将休眠状态的线程转换到**RUNNABLE**状态，这让线程有机会执行完剩下的任务部分，借助这个特性，另外加上一个**volatile类型的线程终止的标志位**可以在java使用一个线程通知另外一个线程实现线程池优雅终止。
 
 Dubbo中由``ExecutorUtil``专门负责处理这些close问题。
 
@@ -852,18 +814,14 @@ public class ExecutorUtil {
 . 当前线程调用``shutdown()``告知ExecutorService不再接受新提交的任务；
 . 随后尝试等待若干ms直到其完成
 .. 如果超时返回，则调用``shutdownNow()``告知ExecutorService尝试终止正在执行的任务；
-.. 否则在超时前若当前线程捕获到遭遇被``interrupted``的异常，则再次调用``shutdownNow()``，确保ExecutorService收到“尝试终止正在执行的
-任务”的通知，随后调用``Thread.currentThread().interrupt()``恢复当前线程状态；
-. 至此，如果ExecutorService还处于未终止状态，则给``SHUTDOWN_EXECUTOR``这个使用单线程专门顺序执行终止处理的``ThreadPoolExecutor``发出一个
-任务，由其继续执行终止处理。
-. shutdown线程会尝试每隔10毫秒执行组合调用``shutdownNow()``和``awaitTermination()``一次，如果后者检测到正常终止或者超过1000次(总计10s)
-这时就不再尝试
+.. 否则在超时前若当前线程捕获到遭遇被``interrupted``的异常，则再次调用``shutdownNow()``，确保ExecutorService收到“尝试终止正在执行的任务”的通知，随后调用``Thread.currentThread().interrupt()``恢复当前线程状态；
+. 至此，如果ExecutorService还处于未终止状态，则给``SHUTDOWN_EXECUTOR``这个使用单线程专门顺序执行终止处理的``ThreadPoolExecutor``发出一个任务，由其继续执行终止处理。
+. shutdown线程会尝试每隔10毫秒执行组合调用``shutdownNow()``和``awaitTermination()``一次，如果后者检测到正常终止或者超过1000次(总计10s) 这时就不再尝试
 . 若shutdown线程执行任务期间遭遇``interrupted``产生的异常，则对其进行恢复，确保当前JVM的其它线程能正常使用``SHUTDOWN_EXECUTOR``这个线程池。
 
 ==== 线程池优雅终止的应用
 
-上文中介绍线程派发时，其实现装饰器抽象基类WrappedChannelHandler中有如下一段代码，利用DataSource将Client或Server实例化时获得的ExecutorService
-缓存起来，其目的只有一个，就是用于实现端的关闭——资源回收处理~有效的任务运行期都集中于网络I/O事件的处理~。
+上文中介绍线程派发时，其实现装饰器抽象基类WrappedChannelHandler中有如下一段代码，利用DataSource将Client或Server实例化时获得的ExecutorService缓存起来，其目的只有一个，就是用于实现端的关闭——资源回收处理~有效的任务运行期都集中于网络I/O事件的处理~。
 
 [source,java]
 ----
@@ -878,10 +836,7 @@ dataStore.put(componentKey,
     Integer.toString(url.getPort()), executor);
 ----
 
-在AbstractClient和AbstractServer初始化的最后阶段均存在一段获取该缓存容器中ExecutorService的代码片段，由上文分析可知，这个值是在他们
-的具体实现类中装入派发模式时置入的，也就是说，如果没有使用线程派发机制，那么事先就没有置入该值，其值为null。此处的实现方式值得商榷，传入的
-ChannelHandler经过了多层装饰，如果使用了线程派发，通过递归回调``ChannelHandlerDelegate.getHandler()``判断是否为``WrappedChannelHandler``
-也可以获得该值。
+在AbstractClient和AbstractServer初始化的最后阶段均存在一段获取该缓存容器中ExecutorService的代码片段，由上文分析可知，这个值是在他们的具体实现类中装入派发模式时置入的，也就是说，如果没有使用线程派发机制，那么事先就没有置入该值，其值为null。此处的实现方式值得商榷，传入的ChannelHandler经过了多层装饰，如果使用了线程派发，通过递归回调``ChannelHandlerDelegate.getHandler()``判断是否为``WrappedChannelHandler``也可以获得该值。
 
 [source,java]
 ----
@@ -906,8 +861,7 @@ public AbstractServer(URL url, ChannelHandler handler) throws RemotingException 
 }
 ----
 
-剩下的应用比较简单，但是有一处不得不提的是，如下述代码，在Client执行``close()``的时候有检查executor是否为null，而执行``close(int timeout)``
-却没有这种检查，可能对不使用线程派发模式的场景来说，谈不上线程池的优雅终止，也就不会调用到该方法，有待细究代码实现。
+剩下的应用比较简单，但是有一处不得不提的是，如下述代码，在Client执行``close()``的时候有检查executor是否为null，而执行``close(int timeout)``却没有这种检查，可能对不使用线程派发模式的场景来说，谈不上线程池的优雅终止，也就不会调用到该方法，有待细究代码实现。
 
 [source,java]
 ----
