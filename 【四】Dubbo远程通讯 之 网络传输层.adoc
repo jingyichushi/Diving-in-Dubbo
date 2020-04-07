@@ -59,9 +59,28 @@ public interface Endpoint {
     boolean isClosed();
 }
 ----
+
+[IMPORTANT]
+====
+
+Dubbo微服务开发的范畴中，涉及``Client、Server、Channel、Consumer、Provider、Invoker``几个关键组成，由于它们涵盖的范围存在交叉重叠的情况，因而往往比较容易造成混淆，具体如下：
+
+
+``Channel``：这里主要是指Dubbo的``NettyChannel``，客户端接入服务方的某个远端实例时会建立一个Netty的``Channel``通道，两个JVM实例对之间可以建立多个长连接，具体实现上，一个``NettyChannel``捆绑着一个底层的Netty的``Channel``，前者随后者同生同灭；
+
+``Client`` & ``Server``：是``Channel``通道的两端，在``Client``端，和``Channel``是一对一的关系，而在``Server``端，和``Channel``则是多对一的关系，实际上隐含了``Client`` 和 ``Server``的多对一的关系，连接到同一``Server``实例的多个``Client``可能来自于同一个JVM实例；
+
+``Invoker``：这里主要指的是``DubboInvoker``，是客户端引用方的概念，对应服务提供方的一个JVM实例，可能部署在同一台主机上，配置参数可能不同，甚至版本存在着代码上的差异，比如灰度发布时，一个微服务同时存在新老两个版本；
+
+``Provider``：暴露服务的服务提供方，和下述``Consumer``一样，是Dubbo微服务开发时态的一个概念。从客户端的角度来看，可以认为，它是同一个微服务的所有版本的所有部署实例，涵盖了该微服务的所有的``Invoker``实例；
+
+``Consumer``：调用远程服务的服务消费方，通常是以单个客户端JVM实例视觉来看的，在微服务的客户端引用消费了同一个微服务的所有实例，此端出站前需要经过Invoker、Client、Channel总共3跳才最终经Netty往对方发送请求；
+
+====
+
 === Channel——通道
 
-**Channel**是**Client**和**Server**的信号传输通道，消息发送端会往通道输入消息，而接收端会从通道读消息。并且接收端发现通道没有消息，就去做其他事情了，不会造成阻塞。所以channel可以读也可以写，并且可以异步读写。可以这么认为，Channel就是一个消息管道，Client是消费方，一有需要就试着从通道取内容，而Server是提供方，按需要将消息断断续续^或：源源不断^装入通道，当然这过程也可以反过来。不同的是Client只能绑定一个Channel，而Server则能绑定多个，因此对应到Client和Server是一对多的关系。理论上二者同Channel间的关系都是聚合。
+**Channel**是**Client**和**Server**的信号传输通道，消息发送端会往通道输入消息，而接收端会从通道读消息。并且接收端发现通道没有消息，就去做其他事情了，不会造成阻塞。所以channel可以读也可以写，并且可以异步读写。可以这么认为，Channel就是一个消息管道，Client是消费方，一有需要就试着从通道取内容，而Server是提供方，按需要将消息断断续续^或：源源不断^装入通道，当然这过程也可以反过来。不同的是Client只能绑定一个Channel，而Server则为每一个接入的Client对应生成一个Channel，因此对应到Client和Server是一对多的关系。理论上二者同Channel间的关系都是聚合。
 
 Dubbo中的**Channel**具有如下特征：
 
@@ -99,7 +118,7 @@ public interface Channel extends Endpoint {
 
 Dubbo中Client的实现使用继承而非聚合处理和Channel的关系，每次连入一个Client，Server端均会产生一个与之绑定的Channel，这些Channel信息会维护在一个聚合容器中，可以根据Client的网络物理地址获取到。
 
-另外Client和Server均实现了``Resetable``和 `IdleSensible` 接口，前者用于重试本地上下文参数，而后者则是在检测到空闲连接时，能够做出相应处理，Server端关闭连接，而Client端则发送心跳到服务端。
+另外Client和Server均实现了``Resetable``和 `IdleSensible` 接口，前者用于重设通道（~相对``端``，``通道``更准确~）本地上下文参数，而后者则是在检测到空闲连接时，能够做出相应处理，Server端关闭连接，而Client端则发送心跳到服务端。
 
 接口定义源码如下：
 [source,java]
@@ -150,7 +169,7 @@ public interface IdleSensible {
 Dubbo网络通讯中，Channel是Client和Server之间的信号传输器，过程中端间的存在着[big]##*连接、发送消息、接收消息、断连、异常捕获*##这些行为，对应存在着[big]##*connected、sent、received、disconnected、caught*##这5个网络事件。利用事件点进行功能扩展和增强正是很多编程框架和中间件的必备武功，我们知道Dubbo的端之间发生的基于socket的网络通讯，但是dubbo本身并不负责通讯IO的处理，这种行为由被委托Netty等第三方网络通讯组件负责，Dubbo将这些基本能力抽象，形成对外的统一扩展接口~插件化~，再由**ChannelHandler**在合适的事件点按照场景进行扩展增强处理。白话一点说，其具体实现是对第三方网络通讯组件进行适配，后者在I/O就绪后回调其提供的5个网络事件处理函数。
 
 [NOTE]
-网络行为触发产生对应的事件，而事件也可以反过来触发新的网络行为。eg: **HeartbeatHandler**在收到接受到请求后~**received**事件~，首先会确认是否为心跳请求，若是，则会通过接受消息的那个Channel发回一个心跳相应，进而触发了对端的**received**事件。
+网络行为触发产生对应的事件，而事件也可以反过来触发新的网络行为。eg: **HeartbeatHandler**在收到接受到请求后~**received**事件~，首先会确认是否为心跳请求，若是，则会通过接受消息的那个Channel发回一个心跳响应，进而触发了对端的**received**事件。
 
 **ChannelHandler**采用装饰者模式方式实现，其接口定义如下：
 
@@ -180,12 +199,16 @@ image::res/imgs/chanenl_handle-derector.png[caption="图：", title="装饰模�
 
 === 基础能力实现
 
-如下UML生成图所示，无论是服务端、客户端，还是桥接二者的通道实现，都继承实现自AbstractPeer，后者分别实现了EndPoint和ChannelHandler两个接口，这表明在Dubbo中的服务端、客户端和通道具有Endpoint的特性，同时还能感知并响应网络通讯事件。而其下的AbstractPoin则定义了服务端和客户端重设参数的能力，AbstractChannel作为通道基类则显得过分简单。
+如下UML生成图所示，无论是服务端、客户端，还是桥接二者的通道实现，都继承实现自AbstractPeer，后者分别实现了EndPoint和ChannelHandler两个接口，这表明在Dubbo中的服务端、客户端和通道具有Endpoint的特性，同时还能感知并响应网络通讯事件。而其下的AbstractPoint则定义了服务端和客户端重设参数的能力，AbstractChannel作为通道基类则显得过分简单。
 
 image::res/imgs/dubbo_endpoint_base.png[caption="图：", title="Dubbo的端实现", alt="Dubbo的端实现", width="850",]
 
 [NOTE]
 图中所表示的同时会出现在``NettyChannel``、`NettyServer`、``NettyClient``中的容易混淆的两个方法：**Endpoint**定义的 ``send()``和**ChannelHandler**定义的``sent()``。前者用于通过Channel通道主动向对方发送消息，而后者则是在已发送消息后告知处理结果用的，属于I/O响应事件回调。
+
+====
+显然所有继承自AbstractPeer的类都是``ChannelHandler``的装饰者，涵盖了Server、Client和其间的通讯通道Channel，AbstractPeer通过对被装饰者的相应行为~实现自同一接口的方法~进行流程控制实现了端的生命周期管理。更进一步，可以这么认为：``Netty等网络通讯框架为Dubbo端间交互基于响应式予以支撑，而Dubbo则通过对网络I/O回调层层装饰，再结合Zookeeper等解决高可用性问题，从而最终实现了Dubbo这个RPC微服务框架``。
+====
 
 ==== AbstractPeer
 
@@ -340,7 +363,7 @@ public abstract class AbstractEndpoint extends AbstractPeer implements Resetable
 
 ==== AbstractChannel
 
-前文已经提到，Channel是客户端和服务端通讯的信号通道，有着多对一的绑定关系。*AbstractChannel* 作为抽象基类单独提炼出来，也仅仅是完成最基础的一部分特性，如下所示，但另外一方面而言，这个看起来可有可无的存在实际是又是必要的，类似Netty等的I/O框架都有直接定义名为Channel的接口，这和Dubbo定义的Channel接口虽然不冲突，但在同一个类中出现，难免产生混淆。
+前文已经提到，Channel是客户端和服务端通讯的信号通道，有着多对一的绑定关系。*AbstractChannel* 作为抽象基类单独提炼出来，也仅仅是完成最基础的一部分特性，因Channel的实现不止Netty这一个版本，而有关于主动外发消息的行为也是受制于端的生命周期的，这是所有版本需要共同遵守的，而这部分并不涵盖在``ChannelHandler``的定义范围内，所以**AbstractChannel**作为抽象基类实现了``send()``方法，隐式要求子类覆盖它时，必须先调用``super.send()``。
 
 [source,java]
 ----
@@ -369,7 +392,7 @@ public abstract class AbstractChannel extends AbstractPeer implements Channel {
 
 ==== NettyChannel
 
-顾名思义，NettyChannel的通道特性是委托给Netty实现的，调用其定义的Channel接口，也就是说二者存在的一一对应关系。微服务架构中，一个Client客户端往往需要连接多个其它第三方的Server服务端，也即同一个JVM中存在着多份这样的关系，因此NettyChannel中定义了如下一个线程安全的Map容器~简单缓存实现~，注意它是全局的静态私有变量：
+顾名思义，NettyChannel的通道特性是委托给Netty实现的，调用其定义的Channel接口，也就是说二者存在的一一对应关系。微服务架构中，一个Client客户端往往需要连接多个其它第三方的Server服务端，另外一对Client和Server间可以同时建立多个长连接，因此NettyChannel中定义了如下一个线程安全的Map容器~简单缓存实现~，注意它是全局的静态私有变量：
 [source,java]
 ----
 private static final ConcurrentMap<Channel, NettyChannel>
@@ -378,81 +401,88 @@ private static final ConcurrentMap<Channel, NettyChannel>
 为了更好的管理这种映射关系，NettyChannel的构造函数被设计成了私有的，需要调用对应的``getOrAddChannel()``静态方法获得实例，同时静态方法只能在本Package中使用，这说明直接接触Netty的部分也被局限在一个小的范围，模块化边界更加清晰。
 [source,java]
 ----
-private NettyChannel(Channel channel, URL url, ChannelHandler handler) {
-    super(url, handler);
-    if (channel == null) {
-        throw new IllegalArgumentException("netty channel == null;");
-    }
-    this.channel = channel;
-}
+final class NettyChannel extends AbstractChannel {
 
-//======================
-//只有active状态的channel才会被装入到缓存，同时该状态下，是不允许脱离缓存，避免处于游离状态
-//======================
-static NettyChannel getOrAddChannel(Channel ch, URL url, ChannelHandler handler) {
-    if (ch == null) {
-        return null;
-    }
-    //根据Netty之Channel查找现存映射关系，若存在直接返回
-    NettyChannel ret = CHANNEL_MAP.get(ch);
-    if (ret == null) {
-
-        NettyChannel nettyChannel = new NettyChannel(ch, url, handler);
-
-        if (ch.isActive()) {//只有Channel处于激活有效状态，才执行下述代码
-
-            //getOrAddChannel是一全局静态方法，存在并发问题，虽然上述发现并不存在对应关系
-            //但此后依然可能加入了其映射关系，因此需要使用现场安全的putIfAbsent
-            //如果存在直接返回原有NettyChannel值，否则返回新加入的值nettyChannel
-
-            ret = CHANNEL_MAP.putIfAbsent(ch, nettyChannel);
+    private NettyChannel(Channel channel, URL url, ChannelHandler handler) {
+        super(url, handler);
+        if (channel == null) {
+            throw new IllegalArgumentException("netty channel == null;");
         }
+        this.channel = channel;
+    }
 
-        //此前并不存在对应映射关系，直接返回新创建的值nettyChannel
+    //======================
+    //只有active状态的channel才会被装入到缓存，同时该状态下，是不允许脱离缓存，避免处于游离状态
+    //======================
+    static NettyChannel getOrAddChannel(Channel ch, URL url, ChannelHandler handler) {
+        if (ch == null) {
+            return null;
+        }
+        //根据Netty之Channel查找现存映射关系，若存在直接返回
+        NettyChannel ret = CHANNEL_MAP.get(ch);
         if (ret == null) {
-            ret = nettyChannel;
+
+            NettyChannel nettyChannel = new NettyChannel(ch, url, handler);
+
+            if (ch.isActive()) {//只有Channel处于激活有效状态，才执行下述代码
+
+                //getOrAddChannel是一全局静态方法，存在并发问题，虽然上述发现并不存在对应关系
+                //但此后依然可能加入了其映射关系，因此需要使用现场安全的putIfAbsent
+                //如果存在直接返回原有NettyChannel值，否则返回新加入的值nettyChannel
+
+                ret = CHANNEL_MAP.putIfAbsent(ch, nettyChannel);
+            }
+
+            //此前并不存在对应映射关系，直接返回新创建的值nettyChannel
+            if (ret == null) {
+                ret = nettyChannel;
+            }
         }
+        return ret;
     }
-    return ret;
-}
-static void removeChannelIfDisconnected(Channel ch) {
-    if (ch != null && !ch.isActive()) {
-        CHANNEL_MAP.remove(ch);
+    static void removeChannelIfDisconnected(Channel ch) {
+        if (ch != null && !ch.isActive()) {
+            CHANNEL_MAP.remove(ch);
+        }
     }
 }
 ----
 [IMPORTANT]
-上述容易被人忽视的地方是，CHANNEL_MAP实际上在任意时刻只会为同一个Client缓存一份``<Channel, NettyChannel>``的键值关系，每一次调用``getOrAddChannel(Channel, URL, ChannelHandler)``都会传入当前Client所持有的最新channel变量^volatile类型^。
+====
+上述容易被人忽视的地方是，CHANNEL_MAP实际上在任意时刻只会为同一个Client缓存一到多份``<Channel, NettyChannel>``的键值关系，键``Channel``由Netty产生，对应新产生一个``NettyChannel``实例的值，每一次调用``getOrAddChannel(Channel, URL, ChannelHandler)``都会传入当前Client所持有的最新channel变量^volatile类型^。
+====
 
 上文中提到Channel需要实现自己的本地属性存取函数，目的是为了跨函数栈帧获取到Dubbo通道本地的上下文值，具体实现如下：
 [source,java]
 ----
-private final Map<String, Object> attributes =
-    new ConcurrentHashMap<String, Object>();
+final class NettyChannel extends AbstractChannel {
+    private final Map<String, Object> attributes =
+        new ConcurrentHashMap<String, Object>();
 
-@Override
-public boolean hasAttribute(String key) {
-    return attributes.containsKey(key);
-}
-
-@Override
-public Object getAttribute(String key) {
-    return attributes.get(key);
-}
-
-@Override
-public void setAttribute(String key, Object value) {
-    // The null value is unallowed in the ConcurrentHashMap.
-    if (value == null) {
-        attributes.remove(key);
-    } else {
-        attributes.put(key, value);
+    @Override
+    public boolean hasAttribute(String key) {
+        return attributes.containsKey(key);
     }
-}
 
-@Override
-public void removeAttribute(String key) {
-    attributes.remove(key);
+    @Override
+    public Object getAttribute(String key) {
+        return attributes.get(key);
+    }
+
+    @Override
+    public void setAttribute(String key, Object value) {
+        // The null value is unallowed in the ConcurrentHashMap.
+        if (value == null) {
+            attributes.remove(key);
+        } else {
+            attributes.put(key, value);
+        }
+    }
+
+    @Override
+    public void removeAttribute(String key) {
+        attributes.remove(key);
+    }
 }
 ----
 通道使用完需要执行一些打扫战争的清理工作，依次执行如下4个动作：
@@ -534,143 +564,146 @@ protected abstract Channel getChannel();
 由Netty创建的Channel每次连接会创建一份新的，Dubbo自己维护的NettyChannel与其生命周期基本是一样的，这还得回到Netty的hash值计算方式来，由源码可以看出，其Hash值的计算的唯一根据是Netty所创建的那份Channel。
 [source,java]
 ----
-/**
- * netty client bootstrap
- */
-private static final NioEventLoopGroup nioEventLoopGroup =
-    new NioEventLoopGroup(Constants.DEFAULT_IO_THREADS,
-        new DefaultThreadFactory("NettyClientWorker", true));
+public class NettyClient extends AbstractClient {
+    /**
+     * netty client bootstrap
+     */
+    private static final NioEventLoopGroup nioEventLoopGroup =
+        new NioEventLoopGroup(Constants.DEFAULT_IO_THREADS,
+            new DefaultThreadFactory("NettyClientWorker", true));
 
-private Bootstrap bootstrap;
-
-
-//======================
-//channel被申明成了volatile，每一次调用doConnect()发生新的连接都会替换该值
-//======================
-/**
- * current channel. Each successful invocation of {@link NettyClient#doConnect()} will
- * replace this with new channel and close old channel.
- * <b>volatile, please copy reference to use.</b>
- */
-private volatile Channel channel;
+    private Bootstrap bootstrap;
 
 
-@Override
-protected org.apache.dubbo.remoting.Channel getChannel() {
-    Channel c = channel;
-    if (c == null || !c.isActive()) {
-        return null;
+    //======================
+    //channel被申明成了volatile，每一次调用doConnect()发生新的连接都会替换该值
+    //======================
+    /**
+     * current channel. Each successful invocation of {@link NettyClient#doConnect()} will
+     * replace this with new channel and close old channel.
+     * <b>volatile, please copy reference to use.</b>
+     */
+    private volatile Channel channel;
+
+
+    @Override
+    protected org.apache.dubbo.remoting.Channel getChannel() {
+        Channel c = channel;
+        if (c == null || !c.isActive()) {
+            return null;
+        }
+
+        //调用下述方法，确保任何时刻都能获得client当前最新创建的Netty之Channel
+        return NettyChannel.getOrAddChannel(c, getUrl(), this);
     }
 
-    //调用下述方法，确保任何时刻都能获得client当前最新创建的Netty之Channel
-    return NettyChannel.getOrAddChannel(c, getUrl(), this);
-}
+
+    //======================
+    //client完成连接这个动作实际上是完成Client到Server通道的建立
+    //======================
+    @Override
+    protected void doConnect() throws Throwable {
+        long start = System.currentTimeMillis();
+        ChannelFuture future = bootstrap.connect(getConnectAddress());
+        try {
+            //等待连接完成
+            boolean ret = future.awaitUninterruptibly(getConnectTimeout(), MILLISECONDS);
+
+            if (ret && future.isSuccess()) {
+                //在指定时间内成功获取到连接通道
 
 
-//======================
-//client完成连接这个动作实际上是完成Client到Server通道的建立
-//======================
-@Override
-protected void doConnect() throws Throwable {
-    long start = System.currentTimeMillis();
-    ChannelFuture future = bootstrap.connect(getConnectAddress());
-    try {
-        //等待连接完成
-        boolean ret = future.awaitUninterruptibly(getConnectTimeout(), MILLISECONDS);
+                Channel newChannel = future.channel();
+                try {
+                    //新的通道建立，老的那份就会被移除
 
-        if (ret && future.isSuccess()) {
-            //在指定时间内成功获取到连接通道
-
-
-            Channel newChannel = future.channel();
-            try {
-                //新的通道建立，老的那份就会被移除
-
-                // Close old channel
-                // copy reference
-                Channel oldChannel = NettyClient.this.channel;
-                if (oldChannel != null) {
-                    try {
-                        if (logger.isInfoEnabled()) {
-                            logger.info("Close old netty channel " + oldChannel + " on create new netty channel " + newChannel);
+                    // Close old channel
+                    // copy reference
+                    Channel oldChannel = NettyClient.this.channel;
+                    if (oldChannel != null) {
+                        try {
+                            if (logger.isInfoEnabled()) {
+                                logger.info("Close old netty channel " + oldChannel + " on create new netty channel " + newChannel);
+                            }
+                            oldChannel.close();
+                        } finally {
+                            //将此前的channel自从CHANNEL_MAP中移除
+                            NettyChannel.removeChannelIfDisconnected(oldChannel);
                         }
-                        oldChannel.close();
-                    } finally {
-                        //将此前的channel自从CHANNEL_MAP中移除
-                        NettyChannel.removeChannelIfDisconnected(oldChannel);
+                    }
+                } finally {
+
+                    if (NettyClient.this.isClosed()) {
+                        //Channel虽然成功获得连接，但等待连接这段时间内客户端已经关闭，这时新建立的通道也需要关闭
+
+                        try {
+                            if (logger.isInfoEnabled()) {
+                                logger.info("Close new netty channel " + newChannel + ", because the client closed.");
+                            }
+                            newChannel.close();
+                        } finally {
+                            NettyClient.this.channel = null;
+                            NettyChannel.removeChannelIfDisconnected(newChannel);
+                        }
+                    } else {
+
+                        //NettyClient中的这份channel变量是volatile类型的，更新对其它线程可见
+                        NettyClient.this.channel = newChannel;
                     }
                 }
-            } finally {
-
-                if (NettyClient.this.isClosed()) {
-                    //Channel虽然成功获得连接，但等待连接这段时间内客户端已经关闭，这时新建立的通道也需要关闭
-
-                    try {
-                        if (logger.isInfoEnabled()) {
-                            logger.info("Close new netty channel " + newChannel + ", because the client closed.");
-                        }
-                        newChannel.close();
-                    } finally {
-                        NettyClient.this.channel = null;
-                        NettyChannel.removeChannelIfDisconnected(newChannel);
-                    }
-                } else {
-
-                    //NettyClient中的这份channel变量是volatile类型的，更新对其它线程可见
-                    NettyClient.this.channel = newChannel;
-                }
+            } else if (future.cause() != null) {
+                throw new RemotingException(this, "client(url: " + getUrl() + ") failed to connect to server "
+                        + getRemoteAddress() + ", error message is:" + future.cause().getMessage(), future.cause());
+            } else {
+                throw new RemotingException(this, "client(url: " + getUrl() + ") failed to connect to server "
+                        + getRemoteAddress() + " client-side timeout "
+                        + getConnectTimeout() + "ms (elapsed: " + (System.currentTimeMillis() - start) + "ms) from netty client "
+                        + NetUtils.getLocalHost() + " using dubbo version " + Version.getVersion());
             }
-        } else if (future.cause() != null) {
-            throw new RemotingException(this, "client(url: " + getUrl() + ") failed to connect to server "
-                    + getRemoteAddress() + ", error message is:" + future.cause().getMessage(), future.cause());
-        } else {
-            throw new RemotingException(this, "client(url: " + getUrl() + ") failed to connect to server "
-                    + getRemoteAddress() + " client-side timeout "
-                    + getConnectTimeout() + "ms (elapsed: " + (System.currentTimeMillis() - start) + "ms) from netty client "
-                    + NetUtils.getLocalHost() + " using dubbo version " + Version.getVersion());
-        }
-    } finally {
-        // just add new valid channel to NettyChannel's cache
-        if (!isConnected()) {
-            //future.cancel(true);
+        } finally {
+            // just add new valid channel to NettyChannel's cache
+            if (!isConnected()) {
+                //future.cancel(true);
+            }
         }
     }
-}
 
 
-@Override
-public int hashCode() {
-    final int prime = 31;
-    int result = 1;
-    result = prime * result + ((channel == null) ? 0 : channel.hashCode());
-    return result;
-}
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((channel == null) ? 0 : channel.hashCode());
+        return result;
+    }
 
-@Override
-public boolean equals(Object obj) {
-    if (this == obj) {
-        return true;
-    }
-    if (obj == null) {
-        return false;
-    }
-    if (getClass() != obj.getClass()) {
-        return false;
-    }
-    NettyChannel other = (NettyChannel) obj;
-    if (channel == null) {
-        if (other.channel != null) {
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
             return false;
         }
-    } else if (!channel.equals(other.channel)) {
-        return false;
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        NettyChannel other = (NettyChannel) obj;
+        if (channel == null) {
+            if (other.channel != null) {
+                return false;
+            }
+        } else if (!channel.equals(other.channel)) {
+            return false;
+        }
+        return true;
     }
-    return true;
 }
 ----
 
 ===== 重入锁下的连接管理
-一般而言，一个Dubbo应用程序，除了作为Consumer消费其它Server提供的服务外，也会作为Server向外提供服务。假设存在一种这样的场景，某个Dubbo应用在凌晨期间会启动定时任务从其它Server同步数据，而白天则对外直接提供服务，作为Consumer的角色仅限于凌晨这段时间。这时其对应的Client被实例化后会一直持续到任务同步完成后，然后结束其持续了数十分钟乃至几个小时的生命周期，尽管如此，它的生命周期依然会比每次发生数据传输时才建立的Channel通道的长得多。在这相对比较漫长的生涯过程中，由于宿主应用是运行在多线程环境中的，这个只连接指定Server的Client会被作为一种共享资源产生竞态条件，因而加锁操作是必须的，避免连接、断连、重连这几个操作被重复执行。
+
+上文已经提到Channel是Client和Server建立连接后所发生通讯用的通道，双端之间允许同时建立多个长连接。由于宿主应用是运行在多线程环境中的，这个只连接到指定Server的一到多个Channel会被作为一种共享资源产生竞态条件，因而加锁操作是必须的，避免连接、断连、重连这几个操作被重复执行。
 
 [source,java]
 ----
@@ -804,7 +837,7 @@ public void send(Object message, boolean sent) throws RemotingException {
 ----
 ====== 资源竞争中的重连操作
 
-在《定时轮算法及其实现》一文中的应用案例中有提到，Dubbo会专门分配一个线程利用定时轮周期性地完成重连操作，完成业务操作的关键代码正是这里提到的``reconnect()``，如下述源码所示，如果检测到绑定Channel已经断连，或最近一次Channel的读取时间是否“`> idleTimeout`”，则执行重连操作。
+在《定时轮算法及其实现》一文中的应用案例中有提到，Dubbo会专门分配一个线程利用定时轮周期性地完成重连操作，完成业务操作的关键代码正是这里提到的``reconnect()``，如下述源码所示，如果检测到绑定Channel已经断连，或最近一次Channel的读取时间“`> idleTimeout`”，则执行重连操作，这里的超时信息获取仰赖于上文所提到的Channel本地上下文环境参数。
 [source,java]
 ----
 /**
